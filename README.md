@@ -1,7 +1,12 @@
-# TODO
+# SIS_ACAD
+
+## TODO
 
 - Agregar campos específicos a secretary, admin
-- Actualizar funciones relacionadas a requerimientos
+- Controllers
+- Agregar paths
+- De yapa algo de interactuar con BD????
+- Actualizar funciones relacionadas a requerimientos(servicios)
 
 Steps to run this project:
 
