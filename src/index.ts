@@ -1,25 +1,33 @@
 import "reflect-metadata";
 import express from "express";
+import path from "path";
 import { AppDataSource } from "./data-source";
-import { User } from "./entity/User";
+// import { User } from "./entity/User";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(express.json());
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
-// Rutas básicas
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
+
 app.get("/", (req, res) => {
-  res.json({ message: "Servidor con TypeScript + Express + TypeORM + SQLite" });
+  res.render('index', {
+    title: "Home",
+    message: "String desde server"
+  });
 });
 
 // Ruta para crear usuario
 app.post("/users", async (req, res) => {
   try {
-    const userRepository = AppDataSource.getRepository(User);
-    const user = userRepository.create(req.body);
-    const results = await userRepository.save(user);
-    return res.status(201).json(results);
+    // const userRepository = AppDataSource.getRepository(User);
+    // const user = userRepository.create(req.body);
+    // const results = await userRepository.save(user);
+    // return res.status(201).json(results);
   } catch (error) {
     return res.status(500).json({ error: "Error creating user" });
   }
@@ -28,9 +36,9 @@ app.post("/users", async (req, res) => {
 // Ruta para obtener usuarios
 app.get("/users", async (req, res) => {
   try {
-    const userRepository = AppDataSource.getRepository(User);
-    const users = await userRepository.find();
-    return res.json(users);
+    // const userRepository = AppDataSource.getRepository(User);
+    // const users = await userRepository.find();
+    // return res.json(users);
   } catch (error) {
     return res.status(500).json({ error: "Error fetching users" });
   }
