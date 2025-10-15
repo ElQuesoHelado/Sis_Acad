@@ -1,0 +1,446 @@
+@startuml
+title Modelo de Dominio Extendido
+
+top to bottom direction
+
+skinparam rectangleBorderColor #2C3E50
+skinparam rectangleFontSize 11
+skinparam packageBorderColor #34495E
+skinparam nodesep 50
+skinparam ranksep 80
+
+' ========================================
+' PRESENTATION LAYER
+' ========================================
+package "Presentation Layer" as PRES #E8F4F8 {
+  package "Controllers" {
+    class AuthController {
+      +login()
+      +register()
+      +activateAccount()
+    }
+    
+    class StudentController {
+      +viewEnrolledCourses()
+      +viewSchedule()
+      +viewGrades()
+      +viewAttendance()
+      +generatePerformanceReport()
+    }
+    
+    class TeacherController {
+      +viewAssignedSections()
+      +uploadGrades()
+      +uploadGradesFromExcel()
+      +recordAttendance()
+      +checkIn()
+      +viewCourseProgress()
+      +viewAvailableClassrooms()
+      +reserveClassroom()
+      +addSilabus()
+    }
+    
+    class SecretaryController {
+      +viewAllStudents()
+      +viewCourseProgress()
+      +viewClassroomAvailability()
+    }
+    
+    class AdminController {
+      +viewAllTeachers()
+      +manageCourses()
+    }
+  }
+}
+
+' ========================================
+' APPLICATION LAYER
+' ========================================
+package "Application Layer" as APP #FEF9E7 {
+  package "Use Cases / Services" {
+    class AuthenticationService {
+      +authenticate()
+      +registerUser()
+      +activateUser()
+    }
+    
+    class GradeManagementService {
+      +uploadGrade()
+      +importGradesFromExcel()
+    }
+    
+    class AttendanceService {
+      +recordStudentAttendance()
+      +recordTeacherCheckIn()
+      +calculateAttendanceRate()
+    }
+    
+    class SchedulingService {
+      +viewAvailableClassrooms()
+      +reserveClassroom()
+      +cancelReservation()
+    }
+    
+    class ReportService {
+      +generatePerformanceReport()
+      +generateCourseProgressReport()
+    }
+  }
+  
+  package "DTOs" {
+    class PerformanceReportDTO
+    class CourseProgressDTO
+  }
+}
+
+' ========================================
+' DOMAIN LAYER - ALIGNED WITH DDD MODEL
+' ========================================
+package "Domain Layer" as DOMAIN #E8F6F3 {
+
+left to right direction
+
+package "Identity & Access" #D1F2EB {
+  class "User" as User <<Aggregate Root>> {
+    -id: UUID
+    -firstName: string
+    -lastName: string
+    -email: String
+    -passwordHash: String
+    -role: UserRole
+    -isActive: Boolean
+    -profileId: UUID
+    +activateAccount()
+    +deactivateAccount()
+    +changePassword()
+  }
+  
+  enum UserRole {
+    STUDENT
+    TEACHER
+    SECRETARY
+    ADMIN
+  }
+  
+  interface IUserRepository
+}
+
+package "Profiles" #C9E4F7 {
+  class "StudentProfile" as StudentProfile <<Aggregate Root>> {
+    -enrollmentYear: Number
+    +viewEnrolledSchedule()
+    +viewOwnGrades()
+    +viewOwnAttendance()
+  }
+  
+  class "TeacherProfile" as TeacherProfile <<Aggregate Root>> {
+    -specialty: String
+    +recordAttendance()
+    +uploadGrade()
+    +viewAssignedSections()
+    +reserveClassroom()
+  }
+  
+  class "SecretaryProfile" as SecretaryProfile <<Aggregate Root>> {
+    +viewAllStudents()
+  }
+  
+  class "AdminProfile" as AdminProfile <<Aggregate Root>> {
+    +viewAllTeachers()
+  }
+  
+  interface IProfileRepository
+}
+
+package "Course Management" #F9E6FF {
+  class "Course" as Course <<Aggregate Root>> {
+    -courseId: UUID
+    -code: String
+    -name: String
+    -credits: Number
+    +addTopic()
+    +updateTopic()
+  }
+  
+  class "CourseTopic" as CourseTopic <<Value Object>> {
+    -id: UUID
+    -week: Number
+    -topicName: String
+    -state: TopicState
+  }
+  
+  enum TopicState {
+    PENDING
+    IN_PROGRESS
+    COMPLETED
+  }
+  
+  interface ICourseRepository
+}
+
+package "Scheduling" #FFE8E8 {
+  class "CourseSection" as CourseSection <<Aggregate Root>> {
+    -sectionId: UUID
+    -sectionCode: String
+    -capacity: Number
+    -teacherId: UUID
+    +showSchedule()
+  }
+
+  class "Laboratory" as Laboratory <<Aggregate Root>> {
+    -labId: UUID
+    -sectionGroup: string
+    -capacity: Number
+    -teacherId: UUID
+  }
+  
+  class "ScheduleSlot" as ScheduleSlot <<Entity>> {
+    -dayOfWeek: DayOfWeek
+    -startTime: Time
+    -endTime: Time
+    -classroomId: UUID
+  }
+  
+  class "Classroom" as Classroom <<Entity>> {
+    -ipAddress: UUID
+    -name: String
+    -capacity: Number
+  }
+  
+  class "Reservation" as Reservation <<Entity>> {
+    -reservationId: UUID
+    -startDate: Date
+    -endDate: Date
+    -teacherId: UUID
+    +cancel()
+  }
+  
+  enum DayOfWeek {
+    MONDAY
+    TUESDAY
+    WEDNESDAY
+    THURSDAY
+    FRIDAY
+  }
+  
+  interface ISectionRepository
+}
+
+package "Enrollment & Grading" #FFF4E6 {
+  class "Enrollment" as Enrollment <<Aggregate Root>> {
+    -enrollmentId: UUID
+    -studentId: UUID
+    -sectionId: UUID
+    -state: EnrollmentState
+    +withdraw()
+    +complete()
+  }
+  
+  class "GradeLedger" as GradeLedger <<Entity>> {
+    -ledgerId: UUID
+    -items: GradeItem[]
+    +addOrUpdateGrade()
+    +calculateFinal()
+    +getAverage()
+    +getMin()
+    +getMax()
+  }
+  
+  class "GradeItem" as GradeItem <<Value Object>> {
+    -type: GradeType
+    -number: Int
+    -score: Number
+  }
+  
+  enum EnrollmentState {
+    ENROLLED
+    WITHDRAWN
+    COMPLETED
+  }
+  
+  enum GradeType {
+    PARTIAL
+    SUBSTITUTE
+    CONTINUOUS
+  }
+  
+  interface IEnrollmentRepository
+}
+
+package "Attendance" #E6F7FF {
+  class "AttendanceRecord" as AttendanceRecord <<Aggregate Root>> {
+    -attendanceId: UUID
+    -sectionId: UUID
+    -sessionDate: Date
+    +markAttendance()
+  }
+  
+  class "StudentAttendance" as StudentAttendance <<Value Object>> {
+    -studentId: UUID
+    -status: AttendanceStatus
+  }
+  
+  class "TeacherAttendanceRecord" as TeacherAttendanceRecord <<Aggregate Root>> {
+    -recordId: UUID
+    -teacherId: UUID
+    -checkInDate: Date
+    -classroomId: UUID
+    +checkIn()
+  }
+  
+  enum AttendanceStatus {
+    PRESENT
+    ABSENT
+  }
+  
+  interface IAttendanceRepository
+}
+
+package "Reports (Read Models)" #F0E6FF {
+  class "PerformanceReport" as PerformanceReport <<Read Model>> {
+    -reportId: UUID
+    -studentId: UUID
+    -averageGrade: Number
+    -attendanceRate: Number
+  }
+  
+  class "CourseProgressReport" as CourseProgressReport <<Read Model>> {
+    -reportId: UUID
+    -courseId: UUID
+    -syllabusProgress: Number
+  }
+}
+
+package "Domain Services" #ABEBC6 {
+  class GradeCalculationService {
+    +calculateFinalGrade()
+    +calculateStatistics()
+  }
+  
+  class AttendanceCalculationService {
+    +calculateAttendanceRate()
+  }
+}
+
+}
+
+' ========================================
+' INFRASTRUCTURE LAYER
+' ========================================
+package "Infrastructure Layer" as INFRA #FDEDEC {
+  package "Persistence" {
+    class UserRepository
+    class ProfileRepository
+    class CourseRepository
+    class SectionRepository
+    class EnrollmentRepository
+    class AttendanceRepository
+    
+    class DatabaseConnection {
+      +connect()
+      +query()
+      +transaction()
+    }
+  }
+  
+  package "External Services" {
+    class ExcelFileProcessor {
+      +parseExcelFile()
+      +validateData()
+    }
+    
+    class PasswordHasher {
+      +hash()
+      +verify()
+    }
+  }
+}
+
+' ========================================
+' RELATIONSHIPS - PRESENTATION TO APPLICATION
+' ========================================
+AuthController --> AuthenticationService
+StudentController --> ReportService
+TeacherController --> GradeManagementService
+TeacherController --> AttendanceService
+TeacherController --> SchedulingService
+SecretaryController --> ReportService
+AdminController --> CourseManagementService
+
+' ========================================
+' RELATIONSHIPS - APPLICATION TO DOMAIN
+' ========================================
+AuthenticationService --> IUserRepository
+AuthenticationService --> IProfileRepository
+GradeManagementService --> IEnrollmentRepository
+GradeManagementService --> GradeCalculationService
+AttendanceService --> IAttendanceRepository
+AttendanceService --> AttendanceCalculationService
+SchedulingService --> ISectionRepository
+ReportService --> IEnrollmentRepository
+ReportService --> IAttendanceRepository
+CourseManagementService --> ICourseRepository
+CourseManagementService --> ISectionRepository
+
+' ========================================
+' RELATIONSHIPS - DOMAIN INTERNAL
+' ========================================
+User --> UserRole
+User --> StudentProfile : references
+User --> TeacherProfile : references
+User --> SecretaryProfile : references
+User --> AdminProfile : references
+
+Course --> CourseTopic
+Course --> TopicState
+
+CourseSection --> Course : references
+CourseSection --> TeacherProfile : references
+CourseSection --> ScheduleSlot
+CourseSection --> Classroom : references
+CourseSection --> Laboratory
+Laboratory --> Classroom
+Laboratory --> ScheduleSlot
+
+ScheduleSlot --> DayOfWeek
+
+Classroom --> Reservation
+
+Enrollment --> StudentProfile : references
+Enrollment --> CourseSection : references
+Enrollment --> EnrollmentState
+Enrollment --> GradeLedger
+
+GradeLedger --> GradeItem
+GradeItem --> GradeType
+
+AttendanceRecord --> CourseSection : references
+AttendanceRecord --> StudentAttendance
+StudentAttendance --> AttendanceStatus
+
+TeacherAttendanceRecord --> TeacherProfile : references
+TeacherAttendanceRecord --> Classroom : references
+
+PerformanceReport --> StudentProfile : references
+CourseProgressReport --> Course : references
+
+' ========================================
+' RELATIONSHIPS - INFRASTRUCTURE
+' ========================================
+IUserRepository <|.. UserRepository
+IProfileRepository <|.. ProfileRepository
+ICourseRepository <|.. CourseRepository
+ISectionRepository <|.. SectionRepository
+IEnrollmentRepository <|.. EnrollmentRepository
+IAttendanceRepository <|.. AttendanceRepository
+
+UserRepository --> DatabaseConnection
+ProfileRepository --> DatabaseConnection
+CourseRepository --> DatabaseConnection
+SectionRepository --> DatabaseConnection
+EnrollmentRepository --> DatabaseConnection
+AttendanceRepository --> DatabaseConnection
+
+GradeManagementService --> ExcelFileProcessor
+AuthenticationService --> PasswordHasher
+@enduml
