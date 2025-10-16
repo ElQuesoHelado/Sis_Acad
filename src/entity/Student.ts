@@ -6,4 +6,7 @@ import { User } from "./User"
 export class Student extends User {
   @Column()
   enrollmentYear: number
+
+  @Column({ type: "varchar", length: 1 })
+  enrollmentCycle: string;
 }

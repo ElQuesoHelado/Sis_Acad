@@ -6,8 +6,8 @@ import {
 @Entity()
 @TableInheritance({ column: { type: "varchar", name: "role" } })
 export abstract class User {
-  @PrimaryGeneratedColumn()
-  id: number
+  @PrimaryGeneratedColumn("uuid")
+  id: string
 
   @Column()
   firstName: string
@@ -18,7 +18,7 @@ export abstract class User {
   @Column()
   email: string
 
-  @Column()
+  @Column({ nullable: true })
   passwordHash: string
 
   @Column()
