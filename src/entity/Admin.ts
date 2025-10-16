@@ -3,4 +3,9 @@ import { User } from "./User";
 
 @ChildEntity()
 export class Admin extends User {
+    
+    async viewAllTeachers(): Promise<any> {
+        return []
+  }
+
 }
