@@ -2,7 +2,7 @@ import "reflect-metadata";
 import express from "express";
 import path from "path";
 import { AppDataSource } from "./data-source";
-// import { User } from "./entity/User";
+import apiRouter from "./routes/api";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -21,28 +21,7 @@ app.get("/", (req, res) => {
   });
 });
 
-// Ruta para crear usuario
-app.post("/users", async (req, res) => {
-  try {
-    // const userRepository = AppDataSource.getRepository(User);
-    // const user = userRepository.create(req.body);
-    // const results = await userRepository.save(user);
-    // return res.status(201).json(results);
-  } catch (error) {
-    return res.status(500).json({ error: "Error creating user" });
-  }
-});
-
-// Ruta para obtener usuarios
-app.get("/users", async (req, res) => {
-  try {
-    // const userRepository = AppDataSource.getRepository(User);
-    // const users = await userRepository.find();
-    // return res.json(users);
-  } catch (error) {
-    return res.status(500).json({ error: "Error fetching users" });
-  }
-});
+app.use("/api/v1", apiRouter);
 
 // Inicializar base de datos y servidor
 AppDataSource.initialize()
