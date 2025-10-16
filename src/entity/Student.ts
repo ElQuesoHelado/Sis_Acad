@@ -5,6 +5,9 @@ import { User } from "./User"
 @ChildEntity()
 export class Student extends User {
   @Column()
+  cui: number
+
+  @Column()
   enrollmentYear: number
 
   @Column({ type: "varchar", length: 1 })

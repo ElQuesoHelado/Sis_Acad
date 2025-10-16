@@ -18,7 +18,7 @@ export abstract class User {
   @Column()
   email: string
 
-  @Column({ nullable: true })
+  @Column()
   passwordHash: string
 
   @Column()

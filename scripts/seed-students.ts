@@ -3,8 +3,25 @@ import path from 'path';
 import { parse } from 'csv-parse';
 import { AppDataSource } from '../src/data-source';
 import { Student } from '../src/entity/Student';
+import * as bcrypt from 'bcrypt';
 
 const STUDENT_DATA_PATH = '../data/students.csv'
+
+
+async function hashPassword(plainTextPassword: string): Promise<string> {
+  const saltRounds = 10;
+  const hashedPassword = await bcrypt.hash(plainTextPassword, saltRounds);
+  return hashedPassword;
+}
+
+function generateDefaultPassword(student: Student): string {
+  const firstNamePart = student.firstName.split(' ')[0].toLowerCase();
+  const lastNamePart = student.lastName.split(' ')[0].toLowerCase();
+  const cuiPart = student.cui;
+  const defaultPassword = `${firstNamePart}.${lastNamePart}.${cuiPart}`;
+
+  return defaultPassword;
+}
 
 async function seed() {
   console.log('Seeding database...');
@@ -25,9 +42,11 @@ async function seed() {
     student.email = row.email;
     student.enrollmentYear = parseInt(row.enrollment_year, 10);
     student.enrollmentCycle = row.enrollment_cycle;
-    student.passwordHash = null;
-    student.isActive = false;
+    student.cui = row.cui
 
+    const defaultPassword = generateDefaultPassword(student);
+    student.passwordHash = await hashPassword(defaultPassword);
+    student.isActive = false;
     students.push(student);
   }
 
