@@ -35,6 +35,16 @@ curl -X POST http://localhost:3000/api/v1/auth/login \
 }'
 ```
 
+### Secretary All Students
+```bash
+curl -X POST http://localhost:3000/api/v1/secretary/students \
+-H "Content-Type: application/json" \
+-d '{
+  "page": 2,
+  "pageSize": 10
+}'
+```
+
 ## Modelo dominio extendido
 
 ![mde](mde.png)
