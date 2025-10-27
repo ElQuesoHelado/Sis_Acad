@@ -1,0 +1,1000 @@
+topicId,week,topicName,state,courseId
+1,1,Clase Inaugural: Lineamientos del Curso,PENDING,5
+2,1,Paradigmas de Programación,PENDING,5
+3,1,Evolución de los Lenguajes de Programación,PENDING,5
+4,1,Operaciones Básicas del Computador,PENDING,5
+5,2,Análisis de Resolución de Problemas,PENDING,5
+6,2,Algoritmos,PENDING,5
+7,2,Sintaxis y Semántica de un Lenguaje de Alto Nivel,PENDING,5
+8,3,Estructuras de Control Condicionales,PENDING,5
+9,3,Estructuras de Control Iterativas,PENDING,5
+10,4,Estructuras de Control Iterativas (Continuación),PENDING,5
+11,5,Definición de Funciones,PENDING,5
+12,6,Definición de Funciones (Continuación),PENDING,5
+13,7,PRIMER EXAMEN,PENDING,5
+14,8,Definición de Procedimientos,PENDING,5
+15,8,Paso de parámetros a Funciones,PENDING,5
+16,9,Técnica de Recursividad,PENDING,5
+17,9,Listas, Pilas y Colas,PENDING,5
+18,9,Búsqueda Secuencial y Binaria,PENDING,5
+19,10,Métodos de Ordenación y Búsqueda,PENDING,5
+20,10,Análisis del tiempo de los Algoritmos de Ordenamiento,PENDING,5
+21,11,SEGUNDO EXAMEN,PENDING,5
+22,12,Comparación de la eficiencia de los Algoritmos,PENDING,5
+23,12,Funciones para el procesamiento de Strings,PENDING,5
+24,13,Métodos de Lectura de Archivos,PENDING,5
+25,13,Métodos de Escritura de Archivos,PENDING,5
+26,14,Principios de la POO,PENDING,5
+27,14,Clases y Objetos,PENDING,5
+28,15,Tipos de Datos Abstractos,PENDING,5
+29,15,"Revisión de Librerías gráficas, de audio, sonido e imágenes",PENDING,5
+30,16,EXAMEN SUSTITUTORIO,PENDING,5
+31,17,TERCER EXAMEN,PENDING,5
+32,1,Presentación del silabo de la asignatura y lineamientos - Propósito de la universidad en el contexto actual,PENDING,2
+33,2,"Universidad Nacional de San Agustín de Arequipa, modelo Educativo, reglamentos y Responsabilidad Social",PENDING,2
+34,3,Inteligencia emocional en la vida universitaria,PENDING,2
+35,4,Taller de inteligencia emocional en la vida universitaria,PENDING,2
+36,5,Habilidades sociales, comunicativas para el aprendizaje,PENDING,2
+37,6,Taller de habilidades sociales y comunicativas para el aprendizaje,PENDING,2
+38,7,El aprendizaje, condiciones básicas y reconocimiento de estrategias propias,PENDING,2
+39,8,Estrategias de organización de información. Sistema Cornell,PENDING,2
+40,9,Estrategias de organización de información, diagramas y mapas cognitivos,PENDING,2
+41,10,Estrategias de organización de información. mapa conceptual,PENDING,2
+42,11,Estrategias de organización de información. Mapas mentales,PENDING,2
+43,12,Estrategias de aplicación de Inteligencia Artificial. Chat GPT.,PENDING,2
+44,13,Niveles del conocimiento. Introducción a la investigación Científica. Método científico,PENDING,2
+45,14,"Gestores bibliográficos de la información científica. Operadores de búsqueda. Estilos de referencias IEEE, APA, VANCOUVER",PENDING,2
+46,15,"Taller de gestores bibliográficos de la información científica. Operadores de búsqueda. Estilos de referencias IEEE, APA, VANCOUVER.",PENDING,2
+47,16,El ensayo. Artículo científico. Póster Científico.,PENDING,2
+48,17,Evaluación de los Trabajos de Responsabilidad Social e Investigación,PENDING,2
+49,1,"Prueba de entrada. Presentación del sílabo. Nivelación",PENDING,1
+50,2,"Lógica proposicional. Conectivos lógicos. Tablas de verdad",PENDING,1
+51,3,"Conjuntos y elementos. Determinación de conjuntos. Relación de pertenencia. Relación de inclusión. Operaciones con conjuntos: Unión. Intersección, Diferencia. Complementación. Diferencia simétrica. Problemas que se resuelven con diagramas de Venn",PENDING,1
+52,4,"Relación entre Lógica y Conjuntos: Leyes del álgebra de conjuntos y del álgebra de proposiciones. Algunas demostraciones formales.",PENDING,1
+53,5,"Función proposicional. Cuantificadores. Negación de cuantificadores. Inferencia lógica. Leyes de la inferencia. Demostración directa e indirecta (reducción al absurdo).",PENDING,1
+54,6,"Primer examen",PENDING,1
+55,7,"Modelos matemáticos: Ecuaciones lineales y cuadráticas. Aplicaciones.",PENDING,1
+56,8,"Modelos matemáticos: Inecuaciones lineales y cuadráticas. Aplicaciones",PENDING,1
+57,9,"Regla de correspondencia. Operadores matemáticos. Sumatorias, Propiedades",PENDING,1
+58,10,"Inducción matemática. Sucesiones.",PENDING,1
+59,11,"Sucesiones y series aritméticas. Sucesiones y series y geométricas. Propiedades.",PENDING,1
+60,12,"Segundo examen",PENDING,1
+61,13,"Triángulos. Propiedades generales. Clasificación de los triángulos. Problemas. Congruencia de triángulos.",PENDING,1
+62,14,"Examen sustitutorio. Proporcionalidad. Teoremas: de Thales, de la bisectriz interior, de la bisectriz exterior, del incentro",PENDING,1
+63,15,"Semejanza de triángulos. Problemas de aplicación. Relaciones métricas en el triángulo rectángulo.",PENDING,1
+64,16,"Teoremas: de las proyecciones, de la altura, de los catetos, de Pitágoras. Problemas. Áreas y perímetros. Figuras sombreadas. Nociones de Geometría Espacial. Teoremas principales",PENDING,1
+65,17,"Tercer examen",PENDING,1
+66,1,"Presentación del sílabo e introducción al curso",PENDING,3
+67,2,"Arte y Computación",PENDING,3
+68,3,"Arte y Computación - Continuación",PENDING,3
+69,4,"PRIMER EXAMEN",PENDING,3
+70,5,"Programación creativa",PENDING,3
+71,6,"Programación creativa - Continuación",PENDING,3
+72,7,"Arte generativo",PENDING,3
+73,8,"SEGUNDO EXAMEN",PENDING,3
+74,9,"Arte generativo - Continuación",PENDING,3
+75,10,"Introducción a la programación y entornos creativos",PENDING,3
+76,11,"Introducción a la programación y entornos creativos - Continuación",PENDING,3
+77,12,"Sketching y Prototyping",PENDING,3
+78,13,"TERCER EXAMEN",PENDING,3
+79,14,"Sketching y Prototyping - Continuación",PENDING,3
+80,15,"Implementación de Programación creativa",PENDING,3
+81,16,"Implementación de Programación creativa - Continuación",PENDING,3
+82,17,"Aplicaciones en imagenes, movimientos y multimedia",PENDING,3
+83,1,"Pautas generales del curso. Prueba de diagnóstico.",PENDING,4
+84,1,"Verb To Be (Affirmative, negative and interrogative)",PENDING,4
+85,2,"Expressions to greet and introduce. Oral practice.",PENDING,4
+86,2,"Numerical expressions (dates and ordinal numbers).",PENDING,4
+87,3,"Temas Auxiliares. Articles (the, a, an)",PENDING,4
+88,3,"Possessive adjectives. Practices.",PENDING,4
+89,4,"Vocabulary: Objects, family, food and drinks.",PENDING,4
+90,4,"Possessive 'S. Practices.",PENDING,4
+91,5,"Vocabulary: Formal orders.",PENDING,4
+92,5,"PRIMER EXAMEN",PENDING,4
+93,6,"Present continuous tense.",PENDING,4
+94,6,"Use of -ING. Practices.",PENDING,4
+95,7,"Vocabulary: Common active verbs and occupations.",PENDING,4
+96,7,"Vocabulary: The time.",PENDING,4
+97,8,"Present simple tense (Active verbs)",PENDING,4
+98,8,"Activities (Leisure time)",PENDING,4
+99,9,"Use of frequency adverbs. Practices.",PENDING,4
+100,9,"Prepositions of time. Practices.",PENDING,4
+101,10,"Use of verb CAN. Practices.",PENDING,4
+102,10,"Vocabularies: expressions of social activities.",PENDING,4
+103,11,"Writing practice.",PENDING,4
+104,11,"SEGUNDO EXAMEN.",PENDING,4
+105,12,"Past tense verb To Be.",PENDING,4
+106,12,"Time expressions: Past tense. Practices.",PENDING,4
+107,13,"Past continuous. Practices.",PENDING,4
+108,13,"Writing practices past tense.",PENDING,4
+109,14,"Past tense: Regular & Irregular verbs.",PENDING,4
+110,14,"Past tense active verbs.",PENDING,4
+111,15,"Writing practices past tense.",PENDING,4
+112,15,"Past tense of verb CAN. Practices.",PENDING,4
+113,16,"Writing practices.",PENDING,4
+114,16,"TERCER EXAMEN",PENDING,4
+115,17,"Entrega y registro de notas.",PENDING,4
+116,1,"Componentes Sintácticos de la Lógica de Predicados",PENDING,6
+117,2,"Interpretaciones y Validez",PENDING,6
+118,3,"PRIMER EXAMEN",PENDING,6
+119,4,"Demostraciones",PENDING,6
+120,5,"Equivalencias lógicas - Lógica de ecuaciones",PENDING,6
+121,6,"Razonamiento Inductivo",PENDING,6
+122,7,"Inducción Matemática",PENDING,6
+123,8,"SEGUNDO EXAMEN",PENDING,6
+124,9,"Razonamiento Recursivo",PENDING,6
+125,10,"Algoritmos",PENDING,6
+126,11,"Algoritmos Recursivos",PENDING,6
+127,12,"Definiciones de Relaciones Binarias",PENDING,6
+128,13,"TERCER EXAMEN",PENDING,6
+129,14,"Representaciones de las Relaciones",PENDING,6
+130,15,"Manipulación de Relaciones",PENDING,6
+131,16,"Propiedades de las Relaciones",PENDING,6
+132,17,"Particiones, Relación de Equivalencia, Cerradura",PENDING,6
+133,1,"Introducción al liderazgo y oratoria",PENDING,7
+134,2,"Fundamentos del liderazgo personal",PENDING,7
+135,3,"Comunicación efectiva y asertiva",PENDING,7
+136,4,"Técnicas de expresión verbal",PENDING,7
+137,5,"Lenguaje corporal y comunicación no verbal",PENDING,7
+138,6,"Primer examen parcial",PENDING,7
+139,7,"Estructuración de discursos",PENDING,7
+140,8,"Técnicas de persuasión y argumentación",PENDING,7
+141,9,"Manejo de audiencias y situaciones difíciles",PENDING,7
+142,10,"Liderazgo en equipos de trabajo",PENDING,7
+143,11,"Segundo examen parcial",PENDING,7
+144,12,"Oratoria en contextos profesionales",PENDING,7
+145,13,"Presentaciones ejecutivas efectivas",PENDING,7
+146,14,"Manejo del estrés y control emocional",PENDING,7
+147,15,"Liderazgo ético y valores",PENDING,7
+148,16,"Preparación de presentación final",PENDING,7
+149,17,"Tercer examen y presentación final",PENDING,7
+150,1,"Fundamentos de Programación. Paradigmas de Programación.",PENDING,9
+151,2,"Constructores de Programación. Estructuras de Control de Programas",PENDING,9
+152,3,"Funciones y Procedimientos. Punteros",PENDING,9
+153,4,"Funciones y Procedimientos. Punteros - Continuación",PENDING,9
+154,5,"Principios de la Programación Orientada a Objetos",PENDING,9
+155,6,"PRIMER EXAMEN",PENDING,9
+156,7,"Principios de la Programación Orientada a Objetos - Continuación",PENDING,9
+157,8,"Herencia",PENDING,9
+158,9,"Herencia - Continuación",PENDING,9
+159,10,"Uso de librerías gráficas",PENDING,9
+160,11,"SEGUNDO EXAMEN",PENDING,9
+161,12,"Polimorfismo",PENDING,9
+162,13,"Polimorfismo - Continuación",PENDING,9
+163,14,"Genericidad",PENDING,9
+164,15,"Listas",PENDING,9
+165,16,"TERCER EXAMEN",PENDING,9
+166,17,"Métodos de ordenación y búsqueda. Matrices. Archivos",PENDING,9
+167,1,"Definiciones Básicas de los Grafos",PENDING,8
+168,1,"Representación numérica de grafos",PENDING,8
+169,2,"Relaciones de adyacencia",PENDING,8
+170,2,"Vecindades de conexiones",PENDING,8
+171,3,"Trayectorias de un grafo",PENDING,8
+172,4,"Grafos conexos - componentes conexas",PENDING,8
+173,4,"Caminos Eulerianos y hamiltonianos",PENDING,8
+174,5,"PRIMER EXAMEN",PENDING,8
+175,5,"Isomorfismos de grafos",PENDING,8
+176,5,"Grafos planos",PENDING,8
+177,6,"Árboles y su clasificación",PENDING,8
+178,6,"Árboles ponderados y códigos de recorrido",PENDING,8
+179,7,"Árboles binarios",PENDING,8
+180,7,"Árboles de decisión y tiempo mínimo para ordenar",PENDING,8
+181,8,"SEGUNDO EXAMEN",PENDING,8
+182,8,"Isomorfismo de árboles",PENDING,8
+183,8,"Árboles de juegos",PENDING,8
+184,9,"Algoritmos para hallar el camino más corto - Dijkstra",PENDING,8
+185,9,"Árboles generadores minimales: Prim - Kruskal",PENDING,8
+186,10,"Redes de transporte: teoremas de flujo máximo y corte mínimo",PENDING,8
+187,10,"Teoría de emparejamiento",PENDING,8
+188,11,"TERCER EXAMEN",PENDING,8
+189,11,"Teoría de números",PENDING,8
+190,11,"Anillos y aritmética modular",PENDING,8
+191,12,"Grupos y semigrupos",PENDING,8
+192,12,"Probabilidad discreta y combinatoria",PENDING,8
+193,13,"Introducción a la criptografía",PENDING,8
+194,13,"Criptografía de clave privada",PENDING,8
+195,14,"Algoritmo de Cesar",PENDING,8
+196,14,"Criptografía de clave pública",PENDING,8
+197,15,"RSA, El Gamal",PENDING,8
+198,15,"Firmas digitales y protocolos",PENDING,8
+199,16,"Presentación de proyectos finales",PENDING,8
+200,1,"Examen de entrada. Dominio, rango y gráfica de funciones. Funciones especiales. Transformación de funciones, Álgebra de funciones.",PENDING,10
+201,2,"Composición de funciones y función inversa. Funciones exponenciales, logarítmicas y trigonométricas",PENDING,10
+202,3,"Límite de una función y propiedades. Límites laterales. Límites trigonométricos.",PENDING,10
+203,4,"Límites infinitos. Límites al infinito. Asíntotas",PENDING,10
+204,5,"PRIMER EXAMEN",PENDING,10
+205,5,"Continuidad de funciones. Tipos de discontinuidad.",PENDING,10
+206,6,"La derivada. Interpretación geométrica. Reglas de derivación. Regla de la cadena. Derivada de funciones trascendentes.",PENDING,10
+207,7,"Derivación implícita, Derivación logarítmica. Derivadas de orden superior. Formas indeterminadas. Regla de L'Hôpital",PENDING,10
+208,8,"Problemas de razón de cambio. Valores máximos y mínimos locales. Criterio de la primera derivada y de la segunda derivada.",PENDING,10
+209,9,"Valores extremos absolutos. Concavidad. Gráfica de una función.",PENDING,10
+210,10,"SEGUNDO EXAMEN",PENDING,10
+211,10,"La diferencial de una función.",PENDING,10
+212,11,"La integral indefinida. Reglas de integración. Integración por sustitución. Integrales de funciones trascendentes.",PENDING,10
+213,12,"Integración por partes. Integración por sustitución trigonométrica. Integración por fracciones parciales.",PENDING,10
+214,13,"Sumas de Riemann. Integral definida. Propiedades. Teorema Fundamental del Cálculo Integral. Integrales impropias.",PENDING,10
+215,14,"Área de una región plana. Volúmenes de sólidos de revolución.",PENDING,10
+216,15,"Longitud de arco. Área de una superficie de revolución.",PENDING,10
+217,16,"TERCER EXAMEN",PENDING,10
+218,16,"Sucesión. Límite de una sucesión. Series. Criterios de convergencia de una serie. Series de potencia.",PENDING,10
+219,1,"Prueba diagnostica, the alphabet",PENDING,11
+220,2,"Vocabulary, classroom things, numbers",PENDING,11
+221,3,"Some instruction, Imperatives",PENDING,11
+222,4,"Plural, vocabulary, adjectives",PENDING,11
+223,5,"Vocabulary, jobs, Wh questions, review",PENDING,11
+224,6,"PRIMER EXAMEN",PENDING,11
+226,7,"Possessives",PENDING,11
+227,8,"Prepositions of place",PENDING,11
+228,9,"Present continuous",PENDING,11
+229,10,"Present continuous / simple",PENDING,11
+230,11,"Reading comprehension",PENDING,11
+231,12,"SEGUNDO EXAMEN",PENDING,11
+233,13,"Prepositions of time",PENDING,11
+234,14,"Vocabulary food",PENDING,11
+235,15,"Reading Healthy food",PENDING,11
+237,16,"Reading comprehension/ speech",PENDING,11
+236,16,"TERCER EXAMEN",PENDING,11
+239,1,"Introducción a las ciencias del lenguaje",PENDING,12
+240,2,"Comprensión lectora: Habilidades, niveles, dimensiones",PENDING,12
+241,3,"Estrategias para la comprensión de textos.",PENDING,12
+242,4,"Literacidad: Prácticas letradas vernáculas y académicas",PENDING,12
+243,5,"PRIMER EXAMEN",PENDING,12
+244,5,"Análisis multimodal y multimedial de textos",PENDING,12
+245,6,"Desafíos de la redacción académica y científica",PENDING,12
+246,7,"Teoría del texto y producción de textos académicos",PENDING,12
+247,8,"Intertextualidad en el texto académico",PENDING,12
+248,9,"Producción de textos expositivos y argumentativos",PENDING,12
+249,10,"SEGUNDO EXAMEN",PENDING,12
+250,10,"Redacción académica: la monografía",PENDING,12
+251,11,"Redacción académica: el ensayo",PENDING,12
+252,12,"El artículo científico: estructura y tipología",PENDING,12
+253,13,"Situaciones comunicativas estructuradas",PENDING,12
+254,14,"Técnicas de comunicación Oral: Elementos lingüísticos y paralingüísticos",PENDING,12
+255,15,"TERCER EXAMEN",PENDING,12
+256,15,"La mesa redonda: planificación, organización y ejecución",PENDING,12
+257,16,"El debate: planificación, organización y ejecución",PENDING,12
+258,17,"El foro-panel: planificación, organización y ejecución",PENDING,12
+259,1,"Explicación del sílabo, Evaluación diagnóstica. Estado",PENDING,13
+260,2,"Gobierno, democracia y constitucionalidad",PENDING,13
+261,3,"Poder político",PENDING,13
+262,4,"Valores y convivencia social, pluriculturalidad",PENDING,13
+263,5,"Crisis de identidad nacional, nacionalismos y regionalismos",PENDING,13
+264,6,"Primer Examen",PENDING,13
+265,7,"Característica socio demográficas",PENDING,13
+266,8,"Calidad de vida/pobreza y desigualdad (vivienda, salud, educación)",PENDING,13
+267,9,"Instituciones y confianza",PENDING,13
+268,10,"Trabajo y desempleo",PENDING,13
+269,11,"Segundo Examen",PENDING,13
+270,12,"Neoliberalismo y privatización. Globalización y economía",PENDING,13
+271,13,"Actividades productivas, pequeña empresa e informalidad",PENDING,13
+272,14,"Violencia, seguridad y corrupción",PENDING,13
+273,15,"Medio ambiente, contaminación, consumismo y anomia",PENDING,13
+274,16,"Examen Sustitutorio",PENDING,13
+275,17,"Tercer Examen",PENDING,13
+276,1,"Introducción a las computadoras",PENDING,14
+277,1,"Unidades Funcionales Básicas",PENDING,14
+278,1,"Medidas de rendimiento throughput",PENDING,14
+279,2,"Diseño combinacional - Compuertas y señales lógicas",PENDING,14
+280,2,"Descripción Algebraica de circuitos lógicos",PENDING,14
+281,2,"Diseño de componentes digitales",PENDING,14
+282,3,"Decodificadores, codificadores, multiplexores, demultiplexores",PENDING,14
+283,4,"Complemento a dos",PENDING,14
+284,4,"Multiplicación binaria",PENDING,14
+285,4,"División binaria",PENDING,14
+286,4,"Punto flotante",PENDING,14
+287,5,"Sumadores simples",PENDING,14
+288,5,"Conteo e incremento y operaciones lógicas y de corrimiento",PENDING,14
+289,5,"ALU de 1 bit",PENDING,14
+290,5,"ALU de 32 bits",PENDING,14
+291,5,"ALU multifunción",PENDING,14
+292,6,"Primer Examen",PENDING,14
+293,6,"Repertorio de Instrucciones, MIPS",PENDING,14
+294,6,"Microarquitectura - microinstrucciones",PENDING,14
+295,7,"Macroarquitectura - macroinstrucciones",PENDING,14
+296,7,"Microprogramación con lenguaje de diseño de hardware",PENDING,14
+297,8,"Análisis de un conjunto de instrucciones en la unidad de control",PENDING,14
+298,8,"Implementación de la unidad de ejecución de instrucciones",PENDING,14
+299,9,"Bifurcación y saltos",PENDING,14
+300,9,"Construcción de un camino de datos monociclo",PENDING,14
+301,10,"Derivación de las señales de control",PENDING,14
+302,11,"Segundo Examen",PENDING,14
+303,11,"Implementación multiciclo",PENDING,14
+304,11,"Camino de datos segmentado",PENDING,14
+305,12,"Control segmentado",PENDING,14
+306,12,"Ciclo de reloj y señales de control",PENDING,14
+307,12,"La máquina de control de estado",PENDING,14
+308,13,"Estructura de memoria y SRAM",PENDING,14
+309,13,"DRAM y ciclos de regeneración",PENDING,14
+310,13,"Memoria no volátil",PENDING,14
+311,14,"Principios básicos",PENDING,14
+312,14,"Cache de mapeo directo",PENDING,14
+313,14,"Memoria Virtual",PENDING,14
+314,15,"Almacenamiento en disco",PENDING,14
+315,15,"Interfaz de los dispositivos de E/S al procesador, memoria y sistema operativo",PENDING,14
+316,15,"Medidas de las prestaciones de E/S",PENDING,14
+317,16,"Introducción a HDL",PENDING,14
+318,16,"Diseño de circuitos lógicos con HDL",PENDING,14
+319,16,"Diseño de sistemas secuenciales con HDL",PENDING,14
+320,17,"Tercer Examen",PENDING,14
+321,17,"Diseño de componentes lógicos con HDL",PENDING,14
+322,17,"Multiprogramación con HDL",PENDING,14
+323,1,"Punteros, Referencias, Op. New y Delete, Clases",PENDING,15
+324,2,"Constructor, Destructor, Constructor copia",PENDING,15
+325,3,"Herencia y Polimorfismo",PENDING,15
+326,4,"Sobrecarga de operadores: functores",PENDING,15
+327,5,"Templates en Funciones",PENDING,15
+328,5,"Templates en Clases",PENDING,15
+329,5,"Variadic templates",PENDING,15
+330,6,"Primer Examen",PENDING,15
+331,7,"Patrones creacionales",PENDING,15
+332,7,"Patrones estructurales",PENDING,15
+333,7,"Patrones de comportamiento",PENDING,15
+334,8,"Introducción a punteros inteligentes",PENDING,15
+335,8,"Punteros: shared, unique, weak",PENDING,15
+336,9,"Administración de memoria",PENDING,15
+337,9,"Custom allocators",PENDING,15
+338,9,"Type traits",PENDING,15
+339,9,"Type deduction",PENDING,15
+340,10,"Move semantics",PENDING,15
+341,10,"Perfect forwarding",PENDING,15
+342,11,"Segundo Examen",PENDING,15
+343,12,"Metaprogramming",PENDING,15
+344,13,"Introducción a multithreading",PENDING,15
+345,13,"Sincronización y exclusión mutua",PENDING,15
+346,14,"Locks y mutexes",PENDING,15
+347,15,"Variables de condición",PENDING,15
+348,16,"Examen Sustitutorio",PENDING,15
+349,17,"Tercer Examen",PENDING,15
+350,1,"Lineamientos del curso. Motivación. El espacio Rn. Producto punto. Norma de un vector. Paralelismo y ortogonalidad entre vectores. Proyección ortogonal",PENDING,18
+351,1,"El producto cruz en R3. Propiedades. Rectas y planos en R3. Superficies cuádricas. Práctica dirigida",PENDING,18
+352,2,"Motivación. Funciones de varias variables. Dominio y rango. Geometría de las funciones de varias variables. Curvas y superficie de nivel. Práctica dirigida",PENDING,18
+353,3,"Límite y continuidad de funciones de varias variables. Derivadas parciales. Diferenciabilidad y derivadas direccionales. Gradiente. Práctica dirigida",PENDING,18
+354,4,"El diferencial. Vectores normales y plano tangente. Derivadas parciales de orden superior. Funciones compuestas. Regla de la cadena",PENDING,18
+355,5,"Primer Examen",PENDING,18
+356,6,"Funciones implícitas. Definiciones de extremos locales. Matriz Hessiana y submatrices angulares. Condiciones suficientes para la existencia de extremos locales",PENDING,18
+357,7,"Extremos condicionados. Multiplicadores de Lagrange. Práctica dirigida",PENDING,18
+358,8,"Motivación. Integrales dobles. Propiedades",PENDING,18
+359,9,"Integrales dobles sobre rectángulos. Integrales dobles sobre regiones generales",PENDING,18
+360,10,"Cambio de variables en integrales dobles. Aplicaciones de las integrales dobles",PENDING,18
+361,11,"Segundo Examen",PENDING,18
+362,12,"Integrales triples. Propiedades. Cambio de variables en integrales triples. Aplicaciones de las integrales triples. Práctica dirigida",PENDING,18
+363,13,"Motivación. Caminos en Rn. Curvas parametrizadas. Longitud de arco. Campos vectoriales. Integrales de línea sobre campos vectoriales. Práctica dirigida",PENDING,18
+364,14,"Campos vectoriales. Integrales de línea sobre campos vectoriales. Práctica dirigida",PENDING,18
+365,15,"Campos conservativos. Integrales de línea de funciones reales. Teorema de Green. Aplicaciones",PENDING,18
+366,16,"Examen Sustitutorio",PENDING,18
+367,16,"Superficies parametrizadas. Integrales de superficie de funciones reales. Integral de Superficie de campos vectoriales. Teorema de Stokes. Práctica dirigida",PENDING,18
+368,17,"Tercer Examen",PENDING,18
+369,1,"Presentación del curso. Ciudadanía",PENDING,20
+370,2,"Estado: ordenamiento jurídico y estado de derecho. Democracia: Historia y actualidad",PENDING,20
+371,3,"DDHH, derechos ciudadanos: derecho y deberes en la Constitución Política, principales instrumentos internacionales",PENDING,20
+372,4,"Derechos de participación ciudadana: mecanismos y normativa",PENDING,20
+373,5,"Primer Examen",PENDING,20
+374,6,"La Cultura: características (simbólica, aprendida, compartida)",PENDING,20
+375,7,"La Cultura: categorías (etnocentrismo, relativismo, universalidad, generalidad y particularidad cultural, patrones y valores culturales)",PENDING,20
+376,8,"Diversidad Cultural: concepto, diversidad cultural en el Perú",PENDING,20
+377,9,"Pluriculturalidad, Multiculturalidad e Interculturalidad: diferencias, implicancias y retos en nuestra sociedad",PENDING,20
+378,10,"Segundo Examen",PENDING,20
+379,11,"Inclusión social, interculturalidad y ciudadanía electoral",PENDING,20
+380,12,"Discriminación y racismo / Migración y discriminación: Definiciones, características, tipos, problemática en el Perú, la Región y la Universidad. Aspectos legales y sanciones",PENDING,20
+381,13,"Salud, educación en el Perú e Interculturalidad. La violencia, violencia de género. Seguridad ciudadana y jurídica",PENDING,20
+382,14,"Patrimonio Cultural: Características, tipología. Patrimonio cultural y ciudadanía",PENDING,20
+383,15,"Patrimonio cultural en Arequipa",PENDING,20
+384,16,"Examen Sustitutorio",PENDING,20
+385,17,"Tercer Examen",PENDING,20
+386,1,"Introducción al Desarrollo Basado en Plataformas",PENDING,16
+387,2,"Arquitectura de Plataformas Digitales",PENDING,16
+388,3,"APIs y Servicios Web",PENDING,16
+389,4,"Desarrollo Frontend para Plataformas",PENDING,16
+390,5,"Desarrollo Backend para Plataformas",PENDING,16
+391,6,"Primer Examen",PENDING,16
+392,7,"Bases de Datos y Almacenamiento en Plataformas",PENDING,16
+393,8,"Autenticación y Autorización",PENDING,16
+394,9,"Integración de Sistemas y Middleware",PENDING,16
+395,10,"Escalabilidad y Performance",PENDING,16
+396,11,"Segundo Examen",PENDING,16
+397,12,"Despliegue y DevOps en Plataformas",PENDING,16
+398,13,"Monitoreo y Analytics",PENDING,16
+399,14,"Pruebas y Calidad en Plataformas",PENDING,16
+400,15,"Casos de Estudio: Plataformas Exitosas",PENDING,16
+401,16,"Examen Sustitutorio",PENDING,16
+402,17,"Tercer Examen",PENDING,16
+403,1,"Introducción al Trabajo Interdisciplinar I",PENDING,17
+404,2,"Identificación de Problemas Interdisciplinarios",PENDING,17
+405,3,"Metodologías de Trabajo en Equipo",PENDING,17
+406,4,"Análisis de Requerimientos del Sistema",PENDING,17
+407,5,"Diseño de la Arquitectura del Sistema",PENDING,17
+408,6,"Primer Examen",PENDING,17
+409,7,"Planificación del Proyecto Interdisciplinario",PENDING,17
+410,8,"Desarrollo de Prototipos",PENDING,17
+411,9,"Integración de Componentes del Sistema",PENDING,17
+412,10,"Pruebas y Validación del Sistema",PENDING,17
+413,11,"Segundo Examen",PENDING,17
+414,12,"Documentación del Proyecto",PENDING,17
+415,13,"Presentación de Avances del Proyecto",PENDING,17
+416,14,"Optimización y Mejoras del Sistema",PENDING,17
+417,15,"Preparación de la Presentación Final",PENDING,17
+418,16,"Examen Sustitutorio",PENDING,17
+419,17,"Tercer Examen",PENDING,17
+420,1,"Motivación, Reglas del curso, Examen de Entrada",PENDING,21
+421,2,"Variables, Expresiones, Condicionales, Ciclos, E/S estándard, Funciones, Punteros y direcciones de memoria, Punteros y argumentos de funciones, Punteros y arreglos, Aritmética de punteros, Strings, Arreglos multidimencionales, Inicialización de arreglos a punteros",PENDING,21
+422,3,"Punteros vs Arreglos multidimencionales, Argumentos en la línea de comandos, Punteros a funciones, Structs, Structs y funciones, Arreglos de Structs, Punteros a Structs, Structs autoreferenciados, Tablas de símbolos, Typedef, Unions, Bit-fields",PENDING,21
+423,4,"Tipos de Datos abstractos de Datos vs Estructuras de Datos, Arreglos, Matrices, Pilas",PENDING,21
+424,5,"Colas, Listas enlazadas, Implementación de operaciones sobre una lista enlazada, Listas doblemente enlazadas",PENDING,21
+425,6,"Primer Examen",PENDING,21
+426,6,"Implementación de operaciones sobre una lista doblemente enlazada, Listas circulares, Implementación de operaciones sobre una lista circular, Introducción a la notación asintótica y análisis computacional",PENDING,21
+427,7,"Definición formal, Tablas de acceso directo, Tablas Hash, Hashing uniforme independiente, Resolución de coliciones por cadena, Análisis del hashing con encadenamiento",PENDING,21
+428,8,"Funciones hash, Hashing estático, Hashing random, Diseño de familias universales de funciones hash, Direccionamiento abierto, Consideraciones prácticas",PENDING,21
+429,9,"Búsqueda, Análisis algorítmico de la búsqueda, Inserción, Eliminación",PENDING,21
+430,10,"Árboles AVL, Propiedades algorítmicas de un árbol AVL, Inserción, Eliminación",PENDING,21
+431,11,"Segundo Examen",PENDING,21
+432,11,"Árboles rojinegros, Propiedades, Rotaciones, inserción",PENDING,21
+433,12,"eliminación, Heaps, Inserción, Extracción del máximo, Colas de prioridad",PENDING,21
+434,13,"Árboles 2-3, inserción, Eliminación, Árboles B, Inserción",PENDING,21
+435,14,"Eliminación, Variantes: B+, B*, Árboles digitales, búsqueda, inserción",PENDING,21
+436,15,"eliminación, costo promedio de búsqueda, Árboles de búsqueda digital, Skip list, Búsqueda, Inserción",PENDING,21
+437,16,"Examen Sustitutorio",PENDING,21
+438,16,"Definiciones básicas, Recorridos de gráfos",PENDING,21
+439,17,"Tercer Examen",PENDING,21
+440,17,"Arbol de cobertura mínima, Distancias mínimas en un grafo dirigido",PENDING,21
+441,1,"Introducción y Lineamientos del Curso",PENDING,23
+442,2,"Evolución e Historia de las Bases de Datos",PENDING,23
+443,3,"Modelos Entidad Relación",PENDING,23
+444,4,"Diagrama Entidad Relación",PENDING,23
+445,5,"Modelo Entidad Relación Extendido",PENDING,23
+446,6,"Diagrama Lógico",PENDING,23
+447,7,"Primer Examen",PENDING,23
+448,8,"SQL Básico",PENDING,23
+449,9,"SQL Intermedio",PENDING,23
+450,10,"SQL Avanzado 1",PENDING,23
+451,11,"SQL Avanzado 2",PENDING,23
+452,12,"Segundo Examen",PENDING,23
+453,13,"Sitio Web con Bases de Datos",PENDING,23
+454,14,"Bases de Datos NoSQL",PENDING,23
+455,15,"MongoDB",PENDING,23
+456,16,"Trabajo Final",PENDING,23
+457,17,"Tercer Examen",PENDING,23
+458,1,"Vectores, producto interno y norma",PENDING,24
+459,2,"Matrices, álgebra de matrices",PENDING,24
+460,3,"Determinantes e inversas de matrices",PENDING,24
+461,4,"Matrices elementales, operaciones elementales, sistemas de ecuaciones lineales",PENDING,24
+462,5,"Eliminación de Gauss",PENDING,24
+463,6,"Primer Examen",PENDING,24
+464,7,"Descomposición LU",PENDING,24
+465,8,"Descomposición de Cholesky",PENDING,24
+466,9,"Matriz ortogonal, matriz de Householder, conjuntos ortogonales y ortonormales",PENDING,24
+467,10,"Proceso de ortogonalización de Gram Schmidt",PENDING,24
+468,11,"Descomposición QR",PENDING,24
+469,12,"Segundo Examen",PENDING,24
+470,13,"Autovalores y autovectores",PENDING,24
+471,14,"Transformación de Householder",PENDING,24
+472,15,"Descomposición SVD",PENDING,24
+473,16,"El algoritmo QR",PENDING,24
+474,17,"Tercer Examen",PENDING,24
+475,1,"Introducción a la Teoría de la Computación",PENDING,22
+476,2,"Autómatas Finitos Deterministas (AFD)",PENDING,22
+477,3,"Autómatas Finitos No Deterministas (AFND)",PENDING,22
+478,4,"Conversión de AFND a AFD",PENDING,22
+479,5,"Expresiones Regulares",PENDING,22
+480,6,"Primer Examen",PENDING,22
+481,7,"Propiedades de los Lenguajes Regulares",PENDING,22
+482,8,"Lema de Bombeo para Lenguajes Regulares",PENDING,22
+483,9,"Autómatas de Pila (AP)",PENDING,22
+484,10,"Gramáticas Independientes del Contexto (GIC)",PENDING,22
+485,11,"Formas Normales de Chomsky y Greibach",PENDING,22
+486,12,"Segundo Examen",PENDING,22
+487,13,"Propiedades de los Lenguajes Independientes del Contexto",PENDING,22
+488,14,"Máquinas de Turing",PENDING,22
+489,15,"Variantes de Máquinas de Turing",PENDING,22
+490,16,"Examen Sustitutorio",PENDING,22
+491,17,"Tercer Examen",PENDING,22
+492,1,"Introducción y Tipos de variables estadística",PENDING,25
+493,1,"Distribución de frecuencias",PENDING,25
+494,2,"Gráficas para diferentes tipos de datos",PENDING,25
+495,3,"Medidas de tendencia central",PENDING,25
+496,4,"Medidas de dispersión",PENDING,25
+497,4,"Medidas de forma",PENDING,25
+498,5,"Axiomas de Probabilidad y Reglas de Probabilidad",PENDING,25
+499,6,"Probabilidad Condicional y Reglas de Bayes",PENDING,25
+500,7,"Independencia de Eventos",PENDING,25
+501,8,"Tipos de variables aleatoria",PENDING,25
+502,9,"Características numéricas de una variable aleatoria",PENDING,25
+503,9,"Modelos de probabilidad para variable aleatoria discreta",PENDING,25
+504,10,"Modelos de probabilidad para variable aleatoria continua",PENDING,25
+505,11,"Primer Examen",PENDING,25
+506,11,"Conceptos de estimación puntual y estimación por intervalos",PENDING,25
+507,11,"Intervalo de confianza para la media",PENDING,25
+508,12,"Intervalo de confianza para la proporción",PENDING,25
+509,13,"Segundo Examen",PENDING,25
+510,13,"Conceptos generales y tipos de errores en prueba de hipótesis",PENDING,25
+511,13,"Prueba de hipótesis para la media y proporción",PENDING,25
+512,14,"Prueba de hipótesis para la diferencia de medias",PENDING,25
+513,14,"Prueba de hipótesis para la diferencia de proporciones",PENDING,25
+514,15,"Prueba de hipótesis para razón de varianzas",PENDING,25
+515,15,"Prueba de independencia y Homogeneidad",PENDING,25
+516,16,"Examen Sustitutorio",PENDING,25
+517,16,"Regresión Lineal simple",PENDING,25
+518,17,"Tercer Examen",PENDING,25
+519,17,"Análisis de varianza de un factor",PENDING,25
+520,1,"Technical English Vocabulary Building",PENDING,19
+521,2,"Professional Communication Skills",PENDING,19
+522,3,"Technical Documentation Reading",PENDING,19
+523,4,"Writing Technical Reports",PENDING,19
+524,5,"Presentation Skills in Technical Context",PENDING,19
+525,6,"Primer Examen",PENDING,19
+526,7,"Listening Comprehension in Technical Settings",PENDING,19
+527,8,"Technical Meetings and Discussions",PENDING,19
+528,9,"Email and Correspondence in Professional Context",PENDING,19
+529,10,"Technical Project Descriptions",PENDING,19
+530,11,"Segundo Examen",PENDING,19
+531,12,"Software Documentation Analysis",PENDING,19
+532,13,"IT Industry Terminology",PENDING,19
+533,14,"Research Paper Reading and Analysis",PENDING,19
+534,15,"Technical Interview Preparation",PENDING,19
+535,16,"Examen Sustitutorio",PENDING,19
+536,17,"Tercer Examen",PENDING,19
+537,1,"Introducción: Prueba de Entrada",PENDING,27
+538,1,"Instrucciones SQL Avanzadas",PENDING,27
+539,2,"Sistema de Almacenamiento Físico",PENDING,27
+540,3,"Estructura de Almacenamiento de datos",PENDING,27
+541,4,"Buffer Pool Manager",PENDING,27
+542,5,"Tablas Hash",PENDING,27
+543,6,"Primer Examen",PENDING,27
+544,7,"Trees",PENDING,27
+545,8,"Control de Concurrencia",PENDING,27
+546,9,"Ordenamiento y Agregaciones",PENDING,27
+547,10,"Algoritmos de Unión",PENDING,27
+548,11,"Planificación de consultas y Optimización",PENDING,27
+549,11,"Consultas anidadas, costo del modelo",PENDING,27
+550,12,"Segundo Examen",PENDING,27
+551,13,"Tipos de bloqueos, Bloqueo de dos fases, Detección de Deadlock",PENDING,27
+552,14,"Transacciones",PENDING,27
+553,14,"Sistemas Recuperación, clasificación de fallos",PENDING,27
+554,15,"Arquitectura, Diseño, Esquemas de Partición, Control de concurrencia",PENDING,27
+555,16,"Examen Sustitutorio",PENDING,27
+556,16,"Bases de Datos Distribuidas",PENDING,27
+557,17,"Tercer Examen",PENDING,27
+558,1,"Motivación: Importancia de los Algoritmos en la solución de problemas, Reglas del curso",PENDING,28
+559,2,"Examen de Entrada",PENDING,28
+560,3,"Análisis asintótico y notación",PENDING,28
+561,4,"Comparación de la tendencia de las funciones",PENDING,28
+562,5,"Definición formal y demostración de propiedades de la notación asintótica",PENDING,28
+563,6,"Análisis del mejor, peor y caso promedio: insertion sort, merge sort",PENDING,28
+564,7,"Técnicas de solución de recurrencias: árbol de recursión, inducción matemática, funciones generatrices, el teorema maestro",PENDING,28
+565,8,"Primer Examen",PENDING,28
+566,8,"Incidencia de factores externos y la implementación de algoritmos",PENDING,28
+567,9,"Algoritmos de fuerza bruta",PENDING,28
+568,10,"Divide y vencerás: Strassen, Fibonacci, Multiplicación polinomial, Quicksort",PENDING,28
+569,11,"Algoritmos avaros: Minimum Spanning Trees",PENDING,28
+570,12,"Segundo Examen",PENDING,28
+571,12,"Programación dinámica: la subsecuencia común más larga",PENDING,28
+572,13,"La ruta más corta: Dijkstra, Floyd, Bellman-Ford, programación lineal, Floyd-Warshall, Johnson",PENDING,28
+573,14,"Backtracking, Heurísticas",PENDING,28
+574,15,"Definición formal de las clases P y NP, NP completitud (Teorema de Cook)",PENDING,28
+575,16,"Examen Sustitutorio",PENDING,28
+576,16,"Problemas NP-completos y demostraciones",PENDING,28
+577,17,"Tercer Examen",PENDING,28
+578,1,"Espacios de Probabilidad y Reglas de Probabilidad",PENDING,31
+579,2,"Probabilidad Condicional y Teorema de Bayes",PENDING,31
+580,3,"Función de distribución y tipos de variables aleatorias",PENDING,31
+581,3,"Distribuciones discretas",PENDING,31
+582,4,"Distribuciones continuas",PENDING,31
+583,5,"Distribución conjunta y distribución marginal",PENDING,31
+584,5,"Distribución condicional",PENDING,31
+585,6,"Esperanza y matriz de covarianza de un vector aleatorio",PENDING,31
+586,7,"Distribuciones multivariadas discretas y continuas",PENDING,31
+587,8,"Primer Examen",PENDING,31
+588,8,"Tipos de procesos estocásticos",PENDING,31
+589,9,"Procesos estocásticos en tiempo discreto",PENDING,31
+590,9,"Procesos estocásticos en tiempo continuo",PENDING,31
+591,10,"Procesos Estocásticos estacionarios",PENDING,31
+592,11,"Cadenas de Markov en tiempo discreto",PENDING,31
+593,11,"Cadenas de Markov en tiempo continuo",PENDING,31
+594,12,"Segundo Examen",PENDING,31
+595,12,"Cadenas Ocultas de Markov",PENDING,31
+596,12,"Métodos Bootstrap",PENDING,31
+597,13,"Método de Monte Carlo y Cadenas de Markov",PENDING,31
+598,14,"Inferencia bayesiana",PENDING,31
+599,15,"Algoritmos Metrópolis-Hastings, Gibbs Sampler",PENDING,31
+600,16,"Examen Sustitutorio",PENDING,31
+601,16,"Naturaleza de los datos espaciales. Análisis exploratorio de datos. Métodos gráficos",PENDING,31
+602,16,"Análisis de Datos Espaciales de tipo discreto. Procesos Puntuales",PENDING,31
+603,16,"Análisis de Datos Espaciales de tipo continuo. Interpolación espacial",PENDING,31
+604,17,"Tercer Examen",PENDING,31
+605,17,"Análisis de Datos Espaciales agregados o regionales. Entornos y pesos de áreas",PENDING,31
+606,17,"Autocorrelación espacial. Regresión espacial",PENDING,31
+607,1,"Introducción al Trabajo Interdisciplinar II: Definición de objetivos y alcance del proyecto",PENDING,37
+608,2,"Metodologías de trabajo interdisciplinario: integración de conocimientos",PENDING,37
+609,3,"Identificación de problemas complejos desde múltiples perspectivas",PENDING,37
+610,4,"Diseño de soluciones integradoras: enfoque sistémico",PENDING,37
+611,5,"Primer Examen",PENDING,37
+612,6,"Desarrollo de prototipos o modelos conceptuales",PENDING,37
+613,7,"Análisis de viabilidad técnica y económica",PENDING,37
+614,8,"Integración de componentes del proyecto",PENDING,37
+615,9,"Evaluación de impactos sociales y ambientales",PENDING,37
+616,10,"Segundo Examen",PENDING,37
+617,11,"Optimización de soluciones propuestas",PENDING,37
+618,12,"Documentación técnica del proyecto",PENDING,37
+619,13,"Preparación de presentaciones y reportes finales",PENDING,37
+620,14,"Socialización de avances con stakeholders",PENDING,37
+621,15,"Examen Sustitutorio",PENDING,37
+622,16,"Integración final de resultados",PENDING,37
+623,17,"Tercer Examen",PENDING,37
+624,1,"Notación sigma (sumas). Fórmulas de algunas sumas especiales",PENDING,32
+625,1,"Idea intuitiva del cálculo del área de una región plana limitada por la gráfica de una función no negativa en un intervalo acotado",PENDING,32
+626,1,"Partición regular. Sumas de Riemann. La integral definida como límite de una suma de Riemann. Propiedades de la integral definida",PENDING,32
+627,2,"Definiciones de función acotada y continua por tramos (seccionalmente continua). El teorema del valor medio. Interpretación geométrica y demostración. Definición de valor promedio de una función en un intervalo cerrado",PENDING,32
+628,2,"Teoremas fundamentales del cálculo",PENDING,32
+629,2,"Integración por partes para integrales definidas. Demostración de integrales definidas por recurrencia",PENDING,32
+630,3,"Integrales trigonométricas: potencias de seno por coseno, tangente por secante y productos de seno y coseno con ángulos diferentes",PENDING,32
+631,3,"Integración por sustitución trigonométrica",PENDING,32
+632,3,"Aplicación a integrales con potencias fraccionarias. Integración de funciones racionales con el método de fracciones parciales",PENDING,32
+633,4,"Área entre dos curvas en coordenadas cartesianas",PENDING,32
+634,4,"Cálculo de volúmenes de sólidos mediante secciones transversales",PENDING,32
+635,4,"Cálculo de volúmenes de sólidos de revolución: método del disco y del anillo. Método de las cortezas cilíndricas",PENDING,32
+636,5,"Longitud de arco de una curva. Área de la superficie de revolución generada por una curva",PENDING,32
+637,5,"Momentos y centro de masa. Centroide de una región plana",PENDING,32
+638,5,"Teorema de Pappus para hallar el volumen de un sólido de revolución",PENDING,32
+639,6,"Primer Examen",PENDING,32
+640,6,"Coordenadas polares. Relaciones entre coordenadas cartesianas y polares. Ecuaciones polares y ecuaciones equivalentes. Gráfica de ecuaciones coordenadas",PENDING,32
+641,6,"Área de regiones plana y longitud de arco en coordenadas polares",PENDING,32
+642,6,"La fórmula de Taylor con resto de Lagrange. Aproximación de funciones y cálculo aproximado de integrales mediante polinomios de Taylor",PENDING,32
+643,7,"Introducción a las ecuaciones diferenciales ordinarias (EDOs): orden de la EDO, EDO autónoma y problema de valor inicial",PENDING,32
+644,7,"Campos de pendientes. Curva isoclina",PENDING,32
+645,8,"Ecuaciones diferenciales ordinarias separables",PENDING,32
+646,8,"Modelado: crecimiento poblacional y la ecuación diferencial logística",PENDING,32
+647,9,"Circuito eléctrico simple",PENDING,32
+648,9,"Problemas de mezclas",PENDING,32
+649,9,"Numpy y scipy para resolver ecuaciones diferenciales ordinarias",PENDING,32
+650,10,"Segundo Examen",PENDING,32
+651,10,"Definición de EDO lineal de orden n",PENDING,32
+652,10,"Ecuación diferencial lineal homogénea de segundo orden",PENDING,32
+653,11,"Solución de ecuaciones lineales no homogéneas lineales con coeficientes constantes",PENDING,32
+654,11,"Teorema de existencia y unicidad para EDOs de orden n",PENDING,32
+655,12,"El método de reducción de orden. Independencia lineal y wronskiano. Obtención de una solución particular de la ecuación no homogénea",PENDING,32
+656,13,"El método de los coeficientes indeterminados y el de variación de parámetros",PENDING,32
+657,13,"Aplicaciones: movimientos vibratorios de sistemas mecánicos. Movimiento armónico simple",PENDING,32
+658,14,"Movimiento vibratorio con amortiguamiento. El fenómeno de resonancia",PENDING,32
+659,14,"Problemas de circuitos eléctricos y el péndulo simple",PENDING,32
+660,15,"Introducción a PyMOR",PENDING,32
+661,16,"Examen Sustitutorio",PENDING,32
+662,16,"Definición de integrales impropias (en intervalos no acotados y con asíntotas verticales)",PENDING,32
+663,16,"Criterios de convergencia: comparación, paso al límite y convergencia absoluta",PENDING,32
+664,17,"Tercer Examen",PENDING,32
+665,17,"Ejemplos de convergencia de integrales impropias que dependan de un parámetro",PENDING,32
+666,1,"Principios de Ingeniería de Software: Proceso de Software, Reglas de Disciplina, Requisito de Software",PENDING,29
+667,2,"Los Límites del Sistema y el Contexto",PENDING,29
+668,2,"Elicitación de Requisitos",PENDING,29
+669,3,"Especificación de Requisitos: Lenguaje Natural (Casos de Uso, Historias de Usuario, BDD) y Modelos (NFR framework)",PENDING,29
+670,4,"Análisis de Requisitos (Verificación y Validación)",PENDING,29
+671,5,"Gestión de Requisitos, Documento de Especificación de Requisitos y Herramientas",PENDING,29
+672,6,"Primer Examen",PENDING,29
+673,7,"Principios de diseño de software",PENDING,29
+674,7,"Paradigmas de diseño: estructurado, orientado a objetos, aspectos, funciones, servicios",PENDING,29
+675,8,"Modelos estructurales y de comportamiento del diseño orientado a objetos",PENDING,29
+676,9,"Arquitectura de software: Fundamentos y Documentación",PENDING,29
+677,10,"Estilos y patrones de arquitectura: filtros y tuberías, capas, eventos, micro kernel, plugins, micro servicios",PENDING,29
+678,11,"Componentes de Software, Bibliotecas, Frameworks y Middlewares",PENDING,29
+679,12,"Segundo Examen",PENDING,29
+680,13,"Estilos de programación y Programación Defensiva",PENDING,29
+681,14,"Mecanismos para construcción de programas de calidad: Normas/Estándares/Estilos/Guias/Convenciones de codificación, Codificación Legible (clean code)",PENDING,29
+682,15,"Estrategias de Integración: top-down, bottom-up, sandwich",PENDING,29
+683,15,"Prácticas de desarrollo de software orientado a objetos: Principios SOLID",PENDING,29
+684,16,"Examen Sustitutorio",PENDING,29
+685,16,"Enfoques de desarrollo de software: Domain-driven Design - DDD, Clean Architecture",PENDING,29
+686,17,"Tercer Examen",PENDING,29
+687,1,"Conocer la visión general de los compiladores",PENDING,30
+688,1,"Definir el análisis léxico, sintáctico y semántico",PENDING,30
+689,2,"Definir la generación de código y la optimización de código",PENDING,30
+690,3,"Comprender el problema del análisis léxico",PENDING,30
+691,3,"Conoce los tokens y funciones de los analizadores",PENDING,30
+692,3,"Describe los diagramas y analizadores de relaciones",PENDING,30
+693,4,"Describe los diagramas y analizadores de relaciones",PENDING,30
+694,4,"Resumir la programación con lex",PENDING,30
+695,5,"Primer Examen",PENDING,30
+696,6,"Comprender los fundamentos del análisis sintáctico",PENDING,30
+697,7,"Explicar las gramáticas de soporte del análisis sintáctico",PENDING,30
+698,8,"Expresar las gramáticas libres del contexto",PENDING,30
+699,9,"Comprender el análisis sintáctico descendente",PENDING,30
+700,10,"Comprender el análisis sintáctico ascendente",PENDING,30
+701,11,"Comprender la verificación estática",PENDING,30
+702,11,"Expresar la gramáticas de atributos",PENDING,30
+703,11,"Expresar la representación intermedia",PENDING,30
+704,12,"Segundo Examen",PENDING,30
+705,13,"Deducir las tablas de símbolos",PENDING,30
+706,13,"Describir la preparación para la generación de código",PENDING,30
+707,14,"Expresar la generación de directivas para tablas",PENDING,30
+708,14,"Expresar la generación de código de árboles",PENDING,30
+709,15,"Explicar las estrategias para la generación de código",PENDING,30
+710,15,"Conocer lo creación, detección, clasificación y recuperación de errores",PENDING,30
+711,16,"Examen Sustitutorio",PENDING,30
+712,16,"Resumir el manejo de errores en el análisis sintáctico",PENDING,30
+713,16,"Resumir los errores semánticos",PENDING,30
+714,17,"Tercer Examen",PENDING,30
+715,17,"Exposición de la Investigación Formativa",PENDING,30
+716,1,"Lineales",PENDING,33
+717,1,"No Lineales",PENDING,33
+718,2,"Estructura de Grafos",PENDING,33
+719,3,"Búsqueda completa",PENDING,33
+720,3,"Divide y vencerás",PENDING,33
+721,4,"Greedy",PENDING,33
+722,4,"Programación dinámica",PENDING,33
+723,5,"Insertion sort, Merge sort, Quicksort",PENDING,33
+724,6,"Primer Examen",PENDING,33
+725,6,"Recorridos: DFS, BFS, Topological sort",PENDING,33
+726,6,"MST: Prim Kruskal",PENDING,33
+727,7,"SSSP: BFS, Dijkstra's, Bellman-Ford",PENDING,33
+728,8,"APSP: Floyd-Warshall, Johnson's Algorithm",PENDING,33
+729,9,"Teoría de números",PENDING,33
+730,10,"Combinatorias",PENDING,33
+731,11,"Segundo Examen",PENDING,33
+732,11,"Probabilidades",PENDING,33
+733,12,"Distancia entre cadenas",PENDING,33
+734,13,"String matching",PENDING,33
+735,14,"Suffix Trie",PENDING,33
+736,15,"Puntos, líneas, círculos",PENDING,33
+737,16,"Examen Sustitutorio",PENDING,33
+738,16,"Convex hull",PENDING,33
+739,17,"Tercer Examen",PENDING,33
+740,1,"Introducción a la Investigación en Ciencias de la Computación",PENDING,39
+741,2,"Métodos de Investigación Científica",PENDING,39
+742,3,"Formulación del Problema de Investigación",PENDING,39
+743,4,"Revisión de Literatura y Estado del Arte",PENDING,39
+744,5,"Diseño de la Investigación",PENDING,39
+745,6,"Primer Examen",PENDING,39
+746,7,"Métodos Experimentales en Ciencias de la Computación",PENDING,39
+747,8,"Recolección y Análisis de Datos",PENDING,39
+748,9,"Herramientas para la Investigación Computacional",PENDING,39
+749,10,"Escritura Científica y Estructura de Artículos",PENDING,39
+750,11,"Segundo Examen",PENDING,39
+751,12,"Ética en la Investigación Computacional",PENDING,39
+752,13,"Evaluación y Revisión por Pares",PENDING,39
+753,14,"Propuestas de Investigación y Financiamiento",PENDING,39
+754,15,"Comunicación y Presentación de Resultados",PENDING,39
+755,16,"Examen Sustitutorio",PENDING,39
+756,17,"Tercer Examen",PENDING,39
+757,1,"Gestión de configuración del software y control de versiones",PENDING,34
+758,2,"Gestión de entregas (release)",PENDING,34
+759,2,"Herramientas de Ingeniería de Requisitos y Diseño de Software",PENDING,34
+760,3,"Herramientas de Pruebas: Depuración, Análisis estático y dinámico",PENDING,34
+761,4,"Entornos que automatizan el proceso de construcción de software: Construcción Automática, Integración continua",PENDING,34
+762,5,"Primer Examen",PENDING,34
+763,6,"Verificación y Validación: Control de Calidad, Inspecciones, Revisiones (Complejidad Ciclomática y Cognitiva), Auditorías y Pruebas",PENDING,34
+764,6,"Fundamentos de pruebas: Proceso (generación, implementación, ejecución y análisis), Técnicas (Estáticas y Dinámicas), Tipos (usabilidad, confiabilidad, seguridad, desempeño y funcionalidad - conforme a la especificación), Niveles (unitarias, integración, validación y de sistema) y Estrategias (Caja blanca y caja negra) de prueba",PENDING,34
+765,7,"Plan de pruebas: Casos de prueba y Métodos de generación de casos de prueba",PENDING,34
+766,8,"Automatización de pruebas: Análisis de Código Fuente, Pruebas de Regresión, Arquitectura de pruebas xUnit, Dobles de Prueba (Test Double: Mocks, Stubs, Spies, Dummies, Fakes)",PENDING,34
+767,9,"Seguimiento de defectos",PENDING,34
+768,10,"Enfoques de desarrollo basado en pruebas: TDD, BDD",PENDING,34
+769,11,"Segundo Examen",PENDING,34
+770,12,"Sistemas Legados: Cambios de software y Preocupaciones (concerns)",PENDING,34
+771,12,"Evolución, Mantenimiento y Reingeniería de Software",PENDING,34
+772,13,"Refactoring",PENDING,34
+773,14,"Migración de Software Legado: De Monolitos a Módulos, Microservicios",PENDING,34
+774,15,"Reutilización de Software: Bibliotecas, Frameworks, Componentes y Patrones de Diseño",PENDING,34
+775,16,"Examen Sustitutorio",PENDING,34
+776,16,"Líneas de Producto de Software",PENDING,34
+777,17,"Tercer Examen",PENDING,34
+778,1,"Introducción a los Sistemas Operativos",PENDING,36
+779,1,"Estructura de un Sistema Operativo",PENDING,36
+780,2,"Concepto y Estados de un Proceso",PENDING,36
+781,2,"Planificador de un Proceso",PENDING,36
+782,3,"Comunicación de Procesos",PENDING,36
+783,3,"Pipes, FIFO, Cola de mensajes",PENDING,36
+784,4,"Concepto de Threads",PENDING,36
+785,4,"Modelo de Threads",PENDING,36
+786,5,"Programación multicore",PENDING,36
+787,6,"Primer Examen",PENDING,36
+788,6,"Planificadores I",PENDING,36
+789,7,"Planificadores II",PENDING,36
+790,7,"El problema de la sección crítica, mutex",PENDING,36
+791,8,"Monitores, semáforos",PENDING,36
+792,9,"Manejo de Memoria",PENDING,36
+793,9,"Memoria Virtual",PENDING,36
+794,10,"Paginación de memoria",PENDING,36
+795,10,"Memoria Caché",PENDING,36
+796,11,"Segundo Examen",PENDING,36
+797,11,"Sistemas de almacenamiento",PENDING,36
+798,12,"Sistemas de entrada y salida",PENDING,36
+799,13,"Métodos de acceso: secuencial, directo, otros",PENDING,36
+800,14,"Estructura de directorios",PENDING,36
+801,15,"Recuperación de archivos",PENDING,36
+802,16,"Examen Sustitutorio",PENDING,36
+803,17,"Tercer Examen",PENDING,36
+804,1,"Introducción a Estructuras de Datos Avanzados",PENDING,35
+805,2,"Árboles Binarios de Búsqueda: Implementación y Operaciones",PENDING,35
+806,3,"Árboles AVL: Balanceo y Rotaciones",PENDING,35
+807,4,"Árboles Rojo-Negro: Propiedades y Operaciones",PENDING,35
+808,5,"Árboles B y B+: Estructura y Aplicaciones en Bases de Datos",PENDING,35
+809,6,"Primer Examen",PENDING,35
+810,7,"Heaps Binarios y Colas de Prioridad",PENDING,35
+811,8,"Heaps Fibonacci: Estructura y Operaciones",PENDING,35
+812,9,"Tablas Hash: Funciones de Hash y Manejo de Colisiones",PENDING,35
+813,10,"Hash Abierto vs Hash Cerrado",PENDING,35
+814,11,"Segundo Examen",PENDING,35
+815,12,"Grafos: Representación y Algoritmos Básicos",PENDING,35
+816,13,"Algoritmos de Caminos Mínimos: Dijkstra y Bellman-Ford",PENDING,35
+817,14,"Algoritmos de Árbol de Expansión Mínima: Prim y Kruskal",PENDING,35
+818,15,"Tries y Árboles de Sufijos",PENDING,35
+819,16,"Examen Sustitutorio",PENDING,35
+820,17,"Tercer Examen",PENDING,35
+821,1,"Clase Inaugural - Lineamientos del curso",PENDING,38
+822,1,"Espacios vectoriales",PENDING,38
+823,2,"Subespacios vectoriales",PENDING,38
+824,3,"Independencia, base y dimensión",PENDING,38
+825,4,"Espacios con producto interno",PENDING,38
+826,4,"Bases ortonormales y proyecciones",PENDING,38
+827,5,"Aproximaciones por mínimos cuadrados",PENDING,38
+828,6,"Primer Examen",PENDING,38
+829,7,"Concepto de transformación lineal",PENDING,38
+830,7,"Imagen y núcleo",PENDING,38
+831,8,"Matriz de una transformación lineal",PENDING,38
+832,8,"Isomorfismos",PENDING,38
+833,9,"Cambio de base",PENDING,38
+834,9,"Autovalores y autovectores",PENDING,38
+835,10,"Matrices semejantes y diagonalización",PENDING,38
+836,10,"Matrices simétricas y diagonalización ortogonal",PENDING,38
+837,10,"La descomposición de valor singular",PENDING,38
+838,11,"Segundo Examen",PENDING,38
+839,12,"Exponencial de una matriz",PENDING,38
+840,13,"Existencia y unicidad de soluciones para sistemas lineales homogéneas con coeficientes constantes",PENDING,38
+841,13,"Sistemas lineales no homogéneas con coeficientes constantes",PENDING,38
+842,14,"Flujo de una ecuación diferencial",PENDING,38
+843,14,"Estabilidad",PENDING,38
+844,15,"Funciones de Liapunov",PENDING,38
+845,16,"Examen Sustitutorio",PENDING,38
+846,16,"Sistemas Gradiente",PENDING,38
+847,17,"Tercer Examen",PENDING,38
+848,1,"Fundamentos y evolución histórica de redes",PENDING,41
+849,1,"Arquitectura de redes",PENDING,41
+850,2,"Arquitectura de internet",PENDING,41
+851,2,"Primera práctica de laboratorio",PENDING,41
+852,2,"Tipos de redes y técnicas de switcheo",PENDING,41
+853,3,"Computación basada en redes",PENDING,41
+854,3,"Protocolos de red",PENDING,41
+855,3,"Segunda práctica de laboratorio",PENDING,41
+856,4,"Modelos de redes",PENDING,41
+857,4,"Tercera práctica de laboratorio",PENDING,41
+858,5,"Estándares de Redes",PENDING,41
+859,5,"Modelo OSI",PENDING,41
+860,5,"Funcionamiento del modelo OSI",PENDING,41
+861,5,"Cuarta práctica de laboratorio",PENDING,41
+862,6,"Primer Examen",PENDING,41
+863,7,"Estándares IEEE",PENDING,41
+864,7,"TCP/IP",PENDING,41
+865,7,"Quinta práctica de laboratorio",PENDING,41
+866,8,"La capa de aplicación, transporte y red TCP/IP",PENDING,41
+867,8,"Sexta práctica de laboratorio",PENDING,41
+868,9,"Control de errores",PENDING,41
+869,9,"Control de flujo",PENDING,41
+870,10,"Pipeline en redes",PENDING,41
+871,10,"Sétima práctica de laboratorio",PENDING,41
+872,11,"Segundo Examen",PENDING,41
+873,12,"Enrutamiento estático",PENDING,41
+874,12,"Enrutamiento dinámico",PENDING,41
+875,12,"Protocolos de enrutamiento",PENDING,41
+876,13,"Octava práctica de laboratorio",PENDING,41
+877,14,"Asignación estática y dinámica de recursos",PENDING,41
+878,14,"Redes de extremo a extremo",PENDING,41
+879,14,"Novena práctica de laboratorio",PENDING,41
+880,15,"Estándares de redes inalámbricas",PENDING,41
+881,15,"Redes celulares y satelitales",PENDING,41
+882,16,"Examen Sustitutorio",PENDING,41
+883,17,"Tercer Examen",PENDING,41
+884,1,"Introducción al Curso de Inteligencia Artificial",PENDING,44
+885,2,"Fundamentos e Historia de la Inteligencia Artificial",PENDING,44
+886,3,"Agentes Inteligentes",PENDING,44
+887,4,"Estrategias de Búsqueda",PENDING,44
+888,5,"Búsqueda Informada",PENDING,44
+889,6,"Búsqueda No Informada",PENDING,44
+890,7,"Primer Examen",PENDING,44
+891,8,"Algoritmos de Aprendizaje de Máquina para Agrupamiento 1",PENDING,44
+892,9,"Algoritmos de Aprendizaje de Máquina para Agrupamiento 2",PENDING,44
+893,10,"Algoritmos de Aprendizaje de Máquina para Clasificación 1",PENDING,44
+894,11,"Algoritmos de Aprendizaje de Máquina para Clasificación 2",PENDING,44
+895,12,"Segundo Examen",PENDING,44
+896,13,"Representación del Conocimiento",PENDING,44
+897,14,"Desarrollo de aplicaciones de Inteligencia Artificial",PENDING,44
+898,15,"Aprendizaje Profundo",PENDING,44
+899,16,"Examen Sustitutorio",PENDING,44
+900,17,"Tercer Examen",PENDING,44
+901,1,"Introducción al Desarrollo de Software Empresarial",PENDING,40
+902,2,"Arquitecturas Empresariales y Patrones de Diseño",PENDING,40
+903,3,"Desarrollo de Aplicaciones Web Empresariales",PENDING,40
+904,4,"Frameworks para Desarrollo Empresarial",PENDING,40
+905,5,"Bases de Datos en Entornos Empresariales",PENDING,40
+906,6,"Primer Examen",PENDING,40
+907,7,"Integración de Sistemas Empresariales",PENDING,40
+908,8,"Servicios Web y APIs REST",PENDING,40
+909,9,"Seguridad en Aplicaciones Empresariales",PENDING,40
+910,10,"Escalabilidad y Performance en Sistemas Empresariales",PENDING,40
+911,11,"Segundo Examen",PENDING,40
+912,12,"Testing y Calidad en Software Empresarial",PENDING,40
+913,13,"DevOps y CI/CD en Entornos Empresariales",PENDING,40
+914,14,"Monitoreo y Logging en Sistemas Empresariales",PENDING,40
+915,15,"Casos de Estudio y Mejores Prácticas",PENDING,40
+916,16,"Examen Sustitutorio",PENDING,40
+917,17,"Tercer Examen",PENDING,40
+918,1,"Introducción a Ingeniería de Software III",PENDING,42
+919,2,"Gestión de Proyectos de Software Avanzada",PENDING,42
+920,3,"Arquitecturas de Software Empresarial",PENDING,42
+921,4,"Patrones de Arquitectura Empresarial",PENDING,42
+922,5,"Calidad de Software y Métricas Avanzadas",PENDING,42
+923,6,"Primer Examen",PENDING,42
+924,7,"Gestión de Configuración y Control de Versiones Avanzado",PENDING,42
+925,8,"Integración Continua y Entrega Continua (CI/CD)",PENDING,42
+926,9,"DevOps y Automatización de Procesos",PENDING,42
+927,10,"Arquitecturas de Microservicios",PENDING,42
+928,11,"Segundo Examen",PENDING,42
+929,12,"Gestión de Requerimientos en Proyectos Complejos",PENDING,42
+930,13,"Arquitecturas Orientadas a Eventos",PENDING,42
+931,14,"Prácticas de Codificación Avanzadas",PENDING,42
+932,15,"Gestión de Equipos de Desarrollo",PENDING,42
+933,16,"Examen Sustitutorio",PENDING,42
+934,17,"Tercer Examen",PENDING,42
+935,1,"Introducción a la Computación Gráfica",PENDING,43
+936,2,"Sistemas de Coordenadas y Transformaciones Geométricas",PENDING,43
+937,3,"Transformaciones Afines y Homogéneas",PENDING,43
+938,4,"Proyecciones y Visualización 3D",PENDING,43
+939,5,"Algoritmos de Rasterización",PENDING,43
+940,6,"Primer Examen",PENDING,43
+941,7,"Modelado de Superficies y Curvas",PENDING,43
+942,8,"Iluminación y Sombreo",PENDING,43
+943,9,"Texturizado y Mapeado",PENDING,43
+944,10,"Animación por Computadora",PENDING,43
+945,11,"Segundo Examen",PENDING,43
+946,12,"Gráficos por Computadora en Tiempo Real",PENDING,43
+947,13,"Técnicas de Renderizado Avanzado",PENDING,43
+948,14,"Procesamiento de Imágenes y Visión por Computadora",PENDING,43
+949,15,"Aplicaciones de Computación Gráfica",PENDING,43
+950,16,"Examen Sustitutorio",PENDING,43
+951,17,"Tercer Examen",PENDING,43
+952,1,"Introducción a la Interacción Humano-Computador",PENDING,45
+953,2,"Principios de Diseño de Interfaces de Usuario",PENDING,45
+954,3,"Psicología Cognitiva en IHC",PENDING,45
+955,4,"Metodologías de Diseño Centrado en el Usuario",PENDING,45
+956,5,"Prototipado y Evaluación de Interfaces",PENDING,45
+957,6,"Primer Examen",PENDING,45
+958,7,"Diseño de Interacción y Experiencia de Usuario",PENDING,45
+959,8,"Accesibilidad y Diseño Inclusivo",PENDING,45
+960,9,"Interfaces para Dispositivos Móviles",PENDING,45
+961,10,"Evaluación Heurística y Test de Usabilidad",PENDING,45
+962,11,"Segundo Examen",PENDING,45
+963,12,"Diseño de Interfaces para Realidad Virtual y Aumentada",PENDING,45
+964,13,"Interfaces Conversacionales y Voz",PENDING,45
+965,14,"Diseño Emocional y Persuasivo",PENDING,45
+966,15,"Tendencias Futuras en IHC",PENDING,45
+967,16,"Examen Sustitutorio",PENDING,45
+968,17,"Tercer Examen",PENDING,45
+969,1,"Introducción al Proyecto de Final de Carrera I",PENDING,46
+970,2,"Definición del Problema y Alcance del Proyecto",PENDING,46
+971,3,"Revisión de Literatura y Estado del Arte",PENDING,46
+972,4,"Metodología de Investigación y Desarrollo",PENDING,46
+973,5,"Planificación del Proyecto y Cronograma",PENDING,46
+974,6,"Primer Examen",PENDING,46
+975,7,"Diseño de la Solución y Arquitectura del Sistema",PENDING,46
+976,8,"Selección de Tecnologías y Herramientas",PENDING,46
+977,9,"Desarrollo del Prototipo Inicial",PENDING,46
+978,10,"Pruebas y Validación del Prototipo",PENDING,46
+979,11,"Segundo Examen",PENDING,46
+980,12,"Documentación del Proyecto",PENDING,46
+981,13,"Avance del Desarrollo y Implementación",PENDING,46
+982,14,"Evaluación de Resultados Parciales",PENDING,46
+983,15,"Preparación de la Presentación del Avance",PENDING,46
+984,16,"Examen Sustitutorio",PENDING,46
+985,17,"Tercer Examen",PENDING,46
+986,1,"Introducción a la Computación Paralela y Distribuida",PENDING,47
+987,2,"Arquitecturas de Sistemas Paralelos",PENDING,47
+988,3,"Modelos de Programación Paralela",PENDING,47
+989,4,"Programación con MPI (Message Passing Interface)",PENDING,47
+990,5,"Programación con OpenMP",PENDING,47
+991,6,"Primer Examen",PENDING,47
+992,7,"Sistemas Distribuidos: Conceptos y Arquitecturas",PENDING,47
+993,8,"Comunicación en Sistemas Distribuidos",PENDING,47
+994,9,"Sincronización y Coordinación Distribuida",PENDING,47
+995,10,"Tolerancia a Fallos en Sistemas Distribuidos",PENDING,47
+996,11,"Segundo Examen",PENDING,47
+997,12,"Computación en Cluster y Grid",PENDING,47
+998,13,"Computación en la Nube y Virtualización",PENDING,47
+999,14,"Algoritmos Paralelos y Distribuidos",PENDING,47
+1000,15,"Aplicaciones de Computación Paralela y Distribuida",PENDING,47
+1001,16,"Examen Sustitutorio",PENDING,47
+1002,17,"Tercer Examen",PENDING,47
