@@ -998,3 +998,360 @@ topicId,week,topicName,state,courseId
 1000,15,"Aplicaciones de Computación Paralela y Distribuida",PENDING,47
 1001,16,"Examen Sustitutorio",PENDING,47
 1002,17,"Tercer Examen",PENDING,47
+1003,1,"Introducción a la Seguridad en Computación",PENDING,48
+1004,2,"Fundamentos de Criptografía",PENDING,48
+1005,3,"Algoritmos Criptográficos Simétricos",PENDING,48
+1006,4,"Algoritmos Criptográficos Asimétricos",PENDING,48
+1007,5,"Protocolos de Seguridad y Autenticación",PENDING,48
+1008,6,"Primer Examen",PENDING,48
+1009,7,"Seguridad en Redes y Comunicaciones",PENDING,48
+1010,8,"Firewalls y Sistemas de Detección de Intrusos",PENDING,48
+1011,9,"Seguridad en Aplicaciones Web",PENDING,48
+1012,10,"Vulnerabilidades y Ataques Comunes",PENDING,48
+1013,11,"Segundo Examen",PENDING,48
+1014,12,"Seguridad en Sistemas Operativos",PENDING,48
+1015,13,"Gestión de Identidades y Accesos",PENDING,48
+1016,14,"Forensic Digital y Análisis de Incidentes",PENDING,48
+1017,15,"Políticas de Seguridad y Cumplimiento Normativo",PENDING,48
+1018,16,"Examen Sustitutorio",PENDING,48
+1019,17,"Tercer Examen",PENDING,48
+1020,1,"Introducción a la Formación de Empresas de Base Tecnológica",PENDING,49
+1021,2,"Identificación de Oportunidades de Negocio Tecnológico",PENDING,49
+1022,3,"Modelos de Negocio para Empresas Tecnológicas",PENDING,49
+1023,4,"Lean Startup y Validación de Ideas",PENDING,49
+1024,5,"Propuesta de Valor y Diferenciación Competitiva",PENDING,49
+1025,6,"Primer Examen",PENDING,49
+1026,7,"Plan de Negocios para Empresas Tecnológicas",PENDING,49
+1027,8,"Análisis de Mercado y Competencia",PENDING,49
+1028,9,"Estrategias de Marketing Digital para Empresas Tech",PENDING,49
+1029,10,"Finanzas para Startups Tecnológicas",PENDING,49
+1030,11,"Segundo Examen",PENDING,49
+1031,12,"Propiedad Intelectual y Protección de Activos Tecnológicos",PENDING,49
+1032,13,"Fuentes de Financiamiento para Startups",PENDING,49
+1033,14,"Pitch y Presentación de Proyectos Tecnológicos",PENDING,49
+1034,15,"Casos de Estudio de Empresas Tecnológicas Exitosas",PENDING,49
+1035,16,"Examen Sustitutorio",PENDING,49
+1036,17,"Tercer Examen",PENDING,49
+1037,1,"Introducción a las Relaciones Humanas",PENDING,50
+1038,2,"Comunicación Efectiva en el Ámbito Profesional",PENDING,50
+1039,3,"Inteligencia Emocional en el Trabajo",PENDING,50
+1040,4,"Resolución de Conflictos y Negociación",PENDING,50
+1041,5,"Trabajo en Equipo y Liderazgo",PENDING,50
+1042,6,"Primer Examen",PENDING,50
+1043,7,"Diversidad e Inclusión en el Entorno Laboral",PENDING,50
+1044,8,"Ética Profesional y Valores Organizacionales",PENDING,50
+1045,9,"Gestión del Estrés y Bienestar Laboral",PENDING,50
+1046,10,"Networking y Relaciones Profesionales",PENDING,50
+1047,11,"Segundo Examen",PENDING,50
+1048,12,"Cultura Organizacional y Clima Laboral",PENDING,50
+1049,13,"Habilidades de Presentación y Oratoria",PENDING,50
+1050,14,"Gestión del Tiempo y Productividad",PENDING,50
+1051,15,"Desarrollo Profesional y Plan de Carrera",PENDING,50
+1052,16,"Examen Sustitutorio",PENDING,50
+1053,17,"Tercer Examen",PENDING,50
+1054,1,"Introducción a la Física Computacional",PENDING,51
+1055,2,"Métodos Numéricos en Física",PENDING,51
+1056,3,"Simulación de Sistemas Mecánicos",PENDING,51
+1057,4,"Algoritmos para Problemas de Campos Electromagnéticos",PENDING,51
+1058,5,"Métodos de Monte Carlo en Física",PENDING,51
+1059,6,"Primer Examen",PENDING,51
+1060,7,"Simulación de Sistemas Térmicos y Termodinámicos",PENDING,51
+1061,8,"Mecánica Cuántica Computacional",PENDING,51
+1062,9,"Dinámica de Fluidos Computacional",PENDING,51
+1063,10,"Procesamiento de Datos Experimentales",PENDING,51
+1064,11,"Segundo Examen",PENDING,51
+1065,12,"Simulación de Sistemas No Lineales y Caóticos",PENDING,51
+1066,13,"Física Estadística Computacional",PENDING,51
+1067,14,"Visualización Científica y Análisis de Resultados",PENDING,51
+1068,15,"Aplicaciones de Física Computacional en Investigación",PENDING,51
+1069,16,"Examen Sustitutorio",PENDING,51
+1070,17,"Tercer Examen",PENDING,51
+1071,1,"Introducción a Tópicos Avanzados en Ingeniería de Software",PENDING,52
+1072,2,"Arquitecturas de Software Emergentes",PENDING,52
+1073,3,"Ingeniería de Software para Sistemas Autónomos",PENDING,52
+1074,4,"DevOps y GitOps Avanzado",PENDING,52
+1075,5,"Arquitecturas Serverless y FaaS",PENDING,52
+1076,6,"Primer Examen",PENDING,52
+1077,7,"Ingeniería de Software para Blockchain",PENDING,52
+1078,8,"Calidad de Software en Sistemas Críticos",PENDING,52
+1079,9,"Ingeniería de Software para IoT",PENDING,52
+1080,10,"Prácticas de Codificación en Entornos de Alta Exigencia",PENDING,52
+1081,11,"Segundo Examen",PENDING,52
+1082,12,"Ingeniería de Software para Realidad Extendida (XR)",PENDING,52
+1083,13,"Automatización de Procesos de Desarrollo",PENDING,52
+1084,14,"Técnicas Avanzadas de Testing",PENDING,52
+1085,15,"Tendencias Futuras en Ingeniería de Software",PENDING,52
+1086,16,"Examen Sustitutorio",PENDING,52
+1087,17,"Tercer Examen",PENDING,52
+1088,1,"Introducción al Proyecto de Final de Carrera II",PENDING,53
+1089,2,"Revisión y Refinamiento del Alcance del Proyecto",PENDING,53
+1090,3,"Diseño Detallado y Especificaciones Técnicas",PENDING,53
+1091,4,"Desarrollo e Implementación del Sistema",PENDING,53
+1092,5,"Pruebas Integrales y Validación del Sistema",PENDING,53
+1093,6,"Primer Examen",PENDING,53
+1094,7,"Optimización y Mejora del Sistema",PENDING,53
+1095,8,"Documentación Técnica Completa",PENDING,53
+1096,9,"Preparación de Casos de Prueba y Demostración",PENDING,53
+1097,10,"Evaluación de Desempeño y Métricas del Sistema",PENDING,53
+1098,11,"Segundo Examen",PENDING,53
+1099,12,"Preparación de la Presentación Final",PENDING,53
+1100,13,"Revisión por Pares y Feedback",PENDING,53
+1101,14,"Ajustes Finales y Pulido del Proyecto",PENDING,53
+1102,15,"Ensayo de la Defensa del Proyecto",PENDING,53
+1103,16,"Examen Sustitutorio",PENDING,53
+1104,17,"Tercer Examen",PENDING,53
+1105,1,"Introducción a Big Data",PENDING,54
+1106,2,"Arquitecturas de Big Data y Ecosistema Hadoop",PENDING,54
+1107,3,"Procesamiento Distribuido con MapReduce",PENDING,54
+1108,4,"Apache Spark para Procesamiento de Datos",PENDING,54
+1109,5,"Almacenamiento en Big Data: HDFS y NoSQL",PENDING,54
+1110,6,"Primer Examen",PENDING,54
+1111,7,"Ingesta de Datos y ETL en Big Data",PENDING,54
+1112,8,"Procesamiento de Datos en Tiempo Real con Kafka",PENDING,54
+1113,9,"Análisis Exploratorio de Datos a Gran Escala",PENDING,54
+1114,10,"Machine Learning en Entornos de Big Data",PENDING,54
+1115,11,"Segundo Examen",PENDING,54
+1116,12,"Visualización de Datos a Gran Escala",PENDING,54
+1117,13,"Governanza y Calidad de Datos en Big Data",PENDING,54
+1118,14,"Seguridad y Privacidad en Big Data",PENDING,54
+1119,15,"Casos de Estudio y Aplicaciones de Big Data",PENDING,54
+1120,16,"Examen Sustitutorio",PENDING,54
+1121,17,"Tercer Examen",PENDING,54
+1122,1,"Introducción a la Ética General y Profesional",PENDING,55
+1123,2,"Fundamentos Filosóficos de la Ética",PENDING,55
+1124,3,"Ética en el Ejercicio Profesional",PENDING,55
+1125,4,"Responsabilidad Social Profesional",PENDING,55
+1126,5,"Dilemas Éticos en Ciencia de la Computación",PENDING,55
+1127,6,"Primer Examen",PENDING,55
+1128,7,"Ética en el Desarrollo de Software y Sistemas",PENDING,55
+1129,8,"Privacidad y Protección de Datos",PENDING,55
+1130,9,"Propiedad Intelectual y Derechos de Autor",PENDING,55
+1131,10,"Ética en Inteligencia Artificial y Algoritmos",PENDING,55
+1132,11,"Segundo Examen",PENDING,55
+1133,12,"Ciberseguridad y Ética del Hacking",PENDING,55
+1134,13,"Ética en la Investigación Científica",PENDING,55
+1135,14,"Códigos de Conducta Profesional",PENDING,55
+1136,15,"Desarrollo del Carácter Profesional",PENDING,55
+1137,16,"Examen Sustitutorio",PENDING,55
+1138,17,"Tercer Examen",PENDING,55
+1139,1,"Avance en Formación de Empresas de Base Tecnológica II",PENDING,56
+1140,2,"Desarrollo del Modelo de Negocio Canvas",PENDING,56
+1141,3,"Estrategias de Crecimiento y Escalabilidad",PENDING,56
+1142,4,"Plan Financiero y Proyecciones de Negocio",PENDING,56
+1143,5,"Fuentes de Financiamiento y Captación de Inversión",PENDING,56
+1144,6,"Primer Examen",PENDING,56
+1145,7,"Constitución Legal de Empresas Tecnológicas",PENDING,56
+1146,8,"Gestión de Equipos en Startups Tecnológicas",PENDING,56
+1147,9,"Estrategias de Salida y Sustentabilidad",PENDING,56
+1148,10,"Pitch de Inversión y Presentación a Inversionistas",PENDING,56
+1149,11,"Segundo Examen",PENDING,56
+1150,12,"Métricas y KPIs para Startups Tecnológicas",PENDING,56
+1151,13,"Casos de Éxito y Fracaso en Empresas Tech",PENDING,56
+1152,14,"Networking y Ecosistema Emprendedor",PENDING,56
+1153,15,"Plan de Implementación y Lanzamiento",PENDING,56
+1154,16,"Examen Sustitutorio",PENDING,56
+1155,17,"Tercer Examen",PENDING,56
+1156,1,"Advanced Technical English Communication Skills",PENDING,57
+1157,2,"Technical Writing for Professional Documentation",PENDING,57
+1158,3,"Presentation Skills for Technical Audiences",PENDING,57
+1159,4,"Negotiation and Meeting Skills in Technical Contexts",PENDING,57
+1160,5,"Cross-cultural Communication in Global Tech Teams",PENDING,57
+1161,6,"Primer Examen",PENDING,57
+1162,7,"Technical Report Writing and Documentation",PENDING,57
+1163,8,"Professional Email and Correspondence in English",PENDING,57
+1164,9,"Technical Vocabulary for Specialized Computing Fields",PENDING,57
+1165,10,"Interview Skills and Career Development in English",PENDING,57
+1166,11,"Segundo Examen",PENDING,57
+1167,12,"Academic Writing for Research Publications",PENDING,57
+1168,13,"Project Management Communication in English",PENDING,57
+1169,14,"Technical Discussions and Debates",PENDING,57
+1170,15,"Professional Networking and Conference Participation",PENDING,57
+1171,16,"Examen Sustitutorio",PENDING,57
+1172,17,"Tercer Examen",PENDING,57
+1173,1,"Introducción a Tópicos Avanzados en Ciencia de Datos",PENDING,58
+1174,2,"Procesamiento de Datos a Gran Escala",PENDING,58
+1175,3,"Machine Learning Avanzado y Ensemble Methods",PENDING,58
+1176,4,"Deep Learning para Ciencia de Datos",PENDING,58
+1177,5,"Procesamiento de Lenguaje Natural",PENDING,58
+1178,6,"Primer Examen",PENDING,58
+1179,7,"Computer Vision y Procesamiento de Imágenes",PENDING,58
+1180,8,"Sistemas de Recomendación Avanzados",PENDING,58
+1181,9,"Análisis de Series de Tiempo Complejas",PENDING,58
+1182,10,"Graph Analytics y Redes Complejas",PENDING,58
+1183,11,"Segundo Examen",PENDING,58
+1184,12,"Explainable AI y Interpretabilidad de Modelos",PENDING,58
+1185,13,"DataOps y MLOps",PENDING,58
+1186,14,"Ciencia de Datos en Cloud Computing",PENDING,58
+1187,15,"Ética y Gobernanza en Ciencia de Datos",PENDING,58
+1188,16,"Examen Sustitutorio",PENDING,58
+1189,17,"Tercer Examen",PENDING,58
+1190,1,"Introducción a Tópicos Avanzados en Inteligencia Artificial",PENDING,59
+1191,2,"Redes Neuronales Profundas y Arquitecturas Avanzadas",PENDING,59
+1192,3,"Aprendizaje por Refuerzo Profundo",PENDING,59
+1193,4,"Procesamiento de Lenguaje Natural con Transformers",PENDING,59
+1194,5,"Computer Vision Avanzada y Detección de Objetos",PENDING,59
+1195,6,"Primer Examen",PENDING,59
+1196,7,"Generative Adversarial Networks (GANs)",PENDING,59
+1197,8,"Autoencoders Variacionales y Modelos Generativos",PENDING,59
+1198,9,"Transfer Learning y Fine-tuning",PENDING,59
+1199,10,"AI Explainability y Model Interpretability",PENDING,59
+1200,11,"Segundo Examen",PENDING,59
+1201,12,"AI Ethics y Responsible AI",PENDING,59
+1202,13,"Multi-agent Systems y AI Distribuida",PENDING,59
+1203,14,"AI for Robotics y Control Autónomo",PENDING,59
+1204,15,"Edge AI y AI en Dispositivos Móviles",PENDING,59
+1205,16,"Examen Sustitutorio",PENDING,59
+1206,17,"Tercer Examen",PENDING,59
+1207,1,"Introducción a Tópicos Avanzados en Computación Gráfica",PENDING,60
+1208,2,"Renderizado Fotorrealista y Global Illumination",PENDING,60
+1209,3,"Técnicas Avanzadas de Sombreo y Texturizado",PENDING,60
+1210,4,"Animación por Computadora Avanzada",PENDING,60
+1211,5,"Simulación Física en Tiempo Real",PENDING,60
+1212,6,"Primer Examen",PENDING,60
+1213,7,"Realidad Virtual y Aumentada Avanzada",PENDING,60
+1214,8,"Gráficos 3D Interactivos y WebGL",PENDING,60
+1215,9,"Procesamiento de Imágenes Computacionales",PENDING,60
+1216,10,"Visualización Científica y de Información",PENDING,60
+1217,11,"Segundo Examen",PENDING,60
+1218,12,"Computación Gráfica en GPU y Shaders Avanzados",PENDING,60
+1219,13,"Geometría Computacional Avanzada",PENDING,60
+1220,14,"Renderizado en Tiempo Real para Videojuegos",PENDING,60
+1221,15,"Técnicas Emergentes en Computación Gráfica",PENDING,60
+1222,16,"Examen Sustitutorio",PENDING,60
+1223,17,"Tercer Examen",PENDING,60
+1224,1,"Introducción a la Bioinformática",PENDING,61
+1225,2,"Algoritmos para Alineamiento de Secuencias",PENDING,61
+1226,3,"Análisis de Genomas y Ensamblaje",PENDING,61
+1227,4,"Análisis Filogenético y Evolución Molecular",PENDING,61
+1228,5,"Predicción de Estructuras de Proteínas",PENDING,61
+1229,6,"Primer Examen",PENDING,61
+1230,7,"Análisis de Expresión Génica",PENDING,61
+1231,8,"Biología de Sistemas y Redes Biológicas",PENDING,61
+1232,9,"Minería de Datos Biológicos",PENDING,61
+1233,10,"Farmacogenómica y Medicina Personalizada",PENDING,61
+1234,11,"Segundo Examen",PENDING,61
+1235,12,"Visualización de Datos Biológicos",PENDING,61
+1236,13,"Bioinformática Estructural",PENDING,61
+1237,14,"Metagenómica y Análisis de Microbiomas",PENDING,61
+1238,15,"Herramientas y Bases de Datos en Bioinformática",PENDING,61
+1239,16,"Examen Sustitutorio",PENDING,61
+1240,17,"Tercer Examen",PENDING,61
+1241,1,"Introducción a Cloud Computing",PENDING,62
+1242,2,"Modelos de Servicio en la Nube: IaaS, PaaS, SaaS",PENDING,62
+1243,3,"Virtualización y Contenedores",PENDING,62
+1244,4,"Plataformas de Cloud Público: AWS, Azure, GCP",PENDING,62
+1245,5,"Almacenamiento en la Nube",PENDING,62
+1246,6,"Primer Examen",PENDING,62
+1247,7,"Computación en la Nube y Autoescalado",PENDING,62
+1248,8,"Redes y Seguridad en Cloud Computing",PENDING,62
+1249,9,"Bases de Datos en la Nube",PENDING,62
+1250,10,"Serverless Computing y FaaS",PENDING,62
+1251,11,"Segundo Examen",PENDING,62
+1252,12,"Gestión y Monitoreo de Recursos en la Nube",PENDING,62
+1253,13,"Migración de Aplicaciones a la Nube",PENDING,62
+1254,14,"Cloud Híbrido y Multicloud",PENDING,62
+1255,15,"Casos de Estudio y Mejores Prácticas",PENDING,62
+1256,16,"Examen Sustitutorio",PENDING,62
+1257,17,"Tercer Examen",PENDING,62
+1258,1,"Avance del Proyecto de Final de Carrera III",PENDING,63
+1259,2,"Revisión Integral del Sistema Desarrollado",PENDING,63
+1260,3,"Pruebas de Integración y Validación Final",PENDING,63
+1261,4,"Optimización de Rendimiento y Escalabilidad",PENDING,63
+1262,5,"Documentación Técnica Completa",PENDING,63
+1263,6,"Primer Examen",PENDING,63
+1264,7,"Preparación de la Demostración del Sistema",PENDING,63
+1265,8,"Elaboración de la Memoria del Proyecto",PENDING,63
+1266,9,"Preparación de la Presentación Final",PENDING,63
+1267,10,"Ensayo de la Defensa del Proyecto",PENDING,63
+1268,11,"Segundo Examen",PENDING,63
+1269,12,"Revisión por Pares y Correcciones Finales",PENDING,63
+1270,13,"Entrega Final del Proyecto",PENDING,63
+1271,14,"Preparación para la Sustentación",PENDING,63
+1272,15,"Evaluación Final del Proyecto",PENDING,63
+1273,16,"Examen Sustitutorio",PENDING,63
+1274,17,"Tercer Examen",PENDING,63
+1275,1,"Introducción al Trabajo Interdisciplinar III",PENDING,64
+1276,2,"Definición de Proyectos Interdisciplinares Complejos",PENDING,64
+1277,3,"Metodologías de Integración Interdisciplinar",PENDING,64
+1278,4,"Gestión de Equipos Multidisciplinares",PENDING,64
+1279,5,"Comunicación Efectiva entre Disciplinas",PENDING,64
+1280,6,"Primer Examen",PENDING,64
+1281,7,"Desarrollo de Soluciones Integradas",PENDING,64
+1282,8,"Evaluación de Impacto Interdisciplinar",PENDING,64
+1283,9,"Presentación de Avances Interdisciplinares",PENDING,64
+1284,10,"Integración de Resultados y Hallazgos",PENDING,64
+1285,11,"Segundo Examen",PENDING,64
+1286,12,"Documentación de Procesos Interdisciplinares",PENDING,64
+1287,13,"Análisis de Casos de Éxito Interdisciplinares",PENDING,64
+1288,14,"Preparación de Informe Final Interdisciplinar",PENDING,64
+1289,15,"Presentación de Resultados Integrados",PENDING,64
+1290,16,"Examen Sustitutorio",PENDING,64
+1291,17,"Tercer Examen",PENDING,64
+1292,1,"Introducción al Internet de las Cosas (IoT)",PENDING,65
+1293,2,"Arquitecturas y Componentes de Sistemas IoT",PENDING,65
+1294,3,"Sensores y Actuadores en IoT",PENDING,65
+1295,4,"Protocolos de Comunicación para IoT",PENDING,65
+1296,5,"Plataformas y Middleware para IoT",PENDING,65
+1297,6,"Primer Examen",PENDING,65
+1298,7,"Desarrollo de Aplicaciones IoT",PENDING,65
+1299,8,"Seguridad y Privacidad en IoT",PENDING,65
+1300,9,"Procesamiento de Datos en Edge Computing",PENDING,65
+1301,10,"Analítica de Datos en Sistemas IoT",PENDING,65
+1302,11,"Segundo Examen",PENDING,65
+1303,12,"IoT Industrial y Aplicaciones Empresariales",PENDING,65
+1304,13,"Wearables y Dispositivos IoT Personales",PENDING,65
+1305,14,"Smart Cities y Aplicaciones Urbanas",PENDING,65
+1306,15,"Tendencias Futuras en IoT",PENDING,65
+1307,16,"Examen Sustitutorio",PENDING,65
+1308,17,"Tercer Examen",PENDING,65
+1309,1,"Introducción a la Robótica",PENDING,66
+1310,2,"Cinemática de Robots",PENDING,66
+1311,3,"Dinámica y Control de Robots",PENDING,66
+1312,4,"Sensores y Percepción en Robótica",PENDING,66
+1313,5,"Planificación de Trayectorias",PENDING,66
+1314,6,"Primer Examen",PENDING,66
+1315,7,"Robótica Móvil y Navegación Autónoma",PENDING,66
+1316,8,"Visión por Computadora para Robótica",PENDING,66
+1317,9,"Aprendizaje por Refuerzo en Robótica",PENDING,66
+1318,10,"Robótica Colaborativa y Human-Robot Interaction",PENDING,66
+1319,11,"Segundo Examen",PENDING,66
+1320,12,"Robótica de Enjambre y Multi-robot Systems",PENDING,66
+1321,13,"Robótica Aérea y Subacuática",PENDING,66
+1322,14,"Robótica Médica y Asistiva",PENDING,66
+1323,15,"Simulación y Herramientas para Robótica",PENDING,66
+1324,16,"Examen Sustitutorio",PENDING,66
+1325,17,"Tercer Examen",PENDING,66
+1326,1,"Introducción a Tópicos Avanzados en Ciberseguridad",PENDING,67
+1327,2,"Criptografía Avanzada y Post-Cuántica",PENDING,67
+1328,3,"Seguridad en Redes y Comunicaciones Avanzada",PENDING,67
+1329,4,"Threat Intelligence y Análisis de Amenazas",PENDING,67
+1330,5,"Pentesting y Ethical Hacking Avanzado",PENDING,67
+1331,6,"Primer Examen",PENDING,67
+1332,7,"Security Operations Center (SOC) y SIEM",PENDING,67
+1333,8,"Forensic Digital Avanzado",PENDING,67
+1334,9,"Cloud Security y Container Security",PENDING,67
+1335,10,"IoT Security y Embedded Systems Security",PENDING,67
+1336,11,"Segundo Examen",PENDING,67
+1337,12,"Zero Trust Architecture y Microsegmentation",PENDING,67
+1338,13,"DevSecOps y Security Automation",PENDING,67
+1339,14,"Red Team vs Blue Team Exercises",PENDING,67
+1340,15,"Ciberseguridad en Sistemas Críticos",PENDING,67
+1341,16,"Examen Sustitutorio",PENDING,67
+1342,17,"Tercer Examen",PENDING,67
+1343,1,"Introducción a las Prácticas Pre Profesionales",PENDING,68
+1344,2,"Preparación del Plan de Prácticas",PENDING,68
+1345,3,"Desarrollo de Habilidades Profesionales",PENDING,68
+1346,4,"Integración al Entorno Laboral",PENDING,68
+1347,5,"Ejecución de Actividades Prácticas",PENDING,68
+1348,6,"Primer Examen",PENDING,68
+1349,7,"Seguimiento y Evaluación de Avances",PENDING,68
+1350,8,"Resolución de Problemas en Contexto Real",PENDING,68
+1351,9,"Desarrollo de Proyectos Prácticos",PENDING,68
+1352,10,"Documentación de Experiencias Prácticas",PENDING,68
+1353,11,"Segundo Examen",PENDING,68
+1354,12,"Análisis de Resultados y Logros",PENDING,68
+1355,13,"Preparación del Informe Final",PENDING,68
+1356,14,"Presentación de Resultados",PENDING,68
+1357,15,"Evaluación Integral de las Prácticas",PENDING,68
+1358,16,"Examen Sustitutorio",PENDING,68
+1359,17,"Tercer Examen",PENDING,68
