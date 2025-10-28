@@ -8,13 +8,14 @@ import { Teacher } from "./entity/Teacher"
 import { Course } from "./entity/Course"
 import { CourseTopic } from "./entity/CourseTopic"
 import { Classroom } from "./entity/Classroom"
+import { Section } from "./entity/Section"
 
 export const AppDataSource = new DataSource({
   type: "sqlite",
   database: "database.sqlite",
   synchronize: true,
   logging: false,
-  entities: [User, Student, Admin, Secretary, Teacher, Course, CourseTopic, Classroom],
+  entities: [User, Student, Admin, Secretary, Teacher, Course, CourseTopic, Classroom, Section],
   migrations: [],
   subscribers: [],
 })
