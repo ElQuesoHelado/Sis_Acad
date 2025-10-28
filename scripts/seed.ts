@@ -10,6 +10,7 @@ import { CourseTopic } from '../src/entity/CourseTopic';
 import { User } from '../src/entity/User';
 import { Admin } from '../src/entity/Admin';
 import { Secretary } from '../src/entity/Secretary';
+import { Classroom } from '../src/entity/Classroom';
 
 const DATA_PATHS = {
   STUDENTS: '../data/students.csv',
@@ -17,7 +18,8 @@ const DATA_PATHS = {
   ADMINS: '../data/admins.csv',
   SECRETARIES: '../data/secretaries.csv',
   COURSES: '../data/courses.csv',
-  COURSE_TOPICS: '../data/course_topics.csv'
+  COURSE_TOPICS: '../data/course_topics.csv',
+  CLASSROOMS: '../data/classrooms.csv'
 };
 
 async function hashPassword(plainTextPassword: string): Promise<string> {
@@ -199,6 +201,25 @@ async function seedCourseTopics(courses: Course[]) {
   console.log(`Seeded ${validTopics.length} course topics.`);
 }
 
+async function seedClassrooms() {
+  console.log('Seeding classrooms...');
+
+  const classroomRepository = AppDataSource.getRepository(Classroom);
+
+  const classrooms = await readCSV(DATA_PATHS.CLASSROOMS, async (row) => {
+    const classroom = new Classroom();
+    classroom.ipAddress = row.ipAddress;
+    classroom.name = row.name;
+    classroom.capacity = row.capacity;
+
+    return classroom;
+  });
+
+  // await courseRepository.clear();
+  await classroomRepository.save(classrooms);
+  console.log(`Seeded ${classrooms.length} classrooms.`);
+}
+
 async function seed() {
   console.log('Starting database seeding...');
 
@@ -209,8 +230,11 @@ async function seed() {
     await seedTeachers();
     await seedAdmins();
     await seedSecretaries();
+
     const courses = await seedCourses();
     await seedCourseTopics(courses);
+
+    await seedClassrooms();
 
     console.log('Database seeding completed successfully!');
   } catch (error) {

@@ -1,10 +1,14 @@
-import { ChildEntity, PrimaryGeneratedColumn, Column, BaseEntity } from "typeorm"
+import { ChildEntity, PrimaryGeneratedColumn, Column, BaseEntity, OneToMany } from "typeorm"
 import { User } from "./User";
+import { Section } from "./Section";
 
 @ChildEntity()
 export class Teacher extends User {
   @Column()
   specialty: string
+
+  @OneToMany(() => Section, section => section.teacher)
+  sections: Section[];
 
   async recordAttendance(
     sectionId: string,
