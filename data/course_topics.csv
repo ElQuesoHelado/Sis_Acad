@@ -1,13 +1,13 @@
 topicId,week,topicName,state,courseId
-1,1,Clase Inaugural: Lineamientos del Curso,PENDING,5
-2,1,Paradigmas de Programación,PENDING,5
-3,1,Evolución de los Lenguajes de Programación,PENDING,5
-4,1,Operaciones Básicas del Computador,PENDING,5
-5,2,Análisis de Resolución de Problemas,PENDING,5
-6,2,Algoritmos,PENDING,5
-7,2,Sintaxis y Semántica de un Lenguaje de Alto Nivel,PENDING,5
-8,3,Estructuras de Control Condicionales,PENDING,5
-9,3,Estructuras de Control Iterativas,PENDING,5
+1,1,"Clase Inaugural: Lineamientos del Curso",PENDING,5
+2,1,"Paradigmas de Programación",PENDING,5
+3,1,"Evolución de los Lenguajes de Programación",PENDING,5
+4,1,"Operaciones Básicas del Computador",PENDING,5
+5,2,"Análisis de Resolución de Problemas",PENDING,5
+6,2,"Algoritmos",PENDING,5
+7,2,"Sintaxis y Semántica de un Lenguaje de Alto Nivel",PENDING,5
+8,3,"Estructuras de Control Condicionales",PENDING,5
+9,3,"Estructuras de Control Iterativas",PENDING,5
 10,4,Estructuras de Control Iterativas (Continuación),PENDING,5
 11,5,Definición de Funciones,PENDING,5
 12,6,Definición de Funciones (Continuación),PENDING,5
@@ -15,7 +15,7 @@ topicId,week,topicName,state,courseId
 14,8,Definición de Procedimientos,PENDING,5
 15,8,Paso de parámetros a Funciones,PENDING,5
 16,9,Técnica de Recursividad,PENDING,5
-17,9,Listas, Pilas y Colas,PENDING,5
+17,9,"Listas, Pilas y Colas",PENDING,5
 18,9,Búsqueda Secuencial y Binaria,PENDING,5
 19,10,Métodos de Ordenación y Búsqueda,PENDING,5
 20,10,Análisis del tiempo de los Algoritmos de Ordenamiento,PENDING,5
@@ -34,11 +34,11 @@ topicId,week,topicName,state,courseId
 33,2,"Universidad Nacional de San Agustín de Arequipa, modelo Educativo, reglamentos y Responsabilidad Social",PENDING,2
 34,3,Inteligencia emocional en la vida universitaria,PENDING,2
 35,4,Taller de inteligencia emocional en la vida universitaria,PENDING,2
-36,5,Habilidades sociales, comunicativas para el aprendizaje,PENDING,2
+36,5,"Habilidades sociales, comunicativas para el aprendizaje",PENDING,2
 37,6,Taller de habilidades sociales y comunicativas para el aprendizaje,PENDING,2
-38,7,El aprendizaje, condiciones básicas y reconocimiento de estrategias propias,PENDING,2
+38,7,"El aprendizaje, condiciones básicas y reconocimiento de estrategias propias",PENDING,2
 39,8,Estrategias de organización de información. Sistema Cornell,PENDING,2
-40,9,Estrategias de organización de información, diagramas y mapas cognitivos,PENDING,2
+40,9,"Estrategias de organización de información, diagramas y mapas cognitivos",PENDING,2
 41,10,Estrategias de organización de información. mapa conceptual,PENDING,2
 42,11,Estrategias de organización de información. Mapas mentales,PENDING,2
 43,12,Estrategias de aplicación de Inteligencia Artificial. Chat GPT.,PENDING,2

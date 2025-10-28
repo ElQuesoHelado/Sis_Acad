@@ -24,7 +24,9 @@
     "start": "ts-node src/index.ts",
     "typeorm": "typeorm-ts-node-commonjs",
     "build": "tsc",
-    "db:seed": "ts-node scripts/seed-students.ts",
-    "db:test": "ts-node scripts/test-db.ts"
+    "db:seed": "ts-node scripts/seed.ts",
+    "db:test": "ts-node scripts/test-db.ts",
+    "db:drop": "npm run typeorm schema:drop -- -d src/data-source.ts && npm run typeorm schema:sync -- -d src/data-source.ts",
+    "db:reset": "npm run db:drop && npm run db:seed"
   }
 }
