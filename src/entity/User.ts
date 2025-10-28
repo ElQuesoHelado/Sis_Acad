@@ -6,7 +6,7 @@ import {
 @Entity()
 @TableInheritance({ column: { type: "varchar", name: "role" } })
 export abstract class User {
-  @PrimaryGeneratedColumn("uuid")
+  @PrimaryGeneratedColumn()
   id: string
 
   @Column()

@@ -10,8 +10,14 @@
 
 Steps to run this project:
 
-1. Run `npm i` command
+1. Run `npm ci` command
 2. Run `npm start` command
+
+## Datos inciales/Seeding
+
+```bash
+npm run-script db:reset
+```
 
 ## API Testing
 
@@ -36,6 +42,7 @@ curl -X POST http://localhost:3000/api/v1/auth/login \
 ```
 
 ### Secretary All Students
+
 ```bash
 curl -X POST http://localhost:3000/api/v1/secretary/students \
 -H "Content-Type: application/json" \

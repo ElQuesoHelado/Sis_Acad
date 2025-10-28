@@ -3,12 +3,15 @@ import path from 'path';
 import { parse } from 'csv-parse';
 import { AppDataSource } from '../src/data-source';
 import { Student } from '../src/entity/Student';
+import { Teacher } from '../src/entity/Teacher';
 import * as bcrypt from 'bcrypt';
 import { Course } from '../src/entity/Course';
 import { CourseTopic } from '../src/entity/CourseTopic';
+import { User } from '../src/entity/User';
 
 const DATA_PATHS = {
   STUDENTS: '../data/students.csv',
+  TEACHERS: '../data/teachers.csv',
   COURSES: '../data/courses.csv',
   COURSE_TOPICS: '../data/course_topics.csv'
 };
@@ -19,14 +22,16 @@ async function hashPassword(plainTextPassword: string): Promise<string> {
   return hashedPassword;
 }
 
-function generateDefaultPassword(student: Student): string {
-  const firstNamePart = student.firstName.split(' ')[0].toLowerCase();
-  const lastNamePart = student.lastName.split(' ')[0].toLowerCase();
-  const cuiPart = student.cui;
-  const defaultPassword = `${firstNamePart}.${lastNamePart}.${cuiPart}`;
+function generateDefaultPassword(user: User): string {
+  const firstNamePart = user.firstName.split(' ')[0].toLowerCase();
+  const lastNamePart = user.lastName.split(' ')[0].toLowerCase();
+  // const cuiPart = student.cui;
+  const defaultPassword = `${firstNamePart}.${lastNamePart}`;
 
   return defaultPassword;
 }
+
+
 
 async function readCSV<T>(filePath: string, mapper: (row: any) => Promise<T> | T): Promise<T[]> {
   const results: Promise<T>[] = []; // Cambiar a array de Promesas
@@ -69,10 +74,34 @@ async function seedStudents() {
     return student;
   });
 
-  await studentRepository.clear();
+  // await studentRepository.clear();
   await studentRepository.save(students);
   console.log(`Seeded ${students.length} students.`);
 }
+
+async function seedTeachers() {
+  console.log('Seeding teachers...');
+
+  const teacherRepository = AppDataSource.getRepository(Teacher);
+  const teachers = await readCSV(DATA_PATHS.TEACHERS, async (row) => {
+    const teacher = new Teacher();
+    teacher.firstName = row.first_name;
+    teacher.lastName = row.last_name;
+    teacher.email = row.email;
+    teacher.specialty = row.specialty;
+
+    const defaultPassword = generateDefaultPassword(teacher);
+    teacher.passwordHash = await hashPassword(defaultPassword);
+    teacher.isActive = false;
+
+    return teacher;
+  });
+
+  // await teacherRepository.clear();
+  await teacherRepository.save(teachers);
+  console.log(`Seeded ${teachers.length} students.`);
+}
+
 
 async function seedCourses() {
   console.log('Seeding courses...');
@@ -87,7 +116,7 @@ async function seedCourses() {
     return course;
   });
 
-  await courseRepository.clear();
+  // await courseRepository.clear();
   await courseRepository.save(courses);
   console.log(`Seeded ${courses.length} courses.`);
 
@@ -119,7 +148,7 @@ async function seedCourseTopics(courses: Course[]) {
 
   const validTopics = topics.filter(topic => topic.course !== undefined);
 
-  await topicRepository.clear();
+  // await topicRepository.clear();
   await topicRepository.save(validTopics);
   console.log(`Seeded ${validTopics.length} course topics.`);
 }
@@ -131,6 +160,7 @@ async function seed() {
 
   try {
     await seedStudents();
+    await seedTeachers();
     const courses = await seedCourses();
     await seedCourseTopics(courses);
 
