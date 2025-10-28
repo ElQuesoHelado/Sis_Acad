@@ -8,10 +8,14 @@ import * as bcrypt from 'bcrypt';
 import { Course } from '../src/entity/Course';
 import { CourseTopic } from '../src/entity/CourseTopic';
 import { User } from '../src/entity/User';
+import { Admin } from '../src/entity/Admin';
+import { Secretary } from '../src/entity/Secretary';
 
 const DATA_PATHS = {
   STUDENTS: '../data/students.csv',
   TEACHERS: '../data/teachers.csv',
+  ADMINS: '../data/admins.csv',
+  SECRETARIES: '../data/secretaries.csv',
   COURSES: '../data/courses.csv',
   COURSE_TOPICS: '../data/course_topics.csv'
 };
@@ -99,7 +103,49 @@ async function seedTeachers() {
 
   // await teacherRepository.clear();
   await teacherRepository.save(teachers);
-  console.log(`Seeded ${teachers.length} students.`);
+  console.log(`Seeded ${teachers.length} teachers.`);
+}
+
+async function seedAdmins() {
+  console.log('Seeding admins...');
+
+  const adminRepository = AppDataSource.getRepository(Admin);
+  const admins = await readCSV(DATA_PATHS.ADMINS, async (row) => {
+    const admin = new Admin();
+    admin.firstName = row.first_name;
+    admin.lastName = row.last_name;
+    admin.email = row.email;
+
+    const defaultPassword = generateDefaultPassword(admin);
+    admin.passwordHash = await hashPassword(defaultPassword);
+    admin.isActive = false;
+
+    return admin;
+  });
+
+  await adminRepository.save(admins);
+  console.log(`Seeded ${admins.length} admins.`);
+}
+
+async function seedSecretaries() {
+  console.log('Seeding secretaries...');
+
+  const secretaryRepository = AppDataSource.getRepository(Secretary);
+  const secretaries = await readCSV(DATA_PATHS.SECRETARIES, async (row) => {
+    const secretary = new Secretary();
+    secretary.firstName = row.first_name;
+    secretary.lastName = row.last_name;
+    secretary.email = row.email;
+
+    const defaultPassword = generateDefaultPassword(secretary);
+    secretary.passwordHash = await hashPassword(defaultPassword);
+    secretary.isActive = false;
+
+    return secretary;
+  });
+
+  await secretaryRepository.save(secretaries);
+  console.log(`Seeded ${secretaries.length} secretaries.`);
 }
 
 
@@ -161,6 +207,8 @@ async function seed() {
   try {
     await seedStudents();
     await seedTeachers();
+    await seedAdmins();
+    await seedSecretaries();
     const courses = await seedCourses();
     await seedCourseTopics(courses);
 
