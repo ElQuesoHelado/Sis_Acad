@@ -1,4 +1,5 @@
 import { Entity, PrimaryColumn, Column, OneToMany } from 'typeorm';
+import { ScheduleSlot } from './ScheduleSlot';
 
 @Entity()
 export class Classroom {
@@ -10,4 +11,8 @@ export class Classroom {
 
   @Column()
   capacity: number;
+
+  @OneToMany(() => ScheduleSlot,
+    scheduleSlot => scheduleSlot.classroomIp)
+  scheduleSlots: ScheduleSlot[];
 }
