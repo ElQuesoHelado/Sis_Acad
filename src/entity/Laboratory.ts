@@ -1,15 +1,12 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToOne, JoinColumn } from 'typeorm';
 import { Teacher } from './Teacher';
 import { Course } from './Course';
-import { Laboratory } from './Laboratory';
+import { Section } from './Section';
 
 @Entity()
-export class Section {
+export class Laboratory {
   @PrimaryGeneratedColumn()
-  id: number;
-
-  @Column()
-  sectionCode: string;
+  labId: number;
 
   @Column()
   group: string;
@@ -22,15 +19,11 @@ export class Section {
   @Column()
   teacherId: number;
 
-  @ManyToOne(() => Course,
-    course => course.sections)
-  @JoinColumn({ name: 'courseId' })
-  course: Course;
+  @ManyToOne(() => Section,
+    section => section.laboratories)
+  @JoinColumn({ name: 'sectionId' })
+  section: Section;
 
   @Column()
-  courseId: number;
-
-  @OneToMany(() => Laboratory,
-    laboratory => laboratory.section)
-  laboratories: Laboratory[];
+  sectionId: number;
 }
