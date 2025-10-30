@@ -12,6 +12,8 @@ import { Admin } from '../src/entity/Admin';
 import { Secretary } from '../src/entity/Secretary';
 import { Classroom } from '../src/entity/Classroom';
 import { ScheduleSlot } from '../src/entity/ScheduleSlot';
+import { Section } from '../src/entity/Section';
+import { Laboratory } from '../src/entity/Laboratory';
 
 const DATA_PATHS = {
   STUDENTS: '../data/students.csv',
@@ -21,7 +23,9 @@ const DATA_PATHS = {
   COURSES: '../data/courses.csv',
   COURSE_TOPICS: '../data/course_topics.csv',
   CLASSROOMS: '../data/classrooms.csv',
-  SCHEDULE_SLOTS: '../data/schedule_slots.csv'
+  SCHEDULE_SLOTS: '../data/schedule_slots.csv',
+  LABORATORIES: '../data/laboratories.csv',
+  SECTION: '../data/sections.csv'
 };
 
 async function hashPassword(plainTextPassword: string): Promise<string> {
@@ -254,45 +258,94 @@ async function seedScheduleSlots(classrooms: Classroom[]) {
     return scheduleSlot;
   });
 
-  const validScheduleSlots = scheduleSlots.filter(topic => topic.classroom !== undefined);
+  const validScheduleSlots = scheduleSlots.filter(slot => slot.classroom !== undefined);
 
   // await topicRepository.clear();
   await scheduleSlotRepository.save(validScheduleSlots);
   console.log(`Seeded ${validScheduleSlots.length} schedule slots.`);
 }
 
-async function seedSection(classrooms: Classroom[]) {
-  console.log('Seeding schedule slots...');
+async function seedSection(teachers: Teacher[], courses: Course[]) {
+  console.log('Seeding sections...');
 
-  const scheduleSlotRepository = AppDataSource.getRepository(ScheduleSlot);
+  const sectionRepository = AppDataSource.getRepository(Section);
 
-  const classroomMap = new Map(classrooms.map(classroom => [classroom.ipAddress, classroom]));
+  const teacherMap = new Map(teachers.map(teacher => [teacher.id, teacher]));
+  const courseMap = new Map(courses.map(course => [course.id, course]));
 
-  const scheduleSlots = await readCSV(DATA_PATHS.SCHEDULE_SLOTS, (row) => {
-    const scheduleSlot = new ScheduleSlot();
-    scheduleSlot.dayOfWeek = row.dayOfWeek;
-    scheduleSlot.startTime = row.startTime;
-    scheduleSlot.endTime = row.endTime;
-    scheduleSlot.slotType = row.slotType;
-    scheduleSlot.ownerId = row.ownerId;
-    scheduleSlot.classroomIp = row.classroomIp;
+  const sections = await readCSV(DATA_PATHS.SECTION, (row) => {
+    const section = new Section();
+    section.sectionCode = row.code;
+    section.group = row.code;
+    section.teacherId = row.teacherId;
+    section.courseId = row.courseId;
 
+    const teacher = teacherMap.get(parseInt(row.teacherId, 10));
+    const course = courseMap.get(parseInt(row.courseId, 10));
 
-    const classroom = classroomMap.get(row.classroomIp);
-    if (classroom) {
-      scheduleSlot.classroom = classroom;
+    if (teacher) {
+      section.teacher = teacher;
     } else {
-      console.warn(`Classroom no encontrado: ${row.classroomIp}`);
+      console.warn(`Profesor no encontrado: ${row.teacherId}`);
     }
 
-    return scheduleSlot;
+    if (course) {
+      section.course = course;
+    } else {
+      console.warn(`Curso no encontrado: ${row.courseId}`);
+    }
+
+    return section;
   });
 
-  const validScheduleSlots = scheduleSlots.filter(topic => topic.classroom !== undefined);
+  const validSections = sections.filter(section =>
+    section.teacher !== undefined && section.course !== undefined);
 
   // await topicRepository.clear();
-  await scheduleSlotRepository.save(validScheduleSlots);
-  console.log(`Seeded ${validScheduleSlots.length} schedule slots.`);
+  await sectionRepository.save(validSections);
+  console.log(`Seeded ${validSections.length} sections.`);
+
+  return validSections;
+}
+
+async function seedLaboratory(teachers: Teacher[], sections: Section[]) {
+  console.log('Seeding laboratories...');
+
+  const laboratoryRepository = AppDataSource.getRepository(Laboratory);
+
+  const teacherMap = new Map(teachers.map(teacher => [teacher.id, teacher]));
+  const sectionMap = new Map(sections.map(section => [section.id, section]));
+
+  const laboratories = await readCSV(DATA_PATHS.LABORATORIES, (row) => {
+    const laboratory = new Laboratory();
+    laboratory.group = row.group;
+    laboratory.teacherId = row.teacherId;
+    laboratory.sectionId = row.sectionId;
+
+    const section = sectionMap.get(parseInt(row.sectionId, 10));
+    const teacher = teacherMap.get(parseInt(row.teacherId, 10));
+
+    if (teacher) {
+      laboratory.teacher = teacher;
+    } else {
+      console.warn(`Profesor no encontrado: ${row.teacherId}`);
+    }
+
+    if (section) {
+      laboratory.section = section;
+    } else {
+      console.warn(`Section no encontrado: ${row.sectionId}`);
+    }
+
+    return laboratory;
+  });
+
+  const validLaboratories = laboratories.filter(lab =>
+    lab.teacher !== undefined && lab.section !== undefined);
+
+  // await topicRepository.clear();
+  await laboratoryRepository.save(validLaboratories);
+  console.log(`Seeded ${validLaboratories.length} laboratories.`);
 }
 
 async function seed() {
@@ -312,6 +365,9 @@ async function seed() {
     const classrooms = await seedClassrooms();
 
     await seedScheduleSlots(classrooms);
+
+    const sections = await seedSection(teachers, courses)
+    await seedLaboratory(teachers, sections)
 
     console.log('Database seeding completed successfully!');
   } catch (error) {

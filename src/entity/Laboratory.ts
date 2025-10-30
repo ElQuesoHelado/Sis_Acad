@@ -1,6 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToOne, JoinColumn } from 'typeorm';
 import { Teacher } from './Teacher';
-import { Course } from './Course';
 import { Section } from './Section';
 
 @Entity()
