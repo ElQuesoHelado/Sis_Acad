@@ -257,7 +257,7 @@ async function seedScheduleSlots(classrooms: Classroom[]) {
       console.warn(`Classroom no encontrado: ${row.classroomIp}`);
     }
 
-    console.log(scheduleSlot);
+    // console.log(scheduleSlot);
 
     return scheduleSlot;
   });
