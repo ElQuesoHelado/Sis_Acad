@@ -52,6 +52,26 @@ curl -X POST http://localhost:3000/api/v1/secretary/students \
 }'
 ```
 
+### Alumno
+
+#### Horario
+
+<http://localhost:3000/api/v1/student/20230099/schedule>
+
+#### Cursos matriculados
+
+<http://localhost:3000/api/v1/student/20230099/courses>
+
+### Docente
+
+#### Horario
+
+<http://localhost:3000/api/v1/teacher/12/schedule>
+
+#### Cursos enseniados
+
+<http://localhost:3000/api/v1/teacher/12/courses>
+
 ## Modelo dominio extendido
 
 ![mde](mde.png)

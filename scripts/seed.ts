@@ -257,6 +257,8 @@ async function seedScheduleSlots(classrooms: Classroom[]) {
       console.warn(`Classroom no encontrado: ${row.classroomIp}`);
     }
 
+    console.log(scheduleSlot);
+
     return scheduleSlot;
   });
 
@@ -274,8 +276,6 @@ async function seedSection(teachers: Teacher[], courses: Course[]) {
 
   const teacherMap = new Map(teachers.map(teacher => [teacher.id, teacher]));
   const courseMap = new Map(courses.map(course => [course.id, course]));
-
-  console.log(teacherMap);
 
   const sections = await readCSV(DATA_PATHS.SECTION, (row) => {
     const section = new Section();

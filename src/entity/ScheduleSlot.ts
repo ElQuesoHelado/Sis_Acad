@@ -25,10 +25,10 @@ export class ScheduleSlot {
   })
   dayOfWeek: DayOfWeek;
 
-  @Column({ type: 'datetime' })
+  @Column({ type: 'text' })
   startTime: Date;
 
-  @Column({ type: 'datetime' })
+  @Column({ type: 'text' })
   endTime: Date;
 
   @Column({
