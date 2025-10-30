@@ -2,6 +2,7 @@ import { Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToOne, JoinColum
 import { Teacher } from './Teacher';
 import { Course } from './Course';
 import { Laboratory } from './Laboratory';
+import { Enrollment } from './Enrollment';
 
 @Entity()
 export class Section {
@@ -33,4 +34,7 @@ export class Section {
   @OneToMany(() => Laboratory,
     laboratory => laboratory.section)
   laboratories: Laboratory[];
+
+  @OneToMany(() => Enrollment, enrollment => enrollment.section)
+  enrollments: Enrollment[];
 }

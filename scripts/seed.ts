@@ -1,10 +1,10 @@
 import fs from 'fs';
 import path from 'path';
 import { parse } from 'csv-parse';
+import * as bcrypt from 'bcrypt';
 import { AppDataSource } from '../src/data-source';
 import { Student } from '../src/entity/Student';
 import { Teacher } from '../src/entity/Teacher';
-import * as bcrypt from 'bcrypt';
 import { Course } from '../src/entity/Course';
 import { CourseTopic } from '../src/entity/CourseTopic';
 import { User } from '../src/entity/User';
@@ -14,6 +14,7 @@ import { Classroom } from '../src/entity/Classroom';
 import { ScheduleSlot } from '../src/entity/ScheduleSlot';
 import { Section } from '../src/entity/Section';
 import { Laboratory } from '../src/entity/Laboratory';
+import { Enrollment } from '../src/entity/Enrollment';
 
 const DATA_PATHS = {
   STUDENTS: '../data/students.csv',
@@ -25,7 +26,8 @@ const DATA_PATHS = {
   CLASSROOMS: '../data/classrooms.csv',
   SCHEDULE_SLOTS: '../data/schedule_slots.csv',
   LABORATORIES: '../data/laboratories.csv',
-  SECTION: '../data/sections.csv'
+  SECTION: '../data/sections.csv',
+  ENROLLMENTS: '../data/enrollments.csv'
 };
 
 async function hashPassword(plainTextPassword: string): Promise<string> {
@@ -273,6 +275,8 @@ async function seedSection(teachers: Teacher[], courses: Course[]) {
   const teacherMap = new Map(teachers.map(teacher => [teacher.id, teacher]));
   const courseMap = new Map(courses.map(course => [course.id, course]));
 
+  console.log(teacherMap);
+
   const sections = await readCSV(DATA_PATHS.SECTION, (row) => {
     const section = new Section();
     section.sectionCode = row.code;
@@ -348,14 +352,54 @@ async function seedLaboratory(teachers: Teacher[], sections: Section[]) {
   console.log(`Seeded ${validLaboratories.length} laboratories.`);
 }
 
+async function seedEnrollment(students: Student[], sections: Section[]) {
+  console.log('Seeding enrollments...');
+
+  const enrollmentRepository = AppDataSource.getRepository(Enrollment);
+
+  const studentMap = new Map(students.map(student => [student.cui, student]));
+  const sectionMap = new Map(sections.map(section => [section.id, section]));
+
+  const enrollments = await readCSV(DATA_PATHS.ENROLLMENTS, (row) => {
+    const enrollment = new Enrollment();
+    enrollment.studentCui = row.cui;
+    enrollment.sectionId = row.sectionId;
+
+    const section = sectionMap.get(parseInt(row.sectionId, 10));
+    const student = studentMap.get(row.cui);
+
+    if (student) {
+      enrollment.student = student;
+    } else {
+      console.warn(`Student no encontrado: ${row.cui}`);
+    }
+
+    if (section) {
+      enrollment.section = section;
+    } else {
+      console.warn(`Section no encontrado: ${row.sectionId}`);
+    }
+
+    return enrollment;
+  });
+
+  const validEnrollments = enrollments.filter(enrollment =>
+    enrollment.student !== undefined && enrollment.section !== undefined);
+
+  // await topicRepository.clear();
+  await enrollmentRepository.save(validEnrollments);
+  console.log(`Seeded ${validEnrollments.length} enrollments.`);
+}
+
 async function seed() {
   console.log('Starting database seeding...');
 
   await AppDataSource.initialize();
 
   try {
-    await seedStudents();
+    //FIXME: Siempre teacher primero
     const teachers = await seedTeachers();
+    const students = await seedStudents();
     await seedAdmins();
     await seedSecretaries();
 
@@ -366,8 +410,10 @@ async function seed() {
 
     await seedScheduleSlots(classrooms);
 
-    const sections = await seedSection(teachers, courses)
-    await seedLaboratory(teachers, sections)
+    const sections = await seedSection(teachers, courses);
+    await seedLaboratory(teachers, sections);
+
+    await seedEnrollment(students, sections);
 
     console.log('Database seeding completed successfully!');
   } catch (error) {
