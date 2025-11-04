@@ -1,0 +1,44 @@
+{
+  "compilerOptions": {
+    /* Base Options */
+    "target": "ES2023",
+    "lib": ["ES2023"],
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "moduleDetection": "force",
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+
+    /* Strictness */
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "noImplicitAny": true,
+    "forceConsistentCasingInFileNames": true,
+
+    /* Transpilation with Typescript */
+    "module": "NodeNext",
+    "sourceMap": true,
+    "outDir": "./dist",
+
+    /* Path mapping */
+    "baseUrl": ".",
+    "paths": {
+      "@/domain/*": ["src/domain/*"],
+      "@/application/*": ["src/application/*"],
+      "@/infraestructure/*": ["src/infraestructure/*"],
+      "@/presentation/*": ["src/presentation/*"],
+      "@/shared/*": ["src/shared/*"]
+    },
+    "types": ["vitest/globals"],
+
+    /* TypeORM Requirements */
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "strictPropertyInitialization": false
+  },
+  "include": ["src", "test", "vitest.config.ts"],
+  "exclude": ["node_modules", "dist"]
+}

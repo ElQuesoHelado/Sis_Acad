@@ -1,0 +1,7 @@
+id,course_code,professor_email,groupLetter,capacity,currentEnrollment
+lab-1,01703239,wramos@unsa.edu.pe,A,20,0
+lab-2,01703239,wramos@unsa.edu.pe,B,20,0
+lab-3,01703237,eadriazola@unsa.edu.pe,A,20,0
+lab-4,01703130,ldelgado@unsa.edu.pe,A,20,0
+lab-5,01703130,ldelgado@unsa.edu.pe,B,20,0
+lab-6,01703236,ehinojosa@unsa.edu.pe,A,20,0

@@ -1,0 +1,7 @@
+id,code,name,credits,type
+course-1,01703239,SISTEMAS OPERATIVOS,4,teoria_labo
+course-2,01703237,INGENIERIA DE SOFTWARE II,4,teoria_labo
+course-3,01703130,BASE DE DATOS II,3,teoria_labo
+course-4,01703236,PROGRAMACION COMPETITIVA,3,teoria_labo
+course-5,01703133,COMPILADORES,3,teoria
+course-6,01703241,MATEMATICA APLICADA A LA COMPUTACION,4,teoria

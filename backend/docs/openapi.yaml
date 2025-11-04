@@ -1,0 +1,764 @@
+openapi: 3.0.0
+info:
+  title: SisAcad API
+  description: API para el Sistema Académico (SisAcad)
+  version: 0.0.1
+servers:
+  - url: /api
+    description: Servidor de desarrollo
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: "Se requiere un token JWT obtenido de la ruta /auth/login."
+
+  schemas:
+    UserRole:
+      type: string
+      enum: [administrador, secretaria, profesor, estudiante]
+      description: "Rol del usuario en el sistema."
+    DayOfWeek:
+      type: string
+      enum: [LUNES, MARTES, MIERCOLES, JUEVES, VIERNES, SABADO, DOMINGO]
+      description: "Día de la semana."
+    ClassType:
+      type: string
+      enum: ["teoria", "labo"]
+      description: "Tipo de clase (teoría o laboratorio)."
+    AttendanceStatus:
+      type: string
+      enum: ["presente", "ausente"]
+      description: "Estado de la asistencia."
+    GradeType:
+      type: string
+      enum: [parcial_1, parcial_2, parcial_3, continua_1, continua_2, continua_3]
+      description: "Tipo de evaluación."
+    LabEnrollmentStatus:
+      type: string
+      enum: ["Matriculado", "Sin Matricula", "N/A"]
+      description: "Estado de matrícula en laboratorio."
+    CourseStatus:
+      type: string
+      enum: [Aprobado, Desaprobado, "En Progreso"]
+      description: "Estado del curso basado en el promedio."
+
+    LoginInput:
+      type: object
+      required: [email, password]
+      properties:
+        email:
+          type: string
+          format: email
+          example: "test@example.com"
+        password:
+          type: string
+          format: password
+          minLength: 10
+          example: "password123"
+      description: "Credenciales para iniciar sesión."
+    LoginOutput:
+      type: object
+      properties:
+        token:
+          type: string
+          description: "Token JWT para autenticación."
+        role:
+          $ref: '#/components/schemas/UserRole'
+        profileId:
+          type: string
+          format: uuid
+          description: "ID del perfil de estudiante o profesor asociado."
+      description: "Respuesta exitosa de inicio de sesión."
+
+    StudentCourse:
+      type: object
+      properties:
+        enrollmentId:
+          type: string
+          format: uuid
+        courseCode:
+          type: string
+          example: "01703239"
+        courseName:
+          type: string
+          example: "SISTEMAS OPERATIVOS"
+        credits:
+          type: integer
+          example: 4
+        professorName:
+          type: string
+          example: "Wilber Roberto Ramos Lovon"
+        labStatus:
+          $ref: '#/components/schemas/LabEnrollmentStatus'
+      description: "DTO de un curso matriculado por el estudiante."
+    GradeOutput:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        type:
+          $ref: '#/components/schemas/GradeType'
+        typeName:
+          type: string
+          example: "Parcial 1"
+        score:
+          type: number
+          format: float
+          minimum: 0
+          maximum: 20
+      description: "DTO para una nota individual."
+    StudentCourseGrades:
+      type: object
+      properties:
+        enrollmentId:
+          type: string
+          format: uuid
+        courseName:
+          type: string
+        professorName:
+          type: string
+        grades:
+          type: array
+          items:
+            $ref: '#/components/schemas/GradeOutput'
+        average:
+          type: number
+          format: float
+          nullable: true
+          example: 15.5
+        status:
+          $ref: '#/components/schemas/CourseStatus'
+      description: "Resumen de notas de un estudiante para un curso."
+    StudentScheduleEntry:
+      type: object
+      properties:
+        courseName:
+          type: string
+        groupType:
+          type: string
+          enum: [Teoria, Lab]
+        groupLetter:
+          type: string
+          example: "A"
+        day:
+          $ref: '#/components/schemas/DayOfWeek'
+        startTime:
+          type: string
+          format: time
+          example: "10:00"
+        endTime:
+          type: string
+          format: time
+          example: "11:50"
+        classroomName:
+          type: string
+          example: "Aula 101"
+        professorName:
+          type: string
+      description: "Entrada individual del horario del estudiante."
+    AvailableLabGroup:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        groupLetter:
+          type: string
+          example: "B"
+        capacity:
+          type: integer
+          example: 20
+        currentEnrollment:
+          type: integer
+          example: 15
+        isFull:
+          type: boolean
+      description: "DTO para un grupo de laboratorio disponible."
+    EnrollInLabGroupInput:
+      type: object
+      required: [enrollmentId, labGroupId]
+      properties:
+        enrollmentId:
+          type: string
+          format: uuid
+        labGroupId:
+          type: string
+          format: uuid
+      description: "Body para matricularse en un solo grupo de laboratorio."
+    LabEnrollmentSelection:
+      type: object
+      required: [enrollmentId, labGroupId]
+      properties:
+        enrollmentId:
+          type: string
+          format: uuid
+        labGroupId:
+          type: string
+          format: uuid
+      description: "Selección individual para matrícula masiva."
+    EnrollInLabGroupsInput:
+      type: object
+      required: [selections]
+      properties:
+        selections:
+          type: array
+          items:
+            $ref: '#/components/schemas/LabEnrollmentSelection'
+          minItems: 1
+      description: "Body para matrícula masiva en laboratorios."
+
+    # --- Schemas de Teacher ---
+    TeacherGroup:
+      type: object
+      properties:
+        groupId:
+          type: string
+          format: uuid
+        courseName:
+          type: string
+        groupType:
+          $ref: '#/components/schemas/ClassType'
+        groupLetter:
+          type: string
+          example: "A"
+      description: "Un grupo (teoría o lab) asignado a un profesor."
+    TeacherScheduleEntry:
+      type: object
+      properties:
+        courseName:
+          type: string
+        groupType:
+          type: string
+          enum: [Teoria, Labo]
+        groupLetter:
+          type: string
+        day:
+          $ref: '#/components/schemas/DayOfWeek'
+        startTime:
+          type: string
+          format: time
+        endTime:
+          type: string
+          format: time
+        classroomName:
+          type: string
+      description: "Entrada individual del horario del profesor."
+    StudentRoster:
+      type: object
+      properties:
+        enrollmentId:
+          type: string
+          format: uuid
+        studentCode:
+          type: string
+          example: "20233585"
+        name:
+          type: string
+        surname:
+          type: string
+        email:
+          type: string
+          format: email
+      description: "Información de un estudiante en la lista de un grupo."
+    AttendanceRecord:
+      type: object
+      required: [enrollmentId, status]
+      properties:
+        enrollmentId:
+          type: string
+          format: uuid
+        status:
+          $ref: '#/components/schemas/AttendanceStatus'
+      description: "Registro de asistencia para un estudiante."
+    TakeAttendanceInput:
+      type: object
+      required: [classType, groupId, date, records]
+      properties:
+        classType:
+          $ref: '#/components/schemas/ClassType'
+        groupId:
+          type: string
+          format: uuid
+        date:
+          type: string
+          format: date
+          example: "2025-11-03"
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/AttendanceRecord'
+          minItems: 1
+      description: "Body para tomar asistencia."
+    StudentGradeEntry:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/GradeType'
+        score:
+          type: number
+          format: float
+          nullable: true
+          example: 15.5
+      description: "Celda de nota individual en la grilla."
+    StudentRosterWithGrades:
+      type: object
+      properties:
+        enrollmentId:
+          type: string
+          format: uuid
+        studentCode:
+          type: string
+        name:
+          type: string
+        surname:
+          type: string
+        email:
+          type: string
+          format: email
+        grades:
+          type: array
+          items:
+            $ref: '#/components/schemas/StudentGradeEntry'
+      description: "Estudiante en la lista con todas sus notas."
+    BulkGradeSaveEntry:
+      type: object
+      required: [enrollmentId, type, score]
+      properties:
+        enrollmentId:
+          type: string
+          format: uuid
+        type:
+          $ref: '#/components/schemas/GradeType'
+        score:
+          type: number
+          minimum: 0
+          maximum: 20
+      description: "Entrada individual de guardado de nota."
+    SaveBulkGradesInput:
+      type: object
+      required: [classType, groupId, entries]
+      properties:
+        classType:
+          $ref: '#/components/schemas/ClassType'
+        groupId:
+          type: string
+          format: uuid
+        entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/BulkGradeSaveEntry'
+      description: "Body para guardado masivo de notas."
+
+    ErrorResponse:
+      type: object
+      properties:
+        name:
+          type: string
+          example: "ValidationError"
+        message:
+          type: string
+          example: "Invalid request data."
+        details:
+          type: object
+          description: "Detalles del error de validación (opcional)."
+
+security:
+  - bearerAuth: []
+
+paths:
+  /auth/login:
+    post:
+      tags:
+        - Auth
+      summary: Iniciar sesión
+      description: "Autentica a un usuario y devuelve un token JWT. Esta ruta es pública."
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginInput'
+      responses:
+        '200':
+          description: Autenticación exitosa
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoginOutput'
+        '400':
+          description: Error de validación (email o password inválido)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Credenciales incorrectas
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /student/courses/{semester}:
+    get:
+      tags:
+        - Student
+      summary: Obtener cursos matriculados
+      description: "Obtiene la lista de cursos en los que el estudiante está matriculado para un semestre específico. Requiere rol 'estudiante'."
+      parameters:
+        - in: path
+          name: semester
+          required: true
+          schema:
+            type: string
+            pattern: '^\\d{4}-(I|II)$'
+            example: "2024-I"
+          description: "Semestre académico (ej. 2024-I)."
+      responses:
+        '200':
+          description: Lista de cursos matriculados
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StudentCourse'
+        '401':
+          description: No autorizado (sin token)
+        '403':
+          description: Forbidden (no es estudiante o no tiene perfil)
+
+  /student/grades/{semester}:
+    get:
+      tags:
+        - Student
+      summary: Obtener notas del estudiante
+      description: "Obtiene el resumen de notas del estudiante para todos los cursos de un semestre. Requiere rol 'estudiante'."
+      parameters:
+        - $ref: '#/paths/~1student~1courses~1{semester}/get/parameters/0' # Reutiliza el parámetro semester
+      responses:
+        '200':
+          description: Resumen de notas por curso
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StudentCourseGrades'
+        '401':
+          description: No autorizado
+        '403':
+          description: Forbidden
+
+  /student/schedule/{semester}:
+    get:
+      tags:
+        - Student
+      summary: Obtener horario del estudiante
+      description: "Obtiene el horario de clases (teoría y laboratorio) del estudiante para un semestre. Requiere rol 'estudiante'."
+      parameters:
+        - $ref: '#/paths/~1student~1courses~1{semester}/get/parameters/0'
+      responses:
+        '200':
+          description: Lista de entradas de horario
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StudentScheduleEntry'
+        '401':
+          description: No autorizado
+        '403':
+          description: Forbidden
+
+  /student/enrollment/{enrollmentId}/available-labs:
+    get:
+      tags:
+        - Student
+      summary: Obtener laboratorios disponibles
+      description: "Obtiene los grupos de laboratorio disponibles (no llenos) para una matrícula de teoría específica. Requiere rol 'estudiante'."
+      parameters:
+        - in: path
+          name: enrollmentId
+          required: true
+          schema:
+            type: string
+            format: uuid
+          description: "ID de la matrícula de teoría (enrollment)."
+      responses:
+        '200':
+          description: Lista de laboratorios disponibles
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AvailableLabGroup'
+        '401':
+          description: No autorizado
+        '403':
+          description: Forbidden (ej. no es dueño de la matrícula)
+        '404':
+          description: Matrícula (enrollment) no encontrada
+
+  /student/enroll-labs:
+    post:
+      tags:
+        - Student
+      summary: Matrícula masiva en laboratorios
+      description: "Matricula al estudiante en múltiples grupos de laboratorio de forma transaccional. Requiere rol 'estudiante'."
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EnrollInLabGroupsInput'
+      responses:
+        '200':
+          description: Matrícula exitosa
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+        '409':
+          description: Conflicto (ej. grupo lleno, ya matriculado, error masivo)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: No autorizado
+        '403':
+          description: Forbidden
+
+  /student/enroll-lab:
+    patch:
+      tags:
+        - Student
+      summary: Matrícula en un laboratorio (singular)
+      description: "Matricula al estudiante en un solo grupo de laboratorio. Requiere rol 'estudiante'."
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EnrollInLabGroupInput'
+      responses:
+        '200':
+          description: Matrícula exitosa
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+        '409':
+          description: Conflicto (ej. grupo lleno, ya matriculado)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: No autorizado
+        '403':
+          description: Forbidden
+
+  /teacher/groups/{semester}:
+    get:
+      tags:
+        - Teacher
+      summary: Obtener grupos del profesor
+      description: "Obtiene todos los grupos (teoría y lab) asignados al profesor en un semestre. Requiere rol 'profesor'."
+      parameters:
+        - $ref: '#/paths/~1student~1courses~1{semester}/get/parameters/0'
+      responses:
+        '200':
+          description: Lista de grupos asignados
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TeacherGroup'
+        '401':
+          description: No autorizado
+        '403':
+          description: Forbidden (no es profesor)
+
+  /teacher/schedule/{semester}:
+    get:
+      tags:
+        - Teacher
+      summary: Obtener horario del profesor
+      description: "Obtiene el horario de clases semanal del profesor para un semestre. Requiere rol 'profesor'."
+      parameters:
+        - $ref: '#/paths/~1student~1courses~1{semester}/get/parameters/0'
+      responses:
+        '200':
+          description: Lista de entradas de horario
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TeacherScheduleEntry'
+        '401':
+          description: No autorizado
+        '403':
+          description: Forbidden
+
+  /teacher/group/{groupId}/roster:
+    get:
+      tags:
+        - Teacher
+      summary: Obtener lista de estudiantes (Roster)
+      description: "Obtiene la lista de estudiantes matriculados en un grupo (teoría o lab). Requiere rol 'profesor'."
+      parameters:
+        - in: path
+          name: groupId
+          required: true
+          schema:
+            type: string
+            format: uuid
+          description: "ID del grupo (TheoryGroup o LabGroup)."
+        - in: query
+          name: type
+          required: true
+          schema:
+            $ref: '#/components/schemas/ClassType'
+          description: "Especifica si el ID es de 'teoria' o 'labo'."
+      responses:
+        '200':
+          description: Lista de estudiantes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StudentRoster'
+        '401':
+          description: No autorizado
+        '403':
+          description: Forbidden (no es profesor de este grupo)
+
+  /teacher/attendance/take:
+    post:
+      tags:
+        - Teacher
+      summary: Tomar asistencia
+      description: "Registra o actualiza la asistencia para múltiples estudiantes en una sesión. Es transaccional. Requiere rol 'profesor'."
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TakeAttendanceInput'
+      responses:
+        '200':
+          description: Asistencia guardada
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        '400':
+          description: Error de validación o error de dominio (ej. fecha futura)
+        '401':
+          description: No autorizado
+        '403':
+          description: Forbidden (no es profesor del grupo)
+
+  /teacher/group/{groupId}/roster-with-grades:
+    get:
+      tags:
+        - Teacher
+      summary: Obtener lista con notas
+      description: "Obtiene la lista de estudiantes con sus notas para la grilla de calificaciones. Requiere rol 'profesor'."
+      parameters:
+        - $ref: '#/paths/~1teacher~1group~1{groupId}~1roster/get/parameters/0' # groupId
+        - $ref: '#/paths/~1teacher~1group~1{groupId}~1roster/get/parameters/1' # type query
+      responses:
+        '200':
+          description: Lista de estudiantes con sus notas
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StudentRosterWithGrades'
+        '401':
+          description: No autorizado
+        '403':
+          description: Forbidden (no es profesor de este grupo)
+
+  /teacher/grades/save-bulk:
+    post:
+      tags:
+        - Teacher
+      summary: Guardar notas (masivo)
+      description: "Guarda o actualiza un lote de notas. Es transaccional. Requiere rol 'profesor'."
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SaveBulkGradesInput'
+      responses:
+        '200':
+          description: Notas guardadas
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        '400':
+          description: Error de validación (ej. nota > 20)
+        '401':
+          description: No autorizado
+        '403':
+          description: Forbidden (no es profesor o la matrícula no pertenece al grupo)
+
+  /health:
+    get:
+      tags:
+        - Health
+      summary: Health Check
+      description: "Ruta pública para verificar el estado del servidor."
+      security: []
+      responses:
+        '200':
+          description: Servidor en línea
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "OK"
+                  time:
+                    type: string
+                    format: date-time

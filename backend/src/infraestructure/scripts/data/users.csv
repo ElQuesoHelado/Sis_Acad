@@ -1,0 +1,9 @@
+id,email,password,role,name,surname,birthdate,status
+user-1,amamaniali@unsa.edu.pe,password123,profesor,Alvaro Henry,Mamani Aliaga,1990-01-01,true
+user-2,ehinojosa@unsa.edu.pe,password123,profesor,Edward,Hinojosa Cardenas,1990-01-01,true
+user-3,eadriazola@unsa.edu.pe,password123,profesor,Eliana Maria,Adriazola Herrera,1990-01-01,true
+user-4,ldelgado@unsa.edu.pe,password123,profesor,Lucy Angela,Delgado Barra,1990-01-01,true
+user-5,wramos@unsa.edu.pe,password123,profesor,Wilber Roberto,Ramos Lovon,1990-01-01,true
+user-10,atorresa@unsa.edu.pe,password123,estudiante,Alvaro Sebastian,Torres Ara,2000-01-01,true
+user-11,hjuandedios@unsa.edu.pe,password123,estudiante,Hellen Grace,Juan De Dios,2000-02-02,true
+user-12,fhuayhuaqu@unsa.edu.pe,password123,estudiante,Fabricio Del,Huayhua Quispe,2000-03-03,true
