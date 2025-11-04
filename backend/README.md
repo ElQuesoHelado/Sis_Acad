@@ -11,7 +11,7 @@ Incluye autenticación JWT, PostgreSQL y documentación Swagger.
    - Instalación Manual
 3. [Instalación de Dependencias](#3-instalación-de-dependencias)
 4. [Ejecución del Proyecto](#4-ejecución-del-proyecto)
-5. [Datos Iniciales (Seeding)](#5-datos-iniciales-seeding)
+5. [Datos Iniciales (Seeding)](#5-datos-iniciales)
 6. [Documentación Swagger](#6-documentación-swagger)
 
 ---
