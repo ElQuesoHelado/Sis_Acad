@@ -107,7 +107,6 @@ export const loadTeacherProfile = (
         });
       }
 
-      // No adjuntamos nada. El controlador usará req.auth.sub (userId).
       next();
     } catch (error) {
       next(error);
