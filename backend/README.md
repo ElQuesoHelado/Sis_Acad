@@ -110,6 +110,8 @@ pnpm seed
 npm run seed
 ```
 
+Los datos iniciales se encuentran en los [scripts de infraestructura](./backend/src/infraestructure/scripts)
+
 ---
 
 ## 6. Documentación Swagger
