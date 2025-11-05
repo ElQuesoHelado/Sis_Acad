@@ -14,7 +14,7 @@
 </script>
 
 <header class={cn('sticky top-0 z-50 w-full border-b bg-background/95', className)}>
-	<nav class="container mx-auto flex h-14 w-full items-center">
+	<nav class="container mx-auto flex h-16 w-full items-center">
 		<a href={resolve('/')} class="mr-6 flex items-center space-x-2">
 			<BookMarked class="h-6 w-6" />
 			<span class="hidden font-bold sm:inline-block">UNSA Sistema Académico</span>

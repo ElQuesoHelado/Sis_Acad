@@ -9,7 +9,7 @@ export const teacherNavGroups: NavGroup[] = [
 	{
 		items: [
 			{
-				title: 'Home',
+				title: 'Inicio',
 				url: APP_PATHS.TEACHER.BASE,
 				icon: House
 			}

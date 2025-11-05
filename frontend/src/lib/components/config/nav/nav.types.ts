@@ -19,3 +19,8 @@ export type NavGroup = {
 	url?: string;
 	items: NavItem[];
 };
+
+export type Crumb = {
+	label: string;
+	href?: string;
+};
