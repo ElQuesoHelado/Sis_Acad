@@ -1,5 +1,5 @@
 import { goto } from '$app/navigation';
-import type { UserRole } from '$lib/core/services/types';
+import type { UserRole } from '$lib/core/api/types';
 
 type GotoOptions = {
 	replaceState?: boolean;

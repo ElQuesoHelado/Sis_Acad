@@ -1,10 +1,10 @@
 <script lang="ts">
-	import userStore from '$lib/core/stores/user.store';
 	import { goto } from '$app/navigation';
 	import { browser } from '$app/environment';
+	import { userRoleStore } from '$lib/core/stores';
 
 	let { children } = $props();
-	const user = $derived($userStore);
+	const user = $derived($userRoleStore);
 
 	let loading = $state(true);
 

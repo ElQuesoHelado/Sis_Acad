@@ -1,8 +1,7 @@
 import type { CourseStatus, DayOfWeek, GradeType, LabEnrollmentStatus } from './enums';
 
 /**
- * Represents a course in a student's semester overview.
- * Returned by GET /api/student/courses/{semester}.
+ * Represents a student's enrollment in a course.
  */
 export interface StudentCourse {
 	enrollmentId: string;
@@ -14,7 +13,7 @@ export interface StudentCourse {
 }
 
 /**
- * Represents an individual grade entry within a course.
+ * Represents a single grade entry for a course.
  */
 export interface GradeOutput {
 	id: string;
@@ -24,8 +23,7 @@ export interface GradeOutput {
 }
 
 /**
- * Detailed grade information for a student's course in a given semester.
- * Returned by GET /api/student/grades/{semester}.
+ * Represents all grades and status for a student's course.
  */
 export interface StudentCourseGrades {
 	enrollmentId: string;
@@ -37,23 +35,21 @@ export interface StudentCourseGrades {
 }
 
 /**
- * Represents a scheduled class for a student's weekly timetable.
- * Returned by GET /api/student/schedule/{semester}.
+ * Represents an entry in a student's schedule.
  */
 export interface StudentScheduleEntry {
 	courseName: string;
 	groupType: 'Teoria' | 'Lab';
 	groupLetter: string;
 	day: DayOfWeek;
-	startTime: string; // Format: "HH:MM"
-	endTime: string; // Format: "HH:MM"
+	startTime: string; // "HH:MM"
+	endTime: string; // "HH:MM"
 	classroomName: string;
 	professorName: string;
 }
 
 /**
  * Represents an available laboratory group for enrollment.
- * Returned by GET /api/student/enrollment/{enrollmentId}/available-labs.
  */
 export interface AvailableLabGroup {
 	id: string;
@@ -72,16 +68,14 @@ export interface LabEnrollmentSelection {
 }
 
 /**
- * Request payload for enrolling in multiple lab groups.
- * Used in POST /api/student/enroll-labs.
+ * Input for enrolling in multiple lab groups.
  */
 export interface EnrollInLabGroupsInput {
 	selections: LabEnrollmentSelection[];
 }
 
 /**
- * Request payload for enrolling in a single lab group.
- * Used in PATCH /api/student/enroll-lab.
+ * Input for enrolling in a single lab group.
  */
 export interface EnrollInLabGroupInput {
 	enrollmentId: string;

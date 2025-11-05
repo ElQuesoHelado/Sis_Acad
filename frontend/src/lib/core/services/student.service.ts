@@ -1,73 +1,51 @@
-import { ApiService } from './api.service';
 import type {
-	UserResponse,
-	CreateUserRequest,
-	UpdateUserStatusRequest,
-	DeleteUserResponse,
-	UpdateUserStatusResponse
-} from './types';
+	StudentCourse,
+	StudentCourseGrades,
+	StudentScheduleEntry,
+	AvailableLabGroup,
+	EnrollInLabGroupInput,
+	EnrollInLabGroupsInput
+} from '$lib/core/domain';
+import type { IHttpClient } from '$lib/core/interfaces/http-client.interface';
+import { httpClient } from '$lib/core/adapters';
+import { API_ENDPOINTS } from '$lib/core/constants/api-endpoints.constants';
 
 /**
- * Service class for managing student-related API calls.
- * Requires appropriate permissions (Admin/Secretary roles typically).
+ * Application service for student use cases.
  */
-export class StudentService {
-	/**
-	 * Creates a new student account.
-	 * Corresponds to: POST /students
-	 * @param studentData - The details of the student to create.
-	 * @returns A promise that resolves with the created UserResponse object.
-	 */
-	static async createStudent(studentData: CreateUserRequest): Promise<UserResponse> {
-		if (!studentData.password) {
-			throw new Error('Password is required to create a student.');
-		}
-		return ApiService.post<UserResponse>('/students', studentData);
+class StudentService {
+	constructor(private http: IHttpClient) {}
+
+	/** Retrieves all courses for a student in a given semester */
+	public getCoursesBySemester(semester: string): Promise<StudentCourse[]> {
+		return this.http.get<StudentCourse[]>(API_ENDPOINTS.STUDENT.COURSES(semester));
 	}
 
-	/**
-	 * Retrieves a list of all students.
-	 * Corresponds to: GET /students
-	 * @returns A promise that resolves with an array of UserResponse objects.
-	 */
-	static async getAllStudents(): Promise<UserResponse[]> {
-		return ApiService.get<UserResponse[]>('/students');
+	/** Retrieves all grades for a student in a given semester */
+	public getGradesBySemester(semester: string): Promise<StudentCourseGrades[]> {
+		return this.http.get<StudentCourseGrades[]>(API_ENDPOINTS.STUDENT.GRADES(semester));
 	}
 
-	/**
-	 * Retrieves a single student by their unique ID.
-	 * Corresponds to: GET /students/{studentId}
-	 * @param studentId - The UUID of the student.
-	 * @returns A promise that resolves with the UserResponse object.
-	 */
-	static async getStudentById(studentId: string): Promise<UserResponse> {
-		return ApiService.get<UserResponse>(`/students/${studentId}`);
+	/** Retrieves the schedule for a student in a given semester */
+	public getScheduleBySemester(semester: string): Promise<StudentScheduleEntry[]> {
+		return this.http.get<StudentScheduleEntry[]>(API_ENDPOINTS.STUDENT.SCHEDULE(semester));
 	}
 
-	/**
-	 * Updates the status (active/inactive) of a student.
-	 * Corresponds to: PATCH /students/{studentId}/status
-	 * @param studentId - The UUID of the student.
-	 * @param statusUpdate - An object containing the new status boolean.
-	 * @returns A promise that resolves with the update status response.
-	 */
-	static async updateStudentStatus(
-		studentId: string,
-		statusUpdate: UpdateUserStatusRequest
-	): Promise<UpdateUserStatusResponse> {
-		return ApiService.patch<UpdateUserStatusResponse>(
-			`/students/${studentId}/status`,
-			statusUpdate
-		);
+	/** Retrieves available lab groups for a specific enrollment */
+	public getAvailableLabGroups(enrollmentId: string): Promise<AvailableLabGroup[]> {
+		return this.http.get<AvailableLabGroup[]>(API_ENDPOINTS.STUDENT.AVAILABLE_LABS(enrollmentId));
 	}
 
-	/**
-	 * Permanently deletes a student account. Use with caution.
-	 * Corresponds to: DELETE /students/{studentId}
-	 * @param studentId - The UUID of the student to delete.
-	 * @returns A promise that resolves with the delete confirmation response.
-	 */
-	static async deleteStudent(studentId: string): Promise<DeleteUserResponse> {
-		return ApiService.delete<DeleteUserResponse>(`/students/${studentId}`);
+	/** Enrolls the student in a single lab group */
+	public enrollInLabGroup(data: EnrollInLabGroupInput): Promise<void> {
+		return this.http.patch<void>(API_ENDPOINTS.STUDENT.ENROLL_LAB, data);
+	}
+
+	/** Enrolls the student in multiple lab groups */
+	public enrollInLabGroups(data: EnrollInLabGroupsInput): Promise<void> {
+		return this.http.post<void>(API_ENDPOINTS.STUDENT.ENROLL_LABS, data);
 	}
 }
+
+/** Singleton instance of StudentService */
+export const studentService = new StudentService(httpClient);

@@ -1,64 +1,54 @@
-import { ApiService } from './api.service';
-import type { UserResponse, LoginResponse, LoginRequest, UserSummary } from './types';
+import type { LoginCredentials, AuthSession, UserRole } from '$lib/core/domain';
+import type { IHttpClient } from '$lib/core/interfaces/http-client.interface';
+import type { ISessionStorage } from '$lib/core/interfaces/session-storage.interface';
+import { httpClient, sessionStorage } from '$lib/core/adapters';
+import { API_ENDPOINTS } from '$lib/core/constants/api-endpoints.constants';
 
 /**
- * Service class for handling authentication-related API calls.
+ * High-level service for authentication use cases.
+ * Consumes abstractions injected as concrete implementations.
  */
-export class AuthService {
+class AuthService {
+	constructor(
+		private http: IHttpClient,
+		private session: ISessionStorage
+	) {}
+
 	/**
-	 * Authenticates a user with the provided credentials.
-	 * Corresponds to: POST /auth/login
-	 * Stores the received token in localStorage upon success.
-	 * @param credentials - The user's email and password.
-	 * @returns A promise that resolves with the UserSummary object upon successful login.
+	 * Performs login with given credentials.
+	 * Saves the session via the session adapter.
 	 */
-	static async login(credentials: LoginRequest): Promise<UserSummary> {
-		try {
-			const response = await ApiService.post<LoginResponse>('/auth/login', credentials, {
-				_noAuthRedirect: true
-			});
-			if (response.token && response.user) {
-				localStorage.setItem('authToken', response.token);
-				return response.user;
-			} else {
-				throw new Error('Login failed: Invalid response from server.');
-			}
-		} catch (error) {
-			console.error('AuthService.login error:', error instanceof Error ? error.message : error);
-			throw error;
-		}
+	public async login(credentials: LoginCredentials): Promise<AuthSession> {
+		const sessionData = await this.http.post<AuthSession>(API_ENDPOINTS.AUTH.LOGIN, credentials, {
+			meta: { noAuthRedirect: true }
+		});
+		this.session.saveSession(sessionData);
+		return sessionData;
 	}
 
 	/**
-	 * Logs out the current user by removing the authentication token from localStorage.
+	 * Logs out the user.
+	 * Only clears the session; UI reacts and handles redirection.
 	 */
-	static async logout(): Promise<void> {
-		localStorage.removeItem('authToken');
-		return Promise.resolve();
+	public logout(): void {
+		this.session.clearSession();
 	}
 
-	/**
-	 * Retrieves the profile information of the currently authenticated user.
-	 * Corresponds to: GET /auth/profile
-	 * @returns A promise that resolves with the full UserResponse object.
-	 */
-	static async getProfile(): Promise<UserResponse> {
-		try {
-			// Backend endpoint GET /auth/profile returns { user: UserResponse }
-			const response = await ApiService.get<{ user: UserResponse }>('/auth/profile', {
-				_noAuthRedirect: true
-			});
-			if (response && response.user) {
-				return response.user;
-			} else {
-				throw new Error('Failed to retrieve profile: Invalid response structure.');
-			}
-		} catch (error) {
-			console.error(
-				'AuthService.getProfile error:',
-				error instanceof Error ? error.message : error
-			);
-			throw error;
-		}
+	/** Returns the role of the authenticated user */
+	public getUserRole(): UserRole | null {
+		return this.session.getRole();
+	}
+
+	/** Returns the profile ID of the authenticated user */
+	public getUserProfileId(): string | null {
+		return this.session.getProfileId();
+	}
+
+	/** Returns the JWT token of the authenticated user */
+	public getToken(): string | null {
+		return this.session.getToken();
 	}
 }
+
+/** Singleton instance of AuthService with concrete implementations injected */
+export const authService = new AuthService(httpClient, sessionStorage);

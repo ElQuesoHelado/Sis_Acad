@@ -6,35 +6,17 @@
 	import { Button } from '$lib/components/ui/button';
 	import { resolve } from '$app/paths';
 	import { browser } from '$app/environment';
-	import { AuthService } from '$lib/core/services';
-	import userStore from '$lib/core/stores/user.store';
+	import { authService } from '$lib/core/api/services';
 	import { roleRedirect } from '$lib/core/utils/navigation';
 	import { Toaster } from 'svelte-sonner';
+	import { userRoleStore } from '$lib/core/stores';
 
 	let { children } = $props();
-	const user = $derived($userStore);
-
-	function handleLogout() {
-		userStore.logout();
-	}
+	const user = $derived($userRoleStore);
 
 	$effect.pre(() => {
-		if (browser) {
-			const token = localStorage.getItem('authToken');
-			if (token) {
-				console.log('Restoring session from token...');
-				AuthService.getProfile()
-					.then((userProfile) => {
-						userStore.setUser(userProfile);
-						console.log('Session restored:', userProfile.email);
-					})
-					.catch((error) => {
-						console.warn('Session restore failed:', error.message);
-						userStore.logout();
-					});
-			} else {
-				userStore.logout();
-			}
+		if (!browser) {
+			return;
 		}
 	});
 </script>
@@ -44,8 +26,8 @@
 	<Navbar>
 		{#snippet right()}
 			{#if user}
-				<Button onclick={handleLogout} variant="outline">Logout</Button>
-				<Button onclick={() => roleRedirect(user.role)} variant="outline">Dashboard</Button>
+				<Button onclick={userRoleStore.clear} variant="outline">Logout</Button>
+				<Button onclick={() => roleRedirect(user)} variant="outline">Dashboard</Button>
 			{:else}
 				<Button href={resolve('/login')} variant="outline">Login</Button>
 			{/if}

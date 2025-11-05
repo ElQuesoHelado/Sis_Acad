@@ -2,7 +2,6 @@ import type { AttendanceStatus, ClassType, DayOfWeek, GradeType } from './enums'
 
 /**
  * Represents a teacher’s course group for a given semester.
- * Returned by GET /api/teacher/groups/{semester}.
  */
 export interface TeacherGroup {
 	groupId: string;
@@ -13,7 +12,6 @@ export interface TeacherGroup {
 
 /**
  * Represents a scheduled teaching session for a semester.
- * Returned by GET /api/teacher/schedule/{semester}.
  */
 export interface TeacherScheduleEntry {
 	courseName: string;
@@ -27,7 +25,6 @@ export interface TeacherScheduleEntry {
 
 /**
  * Represents a student entry in a group's roster.
- * Returned by GET /api/teacher/group/{groupId}/roster.
  */
 export interface StudentRosterEntry {
 	enrollmentId: string;
@@ -47,14 +44,13 @@ export interface StudentGradeEntry {
 
 /**
  * Represents a student in a group roster including grade details.
- * Returned by GET /api/teacher/group/{groupId}/roster-with-grades.
  */
 export interface StudentRosterWithGrades extends StudentRosterEntry {
 	grades: StudentGradeEntry[];
 }
 
 /**
- * Represents a single attendance record (used in request payloads).
+ * Represents a single attendance record.
  */
 export interface AttendanceRecord {
 	enrollmentId: string;
@@ -63,7 +59,6 @@ export interface AttendanceRecord {
 
 /**
  * Request payload for submitting attendance.
- * Used in POST /api/teacher/attendance/take.
  */
 export interface TakeAttendanceInput {
 	classType: ClassType;
@@ -73,7 +68,7 @@ export interface TakeAttendanceInput {
 }
 
 /**
- * Represents a single grade update (used in request payloads).
+ * Represents a single grade update.
  */
 export interface BulkGradeSaveEntry {
 	enrollmentId: string;
@@ -83,7 +78,6 @@ export interface BulkGradeSaveEntry {
 
 /**
  * Request payload for saving multiple grades at once.
- * Used in POST /api/teacher/grades/save-bulk.
  */
 export interface SaveBulkGradesInput {
 	classType: ClassType;
