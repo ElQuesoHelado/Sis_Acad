@@ -7,7 +7,7 @@
 </script>
 
 <div class="relative flex min-h-screen flex-col bg-background">
-	<PublicNavbar class="px-2"/>
+	<PublicNavbar class="px-2" />
 
 	<main class="flex-1">
 		{@render children()}

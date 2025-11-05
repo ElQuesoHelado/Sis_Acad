@@ -5,10 +5,10 @@ import type { Component } from 'svelte';
  * (e.g., a card in a landing/dashboard hub page).
  */
 export type HubItem = {
-  title: string;
-  description: string;
-  url: string;
-  icon?: Component; // Optional Svelte component icon
+	title: string;
+	description: string;
+	url: string;
+	icon?: Component; // Optional Svelte component icon
 };
 
 /**
@@ -16,7 +16,6 @@ export type HubItem = {
  * (e.g., "Academic Management").
  */
 export type HubGroup = {
-  title: string;
-  items: HubItem[];
+	title: string;
+	items: HubItem[];
 };
-

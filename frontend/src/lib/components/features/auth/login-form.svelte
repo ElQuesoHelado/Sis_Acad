@@ -1,11 +1,7 @@
 <script lang="ts">
 	import { Button } from '$lib/components/ui/button/index.js';
 	import * as Card from '$lib/components/ui/card/index.js';
-	import {
-		FieldGroup,
-		Field,
-		FieldLabel,
-	} from '$lib/components/ui/field/index.js';
+	import { FieldGroup, Field, FieldLabel } from '$lib/components/ui/field/index.js';
 	import { Input } from '$lib/components/ui/input/index.js';
 	import { cn } from '$lib/utils/cn';
 	import { ScanFace } from '@lucide/svelte';
@@ -14,15 +10,9 @@
 		onsubmit: (e: SubmitEvent) => void;
 		isSubmitting?: boolean;
 		class?: string;
-    oninput?: (e: Event) => void;
+		oninput?: (e: Event) => void;
 	}
-	let {
-		class: className,
-		onsubmit,
-    oninput,
-		isSubmitting = false,
-		...restProps
-	}: Props = $props();
+	let { class: className, onsubmit, oninput, isSubmitting = false, ...restProps }: Props = $props();
 	const id = $props.id();
 </script>
 
@@ -39,7 +29,7 @@
 			<Card.Description>Ingresa tu email y contraseña para acceder.</Card.Description>
 		</Card.Header>
 		<Card.Content>
-			<form onsubmit={onsubmit} oninput={oninput}>
+			<form {onsubmit} {oninput}>
 				<FieldGroup>
 					<Field>
 						<FieldLabel for="email-{id}">Email</FieldLabel>

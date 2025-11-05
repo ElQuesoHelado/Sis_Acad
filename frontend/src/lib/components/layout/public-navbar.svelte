@@ -12,14 +12,9 @@
 	let { class: className = '' }: { class?: string } = $props();
 </script>
 
-<header
-	class={cn(
-		'sticky top-0 z-50 w-full border-b bg-background/95',
-		className
-	)}
->
+<header class={cn('sticky top-0 z-50 w-full border-b bg-background/95', className)}>
 	<nav class="container mx-auto flex h-14 w-full items-center">
-		<a href={resolve("/")} class="mr-6 flex items-center space-x-2">
+		<a href={resolve('/')} class="mr-6 flex items-center space-x-2">
 			<BookMarked class="h-6 w-6" />
 			<span class="hidden font-bold sm:inline-block">UNSA Sistema Académico</span>
 		</a>
@@ -36,5 +31,5 @@
 
 			<ThemeToggle />
 		</div>
-	</nav></header
->
+	</nav>
+</header>
