@@ -4,8 +4,6 @@
 	import { authService } from '$lib/core/services/auth.service';
 	import { userRoleStore } from '$lib/core/stores/user.store';
 	import { roleRedirect } from '$lib/utils/navigation';
-	import { goto } from '$app/navigation';
-	import { APP_PATHS } from '$lib/utils/app-paths';
 	import { preventDefault } from '$lib/utils/events';
 	import type { LoginCredentials } from '$lib/core/domain';
 
@@ -14,7 +12,7 @@
 	let errorTimer = $state<unknown | null>(null);
 
 	if ($userRoleStore) {
-		goto(APP_PATHS.DASHBOARD, { replaceState: true });
+		roleRedirect($userRoleStore);
 	}
 
 	function clearError() {

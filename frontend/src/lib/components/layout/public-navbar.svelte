@@ -8,6 +8,7 @@
 	import ThemeToggle from '$lib/components/layout/theme-toggle.svelte';
 	import ProfileDropdown from '$lib/components/layout/profile-dropdown.svelte';
 	import { resolve } from '$app/paths';
+	import { roleRedirect } from '$lib/utils/navigation';
 
 	let { class: className = '' }: { class?: string } = $props();
 </script>
@@ -23,7 +24,9 @@
 
 		<div class="flex items-center gap-x-2">
 			{#if $userRoleStore}
-				<Button href={APP_PATHS.DASHBOARD} variant="ghost">Panel</Button>
+				<Button onclick={() => roleRedirect($userRoleStore)} variant="ghost" class="cursor-pointer"
+					>Panel</Button
+				>
 				<ProfileDropdown />
 			{:else}
 				<Button href={APP_PATHS.LOGIN}>Iniciar Sesión</Button>
