@@ -3,7 +3,11 @@
  */
 
 import type { RoomReservation } from "../entities/room-reservation.entity.js";
-import type { Id, AcademicSemester, TimeSlot } from "../value-objects/index.js";
+import type {
+  Id,
+  AcademicSemester,
+  TimeOfDay, // <-- Added
+} from "../value-objects/index.js";
 
 /**
  * Repository interface for managing RoomReservation entities.
@@ -41,25 +45,43 @@ export interface IRoomReservationRepository {
   ): Promise<RoomReservation[]>;
 
   /**
-   * Finds active reservations that overlap with a specific TimeSlot
+   * Finds active reservations that overlap with a specific date and time block
    * for a given classroom and semester.
    * (Key method for the "Create Reservation" use case).
    *
    * @param classroomId - The classroom Id (VO).
    * @param semester - The academic semester (VO).
-   * @param timeSlot - The TimeSlot (VO) to check for conflicts.
+   * @param date - The specific date (VO) to check for conflicts.
+   * @param startTime - The start time (VO) to check.
+   * @param endTime - The end time (VO) to check.
    * @returns A promise that resolves to an array of conflicting `RoomReservation`s.
    */
   findOverlappingReservations(
     classroomId: Id,
     semester: AcademicSemester,
-    timeSlot: TimeSlot,
+    date: Date,
+    startTime: TimeOfDay,
+    endTime: TimeOfDay,
   ): Promise<RoomReservation[]>;
+
+  /**
+   * Counts active (RESERVED) reservations for a professor within a date range.
+   * Used to enforce business rules (e.g., weekly limit).
+   * @param professorId - The professor Id (VO).
+   * @param startDate - The start of the date range (inclusive).
+   * @param endDate - The end of the date range (inclusive).
+   * @returns A promise resolving to the number of reservations.
+   */
+  countByProfessorAndDateRange(
+    professorId: Id,
+    startDate: Date,
+    endDate: Date,
+  ): Promise<number>;
 
   /**
    * Saves (creates or updates) a reservation.
    * @param reservation - The `RoomReservation` entity to save.
-   * @returns A promise that resolves when the operation completes.
+   * @returns A promise that resolves when the operation is complete.
    */
   save(reservation: RoomReservation): Promise<void>;
 

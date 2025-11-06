@@ -2,57 +2,62 @@
  * @file TypeORM implementation of the RoomReservation repository.
  */
 
-import { type Repository, LessThan, MoreThan, EntityManager } from "typeorm";
+import {
+  type Repository,
+  LessThan,
+  MoreThan,
+  EntityManager,
+  Between,
+} from "typeorm";
 import { RoomReservation } from "@/domain/entities/room-reservation.entity.js";
 import { type IRoomReservationRepository } from "@/domain/repositories/iroom-reservation.repository.js";
 import { RoomReservationModel } from "../models/room-reservation.model.js";
-import type {
-  Id,
-  AcademicSemester,
-  TimeSlot,
-} from "@/domain/value-objects/index.js";
+import { Id, AcademicSemester, TimeOfDay } from "@/domain/value-objects/index.js";
 import { ReservationStatus } from "@/domain/enums/index.js";
 import { AppDataSource } from "../database.config.js";
 
 /**
- * Repository implementation for RoomReservation using TypeORM.
+ * TypeORM repository implementation for the RoomReservation aggregate.
+ * Handles mapping between domain entities and persistence models.
  */
 export class TypeormRoomReservationRepository
-  implements IRoomReservationRepository
-{
+  implements IRoomReservationRepository {
   private ormRepo: Repository<RoomReservationModel>;
 
+  /**
+   * Constructs the repository.
+   * @param manager - Optional TypeORM EntityManager for transactional context.
+   */
   constructor(manager?: EntityManager) {
     const repository = manager ?? AppDataSource;
     this.ormRepo = repository.getRepository(RoomReservationModel);
   }
 
   /**
-   * Maps a TypeORM RoomReservationModel to a domain RoomReservation entity.
-   * Value objects (semester, startTime, endTime) are handled by the model transformers.
+   * Maps a TypeORM model to a domain RoomReservation entity.
    * @param model - The database model.
-   * @returns The domain entity.
+   * @returns The corresponding domain entity.
    */
   private toDomain = (model: RoomReservationModel): RoomReservation => {
+const dateString = model.date as unknown as string;
+
     return RoomReservation.create({
       id: model.id,
       classroomId: model.classroomId,
       professorId: model.professorId,
       semester: model.semester.value,
       status: model.status,
-      timeSlot: {
-        day: model.day,
-        startTime: model.startTime.value,
-        endTime: model.endTime.value,
-      },
+      date: dateString,
+      startTime: model.startTime.value,
+      endTime: model.endTime.value, 
+      notes: model.notes ?? undefined,
     });
   };
 
   /**
-   * Maps a domain RoomReservation entity to a plain object for persistence.
-   * Value objects are passed directly; model transformers handle them.
+   * Maps a domain RoomReservation entity to a plain object for TypeORM persistence.
    * @param entity - The domain entity.
-   * @returns A plain object suitable for TypeORM.
+   * @returns Persistence-ready object.
    */
   private toPersistence(entity: RoomReservation) {
     return {
@@ -61,19 +66,20 @@ export class TypeormRoomReservationRepository
       professorId: entity.professorId.value,
       semester: entity.semester,
       status: entity.status,
-      day: entity.timeSlot.day,
-      startTime: entity.timeSlot.startTime,
-      endTime: entity.timeSlot.endTime,
+      date: entity.date.toDate(),
+      startTime: entity.startTime,
+      endTime: entity.endTime,
+      notes: entity.notes ?? null,
     };
   }
 
-  /** Finds a RoomReservation by its ID. */
+  /** @inheritdoc */
   public async findById(id: Id): Promise<RoomReservation | null> {
     const model = await this.ormRepo.findOneBy({ id: id.value });
     return model ? this.toDomain(model) : null;
   }
 
-  /** Finds all reservations for a professor in a specific semester. */
+  /** @inheritdoc */
   public async findByProfessorAndSemester(
     professorId: Id,
     semester: AcademicSemester,
@@ -85,7 +91,7 @@ export class TypeormRoomReservationRepository
     return models.map(this.toDomain);
   }
 
-  /** Finds all reservations for a classroom in a specific semester. */
+  /** @inheritdoc */
   public async findByClassroomAndSemester(
     classroomId: Id,
     semester: AcademicSemester,
@@ -97,35 +103,49 @@ export class TypeormRoomReservationRepository
     return models.map(this.toDomain);
   }
 
-  /**
-   * Finds active reservations that overlap a given time slot in a classroom.
-   * Only considers reservations with status "RESERVED".
-   */
+  /** @inheritdoc */
   public async findOverlappingReservations(
     classroomId: Id,
     semester: AcademicSemester,
-    timeSlot: TimeSlot,
+    date: Date,
+    startTime: TimeOfDay,
+    endTime: TimeOfDay,
   ): Promise<RoomReservation[]> {
     const models = await this.ormRepo.find({
       where: {
         classroomId: classroomId.value,
         semester: semester,
-        day: timeSlot.day,
+        date: date,
         status: ReservationStatus.RESERVED,
-        startTime: LessThan(timeSlot.endTime.value),
-        endTime: MoreThan(timeSlot.startTime.value),
+        startTime: LessThan(endTime.value),
+        endTime: MoreThan(startTime.value),
       },
     });
     return models.map(this.toDomain);
   }
 
-  /** Saves (creates or updates) a RoomReservation. */
+  /** @inheritdoc */
+  public async countByProfessorAndDateRange(
+    professorId: Id,
+    startDate: Date,
+    endDate: Date,
+  ): Promise<number> {
+    return this.ormRepo.count({
+      where: {
+        professorId: professorId.value,
+        status: ReservationStatus.RESERVED,
+        date: Between(startDate, endDate),
+      },
+    });
+  }
+
+  /** @inheritdoc */
   public async save(reservation: RoomReservation): Promise<void> {
     const persistenceData = this.toPersistence(reservation);
     await this.ormRepo.save(persistenceData);
   }
 
-  /** Deletes a RoomReservation by its ID. */
+  /** @inheritdoc */
   public async delete(id: Id): Promise<void> {
     await this.ormRepo.delete({ id: id.value });
   }

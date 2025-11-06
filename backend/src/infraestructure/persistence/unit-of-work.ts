@@ -82,6 +82,12 @@ export class TypeormUnitOfWork implements IUnitOfWork {
           attendance: new TypeormAttendanceRepository(
             transactionalEntityManager,
           ),
+          roomReservation: new TypeormRoomReservationRepository(
+            transactionalEntityManager,
+          ),
+          classSchedule: new TypeormClassScheduleRepository(
+            transactionalEntityManager,
+          ),
         };
 
         // Execute the business logic inside the transaction

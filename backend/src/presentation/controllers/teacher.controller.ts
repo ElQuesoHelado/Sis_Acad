@@ -1,7 +1,7 @@
 import { type Response, type NextFunction } from "express";
 import { type AuthRequest } from "../middlewares/auth.middleware.js";
 import type { TakeAttendanceUseCase } from "@/application/use-cases/teacher/take-attendance.usecase.js";
-import { DomainError } from "@/domain/errors/index.js";
+import { DomainError, ReservationConflictError, ReservationLimitError, ReservationWindowError } from "@/domain/errors/index.js";
 import { NotAuthorizedError } from "@/application/errors/not-authorized.error.js";
 import { type ClassType } from "@/domain/enums/index.js";
 import type { GetStudentRosterUseCase } from "@/application/use-cases/teacher/get-student-roster.usecase.js";
@@ -9,6 +9,7 @@ import type { GetTeacherScheduleUseCase } from "@/application/use-cases/teacher/
 import type { GetTeacherGroupsUseCase } from "@/application/use-cases/teacher/get-teacher-groups.usecase.js";
 import type { SaveBulkGradesUseCase } from "@/application/use-cases/teacher/save-bulk-grades.usecase.js";
 import type { GetStudentRosterWithGradesUseCase } from "@/application/use-cases/teacher/get-student-roster-with-grades.usecase.js";
+import type { CreateRoomReservationUseCase } from "@/application/use-cases/index.js";
 
 export const makeTakeAttendanceController = (
   useCase: TakeAttendanceUseCase,
@@ -180,6 +181,49 @@ export const makeSaveBulkGradesController = (
         return res
           .status(400)
           .json({ name: error.name, message: error.message });
+      }
+      next(error);
+    }
+  };
+};
+
+
+/**
+ *  Factory for the Create Room Reservation controller.
+ * @param useCase - An instance of CreateRoomReservationUseCase.
+ * @returns An Express request handler.
+ */
+export const makeCreateReservationController = (
+  useCase: CreateRoomReservationUseCase,
+) => {
+  return async (req: AuthRequest, res: Response, next: NextFunction) => {
+    try {
+      const professorId = req.auth!.sub;
+      const reservationDto = req.body;
+
+      const newReservation = await useCase.execute(reservationDto, professorId);
+
+      return res.status(201).json(newReservation);
+    } catch (error) {
+      if (
+        error instanceof ReservationConflictError ||
+        error instanceof ReservationLimitError ||
+        error instanceof ReservationWindowError) {
+        return res.status(409).json({
+          name: error.name,
+          message: error.message,
+        });
+      }
+      if (error instanceof NotAuthorizedError) {
+        return res
+          .status(403)
+          .json({ name: error.name, message: error.message });
+      }
+      if (error instanceof DomainError) {
+        return res.status(400).json({
+          name: error.name,
+          message: error.message,
+        });
       }
       next(error);
     }

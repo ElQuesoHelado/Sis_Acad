@@ -16,7 +16,7 @@ import {
 import { ClassroomModel } from "./classroom.model.js";
 import { UserModel } from "./user.model.js";
 import { AcademicSemester, TimeOfDay } from "@/domain/value-objects/index.js";
-import { DayOfWeek, ReservationStatus } from "@/domain/enums/index.js";
+import { ReservationStatus } from "@/domain/enums/index.js";
 
 /**
  * TypeORM model representing a one-time reservation of a classroom/lab.
@@ -55,7 +55,7 @@ export class RoomReservationModel extends BaseEntity {
   })
   semester: AcademicSemester;
 
-  /** Status of the reservation (RESERVED or FREE if canceled). */
+  /** Status of the reservation (RESERVED, FREE, or COMPLETED). */
   @Column({
     type: "enum",
     enum: ReservationStatus,
@@ -63,10 +63,10 @@ export class RoomReservationModel extends BaseEntity {
   })
   status: ReservationStatus;
 
-  // --- TimeSlot mapping ---
-  /** Day of the week for this reservation. */
-  @Column({ type: "enum", enum: DayOfWeek, nullable: false })
-  day: DayOfWeek;
+
+  /** Specific date of the reservation. */
+  @Column("date", { nullable: false })
+  date: Date;
 
   /** Start time of the reservation. */
   @Column("time", {
@@ -74,7 +74,7 @@ export class RoomReservationModel extends BaseEntity {
     name: "start_time",
     transformer: {
       to: (value: TimeOfDay) => value.value,
-      from: (value: string) => TimeOfDay.create(value),
+      from: (value: string) => TimeOfDay.create(value.substring(0, 5)),
     },
   })
   startTime: TimeOfDay;
@@ -85,11 +85,14 @@ export class RoomReservationModel extends BaseEntity {
     name: "end_time",
     transformer: {
       to: (value: TimeOfDay) => value.value,
-      from: (value: string) => TimeOfDay.create(value),
+      from: (value: string) => TimeOfDay.create(value.substring(0, 5)),
     },
   })
   endTime: TimeOfDay;
-  // --- End TimeSlot mapping ---
+
+  /** Optional notes or reason for the reservation. */
+  @Column("text", { nullable: true })
+  notes: string | null;
 
   /** Timestamp when the reservation was created. */
   @CreateDateColumn({ name: "created_at" })

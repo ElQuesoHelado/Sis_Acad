@@ -10,3 +10,4 @@ export * from "./credits.vo.js";
 export * from "./student-code.vo.js";
 export * from "./group-letter.vo.js";
 export * from "./score.vo.js";
+export * from "./reservation-date.vo.js";
