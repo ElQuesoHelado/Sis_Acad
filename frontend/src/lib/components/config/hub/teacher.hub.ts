@@ -1,6 +1,6 @@
 import type { HubGroup } from './hub.types';
 import { APP_PATHS } from '$lib/utils/app-paths';
-import { Users, ClipboardCheck, BookOpenCheck, Calendar } from '@lucide/svelte';
+import { Users, ClipboardCheck, BookOpenCheck, Calendar, CalendarPlus } from '@lucide/svelte';
 
 // TODO: Group teacher hubs properly for UX
 
@@ -12,12 +12,12 @@ export const teacherHubGroups: HubGroup[] = [
 	{
 		title: 'Gestión Académica',
 		items: [
-			{
-				title: 'Mis Grupos',
-				description: 'Gestionar los grupos de curso que tienes asignados.',
-				url: APP_PATHS.TEACHER.COURSES,
-				icon: Users
-			},
+			// {
+			// 	title: 'Mis Grupos',
+			// 	description: 'Gestionar los grupos de curso que tienes asignados.',
+			// 	url: APP_PATHS.TEACHER.COURSES,
+			// 	icon: Users
+			// },
 			{
 				title: 'Ingresar Calificaciones',
 				description: 'Registrar y modificar las notas de tus estudiantes.',
@@ -35,6 +35,12 @@ export const teacherHubGroups: HubGroup[] = [
 				description: 'Visualizar tu horario de dictado de clases.',
 				url: APP_PATHS.TEACHER.SCHEDULE,
 				icon: Calendar
+			},
+			{
+				title: 'Reservar Salón',
+				description: 'Reserva un aula o laboratorio para una sesión especial.',
+				url: APP_PATHS.TEACHER.RESERVE_CLASSROOM,
+				icon: CalendarPlus
 			}
 		]
 	}

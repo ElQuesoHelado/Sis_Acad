@@ -13,7 +13,9 @@
 
 <aside
 	class={cn(
-		'group hidden h-screen w-16 flex-col overflow-x-hidden border-r bg-background transition-all duration-300 ease-in-out hover:w-64 md:flex',
+		// CAMBIO: Eliminadas las clases 'group' y 'hover:w-64'
+		// También se quitaron 'transition-all duration-300 ease-in-out'
+		'fixed top-0 left-0 z-50 hidden h-full w-16 flex-col overflow-x-hidden border-r bg-background md:flex',
 		className
 	)}
 >
@@ -22,20 +24,14 @@
 			<div class="flex h-8 w-8 items-center justify-center">
 				<BookMarked class="h-6 w-6 text-primary" />
 			</div>
-			<span
-				class="text-lg font-semibold whitespace-nowrap opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-			>
-				UNSA Académico
-			</span>
+			<span class="text-lg font-semibold whitespace-nowrap opacity-0"> UNSA Académico </span>
 		</a>
 	</div>
 
 	<nav class="flex-1 space-y-2 overflow-y-auto p-2">
 		{#each navGroups as group}
 			{#if group.title}
-				<h3
-					class="px-2 pt-2 text-xs font-semibold text-muted-foreground uppercase opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-				>
+				<h3 class="px-2 pt-2 text-xs font-semibold text-muted-foreground uppercase opacity-0">
 					{group.title}
 				</h3>
 			{/if}
@@ -52,9 +48,7 @@
 									<item.icon class="h-5 w-5" />
 								{/if}
 							</div>
-							<span
-								class="text-sm font-medium whitespace-nowrap opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-							>
+							<span class="text-sm font-medium whitespace-nowrap opacity-0">
 								{item.title}
 							</span>
 						</a>

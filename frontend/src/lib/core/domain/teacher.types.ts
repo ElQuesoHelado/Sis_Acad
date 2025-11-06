@@ -84,3 +84,38 @@ export interface SaveBulkGradesInput {
 	groupId: string;
 	entries: BulkGradeSaveEntry[];
 }
+
+/**
+ * Request payload for creating a room reservation.
+ */
+export interface CreateReservationInput {
+	classroomId: string;
+	semester: string;
+	date: string; // "YYYY-MM-DD"
+	startTime: string; // "HH:MM"
+	endTime: string; // "HH:MM"
+	notes?: string;
+}
+
+/**
+ * Expected response structure after successfully creating a reservation.
+ */
+export interface CreatedReservationResponse {
+	id: { value: string };
+	classroomId: { value: string };
+	professorId: { value: string };
+	semester: { value: string };
+	date: { value: string; isoString: string };
+	startTime: { value: string; hour: number; minute: number };
+	endTime: { value: string; hour: number; minute: number };
+	status: string; // e.g., "reservado"
+	notes: string;
+}
+
+/**
+ * Represents an available classroom to select.
+ */
+export interface AvailableClassroom {
+	id: string;
+	name: string; // Ej: "Salón 1", "Aula 205"
+}

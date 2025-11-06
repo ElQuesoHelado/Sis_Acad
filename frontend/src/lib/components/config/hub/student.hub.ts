@@ -1,6 +1,6 @@
 import type { HubGroup } from './hub.types';
 import { APP_PATHS } from '$lib/utils/app-paths';
-import { BookCopy, GraduationCap, Calendar } from '@lucide/svelte';
+import { BookCopy, GraduationCap, Calendar, ListPlus } from '@lucide/svelte';
 
 // TODO: Group student hubs properly for UX
 
@@ -29,6 +29,12 @@ export const studentHubGroups: HubGroup[] = [
 				description: 'Visualiza tu horario de clases y laboratorios.',
 				url: APP_PATHS.STUDENT.SCHEDULE,
 				icon: Calendar
+			},
+			{
+				title: 'Matrícula Laboratorio',
+				description: 'Inscríbete en los grupos de laboratorio pendientes.',
+				url: APP_PATHS.STUDENT.ENROLLMENT,
+				icon: ListPlus
 			}
 			// Future feature: enrollment screen
 			// {

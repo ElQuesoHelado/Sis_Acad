@@ -2,7 +2,13 @@
 	import { onMount } from 'svelte';
 	import { studentService } from '$lib/core/services/student.service';
 	import type { StudentCourse } from '$lib/core/domain';
-	import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '$lib/components/ui/card';
+	import {
+		Card,
+		CardContent,
+		CardHeader,
+		CardTitle,
+		CardDescription
+	} from '$lib/components/ui/card';
 	import { Button } from '$lib/components/ui/button';
 	import { Label } from '$lib/components/ui/label';
 	import { Separator } from '$lib/components/ui/separator';
@@ -18,14 +24,8 @@
 	let loading = true;
 	let error = '';
 	let selectedSemester = '2024-I';
-	
-	const semesters = [
-		'2025-I',
-		'2024-II',
-		'2024-I',
-		'2023-II',
-		'2023-I'
-	];
+
+	const semesters = ['2025-I', '2024-II', '2024-I', '2023-II', '2023-I'];
 
 	async function loadCourses() {
 		loading = true;
@@ -64,7 +64,7 @@
 </script>
 
 <div class="min-h-screen p-6">
-	<div class="max-w-7xl mx-auto space-y-6">
+	<div class="mx-auto max-w-7xl space-y-6">
 		<!-- Header -->
 		<div class="space-y-2">
 			<h1 class="text-3xl font-bold tracking-tight">Mis Cursos</h1>
@@ -75,9 +75,7 @@
 		<Card>
 			<CardContent class="pt-6">
 				<div class="flex items-center gap-4">
-					<Label for="semester" class="text-sm font-medium">
-						Semestre:
-					</Label>
+					<Label for="semester" class="text-sm font-medium">Semestre:</Label>
 					<DropdownMenu>
 						<DropdownMenuTrigger>
 							<Button variant="outline" class="w-[180px] justify-between">
@@ -112,9 +110,9 @@
 			<Card class="border-destructive/50 bg-destructive/5">
 				<CardContent class="pt-6">
 					<div class="flex items-start gap-3">
-						<AlertCircle class="h-5 w-5 text-destructive flex-shrink-0 mt-0.5" />
+						<AlertCircle class="mt-0.5 h-5 w-5 flex-shrink-0 text-destructive" />
 						<div>
-							<h3 class="font-semibold text-destructive mb-1">Error al cargar los cursos</h3>
+							<h3 class="mb-1 font-semibold text-destructive">Error al cargar los cursos</h3>
 							<p class="text-sm text-destructive/90">{error}</p>
 						</div>
 					</div>
@@ -127,20 +125,22 @@
 			{#if courses.length === 0}
 				<Card>
 					<CardContent class="flex flex-col items-center justify-center py-12">
-						<BookOpen class="h-16 w-16 text-muted-foreground mb-4" />
-						<h3 class="text-lg font-semibold mb-2">No hay cursos registrados</h3>
-						<p class="text-muted-foreground text-center">
+						<BookOpen class="mb-4 h-16 w-16 text-muted-foreground" />
+						<h3 class="mb-2 text-lg font-semibold">No hay cursos registrados</h3>
+						<p class="text-center text-muted-foreground">
 							No se encontraron cursos para el semestre {selectedSemester}
 						</p>
 					</CardContent>
 				</Card>
 			{:else}
-				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+				<div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
 					{#each courses as course (course.enrollmentId)}
-						<Card class="hover:shadow-lg transition-shadow duration-200">
+						<Card class="transition-shadow duration-200 hover:shadow-lg">
 							<CardHeader>
-								<div class="flex items-center justify-between mb-3">
-									<span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-semibold font-mono bg-primary/10 text-primary border border-primary/20">
+								<div class="mb-3 flex items-center justify-between">
+									<span
+										class="inline-flex items-center rounded-md border border-primary/20 bg-primary/10 px-3 py-1 font-mono text-xs font-semibold text-primary"
+									>
 										{course.courseCode}
 									</span>
 									<span class="text-sm font-medium text-muted-foreground">
@@ -154,8 +154,8 @@
 							<CardContent class="space-y-4">
 								<!-- Professor -->
 								<div class="flex items-start gap-2">
-									<User class="h-5 w-5 text-muted-foreground flex-shrink-0 mt-0.5" />
-									<p class="text-sm text-muted-foreground leading-tight">
+									<User class="mt-0.5 h-5 w-5 flex-shrink-0 text-muted-foreground" />
+									<p class="text-sm leading-tight text-muted-foreground">
 										{course.professorName}
 									</p>
 								</div>
@@ -167,7 +167,11 @@
 									<span class="text-xs font-medium text-muted-foreground">
 										Estado de Laboratorio:
 									</span>
-									<span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-semibold {getLabStatusColor(course.labStatus)}">
+									<span
+										class="inline-flex items-center rounded-md px-2.5 py-1 text-xs font-semibold {getLabStatusColor(
+											course.labStatus
+										)}"
+									>
 										{course.labStatus}
 									</span>
 								</div>
@@ -179,9 +183,9 @@
 				<!-- Summary Card -->
 				<Card>
 					<CardContent class="pt-6">
-						<div class="flex flex-col sm:flex-row items-center justify-around gap-6">
+						<div class="flex flex-col items-center justify-around gap-6 sm:flex-row">
 							<div class="flex items-center gap-4">
-								<div class="p-3 rounded-lg bg-primary/10">
+								<div class="rounded-lg bg-primary/10 p-3">
 									<BookOpen class="h-6 w-6 text-primary" />
 								</div>
 								<div>
@@ -189,11 +193,11 @@
 									<p class="text-3xl font-bold">{courses.length}</p>
 								</div>
 							</div>
-							
-							<Separator orientation="vertical" class="hidden sm:block h-16" />
-							
+
+							<Separator orientation="vertical" class="hidden h-16 sm:block" />
+
 							<div class="flex items-center gap-4">
-								<div class="p-3 rounded-lg bg-primary/10">
+								<div class="rounded-lg bg-primary/10 p-3">
 									<GraduationCap class="h-6 w-6 text-primary" />
 								</div>
 								<div>

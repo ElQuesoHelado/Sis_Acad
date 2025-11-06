@@ -21,6 +21,13 @@ export const API_ENDPOINTS = {
 		ROSTER: (groupId: string) => `/teacher/group/${groupId}/roster`,
 		ROSTER_WITH_GRADES: (groupId: string) => `/teacher/group/${groupId}/roster-with-grades`,
 		SAVE_BULK_GRADES: '/teacher/grades/save-bulk',
-		TAKE_ATTENDANCE: '/teacher/attendance/take'
+		TAKE_ATTENDANCE: '/teacher/attendance/take',
+		CREATE_RESERVATION: '/teacher/reservations/create'
+	},
+	USER: {
+		PROFILE: () => '/user/profile'
+	},
+	CLASSROOMS: {
+		GET_ALL: '/classrooms'
 	}
 };

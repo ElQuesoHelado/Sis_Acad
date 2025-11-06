@@ -5,7 +5,8 @@ import type {
 	StudentRosterWithGrades,
 	SaveBulkGradesInput,
 	TakeAttendanceInput,
-	ClassType
+	ClassType,
+	CreateReservationInput
 } from '$lib/core/domain';
 import type { IHttpClient } from '$lib/core/interfaces/http-client.interface';
 import { httpClient } from '$lib/core/adapters';
@@ -50,6 +51,10 @@ class TeacherService {
 	/** Submits attendance records for a class session */
 	public takeAttendance(data: TakeAttendanceInput): Promise<void> {
 		return this.http.post<void>(API_ENDPOINTS.TEACHER.TAKE_ATTENDANCE, data);
+	}
+
+	public createReservation(data: CreateReservationInput): Promise<ReservationResponse> {
+		return this.http.post<CreateReservationInput>(API_ENDPOINTS.TEACHER.CREATE_RESERVATION, data);
 	}
 }
 

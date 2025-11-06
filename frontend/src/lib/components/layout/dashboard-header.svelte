@@ -9,6 +9,31 @@
 	import ThemeToggle from '$lib/components/layout/theme-toggle.svelte';
 	import { GraduationCap, Menu } from '@lucide/svelte';
 
+	import { userService } from '$lib/core/services/user.service';
+	import type { UserRole } from '$lib/core/domain/enums';
+	import { userRoleStore } from '$lib/core/stores/user.store';
+
+	export interface UserProfile {
+		name: string;
+		surname: string;
+		email: string;
+		role: UserRole;
+	}
+
+	let user: UserProfile | null = $state(null);
+
+	$effect(() => {
+		async function loadProfile() {
+			try {
+				user = await userService.getProfile();
+			} catch (err) {
+				console.error('Error loading user profile:', err);
+				user = null;
+			}
+		}
+		loadProfile();
+	});
+
 	interface Props {
 		navGroups: NavGroup[];
 		title?: Snippet;
@@ -69,16 +94,16 @@
 	</div>
 
 	<div class="flex-1">
-		{#if breadcrumb}
-			{@render breadcrumb()}
-		{/if}
 		<h1 class="text-lg font-semibold sm:text-xl">
 			{#if title}
 				{@render title()}
 			{:else}
-				Panel
+				Panel de {$userRoleStore}
 			{/if}
 		</h1>
+		{#if breadcrumb}
+			{@render breadcrumb()}
+		{/if}
 	</div>
 
 	<div class="flex items-center gap-2">
@@ -87,7 +112,20 @@
 				{@render actions()}
 			</div>
 		{/if}
-		<ThemeToggle />
+
+		{#if user}
+			<div class="hidden text-right sm:block">
+				<p class="text-sm leading-none font-medium">
+					{user.name}
+					{user.surname}
+				</p>
+				<p class="text-xs text-muted-foreground">
+					{user.email}
+				</p>
+			</div>
+		{/if}
+
 		<ProfileDropdown />
+		<ThemeToggle />
 	</div>
 </header>

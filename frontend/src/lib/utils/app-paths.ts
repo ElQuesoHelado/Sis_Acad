@@ -15,7 +15,8 @@ const STUDENT_PATHS = {
 	BASE: STUDENT_BASE,
 	COURSES: `${STUDENT_BASE}/courses`,
 	GRADES: `${STUDENT_BASE}/grades`,
-	SCHEDULE: `${STUDENT_BASE}/schedule`
+	SCHEDULE: `${STUDENT_BASE}/schedule`,
+	ENROLLMENT: `${STUDENT_BASE}/enrollment`
 };
 
 const TEACHER_PATHS = {
@@ -23,7 +24,8 @@ const TEACHER_PATHS = {
 	COURSES: `${TEACHER_BASE}/courses`,
 	GRADES: `${TEACHER_BASE}/grades`,
 	ATTENDANCE: `${TEACHER_BASE}/attendance`,
-	SCHEDULE: `${TEACHER_BASE}/schedule`
+	SCHEDULE: `${TEACHER_BASE}/schedule`,
+	RESERVE_CLASSROOM: `${TEACHER_BASE}/reserve-classroom`
 };
 
 /**
