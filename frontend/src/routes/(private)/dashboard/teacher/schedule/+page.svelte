@@ -1,23 +1,17 @@
 <script lang="ts">
 	import { teacherService } from '$lib/core/services';
 	import * as HoverCard from '$lib/components/ui/hover-card';
-	// CAMBIO: Se elimina 'User' (profesor) y se mantiene 'Users' (grupo)
-	import { BookCopy, Users, CalendarDays, Clock, MapPin } from '@lucide/svelte/icons'; // Corregida importación de iconos
-	// CAMBIO: Se importa la interfaz correcta y 'DayOfWeek'
-	import type { TeacherScheduleEntry, DayOfWeek } from '$lib/core/domain';
+	import { BookCopy, Users, CalendarDays, Clock, MapPin } from '@lucide/svelte/icons';
+	import type { TeacherScheduleEntry} from '$lib/core/domain';
 
 	let schedule: TeacherScheduleEntry[] = $state([]);
 	let loading = $state(true);
 	let error = $state('');
 
-	// ❌ ERROR CORREGIDO: Se eliminó la interfaz duplicada
-	// que estaba definida dentro del script.
-
 	async function loadSchedule() {
 		loading = true;
 		error = '';
 		try {
-			// Esto es correcto: se usa teacherService
 			schedule = await teacherService.getScheduleBySemester('2024-I');
 		} catch (err) {
 			error = err instanceof Error ? err.message : 'Error al cargar el horario';
