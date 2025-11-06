@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { studentService } from '$lib/core/services';
+	import { teacherService } from '$lib/core/services';
 
 	interface ScheduleItem {
 		courseName: string;
@@ -9,7 +9,6 @@
 		startTime: string;
 		endTime: string;
 		classroomName: string;
-		professorName: string;
 	}
 
 	let schedule: ScheduleItem[] = [];
@@ -17,7 +16,7 @@
 
 	async function loadSchedule() {
 		try {
-			schedule = await studentService.getScheduleBySemester('2024-I');
+			schedule = await teacherService.getScheduleBySemester('2024-I');
 		} catch (error) {
 			console.error('Error loading schedule:', error);
 		}
@@ -98,10 +97,6 @@
 											<div class="mb-1 text-xs text-gray-600">
 												📚 {classItem.classroomName}
 											</div>
-											<div class="text-xs text-gray-500">
-												👨‍🏫 {classItem.professorName.split(' ')[0]}
-												{classItem.professorName.split(' ')[1]}
-											</div>
 											<div class="mt-2 border-t border-gray-300 pt-2 text-xs text-gray-400">
 												{classItem.groupType === 'Teoria' ? 'T' : 'L'}
 												{classItem.groupLetter}
@@ -150,11 +145,6 @@
 				<div>
 					<h3 class="font-semibold text-gray-700">Aula:</h3>
 					<p class="text-gray-900">{selectedClass.classroomName}</p>
-				</div>
-
-				<div>
-					<h3 class="font-semibold text-gray-700">Profesor:</h3>
-					<p class="text-gray-900">{selectedClass.professorName}</p>
 				</div>
 			</div>
 
