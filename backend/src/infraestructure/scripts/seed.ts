@@ -479,7 +479,8 @@ export async function seedReservations(
       }),
     );
   }
-} export async function seedGradeWeigths(
+}
+export async function seedGradeWeigths(
   fileName: string,
   repo: Repository<GradeWeightModel>,
 ) {

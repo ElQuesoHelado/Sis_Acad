@@ -49,7 +49,7 @@ const DAY_OF_WEEK_MAP: Record<UtcDayIndex, DayOfWeek> = {
 };
 
 export class CreateRoomReservationUseCase {
-  constructor(private readonly uow: IUnitOfWork) { }
+  constructor(private readonly uow: IUnitOfWork) {}
 
   public async execute(
     input: CreateReservationDto,
@@ -85,11 +85,12 @@ export class CreateRoomReservationUseCase {
 
     return this.uow.execute(async (repos) => {
       // Contar reservas existentes
-      const weeklyCount = await repos.roomReservation.countByProfessorAndDateRange(
-        profIdVO,
-        weekStart,
-        weekEnd,
-      );
+      const weeklyCount =
+        await repos.roomReservation.countByProfessorAndDateRange(
+          profIdVO,
+          weekStart,
+          weekEnd,
+        );
 
       if (weeklyCount >= MAX_RESERVATIONS_PER_WEEK) {
         throw new ReservationLimitError(MAX_RESERVATIONS_PER_WEEK);

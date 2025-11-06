@@ -7,7 +7,7 @@ import { NotAuthorizedError } from "@/application/errors/not-authorized.error.js
 import { EnrollmentNotFoundError } from "@/domain/errors/index.js";
 import { v4 as uuidv4 } from "uuid";
 import { type IUnitOfWork } from "@/application/contracts/i-unit-of-work.js";
-import { TeacherAuthorizationService } from "@/application/services/teacher-authorization.service.js";
+import type { TeacherAuthorizationService } from "@/application/services/teacher-authorization.service.js";
 
 /**
  * Use Case: A teacher marks attendance for a theory or lab session.

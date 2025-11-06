@@ -2,7 +2,8 @@
  * @file TypeORM implementation of the StudentProfile repository.
  */
 
-import { EntityManager, In, type Repository } from "typeorm";
+import type { EntityManager } from "typeorm";
+import { In, type Repository } from "typeorm";
 import { StudentProfile } from "@/domain/entities/profiles/student.profile.js";
 import type { IStudentProfileRepository } from "@/domain/repositories/istudent-profile.repository.js";
 import { StudentProfileModel } from "../models/student-profile.model.js";

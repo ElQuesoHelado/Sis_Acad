@@ -2,17 +2,16 @@
  * @file TypeORM implementation of the RoomReservation repository.
  */
 
-import {
-  type Repository,
-  LessThan,
-  MoreThan,
-  EntityManager,
-  Between,
-} from "typeorm";
+import type { EntityManager } from "typeorm";
+import { type Repository, LessThan, MoreThan, Between } from "typeorm";
 import { RoomReservation } from "@/domain/entities/room-reservation.entity.js";
 import { type IRoomReservationRepository } from "@/domain/repositories/iroom-reservation.repository.js";
 import { RoomReservationModel } from "../models/room-reservation.model.js";
-import { Id, AcademicSemester, TimeOfDay } from "@/domain/value-objects/index.js";
+import type {
+  Id,
+  AcademicSemester,
+  TimeOfDay,
+} from "@/domain/value-objects/index.js";
 import { ReservationStatus } from "@/domain/enums/index.js";
 import { AppDataSource } from "../database.config.js";
 
@@ -21,7 +20,8 @@ import { AppDataSource } from "../database.config.js";
  * Handles mapping between domain entities and persistence models.
  */
 export class TypeormRoomReservationRepository
-  implements IRoomReservationRepository {
+  implements IRoomReservationRepository
+{
   private ormRepo: Repository<RoomReservationModel>;
 
   /**
@@ -39,7 +39,7 @@ export class TypeormRoomReservationRepository
    * @returns The corresponding domain entity.
    */
   private toDomain = (model: RoomReservationModel): RoomReservation => {
-const dateString = model.date as unknown as string;
+    const dateString = model.date as unknown as string;
 
     return RoomReservation.create({
       id: model.id,
@@ -49,7 +49,7 @@ const dateString = model.date as unknown as string;
       status: model.status,
       date: dateString,
       startTime: model.startTime.value,
-      endTime: model.endTime.value, 
+      endTime: model.endTime.value,
       notes: model.notes ?? undefined,
     });
   };

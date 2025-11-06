@@ -48,6 +48,7 @@ En la raíz del proyecto:
 ```bash
 docker compose up -d
 ```
+
 Esto levanta PostgreSQL y Adminer (puerto 8080) usando las credenciales del `.env`.
 
 Para detener los contenedores:
@@ -98,6 +99,7 @@ El servidor estará disponible en:
 ```
 http://localhost:5000
 ```
+
 ---
 
 ## 5. Datos Iniciales
@@ -123,6 +125,7 @@ http://localhost:5000/api-docs
 ```
 
 Permite explorar y probar todos los endpoints del sistema.
+
 > **Nota:**  
 > Después de obtener el token JWT mediante la petición a `/auth/login`, puedes copiarlo y pegarlo en el botón **Authorize** dentro de Swagger UI.  
 > Esto permite mantener la sesión activa y probar todos los endpoints que requieren autenticación sin necesidad de enviar manualmente el token en cada solicitud.

@@ -281,7 +281,6 @@ export const createTeacherRouter = (container: AppContainer): Router => {
     makeSaveBulkGradesController(container.useCases.saveBulkGrades),
   );
 
-
   /**
    * @route POST /api/teacher/reservations/create
    * @summary Create a new classroom reservation (Transactional)

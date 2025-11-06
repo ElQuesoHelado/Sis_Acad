@@ -1,4 +1,4 @@
-import { Id } from "@/domain/value-objects/index.js";
+import type { Id } from "@/domain/value-objects/index.js";
 import { ClassType } from "@/domain/enums/index.js";
 import {
   type ITheoryGroupRepository,

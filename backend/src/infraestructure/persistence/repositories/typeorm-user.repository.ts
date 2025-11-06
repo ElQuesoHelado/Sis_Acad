@@ -2,7 +2,8 @@
  * @file TypeORM implementation of the User repository.
  */
 
-import { EntityManager, In, type Repository } from "typeorm";
+import type { EntityManager } from "typeorm";
+import { In, type Repository } from "typeorm";
 import { User } from "@/domain/entities/index.js";
 import type { IUserRepository } from "@/domain/repositories/iuser.repository.js";
 import { UserModel } from "../models/user.model.js";

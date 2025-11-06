@@ -1,5 +1,6 @@
 import { type Request, type Response, type NextFunction } from "express";
-import { ZodObject, ZodError, treeifyError } from "zod";
+import type { ZodObject } from "zod";
+import { ZodError, treeifyError } from "zod";
 
 /**
  * Express middleware to validate incoming requests using a Zod schema.

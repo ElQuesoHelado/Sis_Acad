@@ -1,7 +1,12 @@
 import { type Response, type NextFunction } from "express";
 import { type AuthRequest } from "../middlewares/auth.middleware.js";
 import type { TakeAttendanceUseCase } from "@/application/use-cases/teacher/take-attendance.usecase.js";
-import { DomainError, ReservationConflictError, ReservationLimitError, ReservationWindowError } from "@/domain/errors/index.js";
+import {
+  DomainError,
+  ReservationConflictError,
+  ReservationLimitError,
+  ReservationWindowError,
+} from "@/domain/errors/index.js";
 import { NotAuthorizedError } from "@/application/errors/not-authorized.error.js";
 import { type ClassType } from "@/domain/enums/index.js";
 import type { GetStudentRosterUseCase } from "@/application/use-cases/teacher/get-student-roster.usecase.js";
@@ -187,7 +192,6 @@ export const makeSaveBulkGradesController = (
   };
 };
 
-
 /**
  *  Factory for the Create Room Reservation controller.
  * @param useCase - An instance of CreateRoomReservationUseCase.
@@ -208,7 +212,8 @@ export const makeCreateReservationController = (
       if (
         error instanceof ReservationConflictError ||
         error instanceof ReservationLimitError ||
-        error instanceof ReservationWindowError) {
+        error instanceof ReservationWindowError
+      ) {
         return res.status(409).json({
           name: error.name,
           message: error.message,

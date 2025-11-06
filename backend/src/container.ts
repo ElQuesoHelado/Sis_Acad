@@ -19,7 +19,7 @@ import {
   EnrollInLabGroupsUseCase,
   EnrollInLabGroupUseCase,
   GetTeacherScheduleUseCase,
-  CreateRoomReservationUseCase
+  CreateRoomReservationUseCase,
 } from "@/application/use-cases/index.js";
 
 import { LoginUseCase } from "./application/use-cases/auth/login.usecase.js";

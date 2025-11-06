@@ -63,7 +63,6 @@ export class RoomReservationModel extends BaseEntity {
   })
   status: ReservationStatus;
 
-
   /** Specific date of the reservation. */
   @Column("date", { nullable: false })
   date: Date;

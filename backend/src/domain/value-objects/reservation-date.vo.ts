@@ -10,10 +10,9 @@ import {
 const MAX_RESERVATION_WINDOW_DAYS = 14;
 
 /** Zod schema for validating a YYYY-MM-DD date string. */
-const DateStringSchema = z.string().regex(
-  /^\d{4}-\d{2}-\d{2}$/,
-  "Date must be a valid YYYY-MM-DD string.",
-);
+const DateStringSchema = z
+  .string()
+  .regex(/^\d{4}-\d{2}-\d{2}$/, "Date must be a valid YYYY-MM-DD string.");
 
 /**
  * Gets the current date, normalized to midnight UTC.
@@ -58,13 +57,17 @@ export class ReservationDate {
         `Invalid date: '${dateString}' is not a real date.`,
       );
     }
-    
+
     // Check date parts match (e.g., 2025-02-30 is invalid)
-    const [year, month, day] = dateString.split('-').map(Number);
-    if (date.getUTCFullYear() !== year || date.getUTCMonth() + 1 !== month || date.getUTCDate() !== day) {
-        throw new InvalidReservationDateError(
-            `Invalid date components: '${dateString}' is not a real date.`,
-        );
+    const [year, month, day] = dateString.split("-").map(Number);
+    if (
+      date.getUTCFullYear() !== year ||
+      date.getUTCMonth() + 1 !== month ||
+      date.getUTCDate() !== day
+    ) {
+      throw new InvalidReservationDateError(
+        `Invalid date components: '${dateString}' is not a real date.`,
+      );
     }
 
     const today = getTodayNormalized();
@@ -72,7 +75,9 @@ export class ReservationDate {
     maxDate.setUTCDate(today.getUTCDate() + MAX_RESERVATION_WINDOW_DAYS);
 
     if (date < today) {
-      throw new ReservationWindowError("Cannot create reservations in the past.");
+      throw new ReservationWindowError(
+        "Cannot create reservations in the past.",
+      );
     }
     if (date > maxDate) {
       throw new ReservationWindowError(

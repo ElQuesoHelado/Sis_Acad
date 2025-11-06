@@ -27,11 +27,11 @@ export interface RoomReservationCreateProps {
   classroomId: string;
   professorId: string;
   semester: string;
-  date: string; 
+  date: string;
   startTime: string;
   endTime: string;
   status: ReservationStatus;
-  notes?: string; 
+  notes?: string;
 }
 
 /**
@@ -58,7 +58,7 @@ export class RoomReservation extends Entity {
   public readonly classroomId: Id;
   public readonly professorId: Id;
   public readonly semester: AcademicSemester;
-  public readonly date: ReservationDate; 
+  public readonly date: ReservationDate;
   public readonly startTime: TimeOfDay;
   public readonly endTime: TimeOfDay;
   public status: ReservationStatus;
@@ -118,7 +118,10 @@ export class RoomReservation extends Entity {
         notes: props.notes,
       });
     } catch (error) {
-      if (error instanceof DomainError || error instanceof InvalidReservationDateError) {
+      if (
+        error instanceof DomainError ||
+        error instanceof InvalidReservationDateError
+      ) {
         throw error;
       }
       throw new ReservationCreationError(

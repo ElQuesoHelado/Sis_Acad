@@ -68,10 +68,7 @@
     "schemas": {
       "AttendanceStatus": {
         "type": "string",
-        "enum": [
-          "presente",
-          "ausente"
-        ],
+        "enum": ["presente", "ausente"],
         "description": "Estado de la asistencia."
       },
       "AvailableLabGroup": {
@@ -103,11 +100,7 @@
       },
       "BulkGradeSaveEntry": {
         "type": "object",
-        "required": [
-          "enrollmentId",
-          "type",
-          "score"
-        ],
+        "required": ["enrollmentId", "type", "score"],
         "properties": {
           "enrollmentId": {
             "type": "string",
@@ -129,30 +122,17 @@
       },
       "ClassType": {
         "type": "string",
-        "enum": [
-          "teoria",
-          "labo"
-        ],
+        "enum": ["teoria", "labo"],
         "description": "Tipo de clase (teoría o laboratorio)."
       },
       "CourseStatus": {
         "type": "string",
-        "enum": [
-          "Aprobado",
-          "Desaprobado",
-          "En Progreso"
-        ],
+        "enum": ["Aprobado", "Desaprobado", "En Progreso"],
         "description": "Estado del curso basado en el promedio."
       },
       "CreateReservationInput": {
         "type": "object",
-        "required": [
-          "classroomId",
-          "semester",
-          "date",
-          "startTime",
-          "endTime"
-        ],
+        "required": ["classroomId", "semester", "date", "startTime", "endTime"],
         "properties": {
           "classroomId": {
             "type": "string",
@@ -207,10 +187,7 @@
       },
       "EnrollInLabGroupInput": {
         "type": "object",
-        "required": [
-          "enrollmentId",
-          "labGroupId"
-        ],
+        "required": ["enrollmentId", "labGroupId"],
         "properties": {
           "enrollmentId": {
             "type": "string",
@@ -227,9 +204,7 @@
       },
       "EnrollInLabGroupsInput": {
         "type": "object",
-        "required": [
-          "selections"
-        ],
+        "required": ["selections"],
         "properties": {
           "selections": {
             "type": "array",
@@ -298,10 +273,7 @@
       },
       "LabEnrollmentSelection": {
         "type": "object",
-        "required": [
-          "enrollmentId",
-          "labGroupId"
-        ],
+        "required": ["enrollmentId", "labGroupId"],
         "properties": {
           "enrollmentId": {
             "type": "string",
@@ -318,19 +290,12 @@
       },
       "LabEnrollmentStatus": {
         "type": "string",
-        "enum": [
-          "Matriculado",
-          "Sin Matricula",
-          "N/A"
-        ],
+        "enum": ["Matriculado", "Sin Matricula", "N/A"],
         "description": "Estado de matrícula en laboratorio."
       },
       "LoginInput": {
         "type": "object",
-        "required": [
-          "email",
-          "password"
-        ],
+        "required": ["email", "password"],
         "properties": {
           "email": {
             "type": "string",
@@ -384,11 +349,7 @@
       },
       "ReservationStatus": {
         "type": "string",
-        "enum": [
-          "reservado",
-          "free",
-          "completado"
-        ],
+        "enum": ["reservado", "free", "completado"],
         "description": "Estado de la reserva de aula."
       },
       "RoomReservationOutput": {
@@ -437,11 +398,7 @@
       },
       "SaveBulkGradesInput": {
         "type": "object",
-        "required": [
-          "classType",
-          "groupId",
-          "entries"
-        ],
+        "required": ["classType", "groupId", "entries"],
         "properties": {
           "classType": {
             "$ref": "#/components/schemas/ClassType"
@@ -655,10 +612,7 @@
           },
           "groupType": {
             "type": "string",
-            "enum": [
-              "Teoria",
-              "Lab"
-            ],
+            "enum": ["Teoria", "Lab"],
             "example": "Teoria"
           },
           "groupLetter": {
@@ -692,12 +646,7 @@
       },
       "TakeAttendanceInput": {
         "type": "object",
-        "required": [
-          "classType",
-          "groupId",
-          "date",
-          "records"
-        ],
+        "required": ["classType", "groupId", "date", "records"],
         "properties": {
           "classType": {
             "$ref": "#/components/schemas/ClassType"
@@ -772,10 +721,7 @@
           },
           "groupType": {
             "type": "string",
-            "enum": [
-              "Teoria",
-              "Labo"
-            ],
+            "enum": ["Teoria", "Labo"],
             "example": "Teoria"
           },
           "groupLetter": {
@@ -805,12 +751,7 @@
       },
       "UserRole": {
         "type": "string",
-        "enum": [
-          "administrador",
-          "secretaria",
-          "profesor",
-          "estudiante"
-        ],
+        "enum": ["administrador", "secretaria", "profesor", "estudiante"],
         "description": "Rol del usuario en el sistema."
       }
     }
@@ -823,9 +764,7 @@
   "paths": {
     "/auth/login": {
       "post": {
-        "tags": [
-          "Auth"
-        ],
+        "tags": ["Auth"],
         "summary": "Iniciar sesión",
         "description": "Autentica a un usuario y devuelve un token JWT. Esta ruta es pública.",
         "security": [],
@@ -883,9 +822,7 @@
     },
     "/student/courses/{semester}": {
       "get": {
-        "tags": [
-          "Student"
-        ],
+        "tags": ["Student"],
         "summary": "Obtener cursos matriculados",
         "description": "Obtiene la lista de cursos en los que el estudiante está matriculado para un semestre específico. Requiere rol 'estudiante'.",
         "parameters": [
@@ -918,9 +855,7 @@
     },
     "/student/grades/{semester}": {
       "get": {
-        "tags": [
-          "Student"
-        ],
+        "tags": ["Student"],
         "summary": "Obtener notas del estudiante",
         "description": "Obtiene el resumen de notas del estudiante para todos los cursos de un semestre. Requiere rol 'estudiante'.",
         "parameters": [
@@ -953,9 +888,7 @@
     },
     "/student/schedule/{semester}": {
       "get": {
-        "tags": [
-          "Student"
-        ],
+        "tags": ["Student"],
         "summary": "Obtener horario del estudiante",
         "description": "Obtiene el horario de clases (teoría y laboratorio) del estudiante para un semestre. Requiere rol 'estudiante'.",
         "parameters": [
@@ -988,9 +921,7 @@
     },
     "/student/enrollment/{enrollmentId}/available-labs": {
       "get": {
-        "tags": [
-          "Student"
-        ],
+        "tags": ["Student"],
         "summary": "Obtener laboratorios disponibles",
         "description": "Obtiene los grupos de laboratorio disponibles (no llenos) para una matrícula de teoría específica. Requiere rol 'estudiante'.",
         "parameters": [
@@ -1026,9 +957,7 @@
     },
     "/student/enroll-labs": {
       "post": {
-        "tags": [
-          "Student"
-        ],
+        "tags": ["Student"],
         "summary": "Matrícula masiva en laboratorios",
         "description": "Matricula al estudiante en múltiples grupos de laboratorio de forma transaccional. Requiere rol 'estudiante'.",
         "requestBody": {
@@ -1094,9 +1023,7 @@
     },
     "/student/enroll-lab": {
       "patch": {
-        "tags": [
-          "Student"
-        ],
+        "tags": ["Student"],
         "summary": "Matrícula en un laboratorio (singular)",
         "description": "Matricula al estudiante en un solo grupo de laboratorio. Requiere rol 'estudiante'.",
         "requestBody": {
@@ -1150,9 +1077,7 @@
     },
     "/teacher/groups/{semester}": {
       "get": {
-        "tags": [
-          "Teacher"
-        ],
+        "tags": ["Teacher"],
         "summary": "Obtener grupos del profesor",
         "description": "Obtiene todos los grupos (teoría y lab) asignados al profesor en un semestre. Requiere rol 'profesor'.",
         "parameters": [
@@ -1185,9 +1110,7 @@
     },
     "/teacher/schedule/{semester}": {
       "get": {
-        "tags": [
-          "Teacher"
-        ],
+        "tags": ["Teacher"],
         "summary": "Obtener horario del profesor",
         "description": "Obtiene el horario de clases semanal del profesor para un semestre. Requiere rol 'profesor'.",
         "parameters": [
@@ -1220,9 +1143,7 @@
     },
     "/teacher/group/{groupId}/roster": {
       "get": {
-        "tags": [
-          "Teacher"
-        ],
+        "tags": ["Teacher"],
         "summary": "Obtener lista de estudiantes (Roster)",
         "description": "Obtiene la lista de estudiantes matriculados en un grupo (teoría o lab). Requiere rol 'profesor'.",
         "parameters": [
@@ -1258,9 +1179,7 @@
     },
     "/teacher/attendance/take": {
       "post": {
-        "tags": [
-          "Teacher"
-        ],
+        "tags": ["Teacher"],
         "summary": "Tomar asistencia",
         "description": "Registra o actualiza la asistencia para múltiples estudiantes en una sesión. Es transaccional. Requiere rol 'profesor'.",
         "requestBody": {
@@ -1311,9 +1230,7 @@
     },
     "/teacher/group/{groupId}/roster-with-grades": {
       "get": {
-        "tags": [
-          "Teacher"
-        ],
+        "tags": ["Teacher"],
         "summary": "Obtener lista con notas",
         "description": "Obtiene la lista de estudiantes con sus notas para la grilla de calificaciones. Requiere rol 'profesor'.",
         "parameters": [
@@ -1349,9 +1266,7 @@
     },
     "/teacher/grades/save-bulk": {
       "post": {
-        "tags": [
-          "Teacher"
-        ],
+        "tags": ["Teacher"],
         "summary": "Guardar notas (masivo)",
         "description": "Guarda o actualiza un lote de notas. Es transaccional. Requiere rol 'profesor'.",
         "requestBody": {
@@ -1402,9 +1317,7 @@
     },
     "/teacher/reservations/create": {
       "post": {
-        "tags": [
-          "Teacher"
-        ],
+        "tags": ["Teacher"],
         "summary": "Crear una reserva de aula",
         "description": "Registra una reserva de aula para el profesor, validando conflictos y reglas de negocio (ej. límite semanal). Es transaccional. Requiere rol 'profesor'.",
         "requestBody": {
@@ -1467,9 +1380,7 @@
     },
     "/health": {
       "get": {
-        "tags": [
-          "Health"
-        ],
+        "tags": ["Health"],
         "summary": "Health Check",
         "description": "Ruta pública para verificar el estado del servidor.",
         "security": [],
