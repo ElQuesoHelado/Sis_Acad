@@ -5,7 +5,7 @@ import { type SaveBulkGradesDto } from "@/application/dtos/grade.dto.js";
 import { NotAuthorizedError } from "@/application/errors/not-authorized.error.js";
 import { v4 as uuidv4 } from "uuid";
 import { type IUnitOfWork } from "@/application/contracts/i-unit-of-work.js";
-import { TeacherAuthorizationService } from "@/application/services/teacher-authorization.service.js";
+import type { TeacherAuthorizationService } from "@/application/services/teacher-authorization.service.js";
 
 /**
  * Use Case: Save or update a batch of grades for a specific group.

@@ -66,10 +66,111 @@
       }
     },
     "schemas": {
-      "UserRole": {
+      "AttendanceStatus": {
         "type": "string",
-        "enum": ["administrador", "secretaria", "profesor", "estudiante"],
-        "description": "Rol del usuario en el sistema."
+        "enum": ["presente", "ausente"],
+        "description": "Estado de la asistencia."
+      },
+      "AvailableLabGroup": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "example": "00000000-0007-4000-8000-000000000001"
+          },
+          "groupLetter": {
+            "type": "string",
+            "example": "A"
+          },
+          "capacity": {
+            "type": "integer",
+            "example": 20
+          },
+          "currentEnrollment": {
+            "type": "integer",
+            "example": 0
+          },
+          "isFull": {
+            "type": "boolean",
+            "example": false
+          }
+        },
+        "description": "DTO para un grupo de laboratorio disponible."
+      },
+      "BulkGradeSaveEntry": {
+        "type": "object",
+        "required": ["enrollmentId", "type", "score"],
+        "properties": {
+          "enrollmentId": {
+            "type": "string",
+            "format": "uuid",
+            "example": "00000000-0009-4000-8000-000000000001"
+          },
+          "type": {
+            "$ref": "#/components/schemas/GradeType",
+            "example": "parcial_2"
+          },
+          "score": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 20,
+            "example": 14.5
+          }
+        },
+        "description": "Entrada individual de guardado de nota."
+      },
+      "ClassType": {
+        "type": "string",
+        "enum": ["teoria", "labo"],
+        "description": "Tipo de clase (teoría o laboratorio)."
+      },
+      "CourseStatus": {
+        "type": "string",
+        "enum": ["Aprobado", "Desaprobado", "En Progreso"],
+        "description": "Estado del curso basado en el promedio."
+      },
+      "CreateReservationInput": {
+        "type": "object",
+        "required": ["classroomId", "semester", "date", "startTime", "endTime"],
+        "properties": {
+          "classroomId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "ID del aula que se desea reservar."
+          },
+          "semester": {
+            "type": "string",
+            "pattern": "^\\d{4}-(I|II)$",
+            "description": "Semestre para el cual se hace la reserva.",
+            "example": "2024-I"
+          },
+          "date": {
+            "type": "string",
+            "format": "date",
+            "description": "Fecha de la reserva en formato YYYY-MM-DD.",
+            "example": "2024-11-20"
+          },
+          "startTime": {
+            "type": "string",
+            "format": "time",
+            "description": "Hora de inicio en formato HH:MM (24h).",
+            "example": "14:00"
+          },
+          "endTime": {
+            "type": "string",
+            "format": "time",
+            "description": "Hora de fin en formato HH:MM (24h).",
+            "example": "15:50"
+          },
+          "notes": {
+            "type": "string",
+            "maxLength": 500,
+            "description": "Notas opcionales sobre la reserva.",
+            "example": "Clase de repaso para Parcial 2"
+          }
+        },
+        "description": "Datos de entrada para crear una nueva reserva de aula."
       },
       "DayOfWeek": {
         "type": "string",
@@ -84,15 +185,79 @@
         ],
         "description": "Día de la semana."
       },
-      "ClassType": {
-        "type": "string",
-        "enum": ["teoria", "labo"],
-        "description": "Tipo de clase (teoría o laboratorio)."
+      "EnrollInLabGroupInput": {
+        "type": "object",
+        "required": ["enrollmentId", "labGroupId"],
+        "properties": {
+          "enrollmentId": {
+            "type": "string",
+            "format": "uuid",
+            "example": "00000000-0009-4000-8000-000000000001"
+          },
+          "labGroupId": {
+            "type": "string",
+            "format": "uuid",
+            "example": "00000000-0007-4000-8000-000000000001"
+          }
+        },
+        "description": "Body para matricularse en un solo grupo de laboratorio."
       },
-      "AttendanceStatus": {
-        "type": "string",
-        "enum": ["presente", "ausente"],
-        "description": "Estado de la asistencia."
+      "EnrollInLabGroupsInput": {
+        "type": "object",
+        "required": ["selections"],
+        "properties": {
+          "selections": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LabEnrollmentSelection"
+            },
+            "minItems": 1
+          }
+        },
+        "description": "Body para matrícula masiva en laboratorios."
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "ValidationError"
+          },
+          "message": {
+            "type": "string",
+            "example": "Invalid request data."
+          },
+          "details": {
+            "type": "object",
+            "description": "Detalles del error de validación (opcional)."
+          }
+        }
+      },
+      "GradeOutput": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "example": "00000000-000a-4000-8000-000000000001"
+          },
+          "type": {
+            "$ref": "#/components/schemas/GradeType",
+            "example": "parcial_1"
+          },
+          "typeName": {
+            "type": "string",
+            "example": "Parcial 1"
+          },
+          "score": {
+            "type": "number",
+            "format": "float",
+            "minimum": 0,
+            "maximum": 20,
+            "example": 15
+          }
+        },
+        "description": "DTO para una nota individual."
       },
       "GradeType": {
         "type": "string",
@@ -106,15 +271,27 @@
         ],
         "description": "Tipo de evaluación."
       },
+      "LabEnrollmentSelection": {
+        "type": "object",
+        "required": ["enrollmentId", "labGroupId"],
+        "properties": {
+          "enrollmentId": {
+            "type": "string",
+            "format": "uuid",
+            "example": "00000000-0009-4000-8000-000000000001"
+          },
+          "labGroupId": {
+            "type": "string",
+            "format": "uuid",
+            "example": "00000000-0007-4000-8000-000000000001"
+          }
+        },
+        "description": "Selección individual para matrícula masiva."
+      },
       "LabEnrollmentStatus": {
         "type": "string",
         "enum": ["Matriculado", "Sin Matricula", "N/A"],
         "description": "Estado de matrícula en laboratorio."
-      },
-      "CourseStatus": {
-        "type": "string",
-        "enum": ["Aprobado", "Desaprobado", "En Progreso"],
-        "description": "Estado del curso basado en el promedio."
       },
       "LoginInput": {
         "type": "object",
@@ -170,6 +347,91 @@
         },
         "description": "Respuesta exitosa de inicio de sesión."
       },
+      "ReservationStatus": {
+        "type": "string",
+        "enum": ["reservado", "free", "completado"],
+        "description": "Estado de la reserva de aula."
+      },
+      "RoomReservationOutput": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "classroomId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "professorId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "semester": {
+            "type": "string",
+            "example": "2024-I"
+          },
+          "date": {
+            "type": "string",
+            "format": "date",
+            "example": "2024-11-20"
+          },
+          "startTime": {
+            "type": "string",
+            "format": "time",
+            "example": "14:00"
+          },
+          "endTime": {
+            "type": "string",
+            "format": "time",
+            "example": "15:50"
+          },
+          "status": {
+            "$ref": "#/components/schemas/ReservationStatus"
+          },
+          "notes": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "description": "DTO que representa una reserva de aula ya creada."
+      },
+      "SaveBulkGradesInput": {
+        "type": "object",
+        "required": ["classType", "groupId", "entries"],
+        "properties": {
+          "classType": {
+            "$ref": "#/components/schemas/ClassType"
+          },
+          "groupId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "entries": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BulkGradeSaveEntry"
+            }
+          }
+        },
+        "description": "Body para guardado masivo de notas.",
+        "example": {
+          "classType": "teoria",
+          "groupId": "00000000-0006-4000-8000-000000000001",
+          "entries": [
+            {
+              "enrollmentId": "00000000-0009-4000-8000-000000000001",
+              "type": "parcial_2",
+              "score": 14
+            },
+            {
+              "enrollmentId": "00000000-0009-4000-8000-000000000007",
+              "type": "parcial_2",
+              "score": 11.5
+            }
+          ]
+        }
+      },
       "StudentCourse": {
         "type": "object",
         "properties": {
@@ -200,32 +462,6 @@
           }
         },
         "description": "DTO de un curso matriculado por el estudiante."
-      },
-      "GradeOutput": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid",
-            "example": "00000000-000a-4000-8000-000000000001"
-          },
-          "type": {
-            "$ref": "#/components/schemas/GradeType",
-            "example": "parcial_1"
-          },
-          "typeName": {
-            "type": "string",
-            "example": "Parcial 1"
-          },
-          "score": {
-            "type": "number",
-            "format": "float",
-            "minimum": 0,
-            "maximum": 20,
-            "example": 15
-          }
-        },
-        "description": "DTO para una nota individual."
       },
       "StudentCourseGrades": {
         "type": "object",
@@ -262,181 +498,20 @@
         },
         "description": "Resumen de notas de un estudiante para un curso."
       },
-      "StudentScheduleEntry": {
+      "StudentGradeEntry": {
         "type": "object",
         "properties": {
-          "courseName": {
-            "type": "string",
-            "example": "SISTEMAS OPERATIVOS"
+          "type": {
+            "$ref": "#/components/schemas/GradeType"
           },
-          "groupType": {
-            "type": "string",
-            "enum": ["Teoria", "Lab"],
-            "example": "Teoria"
-          },
-          "groupLetter": {
-            "type": "string",
-            "example": "A"
-          },
-          "day": {
-            "$ref": "#/components/schemas/DayOfWeek",
-            "example": "LUNES"
-          },
-          "startTime": {
-            "type": "string",
-            "format": "time",
-            "example": "10:00"
-          },
-          "endTime": {
-            "type": "string",
-            "format": "time",
-            "example": "10:50"
-          },
-          "classroomName": {
-            "type": "string",
-            "example": "Aula 101"
-          },
-          "professorName": {
-            "type": "string",
-            "example": "Wilber Roberto Ramos Lovon"
+          "score": {
+            "type": "number",
+            "format": "float",
+            "nullable": true,
+            "example": 15.5
           }
         },
-        "description": "Entrada individual del horario del estudiante."
-      },
-      "AvailableLabGroup": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid",
-            "example": "00000000-0007-4000-8000-000000000001"
-          },
-          "groupLetter": {
-            "type": "string",
-            "example": "A"
-          },
-          "capacity": {
-            "type": "integer",
-            "example": 20
-          },
-          "currentEnrollment": {
-            "type": "integer",
-            "example": 0
-          },
-          "isFull": {
-            "type": "boolean",
-            "example": false
-          }
-        },
-        "description": "DTO para un grupo de laboratorio disponible."
-      },
-      "EnrollInLabGroupInput": {
-        "type": "object",
-        "required": ["enrollmentId", "labGroupId"],
-        "properties": {
-          "enrollmentId": {
-            "type": "string",
-            "format": "uuid",
-            "example": "00000000-0009-4000-8000-000000000001"
-          },
-          "labGroupId": {
-            "type": "string",
-            "format": "uuid",
-            "example": "00000000-0007-4000-8000-000000000001"
-          }
-        },
-        "description": "Body para matricularse en un solo grupo de laboratorio."
-      },
-      "LabEnrollmentSelection": {
-        "type": "object",
-        "required": ["enrollmentId", "labGroupId"],
-        "properties": {
-          "enrollmentId": {
-            "type": "string",
-            "format": "uuid",
-            "example": "00000000-0009-4000-8000-000000000001"
-          },
-          "labGroupId": {
-            "type": "string",
-            "format": "uuid",
-            "example": "00000000-0007-4000-8000-000000000001"
-          }
-        },
-        "description": "Selección individual para matrícula masiva."
-      },
-      "EnrollInLabGroupsInput": {
-        "type": "object",
-        "required": ["selections"],
-        "properties": {
-          "selections": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/LabEnrollmentSelection"
-            },
-            "minItems": 1
-          }
-        },
-        "description": "Body para matrícula masiva en laboratorios."
-      },
-      "TeacherGroup": {
-        "type": "object",
-        "properties": {
-          "groupId": {
-            "type": "string",
-            "format": "uuid",
-            "example": "00000000-0006-4000-8000-000000000001"
-          },
-          "courseName": {
-            "type": "string",
-            "example": "SISTEMAS OPERATIVOS"
-          },
-          "groupType": {
-            "$ref": "#/components/schemas/ClassType",
-            "example": "teoria"
-          },
-          "groupLetter": {
-            "type": "string",
-            "example": "A"
-          }
-        },
-        "description": "Un grupo (teoría o lab) asignado a un profesor."
-      },
-      "TeacherScheduleEntry": {
-        "type": "object",
-        "properties": {
-          "courseName": {
-            "type": "string",
-            "example": "SISTEMAS OPERATIVOS"
-          },
-          "groupType": {
-            "type": "string",
-            "enum": ["Teoria", "Labo"],
-            "example": "Teoria"
-          },
-          "groupLetter": {
-            "type": "string",
-            "example": "A"
-          },
-          "day": {
-            "$ref": "#/components/schemas/DayOfWeek",
-            "example": "LUNES"
-          },
-          "startTime": {
-            "type": "string",
-            "format": "time",
-            "example": "10:00"
-          },
-          "endTime": {
-            "type": "string",
-            "format": "time",
-            "example": "10:50"
-          },
-          "classroomName": {
-            "type": "string",
-            "example": "Aula 101"
-          }
-        },
-        "description": "Entrada individual del horario del profesor."
+        "description": "Celda de nota individual en la grilla."
       },
       "StudentRoster": {
         "type": "object",
@@ -465,82 +540,6 @@
           }
         },
         "description": "Información de un estudiante en la lista de un grupo."
-      },
-      "AttendanceRecord": {
-        "type": "object",
-        "required": ["enrollmentId", "status"],
-        "properties": {
-          "enrollmentId": {
-            "type": "string",
-            "format": "uuid",
-            "example": "00000000-0009-4000-8000-000000000001"
-          },
-          "status": {
-            "$ref": "#/components/schemas/AttendanceStatus",
-            "example": "presente"
-          }
-        },
-        "description": "Registro de asistencia para un estudiante."
-      },
-      "TakeAttendanceInput": {
-        "type": "object",
-        "required": ["classType", "groupId", "date", "records"],
-        "properties": {
-          "classType": {
-            "$ref": "#/components/schemas/ClassType"
-          },
-          "groupId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "date": {
-            "type": "string",
-            "format": "date",
-            "example": "2024-05-27"
-          },
-          "records": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AttendanceRecord"
-            },
-            "minItems": 1
-          }
-        },
-        "description": "Body para tomar asistencia.",
-        "example": {
-          "classType": "teoria",
-          "groupId": "00000000-0006-4000-8000-000000000001",
-          "date": "2024-05-27",
-          "records": [
-            {
-              "enrollmentId": "00000000-0009-4000-8000-000000000001",
-              "status": "presente"
-            },
-            {
-              "enrollmentId": "00000000-0009-4000-8000-000000000007",
-              "status": "presente"
-            },
-            {
-              "enrollmentId": "00000000-0009-4000-8000-000000000012",
-              "status": "ausente"
-            }
-          ]
-        }
-      },
-      "StudentGradeEntry": {
-        "type": "object",
-        "properties": {
-          "type": {
-            "$ref": "#/components/schemas/GradeType"
-          },
-          "score": {
-            "type": "number",
-            "format": "float",
-            "nullable": true,
-            "example": 15.5
-          }
-        },
-        "description": "Celda de nota individual en la grilla."
       },
       "StudentRosterWithGrades": {
         "type": "object",
@@ -604,31 +603,50 @@
           ]
         }
       },
-      "BulkGradeSaveEntry": {
+      "StudentScheduleEntry": {
         "type": "object",
-        "required": ["enrollmentId", "type", "score"],
         "properties": {
-          "enrollmentId": {
+          "courseName": {
             "type": "string",
-            "format": "uuid",
-            "example": "00000000-0009-4000-8000-000000000001"
+            "example": "SISTEMAS OPERATIVOS"
           },
-          "type": {
-            "$ref": "#/components/schemas/GradeType",
-            "example": "parcial_2"
+          "groupType": {
+            "type": "string",
+            "enum": ["Teoria", "Lab"],
+            "example": "Teoria"
           },
-          "score": {
-            "type": "number",
-            "minimum": 0,
-            "maximum": 20,
-            "example": 14.5
+          "groupLetter": {
+            "type": "string",
+            "example": "A"
+          },
+          "day": {
+            "$ref": "#/components/schemas/DayOfWeek",
+            "example": "LUNES"
+          },
+          "startTime": {
+            "type": "string",
+            "format": "time",
+            "example": "10:00"
+          },
+          "endTime": {
+            "type": "string",
+            "format": "time",
+            "example": "10:50"
+          },
+          "classroomName": {
+            "type": "string",
+            "example": "Aula 101"
+          },
+          "professorName": {
+            "type": "string",
+            "example": "Wilber Roberto Ramos Lovon"
           }
         },
-        "description": "Entrada individual de guardado de nota."
+        "description": "Entrada individual del horario del estudiante."
       },
-      "SaveBulkGradesInput": {
+      "TakeAttendanceInput": {
         "type": "object",
-        "required": ["classType", "groupId", "entries"],
+        "required": ["classType", "groupId", "date", "records"],
         "properties": {
           "classType": {
             "$ref": "#/components/schemas/ClassType"
@@ -637,47 +655,104 @@
             "type": "string",
             "format": "uuid"
           },
-          "entries": {
+          "date": {
+            "type": "string",
+            "format": "date",
+            "example": "2024-05-27"
+          },
+          "records": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/BulkGradeSaveEntry"
-            }
+              "$ref": "#/components/schemas/AttendanceRecord"
+            },
+            "minItems": 1
           }
         },
-        "description": "Body para guardado masivo de notas.",
+        "description": "Body para tomar asistencia.",
         "example": {
           "classType": "teoria",
           "groupId": "00000000-0006-4000-8000-000000000001",
-          "entries": [
+          "date": "2024-05-27",
+          "records": [
             {
               "enrollmentId": "00000000-0009-4000-8000-000000000001",
-              "type": "parcial_2",
-              "score": 14
+              "status": "presente"
             },
             {
               "enrollmentId": "00000000-0009-4000-8000-000000000007",
-              "type": "parcial_2",
-              "score": 11.5
+              "status": "presente"
+            },
+            {
+              "enrollmentId": "00000000-0009-4000-8000-000000000012",
+              "status": "ausente"
             }
           ]
         }
       },
-      "ErrorResponse": {
+      "TeacherGroup": {
         "type": "object",
         "properties": {
-          "name": {
+          "groupId": {
             "type": "string",
-            "example": "ValidationError"
+            "format": "uuid",
+            "example": "00000000-0006-4000-8000-000000000001"
           },
-          "message": {
+          "courseName": {
             "type": "string",
-            "example": "Invalid request data."
+            "example": "SISTEMAS OPERATIVOS"
           },
-          "details": {
-            "type": "object",
-            "description": "Detalles del error de validación (opcional)."
+          "groupType": {
+            "$ref": "#/components/schemas/ClassType",
+            "example": "teoria"
+          },
+          "groupLetter": {
+            "type": "string",
+            "example": "A"
           }
-        }
+        },
+        "description": "Un grupo (teoría o lab) asignado a un profesor."
+      },
+      "TeacherScheduleEntry": {
+        "type": "object",
+        "properties": {
+          "courseName": {
+            "type": "string",
+            "example": "SISTEMAS OPERATIVOS"
+          },
+          "groupType": {
+            "type": "string",
+            "enum": ["Teoria", "Labo"],
+            "example": "Teoria"
+          },
+          "groupLetter": {
+            "type": "string",
+            "example": "A"
+          },
+          "day": {
+            "$ref": "#/components/schemas/DayOfWeek",
+            "example": "LUNES"
+          },
+          "startTime": {
+            "type": "string",
+            "format": "time",
+            "example": "10:00"
+          },
+          "endTime": {
+            "type": "string",
+            "format": "time",
+            "example": "10:50"
+          },
+          "classroomName": {
+            "type": "string",
+            "example": "Aula 101"
+          }
+        },
+        "description": "Entrada individual del horario del profesor."
+      },
+      "UserRole": {
+        "type": "string",
+        "enum": ["administrador", "secretaria", "profesor", "estudiante"],
+        "description": "Rol del usuario en el sistema."
       }
     }
   },
@@ -1228,7 +1303,7 @@
               }
             }
           },
-          "400": {
+          "4G00": {
             "description": "Error de validación (ej. nota > 20)"
           },
           "401": {
@@ -1236,6 +1311,69 @@
           },
           "403": {
             "description": "Forbidden (no es profesor o la matrícula no pertenece al grupo)"
+          }
+        }
+      }
+    },
+    "/teacher/reservations/create": {
+      "post": {
+        "tags": ["Teacher"],
+        "summary": "Crear una reserva de aula",
+        "description": "Registra una reserva de aula para el profesor, validando conflictos y reglas de negocio (ej. límite semanal). Es transaccional. Requiere rol 'profesor'.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateReservationInput"
+              },
+              "example": {
+                "classroomId": "00000000-0005-4000-8000-000000000004",
+                "semester": "2024-I",
+                "date": "2024-11-20",
+                "startTime": "14:00",
+                "endTime": "15:50",
+                "notes": "Clase de repaso para Parcial 2"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Reserva creada exitosamente.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RoomReservationOutput"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Datos de solicitud inválidos (ej. formato de fecha incorrecto, endTime antes de startTime).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "No autorizado (sin token)"
+          },
+          "403": {
+            "description": "Forbidden (no es profesor)"
+          },
+          "409": {
+            "description": "Conflicto (ej. aula ya reservada, límite de reservas excedido, conflictos de horario).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         }
       }

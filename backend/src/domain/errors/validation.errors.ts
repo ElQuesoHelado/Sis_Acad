@@ -137,3 +137,23 @@ export class InvalidGroupLetterError extends DomainError {
     super(message);
   }
 }
+
+/** Thrown when a date string does not match the YYYY-MM-DD format. */
+export class InvalidReservationDateError extends DomainError {
+  constructor(message: string = "Invalid reservation date format.") {
+    super(message);
+  }
+}
+
+/**
+ * Thrown when a professor tries to reserve outside the allowed time window
+ * (e.g., too far in the future or in the past).
+ */
+export class ReservationWindowError extends DomainError {
+  /**
+   * @param message - The error message describing the window.
+   */
+  constructor(message: string) {
+    super(message);
+  }
+}

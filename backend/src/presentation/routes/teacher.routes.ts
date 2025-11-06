@@ -13,6 +13,7 @@ import {
 import { type AppContainer } from "../../container.js";
 import { UserRole } from "@/domain/enums/user-role.enum.js";
 import {
+  makeCreateReservationController,
   makeGetStudentRosterController,
   makeGetStudentRosterWithGradesController,
   makeGetTeacherGroupsController,
@@ -27,6 +28,7 @@ import {
   validateTakeAttendance,
   validateGetRosterWithGrades,
   validateSaveBulkGrades,
+  validateCreateReservation,
 } from "../validation/teacher.validation.js";
 
 export const createTeacherRouter = (container: AppContainer): Router => {
@@ -279,5 +281,35 @@ export const createTeacherRouter = (container: AppContainer): Router => {
     makeSaveBulkGradesController(container.useCases.saveBulkGrades),
   );
 
+  /**
+   * @route POST /api/teacher/reservations/create
+   * @summary Create a new classroom reservation (Transactional)
+   * @description Registers a classroom reservation for a professor,
+   * checking conflicts and enforcing business rules (max 2/week, up to 2 weeks in advance).
+   * @group Teacher - Professor Operations
+   * @security bearerAuth
+   *
+   * @requestBody {CreateReservationDto} Required reservation data
+   * @example request
+   * {
+   *   "classroomId": "00000000-0005-4000-8000-000000000004",
+   *   "semester": "2024-I",
+   *   "date": "2024-11-20",
+   *   "startTime": "14:00",
+   *   "endTime": "15:50",
+   *   "notes": "Review class for Midterm 2"
+   * }
+   *
+   * @returns {RoomReservation} 201 - Reservation successfully created
+   * @returns {ErrorResponse} 400 - Invalid request data
+   * @returns {ErrorResponse} 401 - Unauthorized
+   * @returns {ErrorResponse} 403 - Forbidden
+   * @returns {ErrorResponse} 409 - Conflict with schedule or business rules
+   */
+  router.post(
+    "/reservations/create",
+    validateCreateReservation,
+    makeCreateReservationController(container.useCases.createRoomReservation),
+  );
   return router;
 };

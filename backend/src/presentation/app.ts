@@ -45,7 +45,7 @@ export class App {
         path: [
           "/api/health", // Public health check
           "/api/auth/login", // Public login route
-        { url: /^\/api-docs\/?.*/, methods: ["GET"] },
+          { url: /^\/api-docs\/?.*/, methods: ["GET"] },
         ],
       }),
     );
@@ -58,7 +58,11 @@ export class App {
   public registerRoutes(apiRouter: express.Router): void {
     // Register main API routes
     this.app.use("/api", apiRouter);
-    this.app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+    this.app.use(
+      "/api-docs",
+      swaggerUi.serve,
+      swaggerUi.setup(swaggerDocument),
+    );
 
     // Public health check endpoint
     this.app.get("/api/health", (_req, res) => {

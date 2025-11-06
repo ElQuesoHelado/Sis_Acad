@@ -2,7 +2,8 @@
  * @file TypeORM implementation of the Enrollment repository.
  */
 
-import { EntityManager, In, type Repository } from "typeorm";
+import type { EntityManager } from "typeorm";
+import { In, type Repository } from "typeorm";
 import { Enrollment } from "@/domain/entities/index.js";
 import { type IEnrollmentRepository } from "@/domain/repositories/ienrollment.repository.js";
 import { EnrollmentModel } from "../models/enrollment.model.js";

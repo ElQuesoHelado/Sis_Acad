@@ -165,9 +165,10 @@ interface ReservationCSV {
   professorId: string;
   semester: string;
   status: ReservationStatus;
-  day: DayOfWeek;
+  date: string;
   startTime: string;
   endTime: string;
+  notes?: string;
 }
 
 const userMap = new Map<string, UserModel>();
@@ -457,7 +458,13 @@ export async function seedReservations(
   for (const row of rows) {
     const classroom = classroomMap.get(row.classroomId);
     const prof = userMap.get(row.professorId);
-    if (!classroom || !prof) continue;
+    if (!classroom || !prof) {
+      console.warn(
+        `[Seed] Skipping Reservation ${row.id}: Classroom ${row.classroomId} or Professor ${row.professorId} not found.`,
+      );
+      continue;
+    }
+
     await repo.save(
       repo.create({
         id: idToUUID(row.id, 13),
@@ -465,14 +472,14 @@ export async function seedReservations(
         professorId: prof.id,
         semester: AcademicSemester.create(row.semester),
         status: row.status,
-        day: row.day,
+        date: new Date(row.date),
         startTime: TimeOfDay.create(row.startTime),
         endTime: TimeOfDay.create(row.endTime),
+        notes: row.notes || null,
       }),
     );
   }
 }
-
 export async function seedGradeWeigths(
   fileName: string,
   repo: Repository<GradeWeightModel>,

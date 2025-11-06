@@ -1,3 +1,4 @@
+export * from "./create-room-reservation.usecase.js";
 export * from "./get-student-roster-with-grades.usecase.js";
 export * from "./get-student-roster.usecase.js";
 export * from "./get-teacher-groups.usecase.js";

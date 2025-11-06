@@ -1,17 +1,19 @@
 /**
- * @file Defines the lifecycle states of a lab reservation.
- *
- * Labs are free by default and become reserved when a reservation is made.
+ * @file Defines the lifecycle states of a room reservation.
  */
 export enum ReservationStatus {
   /**
-   * The lab is free and available for reservation.
-   * This is the default state.
+   * The reservation is active and upcoming.
+   */
+  RESERVED = "reservado",
+
+  /**
+   * The reservation was actively cancelled by the user.
    */
   FREE = "free",
 
   /**
-   * The lab has been reserved.
+   * The reservation date/time has passed.
    */
-  RESERVED = "reservado",
+  COMPLETED = "completado",
 }

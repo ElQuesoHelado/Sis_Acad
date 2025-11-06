@@ -1,5 +1,5 @@
 onlyBuiltDependencies:
-  - '@scarf/scarf'
+  - "@scarf/scarf"
   - bcrypt
   - esbuild
   - sqlite3

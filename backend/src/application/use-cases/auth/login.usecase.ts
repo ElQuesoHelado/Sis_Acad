@@ -1,5 +1,6 @@
 import { type IUserRepository } from "@/domain/repositories/iuser.repository.js";
-import { Email, Id } from "@/domain/value-objects/index.js";
+import type { Id } from "@/domain/value-objects/index.js";
+import { Email } from "@/domain/value-objects/index.js";
 import {
   type LoginInputDto,
   type LoginOutputDto,

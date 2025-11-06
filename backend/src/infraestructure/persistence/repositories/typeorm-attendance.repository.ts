@@ -2,7 +2,8 @@
  * @file TypeORM implementation of the Attendance repository.
  */
 
-import { type Repository, In, EntityManager } from "typeorm";
+import type { EntityManager } from "typeorm";
+import { type Repository, In } from "typeorm";
 import { Attendance } from "@/domain/entities/attendance.entity.js";
 import { type IAttendanceRepository } from "@/domain/repositories/iattendance.repository.js";
 import { AttendanceModel } from "../models/attendance.model.js";

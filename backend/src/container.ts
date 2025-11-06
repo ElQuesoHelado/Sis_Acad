@@ -19,6 +19,7 @@ import {
   EnrollInLabGroupsUseCase,
   EnrollInLabGroupUseCase,
   GetTeacherScheduleUseCase,
+  CreateRoomReservationUseCase,
 } from "@/application/use-cases/index.js";
 
 import { LoginUseCase } from "./application/use-cases/auth/login.usecase.js";
@@ -39,6 +40,7 @@ export interface AppContainer {
     getStudentRosterWithGrades: GetStudentRosterWithGradesUseCase;
     saveBulkGrades: SaveBulkGradesUseCase;
     login: LoginUseCase;
+    createRoomReservation: CreateRoomReservationUseCase;
   };
   unitOfWork: IUnitOfWork;
   authService: TeacherAuthorizationService;
@@ -131,6 +133,7 @@ function createContainer(): AppContainer {
       repositories.studentProfile,
       repositories.teacherProfile,
     ),
+    createRoomReservation: new CreateRoomReservationUseCase(unitOfWork),
   };
 
   return {

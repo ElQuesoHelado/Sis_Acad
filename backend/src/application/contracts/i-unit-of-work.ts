@@ -24,6 +24,8 @@ export interface ITransactionalRepositories {
   theoryGroup: ITheoryGroupRepository;
   grade: IGradeRepository;
   attendance: IAttendanceRepository;
+  roomReservation: IRoomReservationRepository;
+  classSchedule: IClassScheduleRepository;
   // Add additional transactional repositories here if needed
 }
 
