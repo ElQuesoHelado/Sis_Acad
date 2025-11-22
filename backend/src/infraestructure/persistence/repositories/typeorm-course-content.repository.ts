@@ -8,13 +8,13 @@ import { type ICourseContentRepository } from "@/domain/repositories/icourse-con
 import { CourseContentModel } from "../models/course-content.model.js";
 import type { Id } from "@/domain/value-objects/index.js";
 import { AppDataSource } from "../database.config.js";
+import { EnrollmentModel } from "../models/enrollment.model.js";
 
 /**
  * Repository implementation for CourseContent using TypeORM.
  */
 export class TypeormCourseContentRepository
-  implements ICourseContentRepository
-{
+  implements ICourseContentRepository {
   private ormRepo: Repository<CourseContentModel>;
 
   constructor(manager?: EntityManager) {
@@ -104,4 +104,25 @@ export class TypeormCourseContentRepository
   public async delete(id: Id): Promise<void> {
     await this.ormRepo.delete({ id: id.value });
   }
+
+  /** {@inheritDoc} **/
+  public async findByEnrollmentId(enrollmentId: Id, studentId: Id): Promise<CourseContent[]> {
+    const contents = await this.ormRepo.createQueryBuilder("content")
+      .innerJoin("content.theoryGroup", "theoryGroup")
+      // Join with the enrollment associated with that group
+      .innerJoin(
+        EnrollmentModel,
+        "enrollment",
+        "enrollment.theoryGroupId = theoryGroup.id"
+      )
+      // Filter: the enrollment must match AND belong to the student
+      .where("enrollment.id = :enrollmentId", { enrollmentId: enrollmentId.value })
+      .andWhere("enrollment.studentId = :studentId", { studentId: studentId.value })
+      // Order by week
+      .orderBy("content.week", "ASC")
+      .getMany();
+
+    return contents.map(this.toDomain);
+  }
 }
+

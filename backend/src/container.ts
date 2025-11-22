@@ -25,6 +25,7 @@ import {
 } from "@/application/use-cases/index.js";
 
 import { LoginUseCase } from "./application/use-cases/auth/login.usecase.js";
+import { GetStudentCourseProgressUseCase } from "./application/use-cases/student/get-course-progress.usecase.js";
 
 export interface AppContainer {
   repositories: IRepositories;
@@ -45,6 +46,7 @@ export interface AppContainer {
     createRoomReservation: CreateRoomReservationUseCase;
     getUserProfile: GetUserProfileUseCase;
     getAllClassrooms: GetAllClassroomsUseCase;
+    getStudentCourseProgress: GetStudentCourseProgressUseCase;
   };
   unitOfWork: IUnitOfWork;
   authService: TeacherAuthorizationService;
@@ -140,6 +142,9 @@ function createContainer(): AppContainer {
     createRoomReservation: new CreateRoomReservationUseCase(unitOfWork),
     getUserProfile: new GetUserProfileUseCase(repositories.user),
     getAllClassrooms: new GetAllClassroomsUseCase(repositories.classroom),
+    getStudentCourseProgress: new GetStudentCourseProgressUseCase(
+      repositories.courseContent
+    ),
   };
 
   return {

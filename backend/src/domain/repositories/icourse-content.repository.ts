@@ -44,4 +44,14 @@ export interface ICourseContentRepository {
    * @returns A promise that resolves when the operation completes.
    */
   delete(id: Id): Promise<void>;
+
+  /**
+ * Fetches the syllabus topics using the enrollment ID.
+ * Performs an inner JOIN to validate that the enrollment belongs to the student
+ * and corresponds to the correct theory group.
+ *
+ * @param enrollmentId - The enrollment ID.
+ * @param studentId - The student profile ID (for security).
+ */
+  findByEnrollmentId(enrollmentId: Id, studentId: Id): Promise<CourseContent[]>;
 }

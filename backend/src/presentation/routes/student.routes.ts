@@ -17,6 +17,7 @@ import {
   makeGetAvailableLabGroupsController,
   makeEnrollInLabGroupController,
   makeEnrollInLabGroupsController,
+  makeGetCourseProgressController,
 } from "../controllers/student.controller.js";
 import { type AppContainer } from "../../container.js";
 import { UserRole } from "@/domain/enums/user-role.enum.js";
@@ -274,6 +275,12 @@ export const createStudentRouter = (container: AppContainer): Router => {
     validateEnrollInLabGroup,
     makeEnrollInLabGroupController(container.useCases.enrollInLabGroup),
   );
+
+
+  router.get(
+  "/enrollment/:enrollmentId/syllabus",
+   makeGetCourseProgressController(container.useCases.getStudentCourseProgress)
+);
 
   return router;
 };

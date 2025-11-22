@@ -19,6 +19,7 @@ import {
 } from "@/domain/errors/enrollment.errors.js";
 import { LabGroupNotFoundError } from "@/domain/errors/lab.errors.js";
 import { NotAuthorizedError } from "@/application/errors/not-authorized.error.js";
+import type { GetStudentCourseProgressUseCase } from "@/application/use-cases/student/get-course-progress.usecase.js";
 
 /**
  * Factory to create the controller for getting student's enrolled courses.
@@ -268,6 +269,26 @@ export const makeEnrollInLabGroupsController = (
           .status(409)
           .json({ name: error.name, message: error.message });
       }
+      next(error);
+    }
+  };
+};
+
+export const makeGetCourseProgressController = (
+  useCase: GetStudentCourseProgressUseCase
+) => {
+  return async (req: AuthRequest, res: Response, next: NextFunction) => {
+    try {
+      const studentProfileId = req.auth?.profileId;
+      if (!studentProfileId) {
+        return res.status(401).json({ message: "Unauthorized" });
+      }
+      const { enrollmentId } = req.params;
+
+      const progress = await useCase.execute(studentProfileId, enrollmentId as string);
+      
+      return res.status(200).json(progress);
+    } catch (error) {
       next(error);
     }
   };
