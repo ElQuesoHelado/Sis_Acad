@@ -33,6 +33,14 @@
 		[GradeType.CONTINUOUS_3]: 'Continua 3'
 	};
 
+	const GradeOrder = [
+		GradeType.CONTINUOUS_1,
+		GradeType.PARTIAL_1,
+		GradeType.CONTINUOUS_2,
+		GradeType.PARTIAL_2,
+		GradeType.CONTINUOUS_3,
+		GradeType.PARTIAL_3
+	];
 	// Estructura combinada para la tabla
 	type GradeRow = {
 		type: string;
@@ -88,7 +96,7 @@
 	function buildGradeRows(summary: StudentCourseGrades): GradeRow[] {
 		if (!summary.weights || summary.weights.length === 0) return [];
 
-		return summary.weights.map((w) => {
+		const rows = summary.weights.map((w) => {
 			const myGrade = summary.grades.find((g) => g.type === w.type);
 			const stat = summary.groupStats.find((s) => s.type === w.type);
 
@@ -102,9 +110,12 @@
 				groupMin: stat ? stat.min : null
 			};
 		});
-	}
 
-	// Cálculos globales para el resumen superior
+		// 👇 ORDEN FIJO
+		return rows.sort((a, b) => {
+			return GradeOrder.indexOf(a.type) - GradeOrder.indexOf(b.type);
+		});
+	} // Cálculos globales para el resumen superior
 	$: coursesWithAverage = summaries.filter((s) => s.average !== null);
 	$: avgAll =
 		coursesWithAverage.length > 0
@@ -155,7 +166,7 @@
 		</Card>
 
 		{#if loading}
-			<div class="flex flex-col items-center justify-center py-12 gap-3">
+			<div class="flex flex-col items-center justify-center gap-3 py-12">
 				<Loader2 class="h-12 w-12 animate-spin text-primary" />
 				<p class="text-muted-foreground">Calculando estadísticas...</p>
 			</div>
@@ -163,8 +174,8 @@
 
 		{#if error && !loading}
 			<Card class="border-destructive/50 bg-destructive/5">
-				<CardContent class="pt-6 flex items-start gap-3">
-					<AlertCircle class="mt-0.5 h-5 w-5 text-destructive shrink-0" />
+				<CardContent class="flex items-start gap-3 pt-6">
+					<AlertCircle class="mt-0.5 h-5 w-5 shrink-0 text-destructive" />
 					<div>
 						<h3 class="mb-1 font-semibold text-destructive">Error</h3>
 						<p class="text-sm text-destructive/90">{error}</p>
@@ -185,7 +196,7 @@
 			{:else}
 				<Card class="bg-gradient-to-br from-background to-muted/20">
 					<CardContent class="pt-6">
-						<div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+						<div class="grid grid-cols-2 gap-6 text-center md:grid-cols-4">
 							<div class="space-y-1">
 								<div class="flex items-center justify-center gap-2 text-muted-foreground">
 									<Award class="h-4 w-4" />
@@ -194,7 +205,8 @@
 								<p class="text-3xl font-bold tracking-tight">{avgAll}</p>
 							</div>
 							<div class="space-y-1">
-								<span class="text-sm font-medium text-green-600 dark:text-green-400">Aprobados</span>
+								<span class="text-sm font-medium text-green-600 dark:text-green-400">Aprobados</span
+								>
 								<p class="text-3xl font-bold">{passed}</p>
 							</div>
 							<div class="space-y-1">
@@ -209,24 +221,26 @@
 					</CardContent>
 				</Card>
 
-				<div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
+				<div class="grid grid-cols-1 gap-6 xl:grid-cols-2">
 					{#each summaries as summary (summary.enrollmentId)}
 						{@const rows = buildGradeRows(summary)}
-						
-						<Card class="overflow-hidden transition-all hover:shadow-md flex flex-col">
-							<CardHeader class="bg-muted/30 border-b pb-4">
-								<div class="flex justify-between items-start gap-4">
+
+						<Card class="flex flex-col overflow-hidden transition-all hover:shadow-md">
+							<CardHeader class="border-b bg-muted/30 pb-4">
+								<div class="flex items-start justify-between gap-4">
 									<div>
-										<CardTitle class="text-lg line-clamp-1" title={summary.courseName}>
+										<CardTitle class="line-clamp-1 text-lg" title={summary.courseName}>
 											{summary.courseName}
 										</CardTitle>
-										<div class="flex items-center gap-2 mt-1.5 text-muted-foreground">
+										<div class="mt-1.5 flex items-center gap-2 text-muted-foreground">
 											<User class="h-4 w-4" />
 											<span class="text-sm">{summary.professorName}</span>
 										</div>
 									</div>
 									<div class="flex flex-col items-end gap-1">
-										<span class={`px-2.5 py-0.5 rounded-full text-xs font-bold border ${statusColor(summary.status)}`}>
+										<span
+											class={`rounded-full border px-2.5 py-0.5 text-xs font-bold ${statusColor(summary.status)}`}
+										>
 											{summary.status}
 										</span>
 										{#if summary.average !== null}
@@ -237,49 +251,60 @@
 									</div>
 								</div>
 							</CardHeader>
-							
-							<CardContent class="p-0 flex-1">
+
+							<CardContent class="flex-1 p-0">
 								<div class="overflow-x-auto">
 									<table class="w-full text-sm">
 										<thead class="bg-muted/50 text-muted-foreground">
 											<tr>
-												<th class="text-left px-4 py-3 font-medium">Evaluación</th>
-												<th class="text-center px-2 py-3 font-medium w-16">Peso</th>
-												<th class="text-center px-2 py-3 font-medium bg-primary/5 text-primary w-20">Nota</th>
-												
-												<th class="text-center px-2 py-3 font-medium border-l w-20">
-													<div class="flex items-center justify-center gap-1" title="Promedio del Grupo">
+												<th class="px-4 py-3 text-left font-medium">Evaluación</th>
+												<th class="w-16 px-2 py-3 text-center font-medium">Peso</th>
+												<th class="w-20 bg-primary/5 px-2 py-3 text-center font-medium text-primary"
+													>Nota</th
+												>
+
+												<th class="w-20 border-l px-2 py-3 text-center font-medium">
+													<div
+														class="flex items-center justify-center gap-1"
+														title="Promedio del Grupo"
+													>
 														<BarChart3 class="h-3 w-3" /> Avg
 													</div>
 												</th>
-												<th class="text-center px-2 py-3 font-medium text-xs text-muted-foreground w-24">
+												<th
+													class="w-24 px-2 py-3 text-center text-xs font-medium text-muted-foreground"
+												>
 													Rango (Min-Max)
 												</th>
 											</tr>
 										</thead>
 										<tbody class="divide-y">
 											{#each rows as row}
-												<tr class="hover:bg-muted/10 transition-colors">
+												<tr class="transition-colors hover:bg-muted/10">
 													<td class="px-4 py-3 font-medium">{row.label}</td>
 													<td class="px-2 py-3 text-center text-muted-foreground">
 														{row.weight}%
 													</td>
-													<td class="px-2 py-3 text-center bg-primary/5 font-bold">
+													<td class="bg-primary/5 px-2 py-3 text-center font-bold">
 														{#if row.studentScore !== null}
-															<span class={row.studentScore < 10.5 ? "text-destructive" : "text-primary"}>
+															<span
+																class={row.studentScore < 10.5
+																	? 'text-destructive'
+																	: 'text-primary'}
+															>
 																{row.studentScore}
 															</span>
 														{:else}
 															<span class="text-muted-foreground/40">-</span>
 														{/if}
 													</td>
-													
-													<td class="px-2 py-3 text-center border-l text-muted-foreground">
+
+													<td class="border-l px-2 py-3 text-center text-muted-foreground">
 														{row.groupAvg !== null ? row.groupAvg.toFixed(1) : '-'}
 													</td>
 													<td class="px-2 py-3 text-center text-xs text-muted-foreground">
 														{#if row.groupMin !== null && row.groupMax !== null}
-															<span class="inline-block bg-muted px-1.5 py-0.5 rounded">
+															<span class="inline-block rounded bg-muted px-1.5 py-0.5">
 																{row.groupMin} - {row.groupMax}
 															</span>
 														{:else}
@@ -288,7 +313,7 @@
 													</td>
 												</tr>
 											{/each}
-											
+
 											{#if rows.length === 0}
 												<tr>
 													<td colspan="5" class="p-8 text-center text-muted-foreground">
