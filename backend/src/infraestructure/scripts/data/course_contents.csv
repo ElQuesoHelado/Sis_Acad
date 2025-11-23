@@ -1,8 +1,8 @@
 id,theoryGroupId,week,topicName,status
-cc-775,theory-1,1,Introducción a los Sistemas Operativos,pendiente
-cc-776,theory-1,1,Estructura de un Sistema Operativo,pendiente
-cc-777,theory-1,2,Concepto y Estados de un Proceso,pendiente
-cc-778,theory-1,2,Planificador de un Proceso,pendiente
+cc-775,theory-1,1,Introducción a los Sistemas Operativos,completado
+cc-776,theory-1,1,Estructura de un Sistema Operativo,completado
+cc-777,theory-1,2,Concepto y Estados de un Proceso,completado
+cc-778,theory-1,2,Planificador de un Proceso,completado
 cc-779,theory-1,3,Comunicación de Procesos,pendiente
 cc-780,theory-1,3,"Pipes, FIFO, Cola de mensajes",pendiente
 cc-781,theory-1,4,Concepto de Threads,pendiente

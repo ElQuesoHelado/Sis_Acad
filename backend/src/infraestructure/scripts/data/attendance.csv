@@ -1,8 +1,10 @@
 id,enrollmentId,date,status,classType
-att-1,enr-1,2024-05-15,presente,teoria
+att-1,enr-1,2024-05-14,presente,teoria
 att-2,enr-7,2024-05-13,presente,teoria
 att-3,enr-12,2024-05-13,ausente,teoria
-att-4,enr-1,2024-05-20,presente,teoria
+att-4,enr-1,2024-05-17,presente,teoria
 att-5,enr-7,2024-05-20,ausente,teoria
 att-6,enr-12,2024-05-20,presente,teoria
 att-7,enr-2,2024-05-14,presente,teoria
+att-8,enr-1,2024-05-20,ausente,teoria
+att-9,enr-1,2024-05-23,presente,teoria
