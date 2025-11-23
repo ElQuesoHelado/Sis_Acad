@@ -62,11 +62,7 @@ function createContainer(): AppContainer {
     // Read
     getStudentGrades: new GetStudentGradesBySemesterUseCase(
       repositories.enrollment,
-      repositories.theoryGroup,
-      repositories.course,
       repositories.grade,
-      repositories.user,
-      repositories.gradeWeight,
     ),
     // Read
     getStudentSchedule: new GetStudentScheduleUseCase(

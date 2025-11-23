@@ -6,6 +6,28 @@ import type { Grade } from "../entities/grade.entity.js";
 import type { Id } from "../value-objects/index.js";
 import type { GradeType } from "../enums/index.js";
 
+
+/**
+ * Internal structure returned by the repository for aggregated grade statistics.
+ */
+export interface GroupGradeStats {
+  /** The identifier of the theory group. */
+  theoryGroupId: string;
+
+  /** The type of grade being evaluated. */
+  type: GradeType;
+
+  /** The average grade within the group for this grade type. */
+  average: number;
+
+  /** The highest grade within the group for this grade type. */
+  max: number;
+
+  /** The lowest grade within the group for this grade type. */
+  min: number;
+}
+
+
 /**
  * Repository interface for managing Grade entities.
  * Defines the data access methods for student grades.
@@ -58,4 +80,14 @@ export interface IGradeRepository {
    * @returns A promise that resolves when the operation completes.
    */
   delete(id: Id): Promise<void>;
+
+  /**
+   * Retrieves aggregated statistics (average, max, min) by grade type
+   * for the specified theory groups.
+   * Designed for dashboards and reporting.
+   *
+   * @param theoryGroupIds - A list of theory group identifiers to analyze.
+   * @returns A collection of aggregated grade statistics.
+   */
+  findStatsByTheoryGroupIds(theoryGroupIds: Id[]): Promise<GroupGradeStats[]>;
 }

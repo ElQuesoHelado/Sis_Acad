@@ -4,11 +4,12 @@
 
 import type { EntityManager, Repository } from "typeorm";
 import { Grade } from "@/domain/entities/grade.entity.js";
-import { type IGradeRepository } from "@/domain/repositories/igrade.repository.js";
+import { type GroupGradeStats, type IGradeRepository } from "@/domain/repositories/igrade.repository.js";
 import { GradeModel } from "../models/grade.model.js";
 import type { Id } from "@/domain/value-objects/index.js";
 import type { GradeType } from "@/domain/enums/index.js";
 import { AppDataSource } from "../database.config.js";
+import { EnrollmentModel } from "../models/enrollment.model.js";
 
 /**
  * Repository implementation for managing Grade entities using TypeORM.
@@ -113,4 +114,33 @@ export class TypeormGradeRepository implements IGradeRepository {
   public async delete(id: Id): Promise<void> {
     await this.ormRepo.delete({ id: id.value });
   }
+
+  public async findStatsByTheoryGroupIds(theoryGroupIds: Id[]): Promise<GroupGradeStats[]> {
+  if (theoryGroupIds.length === 0) return [];
+
+  const ids = theoryGroupIds.map((id) => id.value);
+
+  const rawResults = await this.ormRepo
+    .createQueryBuilder("grade")
+    .innerJoin(EnrollmentModel, "enrollment", "enrollment.id = grade.enrollmentId")
+    .select("enrollment.theoryGroupId", "theoryGroupId")
+    .addSelect("grade.type", "type")
+    .addSelect("AVG(grade.score)", "average")
+    .addSelect("MAX(grade.score)", "max")
+    .addSelect("MIN(grade.score)", "min")
+    .where("enrollment.theoryGroupId IN (:...ids)", { ids })
+    .groupBy("enrollment.theoryGroupId")
+    .addGroupBy("grade.type")
+    .getRawMany();
+
+  // Map raw database results
+  return rawResults.map((row) => ({
+    theoryGroupId: row.theoryGroupId,
+    type: row.type,
+    average: parseFloat(row.average), 
+    max: parseFloat(row.max),
+    min: parseFloat(row.min),
+  }));
+}
+
 }

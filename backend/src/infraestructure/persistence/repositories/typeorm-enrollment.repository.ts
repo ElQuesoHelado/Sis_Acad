@@ -5,10 +5,14 @@
 import type { EntityManager } from "typeorm";
 import { In, type Repository } from "typeorm";
 import { Enrollment } from "@/domain/entities/index.js";
-import { type IEnrollmentRepository } from "@/domain/repositories/ienrollment.repository.js";
+import { type IEnrollmentRepository, type StudentEnrollmentDetail } from "@/domain/repositories/ienrollment.repository.js";
 import { EnrollmentModel } from "../models/enrollment.model.js";
-import type { Id } from "@/domain/value-objects/index.js";
+import type { AcademicSemester, Id } from "@/domain/value-objects/index.js";
 import { AppDataSource } from "../database.config.js";
+import type { GradeModel } from "../models/grade.model.js";
+import { Grade } from "@/domain/entities/grade.entity.js";
+import { GradeWeight } from "@/domain/entities/grade-weight.entity.js";
+import type { GradeWeightModel } from "../models/grade-weight.model.js";
 
 /**
  * Repository implementation for Enrollment using TypeORM.
@@ -107,5 +111,67 @@ export class TypeormEnrollmentRepository implements IEnrollmentRepository {
   /** Deletes an Enrollment by its ID. */
   public async delete(id: Id): Promise<void> {
     await this.ormRepo.delete({ id: id.value });
+  }
+
+  /**
+   * Retrieves detailed enrollment information for a student within a specific semester.
+   * Includes Course, Professor, Grades, and Grade Weights in a single aggregated structure.
+   */
+  public async findStudentSemesterDetails(
+    studentId: Id,
+    semester: AcademicSemester
+  ): Promise<StudentEnrollmentDetail[]> {
+    const models = await this.ormRepo.find({
+      where: {
+        studentId: studentId.value,
+        theoryGroup: {
+          semester: semester as any
+        }
+      },
+      relations: [
+        "theoryGroup",
+        "theoryGroup.course",
+        "theoryGroup.professor",
+        "theoryGroup.gradeWeights",
+        "grades"
+      ]
+    });
+
+    return models.map((model) => {
+      const group = model.theoryGroup;
+
+      // Map the base Enrollment entity
+      const enrollment = this.toDomain(model);
+
+      // Map Grades using the domain factory
+      // Note: score is stored as Decimal (string) in the DB, so we convert it to Number
+      const grades = (model.grades || []).map((g: GradeModel) =>
+        Grade.create({
+          id: g.id,
+          enrollmentId: g.enrollmentId,
+          type: g.type,
+          score: Number(g.score)
+        })
+      );
+
+      // Map Grade Weights using the domain factory
+      const weights = (group.gradeWeights || []).map((w: GradeWeightModel) =>
+        GradeWeight.create({
+          id: w.id,
+          theoryGroupId: w.theoryGroupId,
+          type: w.type,
+          weight: Number(w.weight)
+        })
+      );
+
+      return {
+        enrollment,
+        theoryGroupId: group.id,
+        courseName: group.course.name,
+        professorName: `${group.professor.name} ${group.professor.surname}`,
+        grades,
+        weights
+      };
+    });
   }
 }

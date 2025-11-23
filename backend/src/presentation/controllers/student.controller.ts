@@ -14,8 +14,8 @@ import {
 } from "@/application/use-cases/student/index.js";
 import { DomainError } from "@/domain/errors/index.js";
 import {
-  EnrollmentNotFoundError,
   BulkEnrollmentError,
+  EnrollmentNotFoundError,
 } from "@/domain/errors/enrollment.errors.js";
 import { LabGroupNotFoundError } from "@/domain/errors/lab.errors.js";
 import { NotAuthorizedError } from "@/application/errors/not-authorized.error.js";
@@ -67,12 +67,14 @@ export const makeGetStudentGradesController = (
           .status(401)
           .json({ message: "Unauthorized: Missing profile ID" });
       }
+
       const { semester } = req.params;
 
       const courseGrades = await useCase.execute(
         studentProfileId,
         semester as string,
       );
+
       return res.status(200).json(courseGrades);
     } catch (error) {
       if (error instanceof DomainError) {
@@ -286,7 +288,7 @@ export const makeGetCourseProgressController = (
       const { enrollmentId } = req.params;
 
       const progress = await useCase.execute(studentProfileId, enrollmentId as string);
-      
+
       return res.status(200).json(progress);
     } catch (error) {
       next(error);

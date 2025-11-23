@@ -2,8 +2,23 @@
  * @file Defines the interface for the Enrollment repository.
  */
 
+import type { GradeWeight } from "../entities/grade-weight.entity.js";
+import type { Grade } from "../entities/grade.entity.js";
 import type { Enrollment } from "../entities/index.js";
-import type { Id } from "../value-objects/index.js";
+import type { AcademicSemester, Id } from "../value-objects/index.js";
+
+/**
+ * Student's enrollment details in a semester.
+ */
+export interface StudentEnrollmentDetail {
+  enrollment: Enrollment;
+  courseName: string;
+  professorName: string;
+  theoryGroupId: string;
+  grades: Grade[];
+  weights: GradeWeight[];
+}
+
 
 /**
  * Interface for the Enrollment repository.
@@ -70,4 +85,13 @@ export interface IEnrollmentRepository {
    * @returns A promise that resolves when the operation completes.
    */
   delete(id: Id): Promise<void>;
+  /**
+ * Retrieves the full enrollment details for a student in a given semester.
+ * Includes Course, Professor, Grades, and Grade Weights in a single structured result.
+ */
+  findStudentSemesterDetails(
+    studentId: Id,
+    semester: AcademicSemester
+  ): Promise<StudentEnrollmentDetail[]>;
+
 }

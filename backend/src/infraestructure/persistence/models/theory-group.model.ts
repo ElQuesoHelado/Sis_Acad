@@ -19,6 +19,7 @@ import { AcademicSemester } from "@/domain/value-objects/academic-semester.vo.js
 import { ClassScheduleModel } from "./class-schedule.model.js";
 import { EnrollmentModel } from "./enrollment.model.js";
 import { CourseContentModel } from "./course-content.model.js";
+import { GradeWeightModel } from "./grade-weight.model.js";
 
 /**
  * Represents a Theory Group (Course Offering) in the system.
@@ -78,6 +79,10 @@ export class TheoryGroupModel extends BaseEntity {
   /** One-to-many relationship: Syllabus topics (CourseContent) of this group. */
   @OneToMany(() => CourseContentModel, (content) => content.theoryGroup)
   contents: CourseContentModel[];
+
+  /** Grade weights of this group. */
+  @OneToMany(() => GradeWeightModel, (weight) => weight.theoryGroup)
+  gradeWeights: GradeWeightModel[];
 
   /** Timestamp when the group was created. */
   @CreateDateColumn({ name: "created_at" })
