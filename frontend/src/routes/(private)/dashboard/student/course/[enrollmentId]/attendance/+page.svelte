@@ -11,7 +11,7 @@
 		TableHeader,
 		TableRow
 	} from '$lib/components/ui/table';
-	import { Loader2, AlertCircle, CalendarCheck, MapPin } from '@lucide/svelte';
+	import { Loader2, AlertCircle, CalendarCheck } from '@lucide/svelte';
 
 	let enrollmentId = $derived(page.params.enrollmentId);
 	let report: StudentAttendanceReport | null = $state(null);
@@ -87,12 +87,11 @@
 						<TableRow>
 							<TableHead>Fecha</TableHead>
 							<TableHead>Día</TableHead>
-							<TableHead>Horario</TableHead>
 							<TableHead>Tipo</TableHead>
-							<TableHead>Lugar</TableHead>
 							<TableHead class="text-right">Estado</TableHead>
 						</TableRow>
 					</TableHeader>
+
 					<TableBody>
 						{#each report.details as item}
 							<TableRow>
@@ -100,15 +99,11 @@
 									<CalendarCheck class="h-4 w-4 text-muted-foreground" />
 									{item.date}
 								</TableCell>
+
 								<TableCell>{item.dayOfWeek}</TableCell>
-								<TableCell>{item.startTime} - {item.endTime}</TableCell>
+
 								<TableCell class="capitalize">{item.classType}</TableCell>
-								<TableCell>
-									<div class="flex items-center gap-1 text-muted-foreground">
-										<MapPin class="h-3 w-3" />
-										{item.classroomName}
-									</div>
-								</TableCell>
+
 								<TableCell class="text-right">
 									<span
 										class="rounded-md px-2 py-1 text-xs font-bold uppercase {getStatusColor(
@@ -126,3 +121,4 @@
 		</Card>
 	{/if}
 </div>
+
