@@ -2,17 +2,11 @@
 	import { onMount } from 'svelte';
 	import { studentService } from '$lib/core/services/student.service';
 	import type { StudentCourse } from '$lib/core/domain';
-	import {
-		Card,
-		CardContent,
-		CardHeader,
-		CardTitle,
-		CardDescription
-	} from '$lib/components/ui/card';
+	import { Card, CardContent, CardHeader, CardTitle } from '$lib/components/ui/card';
 	import { Button } from '$lib/components/ui/button';
 	import { Label } from '$lib/components/ui/label';
 	import { Separator } from '$lib/components/ui/separator';
-	import { BookOpen, User, GraduationCap, AlertCircle, Loader2, ChevronDown } from '@lucide/svelte';
+	import { BookOpen, User, GraduationCap, AlertCircle, Loader2, ChevronDown, CheckCircle2 } from '@lucide/svelte';
 	import {
 		DropdownMenu,
 		DropdownMenuContent,
@@ -110,7 +104,7 @@
 			<Card class="border-destructive/50 bg-destructive/5">
 				<CardContent class="pt-6">
 					<div class="flex items-start gap-3">
-						<AlertCircle class="mt-0.5 h-5 w-5 flex-shrink-0 text-destructive" />
+						<AlertCircle class="mt-0.5 h-5 w-5 shrink-0 text-destructive" />
 						<div>
 							<h3 class="mb-1 font-semibold text-destructive">Error al cargar los cursos</h3>
 							<p class="text-sm text-destructive/90">{error}</p>
@@ -152,7 +146,6 @@
 								</CardTitle>
 							</CardHeader>
 							<CardContent class="space-y-4">
-								<!-- Professor -->
 								<div class="flex items-start gap-2">
 									<User class="mt-0.5 h-5 w-5 flex-shrink-0 text-muted-foreground" />
 									<p class="text-sm leading-tight text-muted-foreground">
@@ -162,8 +155,27 @@
 
 								<Separator />
 
-								<!-- Lab Status -->
-								<div class="flex items-center justify-between">
+								<div class="grid grid-cols-2 gap-2">
+									<Button
+										variant="outline"
+										size="sm"
+										class="w-full"
+										href={`/dashboard/student/course/${course.enrollmentId}/syllabus`}
+									>
+										<BookOpen class="mr-2 h-4 w-4" />
+										Sílabo
+									</Button>
+									<Button
+										variant="outline"
+										size="sm"
+										class="w-full"
+										href={`/dashboard/student/course/${course.enrollmentId}/attendance`}
+									>
+										<CheckCircle2 class="mr-2 h-4 w-4" />
+										Asistencia
+									</Button>
+								</div>
+								<div class="flex items-center justify-between pt-2">
 									<span class="text-xs font-medium text-muted-foreground">
 										Estado de Laboratorio:
 									</span>

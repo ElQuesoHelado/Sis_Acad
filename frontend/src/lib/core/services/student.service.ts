@@ -1,10 +1,12 @@
 import type {
-	StudentCourse,
-	StudentCourseGrades,
-	StudentScheduleEntry,
-	AvailableLabGroup,
-	EnrollInLabGroupInput,
-	EnrollInLabGroupsInput
+  StudentCourse,
+  StudentCourseGrades,
+  StudentScheduleEntry,
+  AvailableLabGroup,
+  EnrollInLabGroupInput,
+  EnrollInLabGroupsInput,
+  CourseProgress,
+  StudentAttendanceReport
 } from '$lib/core/domain';
 import type { IHttpClient } from '$lib/core/interfaces/http-client.interface';
 import { httpClient } from '$lib/core/adapters';
@@ -14,37 +16,48 @@ import { API_ENDPOINTS } from '$lib/core/constants/api-endpoints.constants';
  * Application service for student use cases.
  */
 class StudentService {
-	constructor(private http: IHttpClient) {}
+  constructor(private http: IHttpClient) { }
 
-	/** Retrieves all courses for a student in a given semester */
-	public getCoursesBySemester(semester: string): Promise<StudentCourse[]> {
-		return this.http.get<StudentCourse[]>(API_ENDPOINTS.STUDENT.COURSES(semester));
-	}
+  /** Retrieves all courses for a student in a given semester */
+  public getCoursesBySemester(semester: string): Promise<StudentCourse[]> {
+    return this.http.get<StudentCourse[]>(API_ENDPOINTS.STUDENT.COURSES(semester));
+  }
 
-	/** Retrieves all grades for a student in a given semester */
-	public getGradesBySemester(semester: string): Promise<StudentCourseGrades[]> {
-		return this.http.get<StudentCourseGrades[]>(API_ENDPOINTS.STUDENT.GRADES(semester));
-	}
+  /** Retrieves all grades for a student in a given semester */
+  public getGradesBySemester(semester: string): Promise<StudentCourseGrades[]> {
+    return this.http.get<StudentCourseGrades[]>(API_ENDPOINTS.STUDENT.GRADES(semester));
+  }
 
-	/** Retrieves the schedule for a student in a given semester */
-	public getScheduleBySemester(semester: string): Promise<StudentScheduleEntry[]> {
-		return this.http.get<StudentScheduleEntry[]>(API_ENDPOINTS.STUDENT.SCHEDULE(semester));
-	}
+  /** Retrieves the schedule for a student in a given semester */
+  public getScheduleBySemester(semester: string): Promise<StudentScheduleEntry[]> {
+    return this.http.get<StudentScheduleEntry[]>(API_ENDPOINTS.STUDENT.SCHEDULE(semester));
+  }
 
-	/** Retrieves available lab groups for a specific enrollment */
-	public getAvailableLabGroups(enrollmentId: string): Promise<AvailableLabGroup[]> {
-		return this.http.get<AvailableLabGroup[]>(API_ENDPOINTS.STUDENT.AVAILABLE_LABS(enrollmentId));
-	}
+  /** Retrieves available lab groups for a specific enrollment */
+  public getAvailableLabGroups(enrollmentId: string): Promise<AvailableLabGroup[]> {
+    return this.http.get<AvailableLabGroup[]>(API_ENDPOINTS.STUDENT.AVAILABLE_LABS(enrollmentId));
+  }
 
-	/** Enrolls the student in a single lab group */
-	public enrollInLabGroup(data: EnrollInLabGroupInput): Promise<void> {
-		return this.http.patch<void>(API_ENDPOINTS.STUDENT.ENROLL_LAB, data);
-	}
+  /** Enrolls the student in a single lab group */
+  public enrollInLabGroup(data: EnrollInLabGroupInput): Promise<void> {
+    return this.http.patch<void>(API_ENDPOINTS.STUDENT.ENROLL_LAB, data);
+  }
 
-	/** Enrolls the student in multiple lab groups */
-	public enrollInLabGroups(data: EnrollInLabGroupsInput): Promise<void> {
-		return this.http.post<void>(API_ENDPOINTS.STUDENT.ENROLL_LABS, data);
-	}
+  /** Enrolls the student in multiple lab groups */
+  public enrollInLabGroups(data: EnrollInLabGroupsInput): Promise<void> {
+    return this.http.post<void>(API_ENDPOINTS.STUDENT.ENROLL_LABS, data);
+  }
+
+  /** Obtener el progreso/sílabo de un curso específico */
+  public getCourseProgress(enrollmentId: string): Promise<CourseProgress> {
+    return this.http.get<CourseProgress>(`/student/enrollment/${enrollmentId}/syllabus`);
+  }
+
+  /** Obtener el reporte detallado de asistencia de un curso */
+  public getAttendanceReport(enrollmentId: string): Promise<StudentAttendanceReport> {
+    return this.http.get<StudentAttendanceReport>(`/student/enrollment/${enrollmentId}/attendance-report`);
+  }
+
 }
 
 /** Singleton instance of StudentService */
