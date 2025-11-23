@@ -18,6 +18,7 @@ import {
   makeEnrollInLabGroupController,
   makeEnrollInLabGroupsController,
   makeGetCourseProgressController,
+  makeGetStudentAttendanceReportController,
 } from "../controllers/student.controller.js";
 import { type AppContainer } from "../../container.js";
 import { UserRole } from "@/domain/enums/user-role.enum.js";
@@ -278,9 +279,18 @@ export const createStudentRouter = (container: AppContainer): Router => {
 
 
   router.get(
-  "/enrollment/:enrollmentId/syllabus",
-   makeGetCourseProgressController(container.useCases.getStudentCourseProgress)
-);
+    "/enrollment/:enrollmentId/syllabus",
+    makeGetCourseProgressController(container.useCases.getStudentCourseProgress)
+  );
+  /**
+     * @route GET /api/student/enrollment/{enrollmentId}/attendance-report
+     * @summary Reporte detallado de asistencia (Lugar, Hora, Estado).
+     */
+  router.get(
+    "/enrollment/:enrollmentId/attendance-report",
+    validateGetAvailableLabGroups,
+    makeGetStudentAttendanceReportController(container.useCases.getStudentAttendanceReport)
+  );
 
   return router;
 };

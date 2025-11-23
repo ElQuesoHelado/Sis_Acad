@@ -418,11 +418,14 @@ export async function seedAttendance(
   for (const row of rows) {
     const enr = enrollmentMap.get(row.enrollmentId);
     if (!enr) continue;
+    const date = new Date(row.date);
+    console.log(`[DEBUG]: ${date}`);
+
     await repo.save(
       repo.create({
         id: idToUUID(row.id, 11),
         enrollmentId: enr.id,
-        date: new Date(row.date),
+        date: date,
         status: row.status,
         classType: row.classType,
       }),

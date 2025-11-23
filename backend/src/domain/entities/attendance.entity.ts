@@ -19,7 +19,7 @@ import {
 export interface AttendanceCreateProps {
   id: string;
   enrollmentId: string; // The Enrollment ID
-  date: Date; // The date of attendance
+  date: Date | string; // The date of attendance
   status: AttendanceStatus;
   classType: ClassType; // Indicates if it's a Theory or Lab class
 }
@@ -65,16 +65,25 @@ export class Attendance extends Entity {
       if (!Object.values(ClassType).includes(props.classType)) {
         throw new InvalidClassTypeError(props.classType);
       }
+      let inputDate: Date;
+
+      if (typeof props.date === 'string') {
+        inputDate = new Date(props.date);
+      } else {
+        inputDate = props.date;
+      }
+
+      if (isNaN(inputDate.getTime())) {
+        throw new Error("Invalid date format.");
+      }
 
       const attendanceDate = new Date(
         Date.UTC(
-          props.date.getFullYear(),
-          props.date.getMonth(),
-          props.date.getDate(),
+          inputDate.getUTCFullYear(),
+          inputDate.getUTCMonth(),
+          inputDate.getUTCDate(),
         ),
-      );
-
-      const today = new Date();
+      ); const today = new Date();
       const todayUTC = new Date(
         Date.UTC(today.getFullYear(), today.getMonth(), today.getDate()),
       );

@@ -16,3 +16,4 @@ export * from "./student.dto.js";
 export * from "./teacher-group.dto.js";
 export * from "./teacher-schedule.dto.js";
 export * from "./reservation.dto.js";
+export * from "./student-attendance.dto.js";
