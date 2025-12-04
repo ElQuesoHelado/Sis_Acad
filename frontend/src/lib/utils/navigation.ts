@@ -18,9 +18,9 @@ type GotoOptions = {
  */
 export function roleRedirect(role: UserRole | null, options: GotoOptions = { replaceState: true }) {
 	switch (role) {
-		// case UserRole.ADMIN:
-		// 	goto(APP_PATHS.DASHBOARD_ADMIN, options);
-		// 	break;
+		case UserRole.ADMIN:
+			goto(APP_PATHS.ADMIN.BASE, options);
+			break;
 		case UserRole.STUDENT:
 			goto(APP_PATHS.STUDENT.BASE, options);
 			break;

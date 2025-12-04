@@ -22,6 +22,9 @@ import {
   CreateRoomReservationUseCase,
   GetUserProfileUseCase,
   GetAllClassroomsUseCase,
+  GetAllUsersUseCase,
+  GetAdminTeacherDetailsUseCase,
+  GetAdminStudentDetailsUseCase,
 } from "@/application/use-cases/index.js";
 
 import { LoginUseCase } from "./application/use-cases/auth/login.usecase.js";
@@ -49,6 +52,9 @@ export interface AppContainer {
     getAllClassrooms: GetAllClassroomsUseCase;
     getStudentCourseProgress: GetStudentCourseProgressUseCase;
     getStudentAttendanceReport: GetStudentAttendanceReportUseCase;
+    getAllUsers: GetAllUsersUseCase;
+    getAdminTeacherDetails: GetAdminTeacherDetailsUseCase;
+    getAdminStudentDetails: GetAdminStudentDetailsUseCase;
   };
   unitOfWork: IUnitOfWork;
   authService: TeacherAuthorizationService;
@@ -150,7 +156,24 @@ function createContainer(): AppContainer {
       repositories.classroom,
       repositories.course,
       repositories.theoryGroup
-    )
+    ),
+    getAllUsers: new GetAllUsersUseCase(
+      repositories.user
+    ),
+    getAdminTeacherDetails: new GetAdminTeacherDetailsUseCase(
+      repositories.teacherProfile,
+      repositories.theoryGroup,
+      repositories.labGroup,
+      repositories.classSchedule,
+      repositories.course,
+      repositories.classroom
+    ),
+
+    getAdminStudentDetails: new GetAdminStudentDetailsUseCase(
+      repositories.studentProfile,
+      repositories.enrollment,
+      repositories.grade
+    ),
   };
 
   return {

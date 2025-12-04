@@ -5,6 +5,7 @@ import { createTeacherRouter } from "./routes/teacher.routes.js";
 import { createAuthRouter } from "./routes/auth.routes.js";
 import { createUserRouter } from "./routes/user.routes.js";
 import { createClassroomRouter } from "./routes/classroom.routes.js";
+import { createAdminRouter } from "./routes/admin.routes.js";
 
 const apiRouter = express.Router();
 
@@ -14,11 +15,14 @@ const teacherRouter = createTeacherRouter(container);
 const authRouter = createAuthRouter(container);
 const userRouter = createUserRouter(container);
 const classroomRouter = createClassroomRouter(container);
+const adminRouter = createAdminRouter(container);
+
 // Register routers
 apiRouter.use("/student", studentRouter);
 apiRouter.use("/auth", authRouter);
 apiRouter.use("/teacher", teacherRouter);
 apiRouter.use("/user", userRouter);
 apiRouter.use("/classrooms", classroomRouter);
+apiRouter.use("/admin", adminRouter);
 
 export default apiRouter;

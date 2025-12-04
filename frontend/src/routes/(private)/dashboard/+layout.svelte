@@ -5,6 +5,7 @@
 	import DashboardHeader from '$lib/components/layout/dashboard-header.svelte';
 	import { studentNavGroups } from '$lib/components/config/nav/student.nav';
 	import { teacherNavGroups } from '$lib/components/config/nav/teacher.nav';
+  import { adminNavGroups } from '$lib/components/config/nav/admin.nav';
 	import { page } from '$app/state';
 	import Breadcrumb from '$lib/components/layout/breadcrumb.svelte';
 	import { buildCrumbs } from '$lib/utils/breadcrumb-builder';
@@ -18,6 +19,8 @@
 	let { children, data, title, actions }: Props = $props();
 	const navConfig = $derived(() => {
 		switch (data.userRole) {
+    case UserRole.ADMIN:
+				return adminNavGroups;
 			case UserRole.STUDENT:
 				return studentNavGroups;
 			case UserRole.PROFESSOR:
