@@ -5,34 +5,41 @@
 const DASHBOARD_BASE = '/dashboard';
 const STUDENT_BASE = `${DASHBOARD_BASE}/student`;
 const TEACHER_BASE = `${DASHBOARD_BASE}/teacher`;
+const ADMIN_BASE = `${DASHBOARD_BASE}/admin`;
 
 const PUBLIC_PATHS = {
-	LOGIN: '/login',
-	DASHBOARD: DASHBOARD_BASE
+  LOGIN: '/login',
+  DASHBOARD: DASHBOARD_BASE
 };
 
 const STUDENT_PATHS = {
-	BASE: STUDENT_BASE,
-	COURSES: `${STUDENT_BASE}/courses`,
-	GRADES: `${STUDENT_BASE}/grades`,
-	SCHEDULE: `${STUDENT_BASE}/schedule`,
-	ENROLLMENT: `${STUDENT_BASE}/enrollment`
+  BASE: STUDENT_BASE,
+  COURSES: `${STUDENT_BASE}/courses`,
+  GRADES: `${STUDENT_BASE}/grades`,
+  SCHEDULE: `${STUDENT_BASE}/schedule`,
+  ENROLLMENT: `${STUDENT_BASE}/enrollment`
 };
 
 const TEACHER_PATHS = {
-	BASE: TEACHER_BASE,
-	COURSES: `${TEACHER_BASE}/courses`,
-	GRADES: `${TEACHER_BASE}/grades`,
-	ATTENDANCE: `${TEACHER_BASE}/attendance`,
-	SCHEDULE: `${TEACHER_BASE}/schedule`,
-	RESERVE_CLASSROOM: `${TEACHER_BASE}/reserve-classroom`
+  BASE: TEACHER_BASE,
+  COURSES: `${TEACHER_BASE}/courses`,
+  GRADES: `${TEACHER_BASE}/grades`,
+  ATTENDANCE: `${TEACHER_BASE}/attendance`,
+  SCHEDULE: `${TEACHER_BASE}/schedule`,
+  RESERVE_CLASSROOM: `${TEACHER_BASE}/reserve-classroom`
+};
+
+const ADMIN_PATHS = {
+  BASE: ADMIN_BASE,
+  USERS: `${ADMIN_BASE}/users`
 };
 
 /**
  * Immutable object centralizing all application routes.
  */
 export const APP_PATHS = Object.freeze({
-	...PUBLIC_PATHS,
-	STUDENT: Object.freeze(STUDENT_PATHS),
-	TEACHER: Object.freeze(TEACHER_PATHS)
+  ...PUBLIC_PATHS,
+  STUDENT: Object.freeze(STUDENT_PATHS),
+  TEACHER: Object.freeze(TEACHER_PATHS),
+  ADMIN: Object.freeze(ADMIN_PATHS)
 });
