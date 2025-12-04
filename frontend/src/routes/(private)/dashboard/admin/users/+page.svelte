@@ -18,7 +18,6 @@
 	let error = $state('');
 	let searchTerm = $state('');
 
-	// Filtro reactivo: Busca en nombre, apellido o email
 	const filteredUsers = $derived(
 		users.filter((u) => {
 			const search = searchTerm.toLowerCase();
@@ -42,9 +41,8 @@
 		}
 	});
 
-	// Función para navegar al detalle según el rol
 	function handleViewDetails(user: AdminUserListEntry) {
-		const semester = '2024-I'; // Por defecto, podrías hacerlo dinámico
+		const semester = '2024-I';
 		if (user.role === UserRole.PROFESSOR) {
 			goto(`${APP_PATHS.ADMIN.USERS}/teacher/${user.id}?semester=${semester}`);
 		} else if (user.role === UserRole.STUDENT) {
@@ -52,11 +50,10 @@
 		}
 	}
 
-	// Helpers visuales
 	function getRoleBadgeVariant(role: UserRole) {
 		switch (role) {
 			case UserRole.ADMIN: return 'destructive';
-			case UserRole.PROFESSOR: return 'default'; // Primary color
+			case UserRole.PROFESSOR: return 'default'; 
 			case UserRole.STUDENT: return 'secondary';
 			default: return 'outline';
 		}

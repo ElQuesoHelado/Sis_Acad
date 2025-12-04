@@ -157,14 +157,14 @@
 	{:else}
 		<Card class="bg-muted/30">
 			<CardContent class="pt-6">
-				<div class="grid grid-cols-2 gap-6 text-center md:grid-cols-4">
-					<div class="space-y-1">
-						<div class="flex items-center justify-center gap-2 text-muted-foreground">
-							<Award class="h-4 w-4" />
-							<span class="text-sm font-medium">Promedio Ponderado</span>
-						</div>
-						<p class="text-3xl font-bold tracking-tight">{stats.avg}</p>
-					</div>
+				<div class="grid grid-cols-2 gap-6 text-center md:grid-cols-3">
+					<!-- <div class="space-y-1"> -->
+					<!-- 	<div class="flex items-center justify-center gap-2 text-muted-foreground"> -->
+					<!-- 		<Award class="h-4 w-4" /> -->
+					<!-- 		<span class="text-sm font-medium">Promedio Ponderado</span> -->
+					<!-- 	</div> -->
+					<!-- 	<p class="text-3xl font-bold tracking-tight">{stats.avg}</p> -->
+					<!-- </div> -->
 					<div class="space-y-1">
 						<span class="text-sm font-medium text-green-600 dark:text-green-400">Aprobados</span>
 						<p class="text-3xl font-bold">{stats.passed}</p>
