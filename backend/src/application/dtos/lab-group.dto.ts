@@ -11,4 +11,9 @@ export interface AvailableLabGroupDto {
   capacity: number;
   currentEnrollment: number;
   isFull: boolean;
+  schedules: {
+    day: string;
+    time: string;
+    classroom: string;
+  }[];
 }
