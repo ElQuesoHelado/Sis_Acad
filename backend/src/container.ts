@@ -82,6 +82,8 @@ function createContainer(): AppContainer {
       repositories.enrollment,
       repositories.theoryGroup,
       repositories.labGroup,
+      repositories.classSchedule,
+      repositories.classroom
     ),
 
     // Read

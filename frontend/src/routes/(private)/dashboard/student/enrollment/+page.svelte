@@ -112,7 +112,7 @@
 	{#if loadingCourses}
 		<div class="flex items-center justify-center py-12">
 			<div class="flex flex-col items-center gap-3">
-				<LoaderCircle class="h-12 w-12 animate-spin text-primary" />
+				<LoaderCircle class="text-primary h-12 w-12 animate-spin" />
 				<p class="text-muted-foreground">Buscando cursos pendientes...</p>
 			</div>
 		</div>
@@ -122,10 +122,10 @@
 		<Card class="border-destructive/50 bg-destructive/5">
 			<CardContent class="pt-6">
 				<div class="flex items-start gap-3">
-					<CircleAlert class="mt-0.5 h-5 w-5 shrink-0 text-destructive" />
+					<CircleAlert class="text-destructive mt-0.5 h-5 w-5 shrink-0" />
 					<div>
-						<h3 class="mb-1 font-semibold text-destructive">Error al cargar la página</h3>
-						<p class="text-sm text-destructive/90">{error}</p>
+						<h3 class="text-destructive mb-1 font-semibold">Error al cargar la página</h3>
+						<p class="text-destructive/90 text-sm">{error}</p>
 					</div>
 				</div>
 			</CardContent>
@@ -136,7 +136,7 @@
 		{#if loadingGroups}
 			<div class="flex items-center justify-center py-12">
 				<div class="flex flex-col items-center gap-3">
-					<CircleAlert class="h-12 w-12 animate-spin text-primary" />
+					<CircleAlert class="text-primary h-12 w-12 animate-spin" />
 					<p class="text-muted-foreground">Cargando grupos disponibles...</p>
 				</div>
 			</div>
@@ -146,10 +146,10 @@
 			<Card class="border-destructive/50 bg-destructive/5">
 				<CardContent class="pt-6">
 					<div class="flex items-start gap-3">
-						<CircleAlert class="mt-0.5 h-5 w-5 shrink-0 text-destructive" />
+						<CircleAlert class="text-destructive mt-0.5 h-5 w-5 shrink-0" />
 						<div>
-							<h3 class="mb-1 font-semibold text-destructive">Error al cargar grupos</h3>
-							<p class="text-sm text-destructive/90">{error}</p>
+							<h3 class="text-destructive mb-1 font-semibold">Error al cargar grupos</h3>
+							<p class="text-destructive/90 text-sm">{error}</p>
 						</div>
 					</div>
 				</CardContent>
@@ -162,7 +162,7 @@
 					<CardContent class="flex flex-col items-center justify-center py-12">
 						<CircleAlert class="mb-4 h-16 w-16 text-green-500" />
 						<h3 class="mb-2 text-lg font-semibold">¡Todo listo!</h3>
-						<p class="text-center text-muted-foreground">
+						<p class="text-muted-foreground text-center">
 							No tienes matrículas de laboratorio pendientes.
 						</p>
 					</CardContent>
@@ -179,7 +179,7 @@
 								<Accordion.Trigger class="text-base">
 									{course.courseName}
 									<span
-										class="mr-4 ml-auto rounded bg-muted px-2 py-0.5 font-mono text-xs text-muted-foreground"
+										class="bg-muted text-muted-foreground ml-auto mr-4 rounded px-2 py-0.5 font-mono text-xs"
 									>
 										{course.courseCode}
 									</span>
@@ -188,11 +188,11 @@
 									{@const groups = availableGroupsMap.get(course.enrollmentId)}
 
 									{#if !groups}
-										<p class="text-center text-sm text-destructive">
+										<p class="text-destructive text-center text-sm">
 											Error al cargar grupos para este curso.
 										</p>
 									{:else if groups.length === 0}
-										<p class="text-center text-sm text-muted-foreground">
+										<p class="text-muted-foreground text-center text-sm">
 											No hay grupos de laboratorio disponibles para este curso.
 										</p>
 									{:else}
@@ -209,12 +209,29 @@
 											{#each groups as group}
 												<Label
 													for={group.id}
-													class="flex cursor-pointer items-center justify-between rounded-md border p-4 hover:bg-accent"
+													class="hover:bg-accent flex cursor-pointer items-center justify-between rounded-md border p-4"
 												>
 													<div class="flex items-center gap-3">
 														<!-- El 'value' del item es el 'labGroupId' -->
 														<RadioGroupItem value={group.id} id={group.id} />
-														<span class="font-medium">Grupo {group.groupLetter}</span>
+														<div class="flex flex-col">
+															<span class="font-medium">Grupo {group.groupLetter}</span>
+															<div class="text-muted-foreground mt-1 space-y-0.5 text-xs">
+																{#each group.schedules as sched}
+																	<div class="flex gap-2">
+																		<span class="font-semibold">{sched.day}</span>
+																		<span>{sched.time}</span>
+																		<span>({sched.classroom})</span>
+																	</div>
+																{:else}
+																	<span>Sin horario asignado</span>
+																{/each}
+															</div>
+														</div>
+													</div>
+
+													<div class="text-muted-foreground text-xs">
+														{group.currentEnrollment}/{group.capacity} ocupados
 													</div>
 												</Label>
 											{/each}
@@ -242,7 +259,7 @@
 						</Button>
 
 						{#if submitError}
-							<p class="text-sm text-destructive">{submitError}</p>
+							<p class="text-destructive text-sm">{submitError}</p>
 						{/if}
 						{#if submitSuccess}
 							<p class="text-sm text-green-600">¡Matrícula guardada con éxito! Redirigiendo...</p>

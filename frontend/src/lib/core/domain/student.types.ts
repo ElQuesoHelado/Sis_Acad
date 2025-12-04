@@ -26,14 +26,14 @@ export interface GradeOutput {
  * Represents all grades and status for a student's course.
  */
 export interface StudentCourseGrades {
-	enrollmentId: string;
-	courseName: string;
-	professorName: string;
-	grades: GradeOutput[];
-	average: number | null;
-	status: CourseStatus;
-	groupStats: GroupGradeStats[];
-	weights: GradeWeight[];
+  enrollmentId: string;
+  courseName: string;
+  professorName: string;
+  grades: GradeOutput[];
+  average: number | null;
+  status: CourseStatus;
+  groupStats: GroupGradeStats[];
+  weights: GradeWeight[];
 }
 
 /**
@@ -59,6 +59,11 @@ export interface AvailableLabGroup {
   capacity: number;
   currentEnrollment: number;
   isFull: boolean;
+  schedules: {
+    day: string;
+    time: string;
+    classroom: string;
+  }[];
 }
 
 /**
@@ -118,13 +123,13 @@ export interface StudentAttendanceReport {
 }
 
 export interface GroupGradeStats {
-	type: GradeType;
-	average: number;
-	max: number;
-	min: number;
+  type: GradeType;
+  average: number;
+  max: number;
+  min: number;
 }
 
 export interface GradeWeight {
-	type: GradeType;
-	weight: number;
+  type: GradeType;
+  weight: number;
 }

@@ -2,6 +2,8 @@ import {
   type IEnrollmentRepository,
   type ITheoryGroupRepository,
   type ILabGroupRepository,
+  type IClassScheduleRepository,
+  type IClassroomRepository,
 } from "@/domain/repositories/index.js";
 import { Id } from "@/domain/value-objects/index.js";
 import { type AvailableLabGroupDto } from "@/application/dtos/lab-group.dto.js";
@@ -13,7 +15,9 @@ export class GetAvailableLabGroupsUseCase {
     private readonly enrollmentRepository: IEnrollmentRepository,
     private readonly theoryGroupRepository: ITheoryGroupRepository,
     private readonly labGroupRepository: ILabGroupRepository,
-  ) {}
+    private readonly scheduleRepository: IClassScheduleRepository,
+    private readonly classroomRepository: IClassroomRepository,
+  ) { }
 
   /**
    * Fetches lab groups available for a specific enrollment.
@@ -59,16 +63,28 @@ export class GetAvailableLabGroupsUseCase {
       theoryGroup.courseId,
     );
 
-    // Filter labs that are not full
     const availableLabs = allLabsForCourse.filter((lab) => !lab.isFull());
 
-    // Map to DTO
-    return availableLabs.map((lab) => ({
-      id: lab.id.value,
-      groupLetter: lab.groupLetter.value,
-      capacity: lab.capacity,
-      currentEnrollment: lab.currentEnrollment,
-      isFull: lab.isFull(),
+    return await Promise.all(availableLabs.map(async (lab) => {
+      const schedules = await this.scheduleRepository.findByLabGroup(lab.id);
+
+      const scheduleDtos = await Promise.all(schedules.map(async (sched) => {
+        const classroom = await this.classroomRepository.findById(sched.classroomId);
+        return {
+          day: sched.timeSlot.day,
+          time: `${sched.timeSlot.startTime.value} - ${sched.timeSlot.endTime.value}`,
+          classroom: classroom?.name ?? "Sin Aula"
+        };
+      }));
+
+      return {
+        id: lab.id.value,
+        groupLetter: lab.groupLetter.value,
+        capacity: lab.capacity,
+        currentEnrollment: lab.currentEnrollment,
+        isFull: lab.isFull(),
+        schedules: scheduleDtos,
+      };
     }));
   }
 }
