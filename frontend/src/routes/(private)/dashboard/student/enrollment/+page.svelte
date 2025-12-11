@@ -39,25 +39,69 @@
 		return h * 60 + m;
 	}
 
-	function checkConflict(group: AvailableLabGroup): boolean {
-		for (const labSched of group.schedules) {
-			const [startStr, endStr] = labSched.time.split(' - ');
-			if (!startStr || !endStr) continue;
+	function toggleSelection(enrollmentId: string, groupId: string) {
+		const currentSelection = selections.get(enrollmentId);
+		const newMap = new Map(selections);
 
-			const labStart = timeToMinutes(startStr);
-			const labEnd = timeToMinutes(endStr);
+		if (currentSelection === groupId) {
+			newMap.delete(enrollmentId);
+		} else {
+			newMap.set(enrollmentId, groupId);
+		}
+
+		selections = newMap;
+	}
+
+	function parseScheduleString(timeStr: string) {
+		const [start, end] = timeStr.split(' - ');
+		return { start: timeToMinutes(start), end: timeToMinutes(end) };
+	}
+
+	function doGroupsOverlap(groupA: AvailableLabGroup, groupB: AvailableLabGroup): boolean {
+		for (const schedA of groupA.schedules) {
+			const timeA = parseScheduleString(schedA.time);
+
+			for (const schedB of groupB.schedules) {
+				if (schedA.day.toUpperCase() !== schedB.day.toUpperCase()) continue;
+
+				const timeB = parseScheduleString(schedB.time);
+				if (timeA.start < timeB.end && timeA.end > timeB.start) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	function checkConflict(groupCandidate: AvailableLabGroup, currentEnrollmentId: string): boolean {
+		for (const labSched of groupCandidate.schedules) {
+			const timeLab = parseScheduleString(labSched.time);
 
 			for (const mySched of mySchedule) {
 				if (mySched.day.toUpperCase() === labSched.day.toUpperCase()) {
 					const myStart = timeToMinutes(mySched.startTime);
 					const myEnd = timeToMinutes(mySched.endTime);
 
-					if (labStart < myEnd && labEnd > myStart) {
+					if (timeLab.start < myEnd && timeLab.end > myStart) {
 						return true;
 					}
 				}
 			}
 		}
+
+		for (const [enrollmentId, selectedGroupId] of selections.entries()) {
+			if (enrollmentId === currentEnrollmentId) continue;
+
+			const otherCourseGroups = availableGroupsMap.get(enrollmentId) || [];
+			const otherSelectedGroup = otherCourseGroups.find((g) => g.id === selectedGroupId);
+
+			if (otherSelectedGroup) {
+				if (doGroupsOverlap(groupCandidate, otherSelectedGroup)) {
+					return true;
+				}
+			}
+		}
+
 		return false;
 	}
 
@@ -246,43 +290,69 @@
 											No hay grupos disponibles.
 										</p>
 									{:else}
-										<RadioGroup
-											class="space-y-3"
-											onValueChange={(value) => {
-												if (value) {
-													const newMap = new Map(selections);
-													newMap.set(course.enrollmentId, value);
-													selections = newMap;
-												}
-											}}
-										>
+										<RadioGroup class="space-y-3" value={selections.get(course.enrollmentId)}>
+											{#if selections.has(course.enrollmentId)}
+												<div class="flex justify-end">
+													<Button
+														variant="ghost"
+														size="sm"
+														class="text-muted-foreground hover:text-destructive h-6 text-xs"
+														onclick={() =>
+															toggleSelection(
+																course.enrollmentId,
+																selections.get(course.enrollmentId)!
+															)}
+													>
+														Limpiar selección
+													</Button>
+												</div>
+											{/if}
+
 											{#each groups as group}
-												{@const isConflicting = checkConflict(group)}
+												{@const isConflicting = checkConflict(group, course.enrollmentId)}
+												{@const isSelected = selections.get(course.enrollmentId) === group.id}
+												{@const isDisabled = isConflicting && !isSelected}
 
 												<Label
 													for={group.id}
 													class={cn(
-														'relative flex cursor-pointer items-center justify-between overflow-hidden rounded-md border p-4 transition-colors',
-														isConflicting
-															? 'bg-muted/20 cursor-not-allowed border-dashed opacity-60'
-															: 'hover:bg-accent hover:border-primary/30'
+														'relative flex cursor-pointer select-none items-center justify-between overflow-hidden rounded-md border p-4 transition-all',
+														isDisabled
+															? 'bg-muted/30 cursor-not-allowed border-dashed opacity-50'
+															: 'hover:bg-accent hover:border-primary/50',
+														isSelected && 'border-primary bg-primary/5 ring-primary/20 ring-1'
 													)}
+													onclick={(e) => {
+														if (isDisabled) return;
+
+														e.preventDefault();
+
+														toggleSelection(course.enrollmentId, group.id);
+													}}
 												>
 													<div class="flex items-center gap-3">
 														<RadioGroupItem
 															value={group.id}
 															id={group.id}
-															disabled={isConflicting}
+															disabled={isDisabled}
+															class="data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
 														/>
 
 														<div class="flex flex-col">
 															<span class="flex items-center gap-2 font-medium">
 																Grupo {group.groupLetter}
-																{#if isConflicting}
+																{#if isConflicting && !isSelected}
 																	<span
-																		class="bg-destructive/10 text-destructive flex items-center gap-1 rounded px-2 py-0.5 text-[10px] font-bold"
+																		class="bg-destructive/10 text-destructive animate-in fade-in flex items-center gap-1 rounded px-2 py-0.5 text-[10px] font-bold"
 																	>
 																		<TriangleAlert class="h-3 w-3" /> CRUCE
+																	</span>
+																{/if}
+																{#if isSelected}
+																	<span
+																		class="bg-primary/10 text-primary animate-in zoom-in rounded px-2 py-0.5 text-[10px] font-bold"
+																	>
+																		SELECCIONADO
 																	</span>
 																{/if}
 															</span>
