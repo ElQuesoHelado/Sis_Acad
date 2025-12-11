@@ -9,23 +9,17 @@ import {
   LabGroupNotFoundError,
 } from "@/domain/errors/lab.errors.js";
 import { NotAuthorizedError } from "@/application/errors/not-authorized.error.js";
+import { ScheduleConflictError } from "@/domain/errors/index.js";
 import { type IUnitOfWork } from "@/application/contracts/i-unit-of-work.js";
 
-/**
- * Input data for enrolling a student into a lab group.
- */
 export interface EnrollInLabGroupInput {
   studentProfileId: string;
   enrollmentId: string;
   labGroupId: string;
 }
 
-/**
- * Use Case: Enroll a student in a single lab group.
- * Executes all operations within a single unit-of-work transaction.
- */
 export class EnrollInLabGroupUseCase {
-  constructor(private readonly uow: IUnitOfWork) {}
+  constructor(private readonly uow: IUnitOfWork) { }
 
   public async execute(input: EnrollInLabGroupInput): Promise<void> {
     const studentIdVO = Id.create(input.studentProfileId);
@@ -33,6 +27,7 @@ export class EnrollInLabGroupUseCase {
     const labGroupIdVO = Id.create(input.labGroupId);
 
     await this.uow.execute(async (repos) => {
+
       const enrollment = await repos.enrollment.findById(enrollmentIdVO);
       if (!enrollment) throw new EnrollmentNotFoundError(input.enrollmentId);
 
@@ -46,12 +41,27 @@ export class EnrollInLabGroupUseCase {
 
       if (labGroup.isFull()) throw new LabGroupFullError();
 
-      const theoryGroup = await repos.theoryGroup.findById(
-        enrollment.theoryGroupId,
-      );
+      const theoryGroup = await repos.theoryGroup.findById(enrollment.theoryGroupId);
       if (!theoryGroup || !theoryGroup.courseId.equals(labGroup.courseId)) {
         throw new CourseMismatchError();
       }
+
+      const newLabSchedules = await repos.classSchedule.findByLabGroup(labGroupIdVO);
+      const currentSchedules = await repos.enrollment.findStudentSchedules(studentIdVO);
+
+      for (const newSch of newLabSchedules) {
+        for (const currSch of currentSchedules) {
+
+          if (newSch.semester.equals(currSch.semester)) {
+            if (newSch.overlapsWith(currSch.timeSlot)) {
+              throw new ScheduleConflictError(
+                `El horario del laboratorio se cruza con otra clase registrada (${currSch.timeSlot.day} ${currSch.timeSlot.startTime} - ${currSch.timeSlot.endTime})`
+              );
+            }
+          }
+        }
+      }
+
 
       labGroup.incrementEnrollment();
       enrollment.assignLab(labGroup.id);

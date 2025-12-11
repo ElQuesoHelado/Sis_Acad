@@ -11,6 +11,7 @@ import { env } from "@/infraestructure/config/index.js";
 import { globalErrorHandler } from "./middlewares/error.middleware.js";
 import swaggerDocument from "../../docs/swagger.json" with { type: "json" };
 import swaggerUi from "swagger-ui-express";
+import path from "path";
 
 export class App {
   public readonly app: Application;
@@ -29,6 +30,7 @@ export class App {
     this.app.use(helmet()); // Secure HTTP headers
     this.app.use(express.json()); // Parse JSON bodies
     this.app.use(pino.default()); // HTTP request logger
+    this.app.use("/uploads", express.static(path.join(process.cwd(), "uploads")));
   }
 
   /**

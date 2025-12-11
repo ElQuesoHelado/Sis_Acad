@@ -4,7 +4,7 @@
 
 import type { GradeWeight } from "../entities/grade-weight.entity.js";
 import type { Grade } from "../entities/grade.entity.js";
-import type { Enrollment } from "../entities/index.js";
+import type { ClassSchedule, Enrollment } from "../entities/index.js";
 import type { AcademicSemester, Id } from "../value-objects/index.js";
 
 /**
@@ -93,5 +93,7 @@ export interface IEnrollmentRepository {
     studentId: Id,
     semester: AcademicSemester
   ): Promise<StudentEnrollmentDetail[]>;
+  findByGroupId(groupId: Id): Promise<Enrollment[]>;
+  findStudentSchedules(studentId: Id): Promise<ClassSchedule[]>;
 
 }

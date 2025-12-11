@@ -7,7 +7,9 @@ import type {
   TakeAttendanceInput,
   ClassType,
   CreateReservationInput,
-  CreatedReservationResponse
+  CreatedReservationResponse,
+  AccreditationDashboard,
+  UploadEvidenceResponse
 } from '$lib/core/domain';
 import type { IHttpClient } from '$lib/core/interfaces/http-client.interface';
 import { httpClient } from '$lib/core/adapters';
@@ -58,6 +60,40 @@ class TeacherService {
 
   public createReservation(data: CreateReservationInput): Promise<CreatedReservationResponse> {
     return this.http.post<CreatedReservationResponse>(API_ENDPOINTS.TEACHER.CREATE_RESERVATION, data);
+  }
+
+  /** * Retrieves accreditation statistics and evidence status for a specific group.
+       */
+  public getAccreditationData(groupId: string): Promise<AccreditationDashboard> {
+    return this.http.get<AccreditationDashboard>(`/teacher/groups/${groupId}/accreditation`);
+  }
+
+  /**
+     * Uploads an evidence file (image or PDF) for the accreditation portfolio.
+     * Uses FormData to handle multipart/form-data.
+     */
+  public async uploadEvidence(
+    groupId: string,
+    type: 'low' | 'avg' | 'high' | 'syllabus',
+    file: File
+  ): Promise<UploadEvidenceResponse> {
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('type', type);
+    return this.http.post<UploadEvidenceResponse>(
+      `/teacher/groups/${groupId}/evidence`,
+      formData,
+      {
+      }
+    );
+  }
+
+  public getCourseTopics(groupId: string): Promise<{ id: string; week: number; topicName: string; status: string }[]> {
+    return this.http.get(`/teacher/groups/${groupId}/topics`);
+  }
+
+  public updateTopicStatus(topicId: string, status: 'completado' | 'pendiente'): Promise<void> {
+    return this.http.patch(`/teacher/topics/${topicId}/status`, { status });
   }
 }
 

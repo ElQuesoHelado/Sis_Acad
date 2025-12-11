@@ -31,6 +31,11 @@ import { LoginUseCase } from "./application/use-cases/auth/login.usecase.js";
 import { GetStudentCourseProgressUseCase } from "./application/use-cases/student/get-course-progress.usecase.js";
 import { GetStudentAttendanceReportUseCase } from "./application/use-cases/student/get-student-attendance-report.usecase.js";
 import { GetClassroomScheduleUseCase } from "./application/use-cases/classroom/get-classroom-schedule.usecase.js";
+import { GetAccreditationDashboardUseCase } from "./application/use-cases/teacher/get-accreditation-dashboard.usecase.js";
+import { SaveGroupEvidenceUseCase } from "./application/use-cases/teacher/save-group-evidence.usecase.js";
+import { TypeormGroupPortfolioRepository } from "./infraestructure/persistence/repositories/typeorm-group-portfolio.repository.js";
+import { UpdateTopicStatusUseCase } from "./application/use-cases/teacher/update-topic-status.usecase.js";
+import { GetCourseContentByGroupUseCase } from "./application/use-cases/teacher/get-course-content.usecase.js";
 
 export interface AppContainer {
   repositories: IRepositories;
@@ -57,6 +62,10 @@ export interface AppContainer {
     getAdminTeacherDetails: GetAdminTeacherDetailsUseCase;
     getAdminStudentDetails: GetAdminStudentDetailsUseCase;
     getClassroomSchedule: GetClassroomScheduleUseCase;
+    getAccreditationDashboard: GetAccreditationDashboardUseCase;
+    saveGroupEvidence: SaveGroupEvidenceUseCase;
+    getCourseContent: GetCourseContentByGroupUseCase;
+    updateTopicStatus: UpdateTopicStatusUseCase;
   };
   unitOfWork: IUnitOfWork;
   authService: TeacherAuthorizationService;
@@ -67,6 +76,8 @@ function createContainer(): AppContainer {
   const repositories = unitOfWork.repositories;
 
   const authService = new TeacherAuthorizationService();
+
+  const groupPortfolioRepo = new TypeormGroupPortfolioRepository();
 
   const useCases: AppContainer["useCases"] = {
     // Read
@@ -152,7 +163,9 @@ function createContainer(): AppContainer {
     getUserProfile: new GetUserProfileUseCase(repositories.user),
     getAllClassrooms: new GetAllClassroomsUseCase(repositories.classroom),
     getStudentCourseProgress: new GetStudentCourseProgressUseCase(
-      repositories.courseContent
+      repositories.courseContent,
+      groupPortfolioRepo,
+      repositories.enrollment
     ),
     getStudentAttendanceReport: new GetStudentAttendanceReportUseCase(
       repositories.enrollment,
@@ -184,7 +197,23 @@ function createContainer(): AppContainer {
       repositories.classSchedule,
       repositories.roomReservation,
       repositories.user,
-    )
+    ),
+    getAccreditationDashboard: new GetAccreditationDashboardUseCase(
+      repositories.enrollment,
+      repositories.grade,
+      groupPortfolioRepo,
+      repositories.gradeWeight
+    ),
+    saveGroupEvidence: new SaveGroupEvidenceUseCase(groupPortfolioRepo),
+
+    getCourseContent: new GetCourseContentByGroupUseCase(
+      repositories.courseContent,
+      repositories.theoryGroup
+    ),
+
+    updateTopicStatus: new UpdateTopicStatusUseCase(
+      repositories.courseContent
+    ),
   };
 
   return {

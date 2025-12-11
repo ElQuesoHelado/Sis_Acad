@@ -4,6 +4,8 @@
  * y rol de 'profesor'.
  */
 import { Router } from "express";
+import multer from "multer";
+import path from "path";
 import { expressjwt } from "express-jwt";
 import { env } from "@/infraestructure/config/index.js";
 import {
@@ -14,12 +16,16 @@ import { type AppContainer } from "../../container.js";
 import { UserRole } from "@/domain/enums/user-role.enum.js";
 import {
   makeCreateReservationController,
+  makeGetAccreditationDashboardController,
+  makeGetCourseContentController,
   makeGetStudentRosterController,
   makeGetStudentRosterWithGradesController,
   makeGetTeacherGroupsController,
   makeGetTeacherScheduleController,
   makeSaveBulkGradesController,
   makeTakeAttendanceController,
+  makeUpdateTopicStatusController,
+  makeUploadEvidenceController,
 } from "../controllers/teacher.controller.js";
 import {
   validateGetTeacherGroups,
@@ -30,6 +36,16 @@ import {
   validateSaveBulkGrades,
   validateCreateReservation,
 } from "../validation/teacher.validation.js";
+
+const storage = multer.diskStorage({
+  destination: "uploads/",
+  filename: (_req, file, cb) => {
+    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
+    cb(null, uniqueSuffix + path.extname(file.originalname));
+  },
+});
+
+const upload = multer({ storage });
 
 export const createTeacherRouter = (container: AppContainer): Router => {
   const router = Router();
@@ -311,5 +327,25 @@ export const createTeacherRouter = (container: AppContainer): Router => {
     validateCreateReservation,
     makeCreateReservationController(container.useCases.createRoomReservation),
   );
+
+  router.get(
+    "/groups/:groupId/accreditation",
+    makeGetAccreditationDashboardController(container.useCases.getAccreditationDashboard)
+  );
+  router.post(
+    "/groups/:groupId/evidence",
+    upload.single("file"),
+    makeUploadEvidenceController(container.useCases.saveGroupEvidence)
+  );
+  router.get(
+    "/groups/:groupId/topics",
+    makeGetCourseContentController(container.useCases.getCourseContent)
+  );
+
+  router.patch(
+    "/topics/:topicId/status",
+    makeUpdateTopicStatusController(container.useCases.updateTopicStatus)
+  );
+
   return router;
 };

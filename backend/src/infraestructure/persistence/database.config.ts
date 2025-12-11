@@ -17,6 +17,7 @@ import { AttendanceModel } from "./models/attendance.model.js";
 import { CourseContentModel } from "./models/course-content.model.js";
 import { RoomReservationModel } from "./models/room-reservation.model.js";
 import { GradeWeightModel } from "./models/grade-weight.model.js";
+import { GroupPortfolioModel } from "./models/group-portfolio.model.js";
 
 const dbType = env.DB_TYPE || "postgres";
 
@@ -44,6 +45,7 @@ export const AppDataSource = new DataSource({
     CourseContentModel,
     RoomReservationModel,
     GradeWeightModel,
+    GroupPortfolioModel
   ],
   migrations: [],
   subscribers: [],

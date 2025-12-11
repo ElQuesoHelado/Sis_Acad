@@ -12,3 +12,4 @@ export * from "./iteacher-profile.repository.js";
 export * from "./itheory-group.repository.js";
 export * from "./iuser.repository.js";
 export * from "./igrade-weight.repository.js";
+export * from "./igroup-portfolio.repository.js";

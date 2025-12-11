@@ -1,4 +1,4 @@
-import { type ICourseContentRepository } from "@/domain/repositories/index.js";
+import { type ICourseContentRepository, type IEnrollmentRepository, type IGroupPortfolioRepository } from "@/domain/repositories/index.js";
 import { Id } from "@/domain/value-objects/index.js";
 import { TopicStatus } from "@/domain/enums/index.js";
 
@@ -9,12 +9,14 @@ export interface CourseProgressDto {
     status: string;
   }[];
   progressPercentage: number;
+  syllabusUrl?: string;
 }
-
 export class GetStudentCourseProgressUseCase {
   constructor(
-    private readonly courseContentRepository: ICourseContentRepository
-  ) {}
+    private readonly courseContentRepository: ICourseContentRepository,
+    private readonly portfolioRepo: IGroupPortfolioRepository,
+    private readonly enrollmentRepo: IEnrollmentRepository
+  ) { }
 
   public async execute(
     studentProfileId: string,
@@ -23,21 +25,21 @@ export class GetStudentCourseProgressUseCase {
     const studentIdVO = Id.create(studentProfileId);
     const enrollmentIdVO = Id.create(enrollmentId);
 
-    // If the student does not own the enrollment, this will return an empty array.
+    const enrollment = await this.enrollmentRepo.findById(enrollmentIdVO);
+    if (!enrollment || !enrollment.studentId.equals(studentIdVO)) {
+      throw new Error("Enrollment not found or unauthorized");
+    }
+
     const contents = await this.courseContentRepository.findByEnrollmentId(
       enrollmentIdVO,
       studentIdVO
     );
 
-    // Calculate percentage
-    const totalTopics = contents.length;
-    const completedTopics = contents.filter(
-      (c) => c.status === TopicStatus.COMPLETED
-    ).length;
+    const portfolio = await this.portfolioRepo.findByGroupId(enrollment.theoryGroupId);
 
-    const percentage = totalTopics > 0
-      ? Math.round((completedTopics / totalTopics) * 100)
-      : 0;
+    const totalTopics = contents.length;
+    const completedTopics = contents.filter(c => c.status === TopicStatus.COMPLETED).length;
+    const percentage = totalTopics > 0 ? Math.round((completedTopics / totalTopics) * 100) : 0;
 
     return {
       syllabus: contents.map((c) => ({
@@ -46,6 +48,7 @@ export class GetStudentCourseProgressUseCase {
         status: c.status,
       })),
       progressPercentage: percentage,
+      syllabusUrl: portfolio?.syllabusUrl
     };
   }
 }

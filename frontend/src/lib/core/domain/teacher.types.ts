@@ -120,3 +120,37 @@ export interface AvailableClassroom {
   id: string;
   name: string; // Ej: "Salón 1", "Aula 205"
 }
+
+/**
+ * Data structure for the Accreditation Dashboard.
+ */
+export interface AccreditationDashboard {
+  stats: {
+    lowestAverage: number;
+    highestAverage: number;
+    classAverage: number;
+    studentCount: number;
+  };
+  evaluations: {
+    name: string;
+    distribution: {
+      label: string;
+      count: number;
+      color: string;
+    }[];
+  }[];
+  evidence: {
+    syllabusUrl?: string;
+    lowUrl?: string;
+    avgUrl?: string;
+    highUrl?: string;
+  };
+}
+
+/**
+ * Response when uploading a file.
+ */
+export interface UploadEvidenceResponse {
+  success: boolean;
+  url: string;
+}

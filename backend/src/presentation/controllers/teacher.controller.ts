@@ -15,6 +15,10 @@ import type { GetTeacherGroupsUseCase } from "@/application/use-cases/teacher/ge
 import type { SaveBulkGradesUseCase } from "@/application/use-cases/teacher/save-bulk-grades.usecase.js";
 import type { GetStudentRosterWithGradesUseCase } from "@/application/use-cases/teacher/get-student-roster-with-grades.usecase.js";
 import type { CreateRoomReservationUseCase } from "@/application/use-cases/index.js";
+import type { SaveGroupEvidenceUseCase } from "@/application/use-cases/teacher/save-group-evidence.usecase.js";
+import type { GetAccreditationDashboardUseCase } from "@/application/use-cases/teacher/get-accreditation-dashboard.usecase.js";
+import type { UpdateTopicStatusUseCase } from "@/application/use-cases/teacher/update-topic-status.usecase.js";
+import type { GetCourseContentByGroupUseCase } from "@/application/use-cases/teacher/get-course-content.usecase.js";
 
 export const makeTakeAttendanceController = (
   useCase: TakeAttendanceUseCase,
@@ -231,6 +235,92 @@ export const makeCreateReservationController = (
           message: error.message,
         });
       }
+      next(error);
+    }
+  };
+};
+
+export const makeGetAccreditationDashboardController = (
+  useCase: GetAccreditationDashboardUseCase,
+) => {
+  return async (req: AuthRequest, res: Response, next: NextFunction) => {
+    try {
+      const { groupId } = req.params;
+
+      if (!groupId) {
+        return res.status(400).json({ message: "Group ID is required" });
+      }
+
+      const data = await useCase.execute(groupId);
+      return res.status(200).json(data);
+    } catch (error) {
+      next(error);
+    }
+  };
+};
+
+export const makeUploadEvidenceController = (
+  useCase: SaveGroupEvidenceUseCase,
+) => {
+  return async (req: AuthRequest, res: Response, next: NextFunction) => {
+    try {
+      const { groupId } = req.params;
+      const { type } = req.body;
+      const file = req.file;
+
+      if (!groupId) {
+        return res.status(400).json({ message: "Group ID is required" });
+      }
+
+      if (!file) {
+        return res.status(400).json({ message: "No file uploaded." });
+      }
+
+      const fileUrl = `${req.protocol}://${req.get("host")}/uploads/${file.filename}`;
+
+      await useCase.execute(
+        groupId,
+        type as "low" | "avg" | "high" | "syllabus",
+        fileUrl
+      );
+
+      return res.status(200).json({ success: true, url: fileUrl });
+    } catch (error) {
+      next(error);
+    }
+  };
+};
+
+
+export const makeGetCourseContentController = (useCase: GetCourseContentByGroupUseCase) => {
+  return async (req: AuthRequest, res: Response, next: NextFunction) => {
+    try {
+        const { groupId } = req.params;
+        if (!groupId) {
+          return res.status(400).json({message: "No groupId provided."})
+        }
+        const topics = await useCase.execute(groupId);
+        return res.status(200).json(topics);
+    } catch (error) { next(error); }
+  };
+};
+
+export const makeUpdateTopicStatusController = (
+  useCase: UpdateTopicStatusUseCase,
+) => {
+  return async (req: AuthRequest, res: Response, next: NextFunction) => {
+    try {
+      const { topicId } = req.params;
+      const { status } = req.body;
+
+      if (!topicId) {
+        return res.status(400).json({ message: "No topic id provided." });
+      }
+
+      await useCase.execute(topicId, status);
+
+      return res.status(200).json({ success: true, message: "Topic updated." });
+    } catch (error) {
       next(error);
     }
   };

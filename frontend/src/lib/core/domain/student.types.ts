@@ -100,6 +100,7 @@ export interface CourseTopic {
 export interface CourseProgress {
   syllabus: CourseTopic[];
   progressPercentage: number;
+  syllabusUrl?: string;
 }
 
 // DTO para el Reporte de Asistencia

@@ -161,7 +161,7 @@
 
 		if (selectionEnd) {
 			const end = parseInt(selectionEnd.split(':')[0]);
-			return t >= start && t < end;
+			return t >= start && t <= end;
 		}
 		if (hoverTime) {
 			const hover = parseInt(hoverTime.split(':')[0]);

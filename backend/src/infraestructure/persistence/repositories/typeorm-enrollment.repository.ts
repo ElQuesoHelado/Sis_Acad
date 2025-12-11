@@ -4,7 +4,7 @@
 
 import type { EntityManager } from "typeorm";
 import { In, type Repository } from "typeorm";
-import { Enrollment } from "@/domain/entities/index.js";
+import { ClassSchedule, Enrollment } from "@/domain/entities/index.js";
 import { type IEnrollmentRepository, type StudentEnrollmentDetail } from "@/domain/repositories/ienrollment.repository.js";
 import { EnrollmentModel } from "../models/enrollment.model.js";
 import type { AcademicSemester, Id } from "@/domain/value-objects/index.js";
@@ -13,6 +13,7 @@ import type { GradeModel } from "../models/grade.model.js";
 import { Grade } from "@/domain/entities/grade.entity.js";
 import { GradeWeight } from "@/domain/entities/grade-weight.entity.js";
 import type { GradeWeightModel } from "../models/grade-weight.model.js";
+import { ClassScheduleModel } from "../models/class-schedule.model.js";
 
 /**
  * Repository implementation for Enrollment using TypeORM.
@@ -172,6 +173,50 @@ export class TypeormEnrollmentRepository implements IEnrollmentRepository {
         grades,
         weights
       };
+    });
+  }
+
+  public async findByGroupId(groupId: Id): Promise<Enrollment[]> {
+    const models = await this.ormRepo.find({
+      where: [
+        { theoryGroupId: groupId.value },
+        { labGroupId: groupId.value },
+      ],
+    });
+    return models.map(this.toDomain);
+  }
+
+  public async findStudentSchedules(studentId: Id): Promise<ClassSchedule[]> {
+    const enrollments = await this.ormRepo.findBy({ studentId: studentId.value });
+    if (enrollments.length === 0) return [];
+
+    const theoryGroupIds = enrollments.map(e => e.theoryGroupId);
+    const labGroupIds = enrollments
+      .map(e => e.labGroupId)
+      .filter((id): id is string => id !== null);
+
+    if (theoryGroupIds.length === 0 && labGroupIds.length === 0) return [];
+
+    const scheduleRepo = AppDataSource.getRepository(ClassScheduleModel);
+
+    const schedules = await scheduleRepo.createQueryBuilder("schedule")
+      .where("schedule.theoryGroupId IN (:...theoryIds)", { theoryIds: theoryGroupIds.length ? theoryGroupIds : [''] })
+      .orWhere("schedule.labGroupId IN (:...labIds)", { labIds: labGroupIds.length ? labGroupIds : [''] })
+      .getMany();
+
+    return schedules.map(model => {
+      return ClassSchedule.create({
+        id: model.id,
+        classroomId: model.classroomId,
+        semester: model.semester.value,
+        timeSlot: {
+          day: model.day,
+          startTime: model.startTime.value,
+          endTime: model.endTime.value
+        },
+        courseId: null,
+        labGroupId: model.labGroupId
+      });
     });
   }
 }

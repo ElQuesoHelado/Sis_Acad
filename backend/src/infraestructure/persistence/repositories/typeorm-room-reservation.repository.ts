@@ -39,7 +39,13 @@ export class TypeormRoomReservationRepository
    * @returns The corresponding domain entity.
    */
   private toDomain = (model: RoomReservationModel): RoomReservation => {
-    const dateString = model.date as unknown as string;
+    let dateString: string;
+
+    if (model.date instanceof Date) {
+        dateString = model.date.toISOString().split('T')[0]!;
+    } else {
+        dateString = model.date as unknown as string;
+    }
 
     return RoomReservation.create({
       id: model.id,
@@ -66,7 +72,7 @@ export class TypeormRoomReservationRepository
       professorId: entity.professorId.value,
       semester: entity.semester,
       status: entity.status,
-      date: entity.date.toDate(),
+      date: entity.date.isoString,
       startTime: entity.startTime,
       endTime: entity.endTime,
       notes: entity.notes ?? null,
