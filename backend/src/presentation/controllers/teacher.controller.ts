@@ -60,8 +60,9 @@ export const makeGetTeacherScheduleController = (
     try {
       const teacherUserId = req.auth!.sub;
       const { semester } = req.params;
+      const { date } = req.query;
 
-      const schedule = await useCase.execute(teacherUserId, semester as string);
+      const schedule = await useCase.execute(teacherUserId, semester as string, date as string | undefined);
       return res.status(200).json(schedule);
     } catch (error) {
       if (error instanceof DomainError) {

@@ -1,7 +1,9 @@
 import type { IHttpClient } from '$lib/core/interfaces/http-client.interface';
 import { httpClient } from '$lib/core/adapters';
 import { API_ENDPOINTS } from '$lib/core/constants/api-endpoints.constants';
-import type { Classroom } from '$lib/core/domain/classroom.types';
+import type { Classroom, ClassroomScheduleEntry } from '$lib/core/domain/classroom.types';
+
+
 
 /**
  * Application service for classroom-related use cases.
@@ -13,6 +15,12 @@ class ClassroomService {
 	public getAllClassrooms(): Promise<Classroom[]> {
 		return this.http.get<Classroom[]>(API_ENDPOINTS.CLASSROOMS.GET_ALL);
 	}
+
+  public getSchedule(classroomId: string, semester: string): Promise<ClassroomScheduleEntry[]> {
+        return this.http.get<ClassroomScheduleEntry[]>(`/classrooms/${classroomId}/schedule`, {
+            params: { semester }
+        });
+    }
 }
 
 /** Singleton instance of ClassroomService */

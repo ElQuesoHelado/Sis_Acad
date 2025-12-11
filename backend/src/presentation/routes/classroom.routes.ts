@@ -2,7 +2,7 @@ import { Router } from "express";
 import { expressjwt } from "express-jwt";
 import { env } from "@/infraestructure/config/index.js";
 import { type AppContainer } from "../../container.js";
-import { makeGetAllClassroomsController } from "../controllers/classroom.controller.js";
+import { makeGetAllClassroomsController, makeGetClassroomScheduleController } from "../controllers/classroom.controller.js";
 
 /**
  * Crea el router para las rutas de /classrooms.
@@ -50,6 +50,11 @@ export const createClassroomRouter = (container: AppContainer): Router => {
   router.get(
     "/",
     makeGetAllClassroomsController(container.useCases.getAllClassrooms),
+  );
+
+  router.get(
+    "/:id/schedule",
+    makeGetClassroomScheduleController(container.useCases.getClassroomSchedule)
   );
 
   return router;

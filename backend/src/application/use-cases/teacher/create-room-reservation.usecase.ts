@@ -19,8 +19,10 @@ import {
 import { type CreateReservationDto } from "@/application/dtos/reservation.dto.js";
 import { v4 as uuidv4 } from "uuid";
 import { type IUnitOfWork } from "@/application/contracts/i-unit-of-work.js";
+import { ReservationWindowError } from "@/domain/errors/validation.errors.js";
 
 const MAX_RESERVATIONS_PER_WEEK = 2;
+const MAX_RESERVATION_WINDOW_DAYS = 14;
 
 function getWeekRange(date: Date): { start: Date; end: Date } {
   const d = new Date(date.getTime());
@@ -49,7 +51,7 @@ const DAY_OF_WEEK_MAP: Record<UtcDayIndex, DayOfWeek> = {
 };
 
 export class CreateRoomReservationUseCase {
-  constructor(private readonly uow: IUnitOfWork) {}
+  constructor(private readonly uow: IUnitOfWork) { }
 
   public async execute(
     input: CreateReservationDto,
@@ -61,6 +63,23 @@ export class CreateRoomReservationUseCase {
 
     const reservationDateVO = ReservationDate.create(input.date);
     const reservationDate = reservationDateVO.value;
+
+    const today = new Date();
+    today.setUTCHours(0, 0, 0, 0);
+
+    const maxDate = new Date(today.getTime());
+    maxDate.setUTCDate(today.getUTCDate() + MAX_RESERVATION_WINDOW_DAYS);
+
+    if (reservationDate < today) {
+      throw new ReservationWindowError("Cannot create reservations in the past.");
+    }
+
+    if (reservationDate > maxDate) {
+      throw new ReservationWindowError(
+        `Reservations can only be made up to ${MAX_RESERVATION_WINDOW_DAYS} days in advance.`
+      );
+    }
+
 
     const startTimeVO = TimeOfDay.create(input.startTime);
     const endTimeVO = TimeOfDay.create(input.endTime);
