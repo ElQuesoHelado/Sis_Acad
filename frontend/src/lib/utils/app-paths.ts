@@ -6,6 +6,7 @@ const DASHBOARD_BASE = '/dashboard';
 const STUDENT_BASE = `${DASHBOARD_BASE}/student`;
 const TEACHER_BASE = `${DASHBOARD_BASE}/teacher`;
 const ADMIN_BASE = `${DASHBOARD_BASE}/admin`;
+const SECRETARY_BASE = `${DASHBOARD_BASE}/secretary`;
 
 const PUBLIC_PATHS = {
   LOGIN: '/login',
@@ -34,6 +35,14 @@ const ADMIN_PATHS = {
   USERS: `${ADMIN_BASE}/users`
 };
 
+const SECRETARY_PATHS = {
+  BASE: SECRETARY_BASE,
+  USERS: `${SECRETARY_BASE}/users`,
+  STUDENTS: `${SECRETARY_BASE}/students`,
+  TEACHERS: `${SECRETARY_BASE}/teachers`,
+  ATTENDANCE: `${SECRETARY_BASE}/attendance`
+};
+
 /**
  * Immutable object centralizing all application routes.
  */
@@ -41,5 +50,6 @@ export const APP_PATHS = Object.freeze({
   ...PUBLIC_PATHS,
   STUDENT: Object.freeze(STUDENT_PATHS),
   TEACHER: Object.freeze(TEACHER_PATHS),
-  ADMIN: Object.freeze(ADMIN_PATHS)
+  ADMIN: Object.freeze(ADMIN_PATHS),
+  SECRETARY: Object.freeze(SECRETARY_PATHS)
 });

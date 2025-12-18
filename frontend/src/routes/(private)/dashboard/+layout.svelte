@@ -5,7 +5,8 @@
 	import DashboardHeader from '$lib/components/layout/dashboard-header.svelte';
 	import { studentNavGroups } from '$lib/components/config/nav/student.nav';
 	import { teacherNavGroups } from '$lib/components/config/nav/teacher.nav';
-  import { adminNavGroups } from '$lib/components/config/nav/admin.nav';
+	import { adminNavGroups } from '$lib/components/config/nav/admin.nav';
+	import { secretaryNavGroups } from '$lib/components/config/nav/secretary.nav'; // <--- Importar esto
 	import { page } from '$app/state';
 	import Breadcrumb from '$lib/components/layout/breadcrumb.svelte';
 	import { buildCrumbs } from '$lib/utils/breadcrumb-builder';
@@ -17,14 +18,17 @@
 		actions?: Snippet;
 	}
 	let { children, data, title, actions }: Props = $props();
+
 	const navConfig = $derived(() => {
 		switch (data.userRole) {
-    case UserRole.ADMIN:
+			case UserRole.ADMIN:
 				return adminNavGroups;
 			case UserRole.STUDENT:
 				return studentNavGroups;
 			case UserRole.PROFESSOR:
 				return teacherNavGroups;
+			case UserRole.SECRETARY:
+				return secretaryNavGroups;
 			default:
 				return [];
 		}

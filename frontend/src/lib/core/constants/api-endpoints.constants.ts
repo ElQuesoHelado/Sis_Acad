@@ -31,6 +31,14 @@ export const API_ENDPOINTS = {
     GET_STUDENT_DETAILS: (userId: string, semester: string) =>
       `/admin/students/${userId}/${semester}`
   },
+  SECRETARY: {
+    STUDENTS: '/secretary/students',
+    TEACHERS: '/secretary/teachers',
+    GET_TEACHER_DETAILS: (userId: string, semester: string) =>
+      `/secretary/teachers/${userId}/${semester}`,
+    GET_STUDENT_DETAILS: (userId: string, semester: string) =>
+      `/secretary/students/${userId}/${semester}`
+  },
   USER: {
     PROFILE: () => '/user/profile'
   },

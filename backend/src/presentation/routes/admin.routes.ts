@@ -33,7 +33,7 @@ export const createAdminRouter = (container: AppContainer): Router => {
    * @group Admin
    */
   router.get(
-    "/users",
+    "/users", 
     makeGetAllUsersController(container.useCases.getAllUsers)
   );
 

@@ -21,6 +21,7 @@ import { LabGroupNotFoundError } from "@/domain/errors/lab.errors.js";
 import { NotAuthorizedError } from "@/application/errors/not-authorized.error.js";
 import type { GetStudentCourseProgressUseCase } from "@/application/use-cases/student/get-course-progress.usecase.js";
 import type { GetStudentAttendanceReportUseCase } from "@/application/use-cases/student/get-student-attendance-report.usecase.js";
+import { UserRole } from "@/domain/enums/user-role.enum.js";
 
 /**
  * Factory to create the controller for getting student's enrolled courses.
@@ -304,12 +305,18 @@ export const makeGetStudentAttendanceReportController = (
   return async (req: AuthRequest, res: Response, next: NextFunction) => {
     try {
       const studentProfileId = req.auth?.profileId;
-      if (!studentProfileId) {
-        return res.status(401).json({ message: "Unauthorized" });
-      }
-      const { enrollmentId } = req.params;
+      const role = req.auth?.role;
+      const isAdminOrSecretary = role === UserRole.SECRETARY || role === UserRole.ADMIN;
 
-      const report = await useCase.execute(studentProfileId, enrollmentId as string);
+      if (!studentProfileId && !isAdminOrSecretary) {
+        return res.status(401).json({ message: "Unauthorized: Missing profile access" });
+      }
+
+      const { enrollmentId } = req.params;
+      const report = await useCase.execute(
+        studentProfileId || "admin-override",
+        enrollmentId as string
+      );
 
       return res.status(200).json(report);
     } catch (error) {

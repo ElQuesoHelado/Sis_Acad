@@ -5,12 +5,15 @@ import { studentHubGroups } from '$lib/components/config/hub/student.hub';
 import { teacherNavGroups } from '$lib/components/config/nav/teacher.nav';
 import { teacherHubGroups } from '$lib/components/config/hub/teacher.hub';
 import { adminNavGroups } from '$lib/components/config/nav/admin.nav';
+import { secretaryNavGroups } from '$lib/components/config/nav/secretary.nav';
+import { secretaryHubGroups } from '$lib/components/config/hub/secretary.hub';
 
 const pathLabelMap = new Map<string, string>();
 
 pathLabelMap.set(APP_PATHS.STUDENT.BASE, 'Inicio Estudiante');
 pathLabelMap.set(APP_PATHS.TEACHER.BASE, 'Inicio Profesor');
 pathLabelMap.set(APP_PATHS.ADMIN.BASE, 'Inicio Admin');
+pathLabelMap.set(APP_PATHS.SECRETARY.BASE, 'Inicio Secretaría');
 
 function populateMap(items: { url: string; title: string }[]) {
   for (const item of items) {
@@ -18,11 +21,14 @@ function populateMap(items: { url: string; title: string }[]) {
   }
 }
 
+
 studentNavGroups.forEach((group) => populateMap(group.items));
 studentHubGroups.forEach((group) => populateMap(group.items));
 teacherNavGroups.forEach((group) => populateMap(group.items));
 teacherHubGroups.forEach((group) => populateMap(group.items));
 adminNavGroups.forEach((group) => populateMap(group.items));
+secretaryNavGroups.forEach((group) => populateMap(group.items));
+secretaryHubGroups.forEach((group) => populateMap(group.items));
 
 /**
  * Construye las migas de pan (breadcrumbs) basadas en la URL actual.
@@ -39,6 +45,7 @@ export function buildCrumbs(pathname: string): Crumb[] {
     const prevSegment = i > 0 ? pathSegments[i - 1] : '';
     currentPath += `/${segment}`;
 
+
     const label = pathLabelMap.get(currentPath);
     if (label) {
       crumbs.push({
@@ -49,28 +56,39 @@ export function buildCrumbs(pathname: string): Crumb[] {
     }
 
     if (segment === 'course' && prevSegment === 'student') {
-      crumbs.push({
-        label: 'Mis Cursos',
-        href: APP_PATHS.STUDENT.COURSES
-      });
+      crumbs.push({ label: 'Mis Cursos', href: APP_PATHS.STUDENT.COURSES });
       continue;
     }
-
     if (prevSegment === 'course') {
-      crumbs.push({
-        label: 'Curso',
-        href: undefined
-      });
+      crumbs.push({ label: 'Curso', href: undefined });
       continue;
     }
-
     if (segment === 'syllabus' && pathSegments[i - 2] === 'course') {
       crumbs.push({ label: 'Sílabo', href: currentPath });
       continue;
     }
-
     if (segment === 'attendance' && pathSegments[i - 2] === 'course') {
       crumbs.push({ label: 'Asistencia', href: currentPath });
+      continue;
+    }
+
+    if (prevSegment === 'students' && currentPath.includes('/secretary')) {
+      crumbs.push({ label: 'Detalle Estudiante', href: currentPath });
+      continue;
+    }
+
+    if (prevSegment === 'teachers' && currentPath.includes('/secretary')) {
+      crumbs.push({ label: 'Detalle Profesor', href: currentPath });
+      continue;
+    }
+
+    if (segment === 'attendance' && pathSegments[i - 2] === 'students') {
+      crumbs.push({ label: 'Consulta Asistencia', href: currentPath });
+      continue;
+    }
+
+    if (prevSegment === 'attendance' && pathSegments[i - 2] !== 'course') {
+      crumbs.push({ label: 'Reporte Detallado', href: undefined });
       continue;
     }
   }
