@@ -1,23 +1,23 @@
 import type { HubGroup } from './hub.types';
 import { APP_PATHS } from '$lib/utils/app-paths';
-import { Users, CalendarCheck } from '@lucide/svelte';
+import { GraduationCap, BookUser, CalendarCheck } from '@lucide/svelte';
 
 export const secretaryHubGroups: HubGroup[] = [
-	{
-		title: 'Gestión Académica',
-		items: [
-			{
-				title: 'Listado de Usuarios',
-				description: 'Acceso a perfiles de alumnos y profesores.',
-				url: APP_PATHS.SECRETARY.USERS,
-				icon: Users
-			},
-			{
-				title: 'Reportes de Asistencia',
-				description: 'Consulta la asistencia detallada por matrícula.',
-				url: APP_PATHS.SECRETARY.ATTENDANCE,
-				icon: CalendarCheck
-			}
-		]
-	}
+  {
+    title: 'Gestión Académica',
+    items: [
+      {
+        title: 'Estudiantes',
+        description: 'Gestión de matrículas, visualización de notas y reportes de asistencia.',
+        url: APP_PATHS.SECRETARY.STUDENTS,
+        icon: GraduationCap
+      },
+      {
+        title: 'Profesores',
+        description: 'Carga académica y horarios docentes.',
+        url: APP_PATHS.SECRETARY.TEACHERS,
+        icon: BookUser
+      }
+    ]
+  }
 ];

@@ -38,6 +38,8 @@ const ADMIN_PATHS = {
 const SECRETARY_PATHS = {
   BASE: SECRETARY_BASE,
   USERS: `${SECRETARY_BASE}/users`,
+  STUDENTS: `${SECRETARY_BASE}/students`,
+  TEACHERS: `${SECRETARY_BASE}/teachers`,
   ATTENDANCE: `${SECRETARY_BASE}/attendance`
 };
 
