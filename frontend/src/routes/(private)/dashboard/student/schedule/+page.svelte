@@ -118,7 +118,7 @@
 
 							<div class="mt-auto flex items-center gap-1.5 pt-1 text-muted-foreground/90">
 								<User class="h-3 w-3 shrink-0" />
-								<span>{item.professorName.split(' ')[0]} {item.professorName.split(' ')[1]}</span>
+								<span>{item.courseName}</span>
 							</div>
 						</HoverCard.Trigger>
 
