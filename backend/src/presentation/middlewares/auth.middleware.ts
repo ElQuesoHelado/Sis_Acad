@@ -113,3 +113,23 @@ export const loadTeacherProfile = (
     }
   };
 };
+
+export const ensureRoles = (roles: UserRole[]) => {
+  return (req: AuthRequest, res: Response, next: NextFunction) => {
+    if (!req.auth) {
+      return res.status(401).json({
+        name: "UnauthorizedError",
+        message: "No token provided or token is invalid.",
+      });
+    }
+
+    if (!roles.includes(req.auth.role)) {
+      return res.status(403).json({
+        name: "Forbidden",
+        message: "You do not have permission to access this resource.",
+      });
+    }
+
+    next();
+  };
+};

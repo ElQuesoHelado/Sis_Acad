@@ -26,16 +26,16 @@ export class GetStudentAttendanceReportUseCase {
   ) { }
 
   public async execute(
-    studentProfileId: string,
+    _studentProfileId: string,
     enrollmentId: string
   ): Promise<StudentAttendanceReportDto> {
 
-    const studentIdVO = Id.create(studentProfileId);
+    // const studentIdVO = Id.create(studentProfileId);
     const enrollmentIdVO = Id.create(enrollmentId);
 
     const enrollment = await this.enrollmentRepo.findById(enrollmentIdVO);
     if (!enrollment) throw new EnrollmentNotFoundError(enrollmentId);
-    if (!enrollment.studentId.equals(studentIdVO)) throw new NotAuthorizedError();
+    // if (!enrollment.studentId.equals(studentIdVO)) throw new NotAuthorizedError();
 
     const theoryGroup = await this.theoryGroupRepo.findById(enrollment.theoryGroupId);
     if (!theoryGroup) {

@@ -2,11 +2,12 @@ import { Router } from "express";
 import { expressjwt } from "express-jwt";
 import { env } from "@/infraestructure/config/index.js";
 import { type AppContainer } from "../../container.js";
-import { ensureRole } from "../middlewares/auth.middleware.js";
+import { ensureRoles } from "../middlewares/auth.middleware.js";
 import { UserRole } from "@/domain/enums/user-role.enum.js";
 import { makeGetAdminStudentDetailsController, makeGetAdminTeacherDetailsController, makeGetAllUsersController } from "../controllers/admin.controller.js";
 import z from "zod";
 import { validate } from "../middlewares/validation.middleware.js";
+import { makeGetStudentAttendanceReportController } from "../controllers/student.controller.js";
 
 
 const detailsSchema = z.object({
@@ -24,7 +25,7 @@ export const createAdminRouter = (container: AppContainer): Router => {
     algorithms: ["HS256"],
   });
 
-  router.use(authMiddleware, ensureRole(UserRole.ADMIN));
+  router.use(authMiddleware, ensureRoles([UserRole.ADMIN, UserRole.SECRETARY]));
 
   /**
    * @route GET /api/admin/users
@@ -55,6 +56,16 @@ export const createAdminRouter = (container: AppContainer): Router => {
     "/students/:userId/:semester",
     validate(detailsSchema),
     makeGetAdminStudentDetailsController(container.useCases.getAdminStudentDetails)
+  );
+
+
+  /**
+   * @route GET /api/admin/attendance/:enrollmentId
+   * @summary Ver asistencia detallada de un estudiante
+   */
+  router.get(
+    "/attendance/:enrollmentId",
+    makeGetStudentAttendanceReportController(container.useCases.getStudentAttendanceReport)
   );
 
   return router;
