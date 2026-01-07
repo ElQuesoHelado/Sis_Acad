@@ -14,6 +14,7 @@ import type {
   ICourseContentRepository,
   IGradeWeightRepository,
 } from "@/domain/repositories/index.js";
+import type { ISystemConfigRepository } from "@/domain/repositories/isystem-config.repository.js";
 
 /**
  * Defines all repositories that can participate in a single atomic transaction.
@@ -42,6 +43,7 @@ export interface IRepositories extends ITransactionalRepositories {
   roomReservation: IRoomReservationRepository;
   courseContent: ICourseContentRepository;
   gradeWeight: IGradeWeightRepository;
+  systemConfig: ISystemConfigRepository;
 }
 
 /**

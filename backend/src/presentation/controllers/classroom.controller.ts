@@ -19,16 +19,15 @@ export const makeGetAllClassroomsController = (
 export const makeGetClassroomScheduleController = (useCase: GetClassroomScheduleUseCase) => {
   return async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const { id } = req.params;
-      if (!id) {
-        return res
-          .status(401)
-          .json({ message: "Unauthorized: Missing profile ID" });
+      const { classroomId } = req.params;
+      const { semester } = req.query;
+
+      if (!semester) {
+        return res.status(400).json({ message: "Semester query param is required (e.g., 2024-I)" });
       }
 
-      const { semester } = req.query;
-      const result = await useCase.execute(id, semester as string);
-      res.status(200).json(result);
+      const schedule = await useCase.execute(classroomId as string, String(semester));
+      res.status(200).json(schedule);
     } catch (error) {
       next(error);
     }

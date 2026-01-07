@@ -39,7 +39,7 @@ export class LabGroup extends Entity {
   public readonly courseId: Id;
   public readonly professorId: Id;
   public readonly groupLetter: GroupLetter;
-  public readonly capacity: number;
+  private _capacity: number;
   private _currentEnrollment: number;
 
   /** Private constructor. Use `LabGroup.create()` instead. */
@@ -48,7 +48,7 @@ export class LabGroup extends Entity {
     this.courseId = props.courseId;
     this.professorId = props.professorId;
     this.groupLetter = props.groupLetter;
-    this.capacity = props.capacity;
+    this._capacity = props.capacity;
     this._currentEnrollment = props.currentEnrollment;
   }
 
@@ -105,6 +105,10 @@ export class LabGroup extends Entity {
     return this._currentEnrollment;
   }
 
+  public get capacity(): number {
+    return this._capacity;
+  }
+
   /** Returns true if the lab group is full. */
   public isFull(): boolean {
     return this._currentEnrollment >= this.capacity;
@@ -128,5 +132,19 @@ export class LabGroup extends Entity {
   /** Returns a human-readable display name, e.g., "Grupo A". */
   public getDisplayName(): string {
     return `Grupo ${this.groupLetter.value}`;
+  }
+
+  public updateCapacity(newCapacity: number): void {
+    if (newCapacity <= 0) {
+      throw new Error("La capacidad debe ser un número positivo.");
+    }
+
+    if (newCapacity < this._currentEnrollment) {
+      throw new LabGroupCreationError(new Error(
+        `No se puede reducir la capacidad a ${newCapacity} porque ya existen ${this._currentEnrollment} estudiantes inscritos.`
+      ));
+    }
+
+    this._capacity = newCapacity;
   }
 }

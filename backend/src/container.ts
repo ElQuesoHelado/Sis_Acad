@@ -36,6 +36,9 @@ import { SaveGroupEvidenceUseCase } from "./application/use-cases/teacher/save-g
 import { TypeormGroupPortfolioRepository } from "./infraestructure/persistence/repositories/typeorm-group-portfolio.repository.js";
 import { UpdateTopicStatusUseCase } from "./application/use-cases/teacher/update-topic-status.usecase.js";
 import { GetCourseContentByGroupUseCase } from "./application/use-cases/teacher/get-course-content.usecase.js";
+import { CreateLabGroupUseCase } from "./application/use-cases/secretary/create-lab-group.usecase.js";
+import { GetAllLabGroupsUseCase } from "./application/use-cases/secretary/get-all-lab-groups.usecase.js";
+import { ManageEnrollmentDeadlineUseCase } from "./application/use-cases/secretary/manage-enrollment-deadline.usecase.js";
 
 export interface AppContainer {
   repositories: IRepositories;
@@ -66,6 +69,9 @@ export interface AppContainer {
     saveGroupEvidence: SaveGroupEvidenceUseCase;
     getCourseContent: GetCourseContentByGroupUseCase;
     updateTopicStatus: UpdateTopicStatusUseCase;
+    createLabGroup: CreateLabGroupUseCase;
+    manageEnrollmentDeadline: ManageEnrollmentDeadlineUseCase;
+    getAllLabGroups: GetAllLabGroupsUseCase;
   };
   unitOfWork: IUnitOfWork;
   authService: TeacherAuthorizationService;
@@ -214,6 +220,11 @@ function createContainer(): AppContainer {
     updateTopicStatus: new UpdateTopicStatusUseCase(
       repositories.courseContent
     ),
+
+
+    createLabGroup: new CreateLabGroupUseCase(repositories.labGroup),
+    manageEnrollmentDeadline: new ManageEnrollmentDeadlineUseCase(repositories.systemConfig),
+    getAllLabGroups: new GetAllLabGroupsUseCase(repositories.labGroup),
   };
 
   return {

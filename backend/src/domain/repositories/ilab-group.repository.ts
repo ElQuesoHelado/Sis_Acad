@@ -44,4 +44,5 @@ export interface ILabGroupRepository {
    * @returns A promise that resolves when the operation completes.
    */
   delete(id: Id): Promise<void>;
+  findAll(): Promise<LabGroup[]>;
 }

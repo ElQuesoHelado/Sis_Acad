@@ -23,6 +23,7 @@ import {
   TypeormCourseContentRepository,
   TypeormGradeWeightRepository,
 } from "./repositories/index.js";
+import { TypeormSystemConfigRepository } from "./repositories/typeorm-system-config.repository.js";
 
 /**
  * TypeORM implementation of the Unit of Work pattern.
@@ -52,6 +53,7 @@ export class TypeormUnitOfWork implements IUnitOfWork {
       roomReservation: new TypeormRoomReservationRepository(),
       courseContent: new TypeormCourseContentRepository(),
       gradeWeight: new TypeormGradeWeightRepository(),
+      systemConfig: new TypeormSystemConfigRepository(),
     };
   }
 

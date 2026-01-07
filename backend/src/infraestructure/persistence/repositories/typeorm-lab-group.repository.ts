@@ -84,4 +84,9 @@ export class TypeormLabGroupRepository implements ILabGroupRepository {
   public async delete(id: Id): Promise<void> {
     await this.ormRepo.delete({ id: id.value });
   }
+
+  public async findAll(): Promise<LabGroup[]> {
+    const models = await this.ormRepo.find();
+    return models.map(this.toDomain);
+  }
 }

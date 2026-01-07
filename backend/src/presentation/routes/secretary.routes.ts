@@ -9,11 +9,28 @@ import { makeGetStudentAttendanceReportController } from "../controllers/student
 import { validate } from "../middlewares/validation.middleware.js";
 import z from "zod";
 import type { GetAllUsersUseCase } from "@/application/use-cases/admin/get-all-users.usecase.js";
+import { makeCreateLabGroupController, makeGetAllLabGroupsController, makeSetDeadlineController } from "../controllers/secretary.controller.js";
+import { makeGetClassroomScheduleController } from "../controllers/classroom.controller.js";
 
 const detailsSchema = z.object({
   params: z.object({
     userId: z.uuid(),
     semester: z.string().regex(/^\d{4}-(I|II)$/),
+  })
+});
+
+const createLabSchema = z.object({
+  body: z.object({
+    courseId: z.string().uuid(),
+    professorId: z.string().uuid(),
+    groupLetter: z.string().length(1),
+    capacity: z.number().int().positive().max(50)
+  })
+});
+
+const deadlineSchema = z.object({
+  body: z.object({
+    deadline: z.string().datetime({ message: "Debe ser formato ISO 8601 válido" })
   })
 });
 
@@ -88,6 +105,41 @@ export const createSecretaryRouter = (container: AppContainer): Router => {
   router.get(
     "/attendance/:enrollmentId",
     makeGetStudentAttendanceReportController(container.useCases.getStudentAttendanceReport)
+  );
+
+
+
+  // --- GESTIÓN DE LABORATORIOS ---
+
+  router.post(
+    "/labs",
+    validate(createLabSchema),
+    makeCreateLabGroupController(container.useCases.createLabGroup)
+  );
+
+  router.get(
+    "/labs",
+    makeGetAllLabGroupsController(container.useCases.getAllLabGroups)
+  );
+
+  // --- GESTIÓN DE PLAZOS ---
+
+  router.post(
+    "/enrollment-deadline",
+    validate(deadlineSchema),
+    makeSetDeadlineController(container.useCases.manageEnrollmentDeadline)
+  );
+
+  router.get(
+    "/enrollment-deadline",
+    makeSetDeadlineController(container.useCases.manageEnrollmentDeadline)
+  );
+
+  // --- VISUALIZACIÓN DE SALONES (CON RESERVAS) ---
+
+  router.get(
+    "/classrooms/:classroomId/schedule",
+    makeGetClassroomScheduleController(container.useCases.getClassroomSchedule)
   );
 
   return router;
