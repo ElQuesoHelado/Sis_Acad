@@ -9,7 +9,7 @@ import { makeGetStudentAttendanceReportController } from "../controllers/student
 import { validate } from "../middlewares/validation.middleware.js";
 import z from "zod";
 import type { GetAllUsersUseCase } from "@/application/use-cases/admin/get-all-users.usecase.js";
-import { makeCreateLabGroupController, makeGetAllLabGroupsController, makeSetDeadlineController } from "../controllers/secretary.controller.js";
+import { makeCreateLabGroupController, makeGetAllLabGroupsController, makeSetEnrollmentPeriodController, makeGetEnrollmentPeriodController, makeSetDeadlineController, makeGetDeadlineController } from "../controllers/secretary.controller.js";
 import { makeGetClassroomScheduleController } from "../controllers/classroom.controller.js";
 
 const detailsSchema = z.object({
@@ -28,9 +28,12 @@ const createLabSchema = z.object({
   })
 });
 
-const deadlineSchema = z.object({
+const enrollmentPeriodSchema = z.object({
   body: z.object({
-    deadline: z.string().datetime({ message: "Debe ser formato ISO 8601 válido" })
+    period: z.object({
+      startDate: z.string().datetime({ message: "startDate debe ser formato ISO 8601 válido" }),
+      endDate: z.string().datetime({ message: "endDate debe ser formato ISO 8601 válido" })
+    })
   })
 });
 
@@ -122,7 +125,26 @@ export const createSecretaryRouter = (container: AppContainer): Router => {
     makeGetAllLabGroupsController(container.useCases.getAllLabGroups)
   );
 
-  // --- GESTIÓN DE PLAZOS ---
+  // --- GESTIÓN DE PLAZOS DE INSCRIPCIÓN (Periodo completo) ---
+
+  router.post(
+    "/enrollment-period",
+    validate(enrollmentPeriodSchema),
+    makeSetEnrollmentPeriodController(container.useCases.manageEnrollmentDeadline)
+  );
+
+  router.get(
+    "/enrollment-period",
+    makeGetEnrollmentPeriodController(container.useCases.manageEnrollmentDeadline)
+  );
+
+  // --- GESTIÓN DE PLAZOS DE INSCRIPCIÓN (Legacy - mantener backwards compatibility) ---
+
+  const deadlineSchema = z.object({
+    body: z.object({
+      deadline: z.string().datetime({ message: "Debe ser formato ISO 8601 válido" })
+    })
+  });
 
   router.post(
     "/enrollment-deadline",
@@ -132,7 +154,7 @@ export const createSecretaryRouter = (container: AppContainer): Router => {
 
   router.get(
     "/enrollment-deadline",
-    makeSetDeadlineController(container.useCases.manageEnrollmentDeadline)
+    makeGetDeadlineController(container.useCases.manageEnrollmentDeadline)
   );
 
   // --- VISUALIZACIÓN DE SALONES (CON RESERVAS) ---

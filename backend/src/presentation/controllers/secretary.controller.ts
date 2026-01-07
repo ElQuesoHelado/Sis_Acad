@@ -27,7 +27,7 @@ export const makeGetAllLabGroupsController = (useCase: GetAllLabGroupsUseCase) =
   };
 };
 
-// Factory para Establecer Plazo
+// Factory para Establecer Plazo (mantener backwards compatibility)
 export const makeSetDeadlineController = (useCase: ManageEnrollmentDeadlineUseCase) => {
   return async (req: Request, res: Response, next: NextFunction) => {
     try {
@@ -39,12 +39,36 @@ export const makeSetDeadlineController = (useCase: ManageEnrollmentDeadlineUseCa
   };
 };
 
-// Factory para Obtener Plazo actual
+// Factory para Obtener Plazo actual (mantener backwards compatibility)
 export const makeGetDeadlineController = (useCase: ManageEnrollmentDeadlineUseCase) => {
   return async (_req: Request, res: Response, next: NextFunction) => {
     try {
       const deadline = await useCase.getDeadline();
       res.status(200).json({ deadline });
+    } catch (error) {
+      next(error);
+    }
+  };
+};
+
+// Factory para Establecer Periodo de Inscripción
+export const makeSetEnrollmentPeriodController = (useCase: ManageEnrollmentDeadlineUseCase) => {
+  return async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      await useCase.setEnrollmentPeriod(req.body.period);
+      res.status(200).json({ message: "Periodo de inscripción actualizado correctamente" });
+    } catch (error) {
+      next(error);
+    }
+  };
+};
+
+// Factory para Obtener Periodo de Inscripción actual
+export const makeGetEnrollmentPeriodController = (useCase: ManageEnrollmentDeadlineUseCase) => {
+  return async (_req: Request, res: Response, next: NextFunction) => {
+    try {
+      const period = await useCase.getEnrollmentPeriod();
+      res.status(200).json(period);
     } catch (error) {
       next(error);
     }

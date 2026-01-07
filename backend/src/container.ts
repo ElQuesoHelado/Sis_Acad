@@ -39,6 +39,7 @@ import { GetCourseContentByGroupUseCase } from "./application/use-cases/teacher/
 import { CreateLabGroupUseCase } from "./application/use-cases/secretary/create-lab-group.usecase.js";
 import { GetAllLabGroupsUseCase } from "./application/use-cases/secretary/get-all-lab-groups.usecase.js";
 import { ManageEnrollmentDeadlineUseCase } from "./application/use-cases/secretary/manage-enrollment-deadline.usecase.js";
+import { GetAllLabGroupsWithSchedulesUseCase } from "./application/use-cases/admin/get-all-lab-groups-with-schedules.usecase.js";
 
 export interface AppContainer {
   repositories: IRepositories;
@@ -72,6 +73,7 @@ export interface AppContainer {
     createLabGroup: CreateLabGroupUseCase;
     manageEnrollmentDeadline: ManageEnrollmentDeadlineUseCase;
     getAllLabGroups: GetAllLabGroupsUseCase;
+    getAllLabGroupsWithSchedules: GetAllLabGroupsWithSchedulesUseCase;
   };
   unitOfWork: IUnitOfWork;
   authService: TeacherAuthorizationService;
@@ -120,8 +122,8 @@ function createContainer(): AppContainer {
     ),
 
     // Need UoW
-    enrollInLabGroup: new EnrollInLabGroupUseCase(unitOfWork),
-    enrollInLabGroups: new EnrollInLabGroupsUseCase(unitOfWork),
+    enrollInLabGroup: new EnrollInLabGroupUseCase(unitOfWork, repositories.systemConfig),
+    enrollInLabGroups: new EnrollInLabGroupsUseCase(unitOfWork, repositories.systemConfig),
 
     // Don't need UoW
     getTeacherSchedule: new GetTeacherScheduleUseCase(
@@ -225,6 +227,13 @@ function createContainer(): AppContainer {
     createLabGroup: new CreateLabGroupUseCase(repositories.labGroup),
     manageEnrollmentDeadline: new ManageEnrollmentDeadlineUseCase(repositories.systemConfig),
     getAllLabGroups: new GetAllLabGroupsUseCase(repositories.labGroup),
+    getAllLabGroupsWithSchedules: new GetAllLabGroupsWithSchedulesUseCase(
+      repositories.labGroup,
+      repositories.classSchedule,
+      repositories.course,
+      repositories.classroom,
+      repositories.user
+    ),
   };
 
   return {

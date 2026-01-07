@@ -14,6 +14,8 @@ import { type LabEnrollmentSelectionDto } from "@/application/dtos/enrollment.dt
 import type { LabGroup } from "@/domain/entities/lab-group.entity.js";
 import type { Enrollment } from "@/domain/entities/enrollment.entity.js";
 import { type IUnitOfWork } from "@/application/contracts/i-unit-of-work.js";
+import { type ISystemConfigRepository } from "@/domain/repositories/isystem-config.repository.js";
+import { OutsideEnrollmentPeriodError } from "@/application/errors/outside-enrollment-period.error.js";
 
 interface ValidatedSelection {
   enrollment: Enrollment;
@@ -25,13 +27,19 @@ interface ValidatedSelection {
  * Usa IUnitOfWork para transacciones atómicas.
  */
 export class EnrollInLabGroupsUseCase {
-  constructor(private readonly uow: IUnitOfWork) {}
+  constructor(
+    private readonly uow: IUnitOfWork,
+    private readonly systemConfigRepo: ISystemConfigRepository,
+  ) {}
 
   public async execute(
     studentProfileId: string,
     selections: LabEnrollmentSelectionDto[],
   ): Promise<void> {
     const studentIdVO = Id.create(studentProfileId);
+
+    // First check if we're within the enrollment period
+    await this.validateEnrollmentPeriod();
 
     await this.uow.execute(async (repos) => {
       const validatedSelections: ValidatedSelection[] = [];
@@ -100,5 +108,25 @@ export class EnrollInLabGroupsUseCase {
         );
       }
     });
+  }
+
+  private async validateEnrollmentPeriod(): Promise<void> {
+    const startDateStr = await this.systemConfigRepo.get("LAB_ENROLLMENT_START_DATE");
+    const endDateStr = await this.systemConfigRepo.get("LAB_ENROLLMENT_END_DATE");
+
+    if (!startDateStr && !endDateStr) {
+      // No enrollment period defined, allow enrollment
+      return;
+    }
+
+    const now = new Date();
+    let startDate = startDateStr ? new Date(startDateStr) : new Date(0); // epoch date if not defined
+    let endDate = endDateStr ? new Date(endDateStr) : new Date(8640000000000000); // max date if not defined
+
+    if (now < startDate || now > endDate) {
+      throw new OutsideEnrollmentPeriodError(
+        `La matrícula en laboratorios solo está permitida entre ${startDateStr} y ${endDateStr}`
+      );
+    }
   }
 }
