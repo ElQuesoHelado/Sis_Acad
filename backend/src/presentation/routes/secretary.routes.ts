@@ -9,7 +9,7 @@ import { makeGetStudentAttendanceReportController } from "../controllers/student
 import { validate } from "../middlewares/validation.middleware.js";
 import z from "zod";
 import type { GetAllUsersUseCase } from "@/application/use-cases/admin/get-all-users.usecase.js";
-import { makeCreateLabGroupController, makeGetAllLabGroupsController, makeUpdateLabGroupCapacityController, makeGetAllCoursesController, makeSetEnrollmentPeriodController, makeGetEnrollmentPeriodController, makeSetDeadlineController, makeGetDeadlineController } from "../controllers/secretary.controller.js";
+import { makeCreateLabGroupController, makeGetAllLabGroupsController, makeUpdateLabGroupCapacityController, makeGetAllCoursesController, makeGetStudentsInLabController, makeSetEnrollmentPeriodController, makeGetEnrollmentPeriodController, makeSetDeadlineController, makeGetDeadlineController } from "../controllers/secretary.controller.js";
 import { makeGetClassroomScheduleController } from "../controllers/classroom.controller.js";
 
 const detailsSchema = z.object({
@@ -132,6 +132,17 @@ export const createSecretaryRouter = (container: AppContainer): Router => {
   router.get(
     "/labs",
     makeGetAllLabGroupsController(container.useCases.getAllLabGroups)
+  );
+
+  // Endpoint para obtener estudiantes matriculados en un laboratorio específico
+  router.get(
+    "/labs/:labGroupId/students",
+    validate(z.object({
+      params: z.object({
+        labGroupId: z.string().uuid("labGroupId must be a valid UUID")
+      })
+    })),
+    makeGetStudentsInLabController(container.useCases.getStudentsInLab)
   );
 
   // --- GESTIÓN DE PLAZOS DE INSCRIPCIÓN (Periodo completo) ---

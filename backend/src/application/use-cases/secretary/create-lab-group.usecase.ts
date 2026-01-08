@@ -40,12 +40,20 @@ export class CreateLabGroupUseCase {
       throw new Error(`Ya existe un laboratorio con la letra "${input.groupLetter}" para este curso.`);
     }
 
+    // Ensure capacity is a proper number before passing to domain layer
+    const numericCapacity = Number(input.capacity);
+
+    // Validate capacity format before sending to domain layer
+    if (isNaN(numericCapacity) || !Number.isInteger(numericCapacity) || numericCapacity <= 0 || numericCapacity > 50) {
+        throw new Error(`Capacidad inválida: ${input.capacity}. Debe ser un entero positivo menor o igual a 50.`);
+    }
+
     const labGroup = LabGroup.create({
       id: uuidv4(),
       courseId: input.courseId,
       professorId: input.professorId,
       groupLetter: input.groupLetter,
-      capacity: input.capacity,
+      capacity: numericCapacity,
       currentEnrollment: 0
     });
 

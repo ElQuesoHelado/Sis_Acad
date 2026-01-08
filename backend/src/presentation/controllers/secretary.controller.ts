@@ -3,6 +3,7 @@ import { type CreateLabGroupUseCase } from "@/application/use-cases/secretary/cr
 import { type UpdateLabGroupCapacityUseCase } from "@/application/use-cases/secretary/update-lab-group-capacity.usecase.js";
 import { type ManageEnrollmentDeadlineUseCase } from "@/application/use-cases/secretary/manage-enrollment-deadline.usecase.js";
 import { type GetAllLabGroupsUseCase } from "@/application/use-cases/secretary/get-all-lab-groups.usecase.js";
+import { type GetStudentsInLabUseCase } from "@/application/use-cases/secretary/get-students-in-lab.usecase.js";
 import { type GetAllCoursesUseCase } from "@/application/use-cases/admin/get-all-courses.usecase.js";
 
 // Factory para Crear Laboratorio
@@ -92,6 +93,22 @@ export const makeSetEnrollmentPeriodController = (useCase: ManageEnrollmentDeadl
     try {
       await useCase.setEnrollmentPeriod(req.body.period);
       res.status(200).json({ message: "Periodo de inscripción actualizado correctamente" });
+    } catch (error) {
+      next(error);
+    }
+  };
+};
+
+// Factory para Obtener Estudiantes en un Laboratorio
+export const makeGetStudentsInLabController = (useCase: GetStudentsInLabUseCase) => {
+  return async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const labGroupId = req.params.labGroupId;
+      if (!labGroupId) {
+        return res.status(400).json({ message: "labGroupId es requerido" });
+      }
+      const students = await useCase.execute(labGroupId);
+      res.status(200).json(students);
     } catch (error) {
       next(error);
     }
