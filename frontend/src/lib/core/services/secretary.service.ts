@@ -37,23 +37,20 @@ class SecretaryService {
       `/secretary/attendance/${enrollmentId}`
     );
   }
-
   public getCourses(): Promise<CourseSummary[]> {
     return this.http.get<CourseSummary[]>(API_ENDPOINTS.SECRETARY.COURSES);
   }
 
-  // Obtener todos los laboratorios
   public getLabs(): Promise<LabGroup[]> {
     return this.http.get<LabGroup[]>(API_ENDPOINTS.SECRETARY.LABS);
   }
 
-  // Crear nuevo laboratorio
+  // El payload data ahora incluye 'schedules' internamente
   public createLab(data: CreateLabGroupRequest): Promise<{ message: string }> {
     return this.http.post(API_ENDPOINTS.SECRETARY.LABS, data);
   }
 
-  // Actualizar capacidad de un laboratorio existente (NUEVO)
-  public updateLabCapacity(labGroupId: string, newCapacity: number): Promise<{ message: string }> {
+  public updateLabCapacity(labGroupId: string, newCapacity: number | string): Promise<{ message: string }> {
     const payload: UpdateLabCapacityRequest = { newCapacity };
     return this.http.put(
       API_ENDPOINTS.SECRETARY.UPDATE_LAB_CAPACITY(labGroupId),
@@ -61,12 +58,10 @@ class SecretaryService {
     );
   }
 
-  // Obtener periodo
   public getEnrollmentPeriod(): Promise<EnrollmentPeriod> {
     return this.http.get<EnrollmentPeriod>(API_ENDPOINTS.SECRETARY.ENROLLMENT_PERIOD);
   }
 
-  // Configurar periodo
   public setEnrollmentPeriod(data: SetEnrollmentPeriodRequest): Promise<{ message: string }> {
     return this.http.post(API_ENDPOINTS.SECRETARY.ENROLLMENT_PERIOD, data);
   }

@@ -33,7 +33,16 @@ export const makeGetAllLabGroupsController = (useCase: GetAllLabGroupsUseCase) =
 export const makeUpdateLabGroupCapacityController = (useCase: UpdateLabGroupCapacityUseCase) => {
   return async (req: Request, res: Response, next: NextFunction) => {
     try {
-      await useCase.execute(req.body);
+      const labGroupId = req.params.labGroupId;
+      if (!labGroupId) {
+        return res.status(400).json({ message: "labGroupId is required" });
+      }
+
+      const input = {
+        labGroupId: labGroupId,
+        newCapacity: req.body.newCapacity
+      };
+      await useCase.execute(input);
       res.status(200).json({ message: "Capacidad de laboratorio actualizada exitosamente" });
     } catch (error) {
       next(error);

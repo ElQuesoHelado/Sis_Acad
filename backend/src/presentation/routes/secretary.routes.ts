@@ -24,7 +24,16 @@ const createLabSchema = z.object({
     courseId: z.string().uuid(),
     professorId: z.string().uuid(),
     groupLetter: z.string().length(1),
-    capacity: z.number().int().positive().max(50)
+    capacity: z.coerce.number().int().positive().max(50),
+    semester: z.string().regex(/^\d{4}-(I|II)$/, "Semester must be in format YYYY-I or YYYY-II"),
+    schedules: z.array(
+      z.object({
+        day: z.enum(["LUNES", "MARTES", "MIERCOLES", "JUEVES", "VIERNES", "SABADO", "DOMINGO"]),
+        startTime: z.string().regex(/^([01]\d|2[0-3]):([0-5]\d)$/, "Start time must be in HH:MM format"),
+        endTime: z.string().regex(/^([01]\d|2[0-3]):([0-5]\d)$/, "End time must be in HH:MM format"),
+        classroomId: z.string().uuid()
+      })
+    ).min(1, "At least one schedule must be provided")
   })
 });
 
@@ -147,7 +156,7 @@ export const createSecretaryRouter = (container: AppContainer): Router => {
         labGroupId: z.string().uuid()
       }),
       body: z.object({
-        newCapacity: z.number().int().positive().max(50)
+        newCapacity: z.coerce.number().int().positive().max(50)
       })
     })),
     makeUpdateLabGroupCapacityController(container.useCases.updateLabGroupCapacity)

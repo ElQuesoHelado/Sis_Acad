@@ -228,10 +228,10 @@ function createContainer(): AppContainer {
     ),
 
 
-    createLabGroup: new CreateLabGroupUseCase(repositories.labGroup),
+    createLabGroup: new CreateLabGroupUseCase(repositories.labGroup, repositories.classSchedule, repositories.theoryGroup),
     updateLabGroupCapacity: new UpdateLabGroupCapacityUseCase(repositories.labGroup),
     manageEnrollmentDeadline: new ManageEnrollmentDeadlineUseCase(repositories.systemConfig),
-    getAllLabGroups: new GetAllLabGroupsUseCase(repositories.labGroup),
+    getAllLabGroups: new GetAllLabGroupsUseCase(repositories.labGroup, repositories.classSchedule, repositories.classroom),
     getAllLabGroupsWithSchedules: new GetAllLabGroupsWithSchedulesUseCase(
       repositories.labGroup,
       repositories.classSchedule,
