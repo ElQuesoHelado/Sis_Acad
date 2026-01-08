@@ -10,6 +10,14 @@ export class ManageEnrollmentDeadlineUseCase {
 
   // Establecer periodo de inscripción completo (Formato ISO string)
   public async setEnrollmentPeriod(period: { startDate: string; endDate: string }): Promise<void> {
+    // Validate that end date is not before start date (basic validation)
+    const startDate = new Date(period.startDate);
+    const endDate = new Date(period.endDate);
+
+    if (endDate < startDate) {
+      throw new Error("La fecha de fin debe ser posterior o igual a la fecha de inicio.");
+    }
+
     await this.configRepo.set("LAB_ENROLLMENT_START_DATE", period.startDate);
     await this.configRepo.set("LAB_ENROLLMENT_END_DATE", period.endDate);
     // Mantener backwards compatibility - usar endDate como deadline principal

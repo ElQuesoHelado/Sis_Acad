@@ -139,23 +139,23 @@ export const createSecretaryRouter = (container: AppContainer): Router => {
   );
 
   // --- GESTIÓN DE PLAZOS DE INSCRIPCIÓN (Legacy - mantener backwards compatibility) ---
+  //
+  // const deadlineSchema = z.object({
+  //   body: z.object({
+  //     deadline: z.string().datetime({ message: "Debe ser formato ISO 8601 válido" })
+  //   })
+  // });
 
-  const deadlineSchema = z.object({
-    body: z.object({
-      deadline: z.string().datetime({ message: "Debe ser formato ISO 8601 válido" })
-    })
-  });
-
-  router.post(
-    "/enrollment-deadline",
-    validate(deadlineSchema),
-    makeSetDeadlineController(container.useCases.manageEnrollmentDeadline)
-  );
-
-  router.get(
-    "/enrollment-deadline",
-    makeGetDeadlineController(container.useCases.manageEnrollmentDeadline)
-  );
+  // router.post(
+  //   "/enrollment-deadline",
+  //   validate(deadlineSchema),
+  //   makeSetDeadlineController(container.useCases.manageEnrollmentDeadline)
+  // );
+  //
+  // router.get(
+  //   "/enrollment-deadline",
+  //   makeGetDeadlineController(container.useCases.manageEnrollmentDeadline)
+  // );
 
   // --- VISUALIZACIÓN DE SALONES (CON RESERVAS) ---
 

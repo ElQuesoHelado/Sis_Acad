@@ -157,3 +157,15 @@ export class ReservationWindowError extends DomainError {
     super(message);
   }
 }
+
+/**
+ * Thrown when trying to set an enrollment period with dates in the past.
+ */
+export class PastEnrollmentPeriodError extends DomainError {
+  /**
+   * @param message - The error message describing the issue.
+   */
+  constructor(message: string = "Enrollment period dates cannot be in the past.") {
+    super(message);
+  }
+}

@@ -83,16 +83,29 @@ export class EnrollInLabGroupUseCase {
     const startDateStr = await this.systemConfigRepo.get("LAB_ENROLLMENT_START_DATE");
     const endDateStr = await this.systemConfigRepo.get("LAB_ENROLLMENT_END_DATE");
 
-    if (!startDateStr && !endDateStr) {
-      // No enrollment period defined, allow enrollment
-      return;
+    // If no enrollment period is defined, enrollment is not allowed
+    if (!startDateStr || !endDateStr) {
+      throw new OutsideEnrollmentPeriodError(
+        "No hay un periodo de matrícula en laboratorios definido. La matrícula no está permitida."
+      );
     }
 
     const now = new Date();
-    let startDate = startDateStr ? new Date(startDateStr) : new Date(0); // epoch date if not defined
-    let endDate = endDateStr ? new Date(endDateStr) : new Date(8640000000000000); // max date if not defined
+    const startDate = new Date(startDateStr);
+    const endDate = new Date(endDateStr);
 
-    if (now < startDate || now > endDate) {
+    // Normalize dates to compare only the date part (without time)
+    const normalizeDate = (date: Date) => {
+      const normalized = new Date(date);
+      normalized.setHours(0, 0, 0, 0);
+      return normalized;
+    };
+
+    const nowNormalized = normalizeDate(now);
+    const startNormalized = normalizeDate(startDate);
+    const endNormalized = normalizeDate(endDate);
+
+    if (nowNormalized < startNormalized || nowNormalized > endNormalized) {
       throw new OutsideEnrollmentPeriodError(
         `La matrícula en laboratorios solo está permitida entre ${startDateStr} y ${endDateStr}`
       );
