@@ -9,7 +9,7 @@ import { makeGetStudentAttendanceReportController } from "../controllers/student
 import { validate } from "../middlewares/validation.middleware.js";
 import z from "zod";
 import type { GetAllUsersUseCase } from "@/application/use-cases/admin/get-all-users.usecase.js";
-import { makeCreateLabGroupController, makeGetAllLabGroupsController, makeSetEnrollmentPeriodController, makeGetEnrollmentPeriodController, makeSetDeadlineController, makeGetDeadlineController } from "../controllers/secretary.controller.js";
+import { makeCreateLabGroupController, makeGetAllLabGroupsController, makeUpdateLabGroupCapacityController, makeGetAllCoursesController, makeSetEnrollmentPeriodController, makeGetEnrollmentPeriodController, makeSetDeadlineController, makeGetDeadlineController } from "../controllers/secretary.controller.js";
 import { makeGetClassroomScheduleController } from "../controllers/classroom.controller.js";
 
 const detailsSchema = z.object({
@@ -136,6 +136,28 @@ export const createSecretaryRouter = (container: AppContainer): Router => {
   router.get(
     "/enrollment-period",
     makeGetEnrollmentPeriodController(container.useCases.manageEnrollmentDeadline)
+  );
+
+  // --- ACTUALIZACIÓN DE CAPACIDAD DE LABORATORIO ---
+
+  router.put(
+    "/labs/:labGroupId/capacity",
+    validate(z.object({
+      params: z.object({
+        labGroupId: z.string().uuid()
+      }),
+      body: z.object({
+        newCapacity: z.number().int().positive().max(50)
+      })
+    })),
+    makeUpdateLabGroupCapacityController(container.useCases.updateLabGroupCapacity)
+  );
+
+  // --- OBTENCIÓN DE CURSOS (para selects de formularios) ---
+
+  router.get(
+    "/courses",
+    makeGetAllCoursesController(container.useCases.getAllCourses)
   );
 
   // --- GESTIÓN DE PLAZOS DE INSCRIPCIÓN (Legacy - mantener backwards compatibility) ---

@@ -40,6 +40,8 @@ import { CreateLabGroupUseCase } from "./application/use-cases/secretary/create-
 import { GetAllLabGroupsUseCase } from "./application/use-cases/secretary/get-all-lab-groups.usecase.js";
 import { ManageEnrollmentDeadlineUseCase } from "./application/use-cases/secretary/manage-enrollment-deadline.usecase.js";
 import { GetAllLabGroupsWithSchedulesUseCase } from "./application/use-cases/admin/get-all-lab-groups-with-schedules.usecase.js";
+import { UpdateLabGroupCapacityUseCase } from "./application/use-cases/secretary/update-lab-group-capacity.usecase.js";
+import { GetAllCoursesUseCase } from "./application/use-cases/admin/get-all-courses.usecase.js";
 
 export interface AppContainer {
   repositories: IRepositories;
@@ -71,9 +73,11 @@ export interface AppContainer {
     getCourseContent: GetCourseContentByGroupUseCase;
     updateTopicStatus: UpdateTopicStatusUseCase;
     createLabGroup: CreateLabGroupUseCase;
+    updateLabGroupCapacity: UpdateLabGroupCapacityUseCase;
     manageEnrollmentDeadline: ManageEnrollmentDeadlineUseCase;
     getAllLabGroups: GetAllLabGroupsUseCase;
     getAllLabGroupsWithSchedules: GetAllLabGroupsWithSchedulesUseCase;
+    getAllCourses: GetAllCoursesUseCase;
   };
   unitOfWork: IUnitOfWork;
   authService: TeacherAuthorizationService;
@@ -225,6 +229,7 @@ function createContainer(): AppContainer {
 
 
     createLabGroup: new CreateLabGroupUseCase(repositories.labGroup),
+    updateLabGroupCapacity: new UpdateLabGroupCapacityUseCase(repositories.labGroup),
     manageEnrollmentDeadline: new ManageEnrollmentDeadlineUseCase(repositories.systemConfig),
     getAllLabGroups: new GetAllLabGroupsUseCase(repositories.labGroup),
     getAllLabGroupsWithSchedules: new GetAllLabGroupsWithSchedulesUseCase(
@@ -234,6 +239,7 @@ function createContainer(): AppContainer {
       repositories.classroom,
       repositories.user
     ),
+    getAllCourses: new GetAllCoursesUseCase(repositories.course),
   };
 
   return {

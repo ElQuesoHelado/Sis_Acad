@@ -94,10 +94,10 @@ export class EnrollInLabGroupUseCase {
     const startDate = new Date(startDateStr);
     const endDate = new Date(endDateStr);
 
-    // Normalize dates to compare only the date part (without time)
+    // Normalize dates to compare only the date part (without time) using UTC
     const normalizeDate = (date: Date) => {
       const normalized = new Date(date);
-      normalized.setHours(0, 0, 0, 0);
+      normalized.setUTCHours(0, 0, 0, 0);
       return normalized;
     };
 

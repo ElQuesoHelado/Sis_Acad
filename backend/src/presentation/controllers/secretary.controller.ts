@@ -1,7 +1,9 @@
 import { type Request, type Response, type NextFunction } from "express";
 import { type CreateLabGroupUseCase } from "@/application/use-cases/secretary/create-lab-group.usecase.js";
+import { type UpdateLabGroupCapacityUseCase } from "@/application/use-cases/secretary/update-lab-group-capacity.usecase.js";
 import { type ManageEnrollmentDeadlineUseCase } from "@/application/use-cases/secretary/manage-enrollment-deadline.usecase.js";
 import { type GetAllLabGroupsUseCase } from "@/application/use-cases/secretary/get-all-lab-groups.usecase.js";
+import { type GetAllCoursesUseCase } from "@/application/use-cases/admin/get-all-courses.usecase.js";
 
 // Factory para Crear Laboratorio
 export const makeCreateLabGroupController = (useCase: CreateLabGroupUseCase) => {
@@ -21,6 +23,30 @@ export const makeGetAllLabGroupsController = (useCase: GetAllLabGroupsUseCase) =
     try {
       const labs = await useCase.execute();
       res.status(200).json(labs);
+    } catch (error) {
+      next(error);
+    }
+  };
+};
+
+// Factory para Actualizar Capacidad de Laboratorio
+export const makeUpdateLabGroupCapacityController = (useCase: UpdateLabGroupCapacityUseCase) => {
+  return async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      await useCase.execute(req.body);
+      res.status(200).json({ message: "Capacidad de laboratorio actualizada exitosamente" });
+    } catch (error) {
+      next(error);
+    }
+  };
+};
+
+// Factory para Obtener Todos los Cursos
+export const makeGetAllCoursesController = (useCase: GetAllCoursesUseCase) => {
+  return async (_req: Request, res: Response, next: NextFunction) => {
+    try {
+      const courses = await useCase.execute();
+      res.status(200).json(courses);
     } catch (error) {
       next(error);
     }
