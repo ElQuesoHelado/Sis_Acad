@@ -15,9 +15,15 @@
 
 	$effect(() => {
 		async function load() {
+			if (!enrollmentId) {
+				error = 'ID de matrícula no encontrado en la URL';
+				loading = false;
+				return;
+			}
+
 			loading = true;
 			try {
-				progressData = await studentService.getCourseProgress(enrollmentId || '');
+				progressData = await studentService.getCourseProgress(enrollmentId);
 			} catch (err) {
 				error = err instanceof Error ? err.message : 'Error al cargar el sílabo';
 			} finally {
