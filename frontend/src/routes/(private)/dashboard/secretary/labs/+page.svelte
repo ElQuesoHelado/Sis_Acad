@@ -6,12 +6,13 @@
 		LabGroup,
 		AdminUserListEntry,
 		CourseSummary,
-		CreateLabScheduleEntry
+		CreateLabScheduleEntry,
+		LabEnrolledStudent
 	} from '$lib/core/domain/admin.types';
 	import type { Classroom } from '$lib/core/domain/classroom.types';
 	import { DayOfWeek } from '$lib/core/domain/enums';
 
-	import { Button, buttonVariants } from '$lib/components/ui/button';
+	import { Button } from '$lib/components/ui/button';
 	import * as Card from '$lib/components/ui/card';
 	import * as Table from '$lib/components/ui/table';
 	import * as Sheet from '$lib/components/ui/sheet';
@@ -23,10 +24,10 @@
 		FlaskConical,
 		LoaderCircle,
 		Pencil,
-		Clock,
 		MapPin,
 		Trash2,
-		CalendarDays
+		CalendarDays,
+		Users,
 	} from '@lucide/svelte';
 	import * as Select from '$lib/components/ui/select';
 	import { Separator } from '$lib/components/ui/separator';
@@ -81,6 +82,11 @@
 		newCapacity: '0'
 	};
 
+	let isStudentsDialogOpen = false;
+	let isLoadingStudents = false;
+	let enrolledStudents: LabEnrolledStudent[] = [];
+	let currentLabView: LabGroup | null = null;
+
 	async function loadData() {
 		isLoading = true;
 		try {
@@ -92,6 +98,7 @@
 			]);
 			labs = labsData;
 			teachers = teachersData;
+
 			courses = coursesData.filter((c) => c.type === 'labo' || c.type === 'teoria_labo');
 			classrooms = classroomsData;
 		} catch (error) {
@@ -118,22 +125,22 @@
 
 	async function handleCreateLab() {
 		if (!createForm.courseId || !createForm.professorId || !createForm.groupLetter) {
-			alert('Por favor completa la información general.');
+			alert('Por favor completa la información general del laboratorio.');
 			return;
 		}
 
 		if (createForm.schedules.length === 0) {
-			alert('Debes agregar al menos un horario.');
+			alert('Debes agregar al menos un horario de clase.');
 			return;
 		}
 
 		for (const s of createForm.schedules) {
 			if (!s.day || !s.startTime || !s.endTime || !s.classroomId) {
-				alert('Por favor completa todos los campos de los horarios.');
+				alert('Por favor completa todos los campos de cada horario.');
 				return;
 			}
 			if (s.startTime >= s.endTime) {
-				alert(`Horario inválido en ${s.day}: El inicio debe ser antes del fin.`);
+				alert(`Horario inválido en ${s.day}: La hora de inicio debe ser anterior al fin.`);
 				return;
 			}
 		}
@@ -153,7 +160,7 @@
 			await loadData();
 		} catch (error) {
 			console.error('Error creando lab:', error);
-			alert('Error al crear. Verifica conflictos de horario.');
+			alert('Error al crear el laboratorio. Verifica si hay conflictos de horario.');
 		} finally {
 			isCreating = false;
 		}
@@ -197,6 +204,22 @@
 			alert('No se pudo actualizar la capacidad.');
 		} finally {
 			isUpdating = false;
+		}
+	}
+
+	async function openStudentsDialog(lab: LabGroup) {
+		currentLabView = lab;
+		enrolledStudents = [];
+		isStudentsDialogOpen = true;
+		isLoadingStudents = true;
+
+		try {
+			enrolledStudents = await secretaryService.getLabStudents(lab.id);
+		} catch (error) {
+			console.error('Error cargando estudiantes:', error);
+			alert('No se pudo cargar la lista de estudiantes.');
+		} finally {
+			isLoadingStudents = false;
 		}
 	}
 
@@ -251,7 +274,11 @@
 					<div class="grid gap-4 rounded-lg border bg-muted/20 p-4">
 						<div class="grid gap-2">
 							<Label>Semestre</Label>
-							<Input value={createForm.semester} disabled class="bg-muted font-mono" />
+							<Input
+								value={createForm.semester}
+								disabled
+								class="bg-muted font-mono text-muted-foreground"
+							/>
 						</div>
 
 						<div class="grid gap-2">
@@ -266,7 +293,7 @@
 								<Select.Trigger class="w-full bg-background">
 									{selectedCourseLabel}
 								</Select.Trigger>
-								<Select.Content class="max-h-[200px]">
+								<Select.Content class="max-h-[200px] overflow-y-auto">
 									{#each courses as course}
 										<Select.Item value={course.id} label={course.name}>
 											<span class="mr-2 font-mono text-xs text-muted-foreground">{course.code}</span
@@ -291,7 +318,7 @@
 								<Select.Trigger class="w-full bg-background">
 									{selectedProfessorLabel}
 								</Select.Trigger>
-								<Select.Content class="max-h-[200px]">
+								<Select.Content class="max-h-[200px] overflow-y-auto">
 									{#each teachers as teacher}
 										<Select.Item value={teacher.id} label={`${teacher.name} ${teacher.surname}`}>
 											{teacher.name}
@@ -342,7 +369,7 @@
 
 					<div class="space-y-3">
 						{#each createForm.schedules as schedule, index}
-							<Card.Root class="relative">
+							<Card.Root class="relative border-dashed">
 								<Button
 									variant="ghost"
 									size="icon"
@@ -362,7 +389,7 @@
 												onValueChange={(v) => updateSchedule(index, 'day', String(v))}
 											>
 												<Select.Trigger class="h-8 text-xs">
-													{schedule.day || 'Día'}
+													{schedule.day || 'Seleccionar'}
 												</Select.Trigger>
 												<Select.Content>
 													{#each days as day}
@@ -400,7 +427,7 @@
 												onValueChange={(v) => updateSchedule(index, 'startTime', String(v))}
 											>
 												<Select.Trigger class="h-8 text-xs">
-													{schedule.startTime || 'Inicio'}
+													{schedule.startTime || '--:--'}
 												</Select.Trigger>
 												<Select.Content class="max-h-[150px]">
 													{#each timeSlots as t}
@@ -417,7 +444,7 @@
 												onValueChange={(v) => updateSchedule(index, 'endTime', String(v))}
 											>
 												<Select.Trigger class="h-8 text-xs">
-													{schedule.endTime || 'Fin'}
+													{schedule.endTime || '--:--'}
 												</Select.Trigger>
 												<Select.Content class="max-h-[150px]">
 													{#each timeSlots as t}
@@ -449,12 +476,14 @@
 		<Dialog.Content class="sm:max-w-[425px]">
 			<Dialog.Header>
 				<Dialog.Title>Modificar Capacidad</Dialog.Title>
-				<Dialog.Description>Ajusta el cupo máximo.</Dialog.Description>
+				<Dialog.Description
+					>Ajusta el número máximo de estudiantes para este grupo.</Dialog.Description
+				>
 			</Dialog.Header>
 			<div class="grid gap-4 py-4">
 				<div class="grid grid-cols-4 items-center gap-4">
 					<Label class="text-right">Actual</Label>
-					<span class="col-span-3 font-mono">{editForm.currentCapacity}</span>
+					<span class="col-span-3 font-mono">{editForm.currentCapacity} estudiantes</span>
 				</div>
 				<div class="grid grid-cols-4 items-center gap-4">
 					<Label for="new-cap" class="text-right">Nueva</Label>
@@ -474,8 +503,67 @@
 					{#if isUpdating}
 						<LoaderCircle class="mr-2 h-4 w-4 animate-spin" />
 					{/if}
-					Guardar
+					Guardar Cambios
 				</Button>
+			</Dialog.Footer>
+		</Dialog.Content>
+	</Dialog.Root>
+
+	<Dialog.Root bind:open={isStudentsDialogOpen}>
+		<Dialog.Content class="max-h-[80vh] overflow-y-auto sm:max-w-2xl">
+			<Dialog.Header>
+				<Dialog.Title>Estudiantes Matriculados</Dialog.Title>
+				<Dialog.Description>
+					{#if currentLabView}
+						{@const info = getCourseInfo(currentLabView.courseId)}
+						Lista de alumnos del grupo <strong>{currentLabView.groupLetter}</strong> - {info.name} ({info.code})
+					{/if}
+				</Dialog.Description>
+			</Dialog.Header>
+
+			<div class="py-4">
+				{#if isLoadingStudents}
+					<div class="flex justify-center py-8">
+						<LoaderCircle class="h-8 w-8 animate-spin text-primary" />
+					</div>
+				{:else if enrolledStudents.length === 0}
+					<div
+						class="flex flex-col items-center justify-center rounded-lg border border-dashed bg-muted/20 py-8 text-muted-foreground"
+					>
+						<Users class="mb-2 h-8 w-8 opacity-50" />
+						<p>No hay estudiantes matriculados en este grupo.</p>
+					</div>
+				{:else}
+					<div class="rounded-md border">
+						<Table.Root>
+							<Table.Header>
+								<Table.Row>
+									<Table.Head>Código</Table.Head>
+									<Table.Head>Nombre Completo</Table.Head>
+									<Table.Head>Email</Table.Head>
+								</Table.Row>
+							</Table.Header>
+							<Table.Body>
+								{#each enrolledStudents as student}
+									<Table.Row>
+										<Table.Cell class="font-mono">{student.studentCode}</Table.Cell>
+										<Table.Cell class="font-medium"
+											>{student.firstName} {student.lastName}</Table.Cell
+										>
+										<Table.Cell class="text-muted-foreground">{student.email}</Table.Cell>
+									</Table.Row>
+								{/each}
+							</Table.Body>
+						</Table.Root>
+					</div>
+					<div class="mt-2 text-right text-xs text-muted-foreground">
+						Total matriculados: {enrolledStudents.length}
+					</div>
+				{/if}
+			</div>
+
+			<Dialog.Footer>
+				<Button onclick={() => (isStudentsDialogOpen = false)}>Cerrar</Button>
 			</Dialog.Footer>
 		</Dialog.Content>
 	</Dialog.Root>
@@ -519,9 +607,7 @@
 									</div>
 								</Table.Cell>
 								<Table.Cell>
-									<Badge variant="secondary" class="font-mono">
-										{lab.groupLetter}
-									</Badge>
+									<Badge variant="secondary" class="font-mono">{lab.groupLetter}</Badge>
 								</Table.Cell>
 								<Table.Cell>
 									<div class="flex flex-col gap-1.5">
@@ -561,14 +647,24 @@
 									</div>
 								</Table.Cell>
 								<Table.Cell class="text-right">
-									<Button
-										variant="ghost"
-										size="icon"
-										onclick={() => openEditDialog(lab)}
-										title="Editar cupos"
-									>
-										<Pencil class="h-4 w-4" />
-									</Button>
+									<div class="flex justify-end gap-1">
+										<Button
+											variant="ghost"
+											size="icon"
+											onclick={() => openStudentsDialog(lab)}
+											title="Ver Estudiantes"
+										>
+											<Users class="h-4 w-4" />
+										</Button>
+										<Button
+											variant="ghost"
+											size="icon"
+											onclick={() => openEditDialog(lab)}
+											title="Editar cupos"
+										>
+											<Pencil class="h-4 w-4" />
+										</Button>
+									</div>
 								</Table.Cell>
 							</Table.Row>
 						{/each}

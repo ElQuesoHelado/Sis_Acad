@@ -1,7 +1,7 @@
 import type { IHttpClient } from '$lib/core/interfaces/http-client.interface';
 import { httpClient } from '$lib/core/adapters';
 import { API_ENDPOINTS } from '$lib/core/constants/api-endpoints.constants';
-import type { AdminUserListEntry, AdminTeacherDetails, LabGroup, CreateLabGroupRequest, EnrollmentPeriod, SetEnrollmentPeriodRequest, UpdateLabCapacityRequest, CourseSummary } from '$lib/core/domain/admin.types';
+import type { AdminUserListEntry, AdminTeacherDetails, LabGroup, CreateLabGroupRequest, EnrollmentPeriod, SetEnrollmentPeriodRequest, UpdateLabCapacityRequest, CourseSummary, LabEnrolledStudent } from '$lib/core/domain/admin.types';
 import type { StudentAttendanceReport, StudentCourseGrades } from '$lib/core/domain/student.types';
 
 
@@ -64,6 +64,12 @@ class SecretaryService {
 
   public setEnrollmentPeriod(data: SetEnrollmentPeriodRequest): Promise<{ message: string }> {
     return this.http.post(API_ENDPOINTS.SECRETARY.ENROLLMENT_PERIOD, data);
+  }
+
+  public getLabStudents(labGroupId: string): Promise<LabEnrolledStudent[]> {
+    return this.http.get<LabEnrolledStudent[]>(
+      API_ENDPOINTS.SECRETARY.GET_LAB_STUDENTS(labGroupId)
+    );
   }
 }
 

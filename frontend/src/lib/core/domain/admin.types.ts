@@ -30,6 +30,15 @@ export interface LabScheduleResponse {
 	classroom: string; // "Lab 101"
 }
 
+
+export interface LabEnrolledStudent {
+	studentId: string;
+	studentCode: string;
+	firstName: string;
+	lastName: string;
+	email: string;
+}
+
 // Estructura actualizada del Grupo de Laboratorio
 export interface LabGroup {
 	id: string;
