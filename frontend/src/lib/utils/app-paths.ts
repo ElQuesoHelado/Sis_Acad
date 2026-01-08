@@ -40,7 +40,9 @@ const SECRETARY_PATHS = {
   USERS: `${SECRETARY_BASE}/users`,
   STUDENTS: `${SECRETARY_BASE}/students`,
   TEACHERS: `${SECRETARY_BASE}/teachers`,
-  ATTENDANCE: `${SECRETARY_BASE}/attendance`
+  ATTENDANCE: `${SECRETARY_BASE}/attendance`,
+  LABS: `${SECRETARY_BASE}/labs`,
+  ENROLLMENT_PERIOD: `${SECRETARY_BASE}/enrollment-period`
 };
 
 /**

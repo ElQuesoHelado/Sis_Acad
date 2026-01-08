@@ -37,7 +37,9 @@ export const API_ENDPOINTS = {
     GET_TEACHER_DETAILS: (userId: string, semester: string) =>
       `/secretary/teachers/${userId}/${semester}`,
     GET_STUDENT_DETAILS: (userId: string, semester: string) =>
-      `/secretary/students/${userId}/${semester}`
+      `/secretary/students/${userId}/${semester}`,
+    LABS: '/secretary/labs',
+    ENROLLMENT_PERIOD: '/secretary/enrollment-period'
   },
   USER: {
     PROFILE: () => '/user/profile'

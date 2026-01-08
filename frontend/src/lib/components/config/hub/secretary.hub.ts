@@ -1,6 +1,6 @@
 import type { HubGroup } from './hub.types';
 import { APP_PATHS } from '$lib/utils/app-paths';
-import { GraduationCap, BookUser, CalendarCheck } from '@lucide/svelte';
+import { GraduationCap, BookUser, CalendarCheck, FlaskConical } from '@lucide/svelte';
 
 export const secretaryHubGroups: HubGroup[] = [
   {
@@ -17,6 +17,18 @@ export const secretaryHubGroups: HubGroup[] = [
         description: 'Carga académica y horarios docentes.',
         url: APP_PATHS.SECRETARY.TEACHERS,
         icon: BookUser
+      },
+      {
+        title: 'Laboratorios',
+        description: 'Creación y administración de grupos de laboratorio.',
+        url: APP_PATHS.SECRETARY.LABS,
+        icon: FlaskConical
+      },
+      {
+        title: 'Periodo de Matrícula',
+        description: 'Configuración de fechas para la inscripción a laboratorios.',
+        url: APP_PATHS.SECRETARY.ENROLLMENT_PERIOD,
+        icon: CalendarCheck
       }
     ]
   }

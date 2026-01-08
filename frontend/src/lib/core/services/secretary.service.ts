@@ -1,8 +1,15 @@
 import type { IHttpClient } from '$lib/core/interfaces/http-client.interface';
 import { httpClient } from '$lib/core/adapters';
 import { API_ENDPOINTS } from '$lib/core/constants/api-endpoints.constants';
-import type { AdminUserListEntry, AdminTeacherDetails } from '$lib/core/domain/admin.types';
+import type { AdminUserListEntry, AdminTeacherDetails, LabGroup, CreateLabGroupRequest, EnrollmentPeriod, SetEnrollmentPeriodRequest } from '$lib/core/domain/admin.types';
 import type { StudentAttendanceReport, StudentCourseGrades } from '$lib/core/domain/student.types';
+
+
+export interface CourseSummary {
+  id: string;
+  name: string;
+  code: string;
+}
 
 class SecretaryService {
   constructor(private http: IHttpClient) { }
@@ -35,6 +42,26 @@ class SecretaryService {
     return this.http.get<StudentAttendanceReport>(
       `/secretary/attendance/${enrollmentId}`
     );
+  }
+
+
+  public getLabs(): Promise<LabGroup[]> {
+    return this.http.get<LabGroup[]>(API_ENDPOINTS.SECRETARY.LABS);
+  }
+
+  // Crear laboratorio
+  public createLab(data: CreateLabGroupRequest): Promise<{ message: string }> {
+    return this.http.post(API_ENDPOINTS.SECRETARY.LABS, data);
+  }
+
+  // Obtener periodo de inscripción
+  public getEnrollmentPeriod(): Promise<EnrollmentPeriod> {
+    return this.http.get<EnrollmentPeriod>(API_ENDPOINTS.SECRETARY.ENROLLMENT_PERIOD);
+  }
+
+  // Configurar periodo de inscripción
+  public setEnrollmentPeriod(data: SetEnrollmentPeriodRequest): Promise<{ message: string }> {
+    return this.http.post(API_ENDPOINTS.SECRETARY.ENROLLMENT_PERIOD, data);
   }
 }
 
