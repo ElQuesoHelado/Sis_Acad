@@ -39,6 +39,8 @@ export const API_ENDPOINTS = {
     GET_STUDENT_DETAILS: (userId: string, semester: string) =>
       `/secretary/students/${userId}/${semester}`,
     LABS: '/secretary/labs',
+    UPDATE_LAB_CAPACITY: (labGroupId: string) => `/secretary/labs/${labGroupId}/capacity`,
+    COURSES: '/secretary/courses',
     ENROLLMENT_PERIOD: '/secretary/enrollment-period'
   },
   USER: {

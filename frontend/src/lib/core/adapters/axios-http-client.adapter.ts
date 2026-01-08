@@ -86,6 +86,12 @@ class AxiosHttpClient implements IHttpClient {
 		const response = await this.client.delete<T>(url, axiosConfig);
 		return response.data;
 	}
+
+  public async put<T>(url: string, data?: unknown, config?: HttpRequestConfig): Promise<T> {
+    const axiosConfig = translateConfig(config);
+    const response = await this.client.put<T>(url, data, axiosConfig);
+    return response.data;
+  }
 }
 
 /** Singleton instance: injects session storage into the HTTP adapter */

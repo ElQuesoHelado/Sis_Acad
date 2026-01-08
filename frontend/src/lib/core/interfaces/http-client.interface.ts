@@ -28,4 +28,7 @@ export interface IHttpClient {
 
 	/** Sends a DELETE request */
 	delete<T>(url: string, config?: HttpRequestConfig): Promise<T>;
+
+  /** Sends a PUT request */
+  put<T>(url: string, data: unknown, config?: HttpRequestConfig): Promise<T>;
 }

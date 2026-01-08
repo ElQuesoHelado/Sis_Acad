@@ -1,15 +1,9 @@
 import type { IHttpClient } from '$lib/core/interfaces/http-client.interface';
 import { httpClient } from '$lib/core/adapters';
 import { API_ENDPOINTS } from '$lib/core/constants/api-endpoints.constants';
-import type { AdminUserListEntry, AdminTeacherDetails, LabGroup, CreateLabGroupRequest, EnrollmentPeriod, SetEnrollmentPeriodRequest } from '$lib/core/domain/admin.types';
+import type { AdminUserListEntry, AdminTeacherDetails, LabGroup, CreateLabGroupRequest, EnrollmentPeriod, SetEnrollmentPeriodRequest, UpdateLabCapacityRequest, CourseSummary } from '$lib/core/domain/admin.types';
 import type { StudentAttendanceReport, StudentCourseGrades } from '$lib/core/domain/student.types';
 
-
-export interface CourseSummary {
-  id: string;
-  name: string;
-  code: string;
-}
 
 class SecretaryService {
   constructor(private http: IHttpClient) { }
@@ -44,22 +38,35 @@ class SecretaryService {
     );
   }
 
+  public getCourses(): Promise<CourseSummary[]> {
+    return this.http.get<CourseSummary[]>(API_ENDPOINTS.SECRETARY.COURSES);
+  }
 
+  // Obtener todos los laboratorios
   public getLabs(): Promise<LabGroup[]> {
     return this.http.get<LabGroup[]>(API_ENDPOINTS.SECRETARY.LABS);
   }
 
-  // Crear laboratorio
+  // Crear nuevo laboratorio
   public createLab(data: CreateLabGroupRequest): Promise<{ message: string }> {
     return this.http.post(API_ENDPOINTS.SECRETARY.LABS, data);
   }
 
-  // Obtener periodo de inscripción
+  // Actualizar capacidad de un laboratorio existente (NUEVO)
+  public updateLabCapacity(labGroupId: string, newCapacity: number): Promise<{ message: string }> {
+    const payload: UpdateLabCapacityRequest = { newCapacity };
+    return this.http.put(
+      API_ENDPOINTS.SECRETARY.UPDATE_LAB_CAPACITY(labGroupId),
+      payload
+    );
+  }
+
+  // Obtener periodo
   public getEnrollmentPeriod(): Promise<EnrollmentPeriod> {
     return this.http.get<EnrollmentPeriod>(API_ENDPOINTS.SECRETARY.ENROLLMENT_PERIOD);
   }
 
-  // Configurar periodo de inscripción
+  // Configurar periodo
   public setEnrollmentPeriod(data: SetEnrollmentPeriodRequest): Promise<{ message: string }> {
     return this.http.post(API_ENDPOINTS.SECRETARY.ENROLLMENT_PERIOD, data);
   }
