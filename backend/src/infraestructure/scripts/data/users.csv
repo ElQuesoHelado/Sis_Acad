@@ -1,50 +1,425 @@
 id,email,password,role,name,surname,birthdate,status
-user-1,amamaniali@unsa.edu.pe,password123,profesor,Alvaro Henry,Mamani Aliaga,1990-01-01,true
-user-2,ehinojosa@unsa.edu.pe,password123,profesor,Edward,Hinojosa Cardenas,1990-01-01,true
-user-3,eadriazola@unsa.edu.pe,password123,profesor,Eliana Maria,Adriazola Herrera,1990-01-01,true
-user-4,ldelgado@unsa.edu.pe,password123,profesor,Lucy Angela,Delgado Barra,1990-01-01,true
-user-5,wramos@unsa.edu.pe,password123,profesor,Wilber Roberto,Ramos Lovon,1990-01-01,true
-user-10,atorresa@unsa.edu.pe,password123,estudiante,Alvaro Sebastian,Torres Ara,2000-01-01,true
-user-11,hjuandedios@unsa.edu.pe,password123,estudiante,Hellen Grace,Juan De Dios,2000-02-02,true
-user-12,fhuayhuaqu@unsa.edu.pe,password123,estudiante,Fabricio Del,Huayhua Quispe,2000-03-03,true
-user-13,admin@unsa.edu.pe,password123,administrador,Super,Admin,1980-01-01,true
-user-14,mrojas@unsa.edu.pe,password123,estudiante,Mariana,Rojas Quispe,2000-04-04,true
-user-15,jflores@unsa.edu.pe,password123,estudiante,Juan Carlos,Flores Mamani,2000-05-05,true
-user-16,psanchez@unsa.edu.pe,password123,estudiante,Paola,Sánchez Huerta,2000-06-06,true
-user-17,rlimaylla@unsa.edu.pe,password123,estudiante,Ricardo,Limaylla Pérez,2000-07-07,true
-user-18,khuamani@unsa.edu.pe,password123,estudiante,Karina,Huamani Huanca,2000-08-08,true
-user-19,dlazo@unsa.edu.pe,password123,estudiante,Diego,Lazo Ccopa,2000-09-09,true
-user-20,acastillo@unsa.edu.pe,password123,estudiante,Alejandra,Castillo Paredes,2000-10-10,true
-user-21,csalazar@unsa.edu.pe,password123,estudiante,Cristopher,Salazar Torres,2000-11-11,true
-user-22,mmendoza@unsa.edu.pe,password123,estudiante,Milagros,Mendoza Llacho,2000-12-12,true
-user-23,yperez@unsa.edu.pe,password123,estudiante,Yessica,Perez Huillca,2001-01-01,true
-user-24,omamani@unsa.edu.pe,password123,estudiante,Oscar,Mamani Quispe,2001-02-02,true
-user-25,gmendoza@unsa.edu.pe,password123,estudiante,Geraldine,Mendoza Arias,2001-03-03,true
-user-26,lvilca@unsa.edu.pe,password123,estudiante,Luis,Vilca Choque,2001-04-04,true
-user-27,ccarita@unsa.edu.pe,password123,estudiante,Carolina,Carita Luján,2001-05-05,true
-user-28,rquispe@unsa.edu.pe,password123,estudiante,Renzo,Quispe Huarachi,2001-06-06,true
-user-29,jsoto@unsa.edu.pe,password123,estudiante,Julieta,Soto Huamani,2001-07-07,true
-user-30,mccopa@unsa.edu.pe,password123,estudiante,Marco,Ccopa Valencia,2001-08-08,true
-user-31,aparedes@unsa.edu.pe,password123,estudiante,Ariana,Paredes Nina,2001-09-09,true
-user-32,fllanos@unsa.edu.pe,password123,estudiante,Fernando,Llanos Ticona,2001-10-10,true
-user-33,sfarfan@unsa.edu.pe,password123,estudiante,Sofia,Farfán Torres,2001-11-11,true
-user-34,japaza@unsa.edu.pe,password123,estudiante,Josue,Apaza Condori,2001-12-12,true
-user-35,cmamani@unsa.edu.pe,password123,estudiante,Claudia,Mamani Huayta,2002-01-01,true
-user-36,etito@unsa.edu.pe,password123,estudiante,Erick,Tito Condori,2002-02-02,true
-user-37,mgutierrez@unsa.edu.pe,password123,estudiante,Melanie,Gutierrez Puma,2002-03-03,true
-user-38,cpuma@unsa.edu.pe,password123,estudiante,Cristian,Puma Apaza,2002-04-04,true
-user-39,kccama@unsa.edu.pe,password123,estudiante,Kiara,Ccama Pari,2002-05-05,true
-user-40,fhernandez@unsa.edu.pe,password123,estudiante,Fabrizio,Hernandez Lazo,2002-06-06,true
-user-41,slazo@unsa.edu.pe,password123,estudiante,Silvia,Lazo Salas,2002-07-07,true
-user-42,yhuamani@unsa.edu.pe,password123,estudiante,Yeraldin,Huamani Quispe,2002-08-08,true
-user-43,gapaza@unsa.edu.pe,password123,estudiante,Gabriel,Apaza Mamani,2002-09-09,true
-user-44,vmiranda@unsa.edu.pe,password123,estudiante,Valeria,Miranda Torres,2002-10-10,true
-user-45,fdiaz@unsa.edu.pe,password123,estudiante,Franco,Diaz Llerena,2002-11-11,true
-user-46,kvillanueva@unsa.edu.pe,password123,estudiante,Karol,Villanueva Chuquimia,2002-12-12,true
-user-47,dcusi@unsa.edu.pe,password123,estudiante,David,Cusi Lupa,2003-01-01,true
-user-48,mmamani@unsa.edu.pe,password123,estudiante,Maribel,Mamani Huanca,2003-02-02,true
-user-49,rticona@unsa.edu.pe,password123,estudiante,Rodrigo,Ticona Cutipa,2003-03-03,true
-user-50,psupa@unsa.edu.pe,password123,estudiante,Patricia,Supa Calizaya,2003-04-04,true
-user-51,jquispe@unsa.edu.pe,password123,estudiante,Jonathan,Quispe Cutimanco,2003-05-05,true
-user-52,hlipa@unsa.edu.pe,password123,estudiante,Helder,Lipa Coaquira,2003-06-06,true
-user-53,secretaria@unsa.edu.pe,password123,secretaria,Talia,Cusi Lupa,1995-05-02,true
+user-1,admin@unsa.edu.pe,admin123,administrador,Super,Admin,1990-01-01,true
+user-p-1,amamaniali@unsa.edu.pe,prof123,profesor,Alvaro Henry,Mamani Aliaga,1980-01-01,true
+user-p-2,acuadrosv@unsa.edu.pe,prof123,profesor,Ana Maria,Cuadros Valdivia,1980-01-01,true
+user-p-3,bsanzs@unsa.edu.pe,prof123,profesor,Benigno Erick,Sanz Sanz,1980-01-01,true
+user-p-4,clopezd@unsa.edu.pe,prof123,profesor,Cristian Jose,Lopez Del Alamo,1980-01-01,true
+user-p-5,esarmientoca@unsa.edu.pe,prof123,profesor,Edgar,Sarmiento Calisaya,1980-01-01,true
+user-p-6,ehinojosa@unsa.edu.pe,prof123,profesor,Edward,Hinojosa Cardenas,1980-01-01,true
+user-p-7,eadriazola@unsa.edu.pe,prof123,profesor,Eliana Maria,Adriazola Herrera,1980-01-01,true
+user-p-8,elazoal@unsa.edu.pe,prof123,profesor,Erika Patricia,Lazo Alarcon,1980-01-01,true
+user-p-9,fsunilo@unsa.edu.pe,prof123,profesor,Franci,Suni Lopez,1980-01-01,true
+user-p-10,jzuniga@unsa.edu.pe,prof123,profesor,Jesus Heraclio,Zuñiga Cueva,1980-01-01,true
+user-p-11,jbernedo@unsa.edu.pe,prof123,profesor,Jhon Franky,Bernedo Gonzales,1980-01-01,true
+user-p-12,jgutierrezca@unsa.edu.pe,prof123,profesor,Juan Carlos,Gutierrez Caceres,1980-01-01,true
+user-p-13,jcruzto@unsa.edu.pe,prof123,profesor,Judith Hayde,Cruz Torres,1980-01-01,true
+user-p-14,ldelgado@unsa.edu.pe,prof123,profesor,Lucy Angela,Delgado Barra,1980-01-01,true
+user-p-15,mquispecr@unsa.edu.pe,prof123,profesor,Marcela,Quispe Cruz,1980-01-01,true
+user-p-16,mvaldiviama@unsa.edu.pe,prof123,profesor,Marco Antonio,Valdivia Malaga,1980-01-01,true
+user-p-17,rarredondoc@unsa.edu.pe,prof123,profesor,Raquel Noelia,Arredondo Choque,1980-01-01,true
+user-p-18,rfloresqu@unsa.edu.pe,prof123,profesor,Roxana,Flores Quispe,1980-01-01,true
+user-p-19,wramos@unsa.edu.pe,prof123,profesor,Wilber Roberto,Ramos Lovon,1980-01-01,true
+user-p-20,yyarira@unsa.edu.pe,prof123,profesor,Yessenia Deysi,Yari Ramos,1980-01-01,true
+user-p-21,yvelazco@unsa.edu.pe,prof123,profesor,Yuber Elmer,Velazco Paredes,1980-01-01,true
+user-p-22,agarciaga@unsa.edu.pe,prof123,profesor,Alberto,Garcia Garcia,1980-01-01,true
+user-p-23,aflorez@unsa.edu.pe,prof123,profesor,Alex Josue,Florez Farfan,1980-01-01,true
+user-p-24,acunopa@unsa.edu.pe,prof123,profesor,Alvaro Ernesto,Cuno Parari,1980-01-01,true
+user-p-25,apilcoe@unsa.edu.pe,prof123,profesor,Angel Eusebio,Pilco Escobedo,1980-01-01,true
+user-p-26,acentenoa@unsa.edu.pe,prof123,profesor,Anny Fresia,Centeno Andia,1980-01-01,true
+user-p-27,bmujica@unsa.edu.pe,prof123,profesor,Brayan Adolfo,Mujica Guzman,1980-01-01,true
+user-p-28,eluquem@unsa.edu.pe,prof123,profesor,Edson Francisco,Luque Mamani,1980-01-01,true
+user-p-29,evelasquezcon@unsa.edu.pe,prof123,profesor,Eliseo Daniel,Velasquez Condori,1980-01-01,true
+user-p-30,eordonez@unsa.edu.pe,prof123,profesor,Erech,Ordoñez Ramos,1980-01-01,true
+user-p-31,eperezce@unsa.edu.pe,prof123,profesor,Evelyn,Perez Cervantes,1980-01-01,true
+user-p-32,fcruz@unsa.edu.pe,prof123,profesor,Franklin Luis Antonio,Cruz Gamero,1980-01-01,true
+user-p-33,gcastrogu@unsa.edu.pe,prof123,profesor,Grover Enrique,Castro Guzman,1980-01-01,true
+user-p-34,gquispesaj@unsa.edu.pe,prof123,profesor,Guadalupe Del Rosario,Quispe Saji,1980-01-01,true
+user-p-35,jachire@unsa.edu.pe,prof123,profesor,Jesus Enrique,Achire Quispe,1980-01-01,true
+user-p-36,jihue@unsa.edu.pe,prof123,profesor,Jorge Antonio,Ihue Umire,1980-01-01,true
+user-p-37,jzunigat@unsa.edu.pe,prof123,profesor,Juan Carlos,Zuñiga Torres,1980-01-01,true
+user-p-38,jmedinacr@unsa.edu.pe,prof123,profesor,Julio Raul,Medina Cruz,1980-01-01,true
+user-p-39,mmachicaoj@unsa.edu.pe,prof123,profesor,Marina Jeaneth,Machicao Justo,1980-01-01,true
+user-p-40,mgalarza@unsa.edu.pe,prof123,profesor,Marisol Cristel,Galarza Flores,1980-01-01,true
+user-p-41,mcondorife@unsa.edu.pe,prof123,profesor,Milton Raul,Condori Fernandez,1980-01-01,true
+user-p-42,pcalcinacc@unsa.edu.pe,prof123,profesor,Pablo Cesar,Calcina Ccori,1980-01-01,true
+user-p-43,pticonac@unsa.edu.pe,prof123,profesor,Percy Antonio,Ticona Centeno,1980-01-01,true
+user-p-44,rquispein@unsa.edu.pe,prof123,profesor,Reynaldo Ricardo,Quispe Infantes,1980-01-01,true
+user-p-45,rcardenastal@unsa.edu.pe,prof123,profesor,Rolando Jesus,Cardenas Talavera,1980-01-01,true
+user-p-46,rlinaresd@unsa.edu.pe,prof123,profesor,Rolando,Linares Delgado,1980-01-01,true
+user-p-47,rgonzalesme@unsa.edu.pe,prof123,profesor,Ronny Ivan,Gonzales Medina,1980-01-01,true
+user-p-48,ygranda@unsa.edu.pe,prof123,profesor,Yesica Karin,Granda Lazaro,1980-01-01,true
+user-s-1,kcalcinac@unsa.edu.pe,est123,estudiante,Karina Paola,Calcina Chuquipalla,2002-01-01,true
+user-s-2,dcanqui@unsa.edu.pe,est123,estudiante,Diego,Canqui Ecos,2002-01-01,true
+user-s-3,mateo.flores@mail.com,est123,estudiante,Mateo Santiago,Flores Gonzales,2002-01-01,true
+user-s-4,mccasoi@unsa.edu.pe,est123,estudiante,Moises Robert,Ccaso Idme,2002-01-01,true
+user-s-5,echaynac@unsa.edu.pe,est123,estudiante,Elyud Edgar,Chayna Calcina,2002-01-01,true
+user-s-6,eduardo.zela@mail.com,est123,estudiante,Eduardo Josue,Zela Quispe,2002-01-01,true
+user-s-7,econdoripal@unsa.edu.pe,est123,estudiante,Emilio Alejandro,Condori Pallardel,2002-01-01,true
+user-s-8,wcondoriram@unsa.edu.pe,est123,estudiante,William Eddy,Condori Ramos,2002-01-01,true
+user-s-9,leo.sanchez@mail.com,est123,estudiante,Leo Valentino,Sanchez Rodriguez,2002-01-01,true
+user-s-10,sdelgadoa@unsa.edu.pe,est123,estudiante,Sergio Felipe,Delgado Amado,2002-01-01,true
+user-s-11,sdelgadoch@unsa.edu.pe,est123,estudiante,Stephano Gian Pierre,Delgado Chavez,2002-01-01,true
+user-s-12,estrella.huarsaya@mail.com,est123,estudiante,Estrella,Huarsaya,2002-01-01,true
+user-s-13,williams.rivera@mail.com,est123,estudiante,Williams Albert,Rivera Mamani,2002-01-01,true
+user-s-14,david.quispe@mail.com,est123,estudiante,David Audusto,Quispe Lloccallasi,2002-01-01,true
+user-s-15,luis.ponce@mail.com,est123,estudiante,Luis Antonio,Ponce Valdivia,2002-01-01,true
+user-s-16,rramosmam@unsa.edu.pe,est123,estudiante,Rodrigo Abraham,Ramos Mamani,2002-01-01,true
+user-s-17,cgutierrezca@unsa.edu.pe,est123,estudiante,Carlos Enrique,Gutierrez Castilla,2002-01-01,true
+user-s-18,fcaballerog@unsa.edu.pe,est123,estudiante,Fernando Antonio,Gama Llicahua,2002-01-01,true
+user-s-19,lhuayhuape@unsa.edu.pe,est123,estudiante,Lizzy Arlette,Huayhua Perez,2002-01-01,true
+user-s-20,jperezvil@unsa.edu.pe,est123,estudiante,Jesus Gustavo,Perez Villasante,2002-01-01,true
+user-s-21,rhuayllag@unsa.edu.pe,est123,estudiante,Roid Niro,Huaylla Guzman,2002-01-01,true
+user-s-22,ehumpire@unsa.edu.pe,est123,estudiante,Elber Sebastian,Humpire Huayta,2002-01-01,true
+user-s-23,jtumpay@unsa.edu.pe,est123,estudiante,Jose Gerardo,Tumpay Ttito,2002-01-01,true
+user-s-24,aquispesua@unsa.edu.pe,est123,estudiante,Angelo Josue,Quispe Suarez,2002-01-01,true
+user-s-25,jquispetor@unsa.edu.pe,est123,estudiante,Job Lorenzo,Quispe Torrez,2002-01-01,true
+user-s-26,oriverao@unsa.edu.pe,est123,estudiante,Omar Joaquin,Rivera Olivera,2002-01-01,true
+user-s-27,msancat@unsa.edu.pe,est123,estudiante,Marcos Abel,Sanca Turpo,2002-01-01,true
+user-s-28,dramosqui@unsa.edu.pe,est123,estudiante,Deysi Camila,Ramos Quispe,2002-01-01,true
+user-s-29,esucari@unsa.edu.pe,est123,estudiante,Edu Andre,Sucari Ccansaya,2002-01-01,true
+user-s-30,ccarpiomo@unsa.edu.pe,est123,estudiante,Camila,Carpio Mollo,2002-01-01,true
+user-s-31,ycauna@unsa.edu.pe,est123,estudiante,Yuri Gabriel,Cauna Quicaño,2002-01-01,true
+user-s-32,fsurcoc@unsa.edu.pe,est123,estudiante,Fernando Alonso,Surco Cora,2002-01-01,true
+user-s-33,gsupom@unsa.edu.pe,est123,estudiante,Gerald Steve,Supo Molina,2002-01-01,true
+user-s-34,marmendariz@unsa.edu.pe,est123,estudiante,Marco Antonio,Armendariz Paredes,2002-01-01,true
+user-s-35,dabensur@unsa.edu.pe,est123,estudiante,Diego Daniel,Abensur Romero,2002-01-01,true
+user-s-36,jcasteloc@unsa.edu.pe,est123,estudiante,Joaquin Andreé,Castelo Choque,2002-01-01,true
+user-s-37,jcalizayaq@unsa.edu.pe,est123,estudiante,Jose Luis,Calizaya Quispe,2002-01-01,true
+user-s-38,acondoriat@unsa.edu.pe,est123,estudiante,Aldair Daniel,Condori Ataucuri,2002-01-01,true
+user-s-39,rcolomay@unsa.edu.pe,est123,estudiante,Riki Santher,Coloma Yujra,2002-01-01,true
+user-s-40,acondorios@unsa.edu.pe,est123,estudiante,Anthony Richar,Condorios Chambi,2002-01-01,true
+user-s-41,mcornejoalv@unsa.edu.pe,est123,estudiante,Mauricio Andres,Cornejo Alvarez,2002-01-01,true
+user-s-42,sesteba@unsa.edu.pe,est123,estudiante,Sophia Alejandra,Esteba Feria,2002-01-01,true
+user-s-43,despinozab@unsa.edu.pe,est123,estudiante,David Alejandro,Espinoza Barrios,2002-01-01,true
+user-s-44,wfernandezv@unsa.edu.pe,est123,estudiante,Willians Gabriel,Fernandez Vilca,2002-01-01,true
+user-s-45,eguerraa@unsa.edu.pe,est123,estudiante,Ervin Armando,Guerra Arce,2002-01-01,true
+user-s-46,lgutierrezu@unsa.edu.pe,est123,estudiante,Luis Manuel,Gutierrez Umeres,2002-01-01,true
+user-s-47,jhuaracaq@unsa.edu.pe,est123,estudiante,Jilmar Santiago,Huaraca Quispe,2002-01-01,true
+user-s-48,cinfantesh@unsa.edu.pe,est123,estudiante,Carlo Anthony,Infantes Huanca,2002-01-01,true
+user-s-49,djaraa@unsa.edu.pe,est123,estudiante,Daysi,Jara Arisaca,2002-01-01,true
+user-s-50,hjuandedios@unsa.edu.pe,est123,estudiante,Hellen Grace,Juan De Dios Delgado,2002-01-01,true
+user-s-51,mpalominori@unsa.edu.pe,est123,estudiante,Misael Jesus,Palomino Rivadeneyra,2002-01-01,true
+user-s-52,mnietoll@unsa.edu.pe,est123,estudiante,Mauricio Aaron,Nieto Lloque,2002-01-01,true
+user-s-53,rmontanezp@unsa.edu.pe,est123,estudiante,Roni Ezequiel,Montañez Pacco,2002-01-01,true
+user-s-54,lpaxi@unsa.edu.pe,est123,estudiante,Leonardo Adriano,Paxi Huayhua,2002-01-01,true
+user-s-55,amezapa@unsa.edu.pe,est123,estudiante,Arthur Patrick,Meza Pareja,2002-01-01,true
+user-s-56,jlauramam@unsa.edu.pe,est123,estudiante,Jefferson Bryan,Laura Mamani,2002-01-01,true
+user-s-57,ivillalbaa@unsa.edu.pe,est123,estudiante,Ibeliz Karelia,Villalba Apaza,2002-01-01,true
+user-s-58,gzapanap@unsa.edu.pe,est123,estudiante,Gonzalo Rodrigo,Zapana Pariapaza,2002-01-01,true
+user-s-59,bsalazarn@unsa.edu.pe,est123,estudiante,Brayan Ronaldo,Salazar Ñaupa,2002-01-01,true
+user-s-60,jllactahuamaniv@unsa.edu.pe,est123,estudiante,Juan Diego,Llactahuamani Velasquez,2002-01-01,true
+user-s-61,fllosam@unsa.edu.pe,est123,estudiante,Fernando Enrique,Llosa Manchego,2002-01-01,true
+user-s-62,ilopezz@unsa.edu.pe,est123,estudiante,Ivan Alexander,Lopez Zegarra,2002-01-01,true
+user-s-63,amachacaro@unsa.edu.pe,est123,estudiante,Adrian Valentino,Machaca Rodriguez,2002-01-01,true
+user-s-64,vguzmana@unsa.edu.pe,est123,estudiante,Valeria,Guzman Avalos,2002-01-01,true
+user-s-65,chanaricu@unsa.edu.pe,est123,estudiante,Cesar Alejandro,Hañari Cutipa,2002-01-01,true
+user-s-66,fhuayhuaqu@unsa.edu.pe,est123,estudiante,Fabricio Del Piero Ernesto,Huayhua Quispe,2002-01-01,true
+user-s-67,mhuallpago@unsa.edu.pe,est123,estudiante,Mauricio Fernando,Huallpa Gonzales,2002-01-01,true
+user-s-68,rpilaresg@unsa.edu.pe,est123,estudiante,Rodrigo Rafael,Pilares Gudiel,2002-01-01,true
+user-s-69,jpococ@unsa.edu.pe,est123,estudiante,Jafet Joel,Poco Chire,2002-01-01,true
+user-s-70,jriverato@unsa.edu.pe,est123,estudiante,Jose Alberto,Rivera Torres,2002-01-01,true
+user-s-71,jrivasab@unsa.edu.pe,est123,estudiante,Jorge Aaron,Rivas Abril,2002-01-01,true
+user-s-72,arafael@unsa.edu.pe,est123,estudiante,Angel Fabian,Rafael Ccolqque,2002-01-01,true
+user-s-73,jquinteros@unsa.edu.pe,est123,estudiante,Jesus Salvador,Quinteros Condori,2002-01-01,true
+user-s-74,mquinad@unsa.edu.pe,est123,estudiante,Marcelo Adrian,Quina Delgado,2002-01-01,true
+user-s-75,ahuayhuap@unsa.edu.pe,est123,estudiante,Alexander Ragnar,Huayhua Perez,2002-01-01,true
+user-s-76,sdelvalle@unsa.edu.pe,est123,estudiante,Sebastian Adriano,Del Valle Delgado,2002-01-01,true
+user-s-77,rcueton@unsa.edu.pe,est123,estudiante,Ronal Sebastian,Cueto Ninaja,2002-01-01,true
+user-s-78,ediazva@unsa.edu.pe,est123,estudiante,Esdras Amado,Diaz Vasquez,2002-01-01,true
+user-s-79,bduenasm@unsa.edu.pe,est123,estudiante,Berly Miuler,Dueñas Mandamientos,2002-01-01,true
+user-s-80,renao@unsa.edu.pe,est123,estudiante,Roberto Carlos,Enao Vilca,2002-01-01,true
+user-s-81,jtorreschav@unsa.edu.pe,est123,estudiante,Jhair Alejandro,Torres Chavez,2002-01-01,true
+user-s-82,jalvac@unsa.edu.pe,est123,estudiante,Jose Javier,Alva Cornejo,2002-01-01,true
+user-s-83,alberto.torres@mail.com,est123,estudiante,Alberto Gabriel,Torres Ara,2002-01-01,true
+user-s-84,dalcazar@unsa.edu.pe,est123,estudiante,Diogo André,Alcazar Medina,2002-01-01,true
+user-s-85,jalfarob@unsa.edu.pe,est123,estudiante,Jesus Alberto,Alfaro Buiza,2002-01-01,true
+user-s-86,scalcinamu@unsa.edu.pe,est123,estudiante,Sergio Eliseo,Calcina Muchica,2002-01-01,true
+user-s-87,luis.ramos@mail.com,est123,estudiante,Luis Enrique,Ramos Chambi,2002-01-01,true
+user-s-88,jarphim@unsa.edu.pe,est123,estudiante,Juan Carlos,Arphi Medina,2002-01-01,true
+user-s-89,jblancoar@unsa.edu.pe,est123,estudiante,Jose Luis,Blanco Arrisueño,2002-01-01,true
+user-s-90,cagostinelli@unsa.edu.pe,est123,estudiante,Claudia Victoria,Agostinelli Cordova,2002-01-01,true
+user-s-91,pcardenasvi@unsa.edu.pe,est123,estudiante,Piero Adriano,Cardenas Villagomez,2002-01-01,true
+user-s-92,ccayrov@unsa.edu.pe,est123,estudiante,Christofer Jhonatan,Cayro Vidangos,2002-01-01,true
+user-s-93,lcastillol@unsa.edu.pe,est123,estudiante,Lizardo Manuel,Castillo Llaza,2002-01-01,true
+user-s-94,lchipanac@unsa.edu.pe,est123,estudiante,Luis Antonio,Chipana Chura,2002-01-01,true
+user-s-95,fchavezme@unsa.edu.pe,est123,estudiante,Fernando Jesus,Chavez Medina,2002-01-01,true
+user-s-96,jcarial@unsa.edu.pe,est123,estudiante,Jose Rodrigo,Cari Almiron,2002-01-01,true
+user-s-97,lcoahe@unsa.edu.pe,est123,estudiante,Luis Aarón,Coa Herrera,2002-01-01,true
+user-s-98,kcornejop@unsa.edu.pe,est123,estudiante,Karla Veronica,Cornejo Pari,2002-01-01,true
+user-s-99,fdezaso@unsa.edu.pe,est123,estudiante,Fernando David,Deza Sotomayor,2002-01-01,true
+user-s-100,gcolquefl@unsa.edu.pe,est123,estudiante,Gerardo Javier,Colque Flores,2002-01-01,true
+user-s-101,ecubas@unsa.edu.pe,est123,estudiante,Elizabeth Rosario,Cuba Soncco,2002-01-01,true
+user-s-102,adderly.chuco@mail.com,est123,estudiante,Adderly Jamyt,Chuco Ylachoque,2002-01-01,true
+user-s-103,acuela@unsa.edu.pe,est123,estudiante,Andrea Lucia,Cuela Morales,2002-01-01,true
+user-s-104,jphilco@unsa.edu.pe,est123,estudiante,Josue Samuel,Philco Puma,2002-01-01,true
+user-s-105,jpinopa@unsa.edu.pe,est123,estudiante,Jorge Luis,Pino Palpa,2002-01-01,true
+user-s-106,lramoscha@unsa.edu.pe,est123,estudiante,Luis Enrique,Ramos Chambi,2002-01-01,true
+user-s-107,eramosq@unsa.edu.pe,est123,estudiante,Erik Manuel,Ramos Quispe,2002-01-01,true
+user-s-108,areyesrod@unsa.edu.pe,est123,estudiante,Angel Daniel,Reyes Rodriguez,2002-01-01,true
+user-s-109,driverac@unsa.edu.pe,est123,estudiante,Diego Benjamin,Rivera Cruz,2002-01-01,true
+user-s-110,krodriguezl@unsa.edu.pe,est123,estudiante,Kevin Andre,Rodriguez Lima,2002-01-01,true
+user-s-111,speraltaa@unsa.edu.pe,est123,estudiante,Samuel Angel,Peralta Arce,2002-01-01,true
+user-s-112,ctaipes@unsa.edu.pe,est123,estudiante,Christian Daniel,Taipe Saraza,2002-01-01,true
+user-s-113,fsuca@unsa.edu.pe,est123,estudiante,Fernando Anibal,Suca Quispe,2002-01-01,true
+user-s-114,kzenayuca@unsa.edu.pe,est123,estudiante,Katherin Milagros,Zenayuca Corimanya,2002-01-01,true
+user-s-115,rventurave@unsa.edu.pe,est123,estudiante,Ronald,Ventura Venero,2002-01-01,true
+user-s-116,asumaria@unsa.edu.pe,est123,estudiante,Alessandro Steven,Sumaria Choqueluque,2002-01-01,true
+user-s-117,mticonala@unsa.edu.pe,est123,estudiante,Michael Jarnie,Ticona Larico,2002-01-01,true
+user-s-118,jtaquirig@unsa.edu.pe,est123,estudiante,Jorge Patrick,Taquiri Guerreros,2002-01-01,true
+user-s-119,fvillantoy@unsa.edu.pe,est123,estudiante,Fabricio,Villantoy Apaza,2002-01-01,true
+user-s-120,msumirer@unsa.edu.pe,est123,estudiante,Marko Julio,Sumire Ramos,2002-01-01,true
+user-s-121,lponze@unsa.edu.pe,est123,estudiante,Leonardo Jesus,Ponze Bellido,2002-01-01,true
+user-s-122,dquinoneso@unsa.edu.pe,est123,estudiante,Daniel Frank,Quinteros Olgado,2002-01-01,true
+user-s-123,aferro@unsa.edu.pe,est123,estudiante,Arleen Maritza,Ferro Vasquez,2002-01-01,true
+user-s-124,mflorescoag@unsa.edu.pe,est123,estudiante,Manuel Alonso,Flores Coaguila,2002-01-01,true
+user-s-125,lgaonab@unsa.edu.pe,est123,estudiante,Leonardo Gustavo,Gaona Briceño,2002-01-01,true
+user-s-126,clever.condori@mail.com,est123,estudiante,Clever,Condori Bernal,2002-01-01,true
+user-s-127,afloresloz@unsa.edu.pe,est123,estudiante,Alvaro Mauricio,Flores Loza,2002-01-01,true
+user-s-128,lhuayhuac@unsa.edu.pe,est123,estudiante,Lenin Michael,Huayhua Carlos,2002-01-01,true
+user-s-129,agonzalestor@unsa.edu.pe,est123,estudiante,Alejandro Oscar,Gonzales Torres,2002-01-01,true
+user-s-130,emalcoaccha@unsa.edu.pe,est123,estudiante,Erick Ruben,Malcoaccha Diaz,2002-01-01,true
+user-s-131,amamanira@unsa.edu.pe,est123,estudiante,Anselmo Alvaro,Mamani Ramos,2002-01-01,true
+user-s-132,emamaniyu@unsa.edu.pe,est123,estudiante,Edilson Bonet,Mamani Yucra,2002-01-01,true
+user-s-133,jmachacamu@unsa.edu.pe,est123,estudiante,Jose Alejandro,Machaca Muñiz,2002-01-01,true
+user-s-134,sjorge@unsa.edu.pe,est123,estudiante,Salim Adrian,Jorge Rodriguez,2002-01-01,true
+user-s-135,amendozacoaq@unsa.edu.pe,est123,estudiante,Arturo Michael,Mendoza Coaquira,2002-01-01,true
+user-s-136,smendozaf@unsa.edu.pe,est123,estudiante,Sebastian Andres,Mendoza Fernandez,2002-01-01,true
+user-s-137,fmoralesg@unsa.edu.pe,est123,estudiante,Fernando David,Morales Gomel,2002-01-01,true
+user-s-138,smezal@unsa.edu.pe,est123,estudiante,Sebastian Diego,Meza Lira,2002-01-01,true
+user-s-139,rmiramira@unsa.edu.pe,est123,estudiante,Rimsky Augusto,Miramira Bellido,2002-01-01,true
+user-s-140,jmontejo@unsa.edu.pe,est123,estudiante,Juan Carlos Giovanni,Montejo Carpio,2002-01-01,true
+user-s-141,gmunozcu@unsa.edu.pe,est123,estudiante,Giomar Danny,Muñoz Curi,2002-01-01,true
+user-s-142,mluisj@unsa.edu.pe,est123,estudiante,Mariana Valery,Luis Jimenez,2002-01-01,true
+user-s-143,klaricoh@unsa.edu.pe,est123,estudiante,Kerin Sebastian,Larico Huillca,2002-01-01,true
+user-s-144,cleonqu@unsa.edu.pe,est123,estudiante,Clever Alonzo,Leon Quispe,2002-01-01,true
+user-s-145,rgrande@unsa.edu.pe,est123,estudiante,Ronaldo Gunter,Grande Turpo,2002-01-01,true
+user-s-146,bchambia@unsa.edu.pe,est123,estudiante,Bryana Joaquin,Chambi Aquino,2002-01-01,true
+user-s-147,acanapatana@unsa.edu.pe,est123,estudiante,Alex Enrique,Cañapataña Vargas,2002-01-01,true
+user-s-148,mcahuanan@unsa.edu.pe,est123,estudiante,Melany Maria Cristina,Cahuana Nina,2002-01-01,true
+user-s-149,ltaipes@unsa.edu.pe,est123,estudiante,Leonardo Yahir,Taipe Sacasqui,2002-01-01,true
+user-s-150,dapazaan@unsa.edu.pe,est123,estudiante,Diego Francisco,Apaza Andaluz,2002-01-01,true
+user-s-151,pbenaventea@unsa.edu.pe,est123,estudiante,Paolo Daniel,Benavente Aguirre,2002-01-01,true
+user-s-152,jcacsire@unsa.edu.pe,est123,estudiante,Jhosep Angel,Cacsire Sanchez,2002-01-01,true
+user-s-153,acarpioch@unsa.edu.pe,est123,estudiante,Anderson Samuel,Carpio Chura,2002-01-01,true
+user-s-154,dcayllahuag@unsa.edu.pe,est123,estudiante,Diego Yampier,Cayllahua Gutierrez,2002-01-01,true
+user-s-155,rcerpa@unsa.edu.pe,est123,estudiante,Randu Jean Franco,Cerpa Garcia,2002-01-01,true
+user-s-156,rchallcom@unsa.edu.pe,est123,estudiante,Rodrigo Gonzalo,Challco Mayta,2002-01-01,true
+user-s-157,jchancayauris@unsa.edu.pe,est123,estudiante,Jesus Bruno,Chancayauri Soncco,2002-01-01,true
+user-s-158,fchoqueq@unsa.edu.pe,est123,estudiante,Frida Daniela,Choque Quilca,2002-01-01,true
+user-s-159,bdiazca@unsa.edu.pe,est123,estudiante,Berly Joel,Diaz Castro,2002-01-01,true
+user-s-160,efloresq@unsa.edu.pe,est123,estudiante,Erick Bryan,Flores Quispe,2002-01-01,true
+user-s-161,jhualpal@unsa.edu.pe,est123,estudiante,Jose Mauricio,Hualpa Lopez,2002-01-01,true
+user-s-162,lhuamanco@unsa.edu.pe,est123,estudiante,Luciana Julissa,Huaman Coaquira,2002-01-01,true
+user-s-163,jhuamaniv@unsa.edu.pe,est123,estudiante,Juan Diego,Huamani Vilca,2002-01-01,true
+user-s-164,jmayorgav@unsa.edu.pe,est123,estudiante,Jharold Alonso,Mayorga Villena,2002-01-01,true
+user-s-165,lquispeccah@unsa.edu.pe,est123,estudiante,Luis Alberto,Quispe Ccahuaya,2002-01-01,true
+user-s-166,bquilcah@unsa.edu.pe,est123,estudiante,Bryan Anthony,Quilca Huamani,2002-01-01,true
+user-s-167,jquisperoj@unsa.edu.pe,est123,estudiante,Javier Wilber,Quispe Rojas,2002-01-01,true
+user-s-168,pramirezza@unsa.edu.pe,est123,estudiante,Patrik Rene,Ramirez Zarate,2002-01-01,true
+user-s-169,mrobles@unsa.edu.pe,est123,estudiante,Mauricio Sebastian,Robles Ramos,2002-01-01,true
+user-s-170,oroque@unsa.edu.pe,est123,estudiante,Owen Haziel,Roque Sosa,2002-01-01,true
+user-s-171,asolisz@unsa.edu.pe,est123,estudiante,Axel Jhuan,Solis Zamata,2002-01-01,true
+user-s-172,krospigliosig@unsa.edu.pe,est123,estudiante,Kristopher,Rospigliosi Gonzales,2002-01-01,true
+user-s-173,dsaldanam@unsa.edu.pe,est123,estudiante,Diego Fernando,Saldaña Moscoso,2002-01-01,true
+user-s-174,dvaldiviaz@unsa.edu.pe,est123,estudiante,Deivid Andre,Valdivia Zavaleta,2002-01-01,true
+user-s-175,szamalloam@unsa.edu.pe,est123,estudiante,Sebastian Agenor,Zamalloa Molina,2002-01-01,true
+user-s-176,lzhong@unsa.edu.pe,est123,estudiante,Linghai Joaquin,Zhong Callasi,2002-01-01,true
+user-s-177,avalenciad@unsa.edu.pe,est123,estudiante,Alejandro Jacob,Valencia Delgado,2002-01-01,true
+user-s-178,jvelasquezmo@unsa.edu.pe,est123,estudiante,Juan Jose,Velasquez Montoya,2002-01-01,true
+user-s-179,asotohu@unsa.edu.pe,est123,estudiante,Angela Shirleth,Soto Huerta,2002-01-01,true
+user-s-180,jtorresba@unsa.edu.pe,est123,estudiante,Jair David,Torres Barra,2002-01-01,true
+user-s-181,jusccag@unsa.edu.pe,est123,estudiante,Jhonatan Bilbao,Uscca Giraldo,2002-01-01,true
+user-s-182,grodriguezcu@unsa.edu.pe,est123,estudiante,Gabriel Fernando,Rodriguez Cutimbo,2002-01-01,true
+user-s-183,smenaq@unsa.edu.pe,est123,estudiante,Sergio Sebastian,Mena Quispe,2002-01-01,true
+user-s-184,jnizama@unsa.edu.pe,est123,estudiante,Juan Carlos Antonio,Nizama Cespedes,2002-01-01,true
+user-s-185,smogollon@unsa.edu.pe,est123,estudiante,Sergio Daniel,Mogollon Caceres,2002-01-01,true
+user-s-186,ppacherres@unsa.edu.pe,est123,estudiante,Peter Smith,Pacherres Muñoz,2002-01-01,true
+user-s-187,cpardave@unsa.edu.pe,est123,estudiante,Christian,Pardave Espinoza,2002-01-01,true
+user-s-188,pparizaca@unsa.edu.pe,est123,estudiante,Paul Antony,Parizaca Mozo,2002-01-01,true
+user-s-189,lmontoyac@unsa.edu.pe,est123,estudiante,Leonardo,Montoya Choque,2002-01-01,true
+user-s-190,sochoao@unsa.edu.pe,est123,estudiante,Sebastian Andre,Ochoa Ortiz,2002-01-01,true
+user-s-191,fhuaquisto@unsa.edu.pe,est123,estudiante,Fabricio,Huaquisto Quispe,2002-01-01,true
+user-s-192,nlazop@unsa.edu.pe,est123,estudiante,Natalie Marleny,Lazo Paxi,2002-01-01,true
+user-s-193,alopezco@unsa.edu.pe,est123,estudiante,Andrea Del Rosario,Lopez Condori,2002-01-01,true
+user-s-194,amartinezch@unsa.edu.pe,est123,estudiante,Aldo Raul,Martinez Choque,2002-01-01,true
+user-s-195,alupoc@unsa.edu.pe,est123,estudiante,Avelino,Lupo Condori,2002-01-01,true
+user-s-196,bmaldonadoc@unsa.edu.pe,est123,estudiante,Braulio Nayap,Maldonado Casilla,2002-01-01,true
+user-s-197,rmaldonadop@unsa.edu.pe,est123,estudiante,Roy Abel,Maldonado Parejo,2002-01-01,true
+user-s-198,pmarinos@unsa.edu.pe,est123,estudiante,Princce Yorwin,Mariños Hilario,2002-01-01,true
+user-s-199,shiman@unsa.edu.pe,est123,estudiante,Sebastian Felipe,Himan Burgos,2002-01-01,true
+user-s-200,gccamam@unsa.edu.pe,est123,estudiante,Gustavo Alonso,Ccama Marron,2002-01-01,true
+user-s-201,accolqueq@unsa.edu.pe,est123,estudiante,Anthony Criz,Ccolque Quispe,2002-01-01,true
+user-s-202,vcolquen@unsa.edu.pe,est123,estudiante,Valery Andrea,Colque Noa,2002-01-01,true
+user-s-203,ccondorib@unsa.edu.pe,est123,estudiante,Clever Juan,Condori Bernal,2002-01-01,true
+user-s-204,econdoricas@unsa.edu.pe,est123,estudiante,Ebert Luis,Condori Casquino,2002-01-01,true
+user-s-205,scondorimac@unsa.edu.pe,est123,estudiante,Saul Arturo,Condori Machaca,2002-01-01,true
+user-s-206,ldavis@unsa.edu.pe,est123,estudiante,Leon Felipe,Davis Coropuna,2002-01-01,true
+user-s-207,dbenegasl@unsa.edu.pe,est123,estudiante,Daniel Alejandro,Benegas Limache,2002-01-01,true
+user-s-208,jalvarezas@unsa.edu.pe,est123,estudiante,Jheeremy Manuel,Alvarez Astete,2002-01-01,true
+user-s-209,ebejarr@unsa.edu.pe,est123,estudiante,Edson Bryan,Bejar Roman,2002-01-01,true
+user-s-210,kbejarr@unsa.edu.pe,est123,estudiante,Katherine Nikole,Bejar Roman,2002-01-01,true
+user-s-211,ablancoc@unsa.edu.pe,est123,estudiante,Albert Gussepe,Blanco Cana,2002-01-01,true
+user-s-212,aaquinom@unsa.edu.pe,est123,estudiante,Ana Karina,Aquino Mamani,2002-01-01,true
+user-s-213,daquino@unsa.edu.pe,est123,estudiante,Diego Josue,Aquino Quispe,2002-01-01,true
+user-s-214,jcacerescu@unsa.edu.pe,est123,estudiante,Jayan Michael,Caceres Cuba,2002-01-01,true
+user-s-215,jose.suni@mail.com,est123,estudiante,Jose Francisco,Suni Vallejo,2002-01-01,true
+user-s-216,mcasaverde@unsa.edu.pe,est123,estudiante,Moises Alejandro,Casaverde Aleman,2002-01-01,true
+user-s-217,lcastillonu@unsa.edu.pe,est123,estudiante,Levi Joel,Castillon Urquiza,2002-01-01,true
+user-s-218,jcastrobar@unsa.edu.pe,est123,estudiante,Juan Carlos,Castro Barreda,2002-01-01,true
+user-s-219,acondoripu@unsa.edu.pe,est123,estudiante,Anthony Ricardo,Condori Puño,2002-01-01,true
+user-s-220,josue.sumare@mail.com,est123,estudiante,Josué Gabriel,Sumare Uscca,2002-01-01,true
+user-s-221,daniel.quiñones@mail.com,est123,estudiante,Daniel Frank,Quiñones Olgado,2002-01-01,true
+user-s-222,acruzch@unsa.edu.pe,est123,estudiante,Ancel Alain Fernando,Cruz Chaiña,2002-01-01,true
+user-s-223,kcuevasap@unsa.edu.pe,est123,estudiante,Kathia Yerardine,Cuevas Apaza,2002-01-01,true
+user-s-224,acanol@unsa.edu.pe,est123,estudiante,Alvaro Sergio,Cano Luque,2002-01-01,true
+user-s-225,mfarfanhu@unsa.edu.pe,est123,estudiante,Mauricio Alejandro,Farfan Huayta,2002-01-01,true
+user-s-226,mituccayasi@unsa.edu.pe,est123,estudiante,Marko Marcelo,Ituccayasi Umeres,2002-01-01,true
+user-s-227,ehuallap@unsa.edu.pe,est123,estudiante,Erick Klendort,Hualla Puelles,2002-01-01,true
+user-s-228,ymachacca@unsa.edu.pe,est123,estudiante,Yaquelin Liset,Machacca Puma,2002-01-01,true
+user-s-229,jyaurii@unsa.edu.pe,est123,estudiante,Julio Enrique,Yauri Ituccayasi,2002-01-01,true
+user-s-230,ysuniq@unsa.edu.pe,est123,estudiante,Yanira Angie,Suni Quispe,2002-01-01,true
+user-s-231,jvilcasam@unsa.edu.pe,est123,estudiante,Jesus Alonso,Vilca Samanez,2002-01-01,true
+user-s-232,ctorresra@unsa.edu.pe,est123,estudiante,Camila Antuaneth,Torres Ramos,2002-01-01,true
+user-s-233,avillah@unsa.edu.pe,est123,estudiante,Alejandro Antonio,Villa Herrera,2002-01-01,true
+user-s-234,fvillarroel@unsa.edu.pe,est123,estudiante,Fiorela Estefany,Villarroel Ramos,2002-01-01,true
+user-s-235,pvizcarra@unsa.edu.pe,est123,estudiante,Piero Emiliano,Vizcarra Vargas,2002-01-01,true
+user-s-236,jsumare@unsa.edu.pe,est123,estudiante,Josue Gabriel,Sumare Uscca,2002-01-01,true
+user-s-237,gpaccohu@unsa.edu.pe,est123,estudiante,Gabriel,Pacco Huaraca,2002-01-01,true
+user-s-238,mnifla@unsa.edu.pe,est123,estudiante,Manuel Angel,Nifla Llallacachi,2002-01-01,true
+user-s-239,eperezchi@unsa.edu.pe,est123,estudiante,Erick Jesus,Perez Chipa,2002-01-01,true
+user-s-240,rrodriguezp@unsa.edu.pe,est123,estudiante,Ricardo Alexander,Rodriguez Pumacayo,2002-01-01,true
+user-s-241,erojasm@unsa.edu.pe,est123,estudiante,Eduardo Fabian,Rojas Miranda,2002-01-01,true
+user-s-242,jsanchezchi@unsa.edu.pe,est123,estudiante,John Edson,Sanchez Chilo,2002-01-01,true
+user-s-243,jperezvi@unsa.edu.pe,est123,estudiante,Jazmin Gabriela,Perez Villasante,2002-01-01,true
+user-s-244,apinoh@unsa.edu.pe,est123,estudiante,Angie Alexandra,Pino Huarsaya,2002-01-01,true
+user-s-245,allicaa@unsa.edu.pe,est123,estudiante,Albert Daniel,Llica Alvarez,2002-01-01,true
+user-s-246,rmartinezve@unsa.edu.pe,est123,estudiante,Riomar Marcial,Martinez Velasquez,2002-01-01,true
+user-s-247,fmattos@unsa.edu.pe,est123,estudiante,Fabrizio Miguel,Mattos Cahui,2002-01-01,true
+user-s-248,ugarcia@unsa.edu.pe,est123,estudiante,Uberto,Garcia Caceres,2002-01-01,true
+user-s-249,jgarciamac@unsa.edu.pe,est123,estudiante,Juan Diego,Garcia Macedo,2002-01-01,true
+user-s-250,rgutierrezar@unsa.edu.pe,est123,estudiante,Ronald Romario,Gutierrez Arratia,2002-01-01,true
+user-s-251,kchambit@unsa.edu.pe,est123,estudiante,Kevin Joaquin,Chambi Tapia,2002-01-01,true
+user-s-252,rchoquehuancaan@unsa.edu.pe,est123,estudiante,Roy Angel,Choquehuanca Anconeyra,2002-01-01,true
+user-s-253,schambiyt@unsa.edu.pe,est123,estudiante,Samuel Felipe Maximiliano,Chambi Ytusaca,2002-01-01,true
+user-s-254,rchayna@unsa.edu.pe,est123,estudiante,Rodrigo Vicente,Chayña Taza,2002-01-01,true
+user-s-255,napazaa@unsa.edu.pe,est123,estudiante,Nelzon Jorge,Apaza Apaza,2002-01-01,true
+user-s-256,jhapazac@unsa.edu.pe,est123,estudiante,Jhon Anthony,Apaza Condori,2002-01-01,true
+user-s-257,aaronij@unsa.edu.pe,est123,estudiante,Antony Olmer,Aroni Jarata,2002-01-01,true
+user-s-258,cchuran@unsa.edu.pe,est123,estudiante,Ckaroll Darlene,Chura Navarro,2002-01-01,true
+user-s-259,ecusiha@unsa.edu.pe,est123,estudiante,Evelyn Lizbeth,Cusi Hancco,2002-01-01,true
+user-s-260,mdezac@unsa.edu.pe,est123,estudiante,Miguel Angel,Deza Cuela,2002-01-01,true
+user-s-261,eespinozape@unsa.edu.pe,est123,estudiante,Edgar Alfonso,Espinoza Peñaloza,2002-01-01,true
+user-s-262,eruizm@unsa.edu.pe,est123,estudiante,Eduardo German,Ruiz Mamani,2002-01-01,true
+user-s-263,lsantet@unsa.edu.pe,est123,estudiante,Luis Felipe,Sante Taipe,2002-01-01,true
+user-s-264,rsantillanaq@unsa.edu.pe,est123,estudiante,Rodrigo Junior,Santillana Quispe,2002-01-01,true
+user-s-265,rsantisteban@unsa.edu.pe,est123,estudiante,Rodrigo Jesus,Santisteban Pachari,2002-01-01,true
+user-s-266,jvaldiviame@unsa.edu.pe,est123,estudiante,Juan Diego,Valdivia Mendoza,2002-01-01,true
+user-s-267,gvalenciaar@unsa.edu.pe,est123,estudiante,Gabriel Adriano,Valencia Arana,2002-01-01,true
+user-s-268,svilcalim@unsa.edu.pe,est123,estudiante,Santiago Javier,Vilca Limachi,2002-01-01,true
+user-s-269,mvilchezmo@unsa.edu.pe,est123,estudiante,Misael Svante,Vilchez Molina,2002-01-01,true
+user-s-270,jvillalobosb@unsa.edu.pe,est123,estudiante,Juan Jose,Villalobos Banos,2002-01-01,true
+user-s-271,lvillanuevag@unsa.edu.pe,est123,estudiante,Luisa,Villanueva Guerrero,2002-01-01,true
+user-s-272,dzanabria@unsa.edu.pe,est123,estudiante,Diego Alonso,Zanabria Sacsi,2002-01-01,true
+user-s-273,ctaipe@unsa.edu.pe,est123,estudiante,Cristhian Luis,Taipe Huanca,2002-01-01,true
+user-s-274,jsotobe@unsa.edu.pe,est123,estudiante,Juan Manuel,Soto Begazo,2002-01-01,true
+user-s-275,lsotomayorm@unsa.edu.pe,est123,estudiante,Luis Alberto,Sotomayor Moya,2002-01-01,true
+user-s-276,asucso@unsa.edu.pe,est123,estudiante,Angela Solange,Sucso Choque,2002-01-01,true
+user-s-277,aticonamo@unsa.edu.pe,est123,estudiante,Alvaro Joel,Ticona Motta,2002-01-01,true
+user-s-278,gmermas@unsa.edu.pe,est123,estudiante,Genry Jhoan,Merma Salas,2002-01-01,true
+user-s-279,rloayzaal@unsa.edu.pe,est123,estudiante,Ruben Kim Leirson,Loayza Alarcon,2002-01-01,true
+user-s-280,vquicano@unsa.edu.pe,est123,estudiante,Victor Alejandro,Quica Miranda,2002-01-01,true
+user-s-281,jquispemend@unsa.edu.pe,est123,estudiante,Juan Daniel,Quispe Mendoza,2002-01-01,true
+user-s-282,sromeroc@unsa.edu.pe,est123,estudiante,Solange Aracely,Romero Chacon,2002-01-01,true
+user-s-283,pquispemor@unsa.edu.pe,est123,estudiante,Paul Jesus,Quispe Morocco,2002-01-01,true
+user-s-284,lmoroco@unsa.edu.pe,est123,estudiante,Luis Angel,Moroco Ramos,2002-01-01,true
+user-s-285,imoscosoa@unsa.edu.pe,est123,estudiante,Imanol Brayan,Moscoso Apaza,2002-01-01,true
+user-s-286,epalli@unsa.edu.pe,est123,estudiante,Eden,Palli Livisi,2002-01-01,true
+user-s-287,jperca@unsa.edu.pe,est123,estudiante,Joel Cristian,Perca Quispe,2002-01-01,true
+user-s-288,mhilaresa@unsa.edu.pe,est123,estudiante,Maryori Lizeth,Hilares Angelo,2002-01-01,true
+user-s-289,agonzalescon@unsa.edu.pe,est123,estudiante,Alejandro Javier,Gonzales Condori,2002-01-01,true
+user-s-290,jhuaihuah@unsa.edu.pe,est123,estudiante,Jack Christopher,Huaihua Huayhua,2002-01-01,true
+user-s-291,ehuancap@unsa.edu.pe,est123,estudiante,Elizabeth Yasmin,Huanca Parqui,2002-01-01,true
+user-s-292,jhuertas@unsa.edu.pe,est123,estudiante,Jim Leonardo,Huertas Canaza,2002-01-01,true
+user-s-293,acarazas@unsa.edu.pe,est123,estudiante,Alessander Jesus,Carazas Quispe,2002-01-01,true
+user-s-294,jclavijoc@unsa.edu.pe,est123,estudiante,Jhonathan,Clavijo Chacaltana,2002-01-01,true
+user-s-295,tcary@unsa.edu.pe,est123,estudiante,Tomas Gabriel,Cary Bernal,2002-01-01,true
+user-s-296,gchipanap@unsa.edu.pe,est123,estudiante,Gabriela Angel,Chipana Perez,2002-01-01,true
+user-s-297,aapazaquis@unsa.edu.pe,est123,estudiante,Angel Abraham,Apaza Quispe,2002-01-01,true
+user-s-298,larredondo@unsa.edu.pe,est123,estudiante,Luis Alonzo,Arredondo Paja,2002-01-01,true
+user-s-299,abedregalv@unsa.edu.pe,est123,estudiante,Adrian Rolando,Bedregal Vento,2002-01-01,true
+user-s-300,pcastillor@unsa.edu.pe,est123,estudiante,Pedro Luis,Castillo Ravelo,2002-01-01,true
+user-s-301,scastillos@unsa.edu.pe,est123,estudiante,Sergio Ahmed,Castillo Sancho,2002-01-01,true
+user-s-302,gcolqueq@unsa.edu.pe,est123,estudiante,Guillermo Joel,Colque Quispe,2002-01-01,true
+user-s-303,aconchal@unsa.edu.pe,est123,estudiante,Angel Tomas,Concha Layme,2002-01-01,true
+user-s-304,fflorezag@unsa.edu.pe,est123,estudiante,Fabian Vladimir,Florez Aguilar,2002-01-01,true
+user-s-305,egutierreze@unsa.edu.pe,est123,estudiante,Erick Stefano,Gutierrez Enriquez,2002-01-01,true
+user-s-306,ymendozasu@unsa.edu.pe,est123,estudiante,Yober Maykol,Mendoza Surco,2002-01-01,true
+user-s-307,lmita@unsa.edu.pe,est123,estudiante,Lesly Yaneth,Mita Yagua,2002-01-01,true
+user-s-308,kolazabalc@unsa.edu.pe,est123,estudiante,Kate Itati,Olazabal Chavez,2002-01-01,true
+user-s-309,ajimenezl@unsa.edu.pe,est123,estudiante,Anagabriela Pilar,Jimenez Lopez,2002-01-01,true
+user-s-310,kpucho@unsa.edu.pe,est123,estudiante,Kelvin Paul,Pucho Zevallos,2002-01-01,true
+user-s-311,joquispehua@unsa.edu.pe,est123,estudiante,Joselyn Lizeth,Quispe Huanca,2002-01-01,true
+user-s-312,staya@unsa.edu.pe,est123,estudiante,Samuel Omar,Taya Yana,2002-01-01,true
+user-s-313,lvaldiviaram@unsa.edu.pe,est123,estudiante,Leonardo Daniel,Valdivia Ramos,2002-01-01,true
+user-s-314,evaldiviaq@unsa.edu.pe,est123,estudiante,Eduardo Felipe,Valdivia Quispe,2002-01-01,true
+user-s-315,srimache@unsa.edu.pe,est123,estudiante,Sennayda Sadid,Rimache Choquehuanca,2002-01-01,true
+user-s-316,rromeroro@unsa.edu.pe,est123,estudiante,Romeo Alipio,Romero Rocca,2002-01-01,true
+user-s-317,mruelasq@unsa.edu.pe,est123,estudiante,Merisabel,Ruelas Quenaya,2002-01-01,true
+user-s-318,fparedese@unsa.edu.pe,est123,estudiante,Fernanda Anthoanette,Paredes Escobedo,2002-01-01,true
+user-s-319,aperezr@unsa.edu.pe,est123,estudiante,Angelo Aldo,Perez Rodriguez,2002-01-01,true
+user-s-320,chuancao@unsa.edu.pe,est123,estudiante,Cristhian David,Huanca Olazabal,2002-01-01,true
+user-s-321,aescarza@unsa.edu.pe,est123,estudiante,Alexander Raul,Escarza Pacori,2002-01-01,true
+user-s-322,jchavezgue@unsa.edu.pe,est123,estudiante,Jean Pierre,Chavez Guevara,2002-01-01,true
+user-s-323,lbustamantet@unsa.edu.pe,est123,estudiante,Luis Angel,Bustamante Torres,2002-01-01,true
+user-s-324,cquisocalac@unsa.edu.pe,est123,estudiante,Claudia Roxana,Quisocala Cruz,2002-01-01,true
+user-s-325,bfernandezm@unsa.edu.pe,est123,estudiante,Brayan Gino,Fernandez Mamani,2002-01-01,true
+user-s-326,bsilvaco@unsa.edu.pe,est123,estudiante,Brian Emanuel,Silva Corrales,2002-01-01,true
+user-s-327,lsihuintap@unsa.edu.pe,est123,estudiante,Luis Armando,Sihuinta Perez,2002-01-01,true
+user-s-328,isoncco@unsa.edu.pe,est123,estudiante,Ivan Ulises,Soncco Pacco,2002-01-01,true
+user-s-329,esucasacac@unsa.edu.pe,est123,estudiante,Edward Henry,Sucasaca Chire,2002-01-01,true
+user-s-330,etorresq@unsa.edu.pe,est123,estudiante,Erick Jesus,Torres Quispe,2002-01-01,true
+user-s-331,evargashe@unsa.edu.pe,est123,estudiante,Edwar Jhoel,Vargas Herhuay,2002-01-01,true
+user-s-332,yllampi@unsa.edu.pe,est123,estudiante,Yamil Yonder,Llampi Hancco,2002-01-01,true
+user-s-333,dmarquez@unsa.edu.pe,est123,estudiante,Daryl Oliver,Marquez Calapuja,2002-01-01,true
+user-s-334,apalmal@unsa.edu.pe,est123,estudiante,Alejandro Clemente,Palma Lopez,2002-01-01,true
+user-s-335,lccalluchi@unsa.edu.pe,est123,estudiante,Luis Alberto,Ccalluchi Lopez,2002-01-01,true
+user-s-336,adelgadoj@unsa.edu.pe,est123,estudiante,Alexandro Ysaac,Delgado Justo,2002-01-01,true
+user-s-337,abejar@unsa.edu.pe,est123,estudiante,Angel Andres,Bejar Merma,2002-01-01,true
+user-s-338,jccariq@unsa.edu.pe,est123,estudiante,Jose Carlos,Ccari Quispe,2002-01-01,true
+user-s-339,jlizarve@unsa.edu.pe,est123,estudiante,Johan Fabricio,Lizarve Mamani,2002-01-01,true
+user-s-340,ehuayllasco@unsa.edu.pe,est123,estudiante,Edward Luis,Huayllasco Carlos,2002-01-01,true
+user-s-341,jpostigo@unsa.edu.pe,est123,estudiante,Juan Carlos,Postigo Cabana,2002-01-01,true
+user-s-342,jsonccolu@unsa.edu.pe,est123,estudiante,Jean Carlos,Soncco Lupa,2002-01-01,true
+user-s-343,rsonco@unsa.edu.pe,est123,estudiante,Ronaldo Randu,Sonco Quispe,2002-01-01,true
+user-s-344,dyagua@unsa.edu.pe,est123,estudiante,Dante Zamir,Yagua Neira,2002-01-01,true
+user-s-345,hyanquiv@unsa.edu.pe,est123,estudiante,Henry Aron,Yanqui Vera,2002-01-01,true
+user-s-346,jchavezsa@unsa.edu.pe,est123,estudiante,Joao Franco Emanuel,Chavez Salas,2002-01-01,true
+user-s-347,jpenalvah@unsa.edu.pe,est123,estudiante,Javier Alonzo,Penalva Humire,2002-01-01,true
+user-s-348,kcastillo@unsa.edu.pe,est123,estudiante,Kemely Francis,Castillo Caccire,2002-01-01,true
+user-s-349,jhuaynasi@unsa.edu.pe,est123,estudiante,Jose Luis,Huaynasi Mamani,2002-01-01,true
+user-s-350,ajarah@unsa.edu.pe,est123,estudiante,Arturo Jesús,Jara Huilca,2002-01-01,true
+user-s-351,amamaniq@unsa.edu.pe,est123,estudiante,Alex Enrique,Mamani Quispe,2002-01-01,true
+user-s-352,lmoralest@unsa.edu.pe,est123,estudiante,Luis Fernando,Morales Tacca,2002-01-01,true
+user-s-353,acarhuash@unsa.edu.pe,est123,estudiante,Arodi Sotil,Carhuas Heredia,2002-01-01,true
+user-s-354,gcoaylaz@unsa.edu.pe,est123,estudiante,Gonzalo Eduardo,Coayla Zuñiga,2002-01-01,true
+user-s-355,wmamani@unsa.edu.pe,est123,estudiante,Wilson Isaac,Mamani Casilla,2002-01-01,true
+user-s-356,jquispeto@unsa.edu.pe,est123,estudiante,Juan Manuel,Quispe Torres,2002-01-01,true
+user-s-357,fbarrionuevop@unsa.edu.pe,est123,estudiante,Fabricio Jose,Barrionuevo Paredes,2002-01-01,true
+user-s-358,kborjav@unsa.edu.pe,est123,estudiante,Kenny David,Borja Valencia,2002-01-01,true
+user-s-359,vmacedoh@unsa.edu.pe,est123,estudiante,Vanessa Mayra,Macedo Huaman,2002-01-01,true
+user-s-360,ecalderoncar@unsa.edu.pe,est123,estudiante,Eder Alberto,Calderon Carrizales,2002-01-01,true
+user-s-361,sbarrios@unsa.edu.pe,est123,estudiante,Selene,Barrios Cornejo,2002-01-01,true
+user-s-362,fcolqueze@unsa.edu.pe,est123,estudiante,Franks Jhon,Colque Zegarra,2002-01-01,true
+user-s-363,abustinzaco@unsa.edu.pe,est123,estudiante,Alejandra Pamela,Bustinza Cornejo,2002-01-01,true
+user-s-364,cbautistal@unsa.edu.pe,est123,estudiante,Carlos Argelio,Bautista Lopez,2002-01-01,true
+user-s-365,gpichac@unsa.edu.pe,est123,estudiante,Gleddynuri Marbel,Picha,2002-01-01,true
+user-s-366,dquispecan@unsa.edu.pe,est123,estudiante,Diego,Quispe Candelario,2002-01-01,true
+user-s-367,cvilcaal@unsa.edu.pe,est123,estudiante,Cecilia Del Pilar,Vilca Alvites,2002-01-01,true
+user-s-368,jfloreshe@unsa.edu.pe,est123,estudiante,Jefferson Miguel,Flores Herrera,2002-01-01,true
+user-s-369,gpachari@unsa.edu.pe,est123,estudiante,Gerald,Pachari Millio,2002-01-01,true
+user-s-370,dtamo@unsa.edu.pe,est123,estudiante,David Ernesto,Tamo Turpo,2002-01-01,true
+user-s-371,jhuancaan@unsa.edu.pe,est123,estudiante,Jenny,Huanca Anquise,2002-01-01,true
+user-s-372,acarrascoq@unsa.edu.pe,est123,estudiante,Andres,Carrasco Quispe,2002-01-01,true
+user-s-373,fchara@unsa.edu.pe,est123,estudiante,Fernando,Chara Chunga,2002-01-01,true
+user-s-374,iespinel@unsa.edu.pe,est123,estudiante,Ingrid Sally,Espinel Quispe,2002-01-01,true
+user-s-375,jparedesma@unsa.edu.pe,est123,estudiante,Jose Carlos,Paredes Malaga,2002-01-01,true

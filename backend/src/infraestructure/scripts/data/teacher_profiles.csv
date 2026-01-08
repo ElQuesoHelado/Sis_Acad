@@ -1,6 +1,49 @@
 id,user_id,specialization
-profile-t-1,user-1,Inteligencia Artificial
-profile-t-2,user-2,Algoritmos
-profile-t-3,user-3,Ingeniería de Software
-profile-t-4,user-4,Base de Datos
-profile-t-5,user-5,Sistemas Distribuidos
+tp-1,user-p-1,Inteligencia Artificial
+tp-2,user-p-2,Base de Datos
+tp-3,user-p-3,Redes y Comunicaciones
+tp-4,user-p-4,Desarrollo Web
+tp-5,user-p-5,Algoritmos
+tp-6,user-p-6,Sistemas Operativos
+tp-7,user-p-7,Ingeniería de Software
+tp-8,user-p-8,Seguridad Informática
+tp-9,user-p-9,Programación Paralela
+tp-10,user-p-10,Arquitectura de Computadoras
+tp-11,user-p-11,Desarrollo Móvil
+tp-12,user-p-12,Inteligencia Artificial
+tp-13,user-p-13,Interacción Humano-Computadora
+tp-14,user-p-14,Base de Datos
+tp-15,user-p-15,Machine Learning
+tp-16,user-p-16,Redes y Comunicaciones
+tp-17,user-p-17,Desarrollo Web
+tp-18,user-p-18,Algoritmos
+tp-19,user-p-19,Sistemas Distribuidos
+tp-20,user-p-20,Ingeniería de Software
+tp-21,user-p-21,Seguridad Informática
+tp-22,user-p-22,Programación
+tp-23,user-p-23,Desarrollo Móvil
+tp-24,user-p-24,Arquitectura de Computadoras
+tp-25,user-p-25,Base de Datos
+tp-26,user-p-26,Interacción Humano-Computadora
+tp-27,user-p-27,Machine Learning
+tp-28,user-p-28,Redes y Comunicaciones
+tp-29,user-p-29,Desarrollo Web
+tp-30,user-p-30,Algoritmos
+tp-31,user-p-31,Inteligencia Artificial
+tp-32,user-p-32,Sistemas Operativos
+tp-33,user-p-33,Ingeniería de Software
+tp-34,user-p-34,Seguridad Informática
+tp-35,user-p-35,Programación Paralela
+tp-36,user-p-36,Arquitectura de Computadoras
+tp-37,user-p-37,Desarrollo Móvil
+tp-38,user-p-38,Base de Datos
+tp-39,user-p-39,Machine Learning
+tp-40,user-p-40,Redes y Comunicaciones
+tp-41,user-p-41,Desarrollo Web
+tp-42,user-p-42,Algoritmos
+tp-43,user-p-43,Inteligencia Artificial
+tp-44,user-p-44,Sistemas Distribuidos
+tp-45,user-p-45,Ingeniería de Software
+tp-46,user-p-46,Seguridad Informática
+tp-47,user-p-47,Programación
+tp-48,user-p-48,Interacción Humano-Computadora

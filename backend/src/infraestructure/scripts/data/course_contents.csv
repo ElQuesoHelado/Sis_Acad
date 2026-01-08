@@ -1,149 +1,1017 @@
 id,theoryGroupId,week,topicName,status
-cc-775,theory-1,1,Introducción a los Sistemas Operativos,completado
-cc-776,theory-1,1,Estructura de un Sistema Operativo,completado
-cc-777,theory-1,2,Concepto y Estados de un Proceso,completado
-cc-778,theory-1,2,Planificador de un Proceso,completado
-cc-779,theory-1,3,Comunicación de Procesos,pendiente
-cc-780,theory-1,3,"Pipes, FIFO, Cola de mensajes",pendiente
-cc-781,theory-1,4,Concepto de Threads,pendiente
-cc-782,theory-1,4,Modelo de Threads,pendiente
-cc-783,theory-1,5,Programación multicore,pendiente
-cc-784,theory-1,6,Primer Examen,pendiente
-cc-785,theory-1,6,Planificadores I,pendiente
-cc-786,theory-1,7,Planificadores II,pendiente
-cc-787,theory-1,7,"El problema de la sección crítica, mutex",pendiente
-cc-788,theory-1,8,"Monitores, semáforos",pendiente
-cc-789,theory-1,9,Manejo de Memoria,pendiente
-cc-790,theory-1,9,Memoria Virtual,pendiente
-cc-791,theory-1,10,Paginación de memoria,pendiente
-cc-792,theory-1,10,Memoria Caché,pendiente
-cc-793,theory-1,11,Segundo Examen,pendiente
-cc-794,theory-1,11,Sistemas de almacenamiento,pendiente
-cc-795,theory-1,12,Sistemas de entrada y salida,pendiente
-cc-796,theory-1,13,"Métodos de acceso: secuencial, directo, otros",pendiente
-cc-797,theory-1,14,Estructura de directorios,pendiente
-cc-798,theory-1,15,Recuperación de archivos,pendiente
-cc-799,theory-1,16,Examen Sustitutorio,pendiente
-cc-800,theory-1,16,Tercer Examen,pendiente
-cc-754,theory-2,1,Gestión de configuración del software y control de versiones,pendiente
-cc-755,theory-2,2,Gestión de entregas (release),pendiente
-cc-756,theory-2,2,Herramientas de Ingeniería de Requisitos y Diseño de Software,pendiente
-cc-757,theory-2,3,"Herramientas de Pruebas: Depuración, Análisis estático y dinámico",pendiente
-cc-758,theory-2,4,"Entornos que automatizan el proceso de construcción de software: Construcción Automática, Integración continua",pendiente
-cc-759,theory-2,5,Primer Examen,pendiente
-cc-760,theory-2,6,"Verificación y Validación: Control de Calidad, Inspecciones, Revisiones",pendiente
-cc-761,theory-2,6,"Fundamentos de pruebas: Proceso (generación, implementación, ejecución y análisis)",pendiente
-cc-762,theory-2,7,Plan de pruebas: Casos de prueba y Métodos de generación de casos de prueba,pendiente
-cc-763,theory-2,8,"Automatización de pruebas: Análisis de Código Fuente, Pruebas de Regresión",pendiente
-cc-764,theory-2,9,Seguimiento de defectos,pendiente
-cc-765,theory-2,10,"Enfoques de desarrollo basado en pruebas: TDD, BDD",pendiente
-cc-766,theory-2,11,Segundo Examen,pendiente
-cc-767,theory-2,12,Sistemas Legados: Cambios de software y Preocupaciones (concerns),pendiente
-cc-768,theory-2,12,"Evolución, Mantenimiento y Reingeniería de Software",pendiente
-cc-769,theory-2,13,Refactoring,pendiente
-cc-770,theory-2,14,"Migración de Software Legado: De Monolitos a Módulos, Microservicios",pendiente
-cc-771,theory-2,15,"Reutilización de Software: Bibliotecas, Frameworks, Componentes y Patrones de Diseño",pendiente
-cc-772,theory-2,16,Examen Sustitutorio,pendiente
-cc-773,theory-2,16,Líneas de Producto de Software,pendiente
-cc-774,theory-2,16,Tercer Examen,pendiente
-cc-534,theory-3,1,Introducción: Prueba de Entrada,pendiente
-cc-535,theory-3,1,Instrucciones SQL Avanzadas,pendiente
-cc-536,theory-3,2,Sistema de Almacenamiento Físico,pendiente
-cc-537,theory-3,3,Estructura de Almacenamiento de datos,pendiente
-cc-538,theory-3,4,Buffer Pool Manager,pendiente
-cc-539,theory-3,5,Tablas Hash,pendiente
-cc-540,theory-3,6,Primer Examen,pendiente
-cc-541,theory-3,7,Trees,pendiente
-cc-542,theory-3,8,Control de Concurrencia,pendiente
-cc-543,theory-3,9,Ordenamiento y Agregaciones,pendiente
-cc-544,theory-3,10,Algoritmos de Unión,pendiente
-cc-545,theory-3,11,Planificación de consultas y Optimización,pendiente
-cc-546,theory-3,11,"Consultas anidadas, costo del modelo",pendiente
-cc-547,theory-3,12,Segundo Examen,pendiente
-cc-548,theory-3,13,"Tipos de bloqueos, Bloqueo de dos fases, Detección de Deadlock",pendiente
-cc-549,theory-3,14,Transacciones,pendiente
-cc-550,theory-3,14,"Sistemas Recuperación, clasificación de fallos",pendiente
-cc-551,theory-3,15,"Arquitectura, Diseño, Esquemas de Partición, Control de concurrencia",pendiente
-cc-552,theory-3,16,Examen Sustitutorio,pendiente
-cc-553,theory-3,16,Bases de Datos Distribuidas,pendiente
-cc-554,theory-3,17,Tercer Examen,pendiente
-cc-713,theory-4,1,Lineales,pendiente
-cc-714,theory-4,1,No Lineales,pendiente
-cc-715,theory-4,2,Estructura de Grafos,pendiente
-cc-716,theory-4,3,Búsqueda completa,pendiente
-cc-717,theory-4,3,Divide y vencerás,pendiente
-cc-718,theory-4,4,Greedy,pendiente
-cc-719,theory-4,4,Programación dinámica,pendiente
-cc-720,theory-4,5,"Insertion sort, Merge sort, Quicksort",pendiente
-cc-721,theory-4,6,Primer Examen,pendiente
-cc-722,theory-4,6,"Recorridos: DFS, BFS, Topological sort",pendiente
-cc-723,theory-4,6,MST: Prim Kruskal,pendiente
-cc-724,theory-4,7,"SSSP: BFS, Dijkstra's, Bellman-Ford",pendiente
-cc-725,theory-4,8,"APSP: Floyd-Warshall, Johnson's Algorithm",pendiente
-cc-726,theory-4,9,Teoría de números,pendiente
-cc-727,theory-4,10,Combinatorias,pendiente
-cc-728,theory-4,11,Segundo Examen,pendiente
-cc-729,theory-4,11,Probabilidades,pendiente
-cc-730,theory-4,12,Distancia entre cadenas,pendiente
-cc-731,theory-4,13,String matching,pendiente
-cc-732,theory-4,14,Suffix Trie,pendiente
-cc-733,theory-4,15,"Puntos, líneas, círculos",pendiente
-cc-734,theory-4,16,Examen Sustitutorio,pendiente
-cc-735,theory-4,16,Convex hull,pendiente
-cc-736,theory-4,17,Tercer Examen,pendiente
-cc-684,theory-5,1,Conocer la visión general de los compiladores,pendiente
-cc-685,theory-5,1,"Definir el análisis léxico, sintáctico y semántico",pendiente
-cc-686,theory-5,2,Definir la generación de código y la optimización de código,pendiente
-cc-687,theory-5,3,Comprender el problema del análisis léxico,pendiente
-cc-688,theory-5,3,Conoce los tokens y funciones de los analizadores,pendiente
-cc-689,theory-5,3,Describe los diagramas y analizadores de relaciones,pendiente
-cc-690,theory-5,4,Describe los diagramas y analizadores de relaciones,pendiente
-cc-691,theory-5,4,Resumir la programación con lex,pendiente
-cc-692,theory-5,5,Primer Examen,pendiente
-cc-693,theory-5,6,Comprender los fundamentos del análisis sintáctico,pendiente
-cc-694,theory-5,7,Explicar las gramáticas de soporte del análisis sintáctico,pendiente
-cc-695,theory-5,8,Expresar las gramáticas libres del contexto,pendiente
-cc-696,theory-5,9,Comprender el análisis sintáctico descendente,pendiente
-cc-697,theory-5,10,Comprender el análisis sintáctico ascendente,pendiente
-cc-698,theory-5,11,Comprender la verificación estática,pendiente
-cc-699,theory-5,11,Expresar la gramáticas de atributos,pendiente
-cc-700,theory-5,11,Expresar la representación intermedia,pendiente
-cc-701,theory-5,12,Segundo Examen,pendiente
-cc-702,theory-5,13,Deducir las tablas de símbolos,pendiente
-cc-703,theory-5,13,Describir la preparación para la generación de código,pendiente
-cc-704,theory-5,14,Expresar la generación de directivas para tablas,pendiente
-cc-705,theory-5,14,Expresar la generación de código de árboles,pendiente
-cc-706,theory-5,15,Explicar las estrategias para la generación de código,pendiente
-cc-707,theory-5,15,"Conocer lo creación, detección, clasificación y recuperación de errores",pendiente
-cc-708,theory-5,16,Examen Sustitutorio,pendiente
-cc-709,theory-5,16,Resumir el manejo de errores en el análisis sintáctico,pendiente
-cc-710,theory-5,16,Resumir los errores semánticos,pendiente
-cc-711,theory-5,17,Tercer Examen,pendiente
-cc-712,theory-5,17,Exposición de la Investigación Formativa,pendiente
-cc-818,theory-6,1,Clase Inaugural - Lineamientos del curso,pendiente
-cc-819,theory-6,1,Espacios vectoriales,pendiente
-cc-820,theory-6,2,Subespacios vectoriales,pendiente
-cc-821,theory-6,3,"Independencia, base y dimensión",pendiente
-cc-822,theory-6,4,Espacios con producto interno,pendiente
-cc-823,theory-6,4,Bases ortonormales y proyecciones,pendiente
-cc-824,theory-6,5,Aproximaciones por mínimos cuadrados,pendiente
-cc-825,theory-6,6,Primer Examen,pendiente
-cc-826,theory-6,7,Concepto de transformación lineal,pendiente
-cc-827,theory-6,7,Imagen y núcleo,pendiente
-cc-828,theory-6,8,Matriz de una transformación lineal,pendiente
-cc-829,theory-6,8,Isomorfismos,pendiente
-cc-830,theory-6,9,Cambio de base,pendiente
-cc-831,theory-6,9,Autovalores y autovectores,pendiente
-cc-832,theory-6,10,Matrices semejantes y diagonalización,pendiente
-cc-833,theory-6,10,Matrices simétricas y diagonalización ortogonal,pendiente
-cc-834,theory-6,10,La descomposición de valor singular,pendiente
-cc-835,theory-6,11,Segundo Examen,pendiente
-cc-836,theory-6,12,Exponencial de una matriz,pendiente
-cc-837,theory-6,13,Existencia y unicidad de soluciones para sistemas lineales homogéneas con coeficientes constantes,pendiente
-cc-838,theory-6,13,Sistemas lineales no homogéneas con coeficientes constantes,pendiente
-cc-839,theory-6,14,Flujo de una ecuación diferencial,pendiente
-cc-840,theory-6,14,Estabilidad,pendiente
-cc-841,theory-6,15,Funciones de Liapunov,pendiente
-cc-842,theory-6,16,Examen Sustitutorio,pendiente
-cc-843,theory-6,16,Sistemas Gradiente,pendiente
-cc-844,theory-6,17,Tercer Examen,pendiente
+cc-1,theory-1,1,Prueba de entrada. Presentación del sílabo. Nivelación,pendiente
+cc-2,theory-1,2,Lógica proposicional. Conectivos lógicos. Tablas de verdad,pendiente
+cc-3,theory-1,3,"Conjuntos y elementos. Determinación de conjuntos. Relación de pertenencia. Relación de inclusión. Operaciones con conjuntos: Unión. Intersección, Diferencia. Complementación. Diferencia simétrica. Problemas que se resuelven con diagramas de Venn",pendiente
+cc-4,theory-1,4,Relación entre Lógica y Conjuntos: Leyes del álgebra de conjuntos y del álgebra de proposiciones. Algunas demostraciones formales.,pendiente
+cc-5,theory-1,5,Función proposicional. Cuantificadores. Negación de cuantificadores. Inferencia lógica. Leyes de la inferencia. Demostración directa e indirecta (reducción al absurdo).,pendiente
+cc-6,theory-1,6,Primer examen,pendiente
+cc-7,theory-1,7,Modelos matemáticos: Ecuaciones lineales y cuadráticas. Aplicaciones.,pendiente
+cc-8,theory-1,8,Modelos matemáticos: Inecuaciones lineales y cuadráticas. Aplicaciones,pendiente
+cc-9,theory-1,9,"Regla de correspondencia. Operadores matemáticos. Sumatorias, Propiedades",pendiente
+cc-10,theory-1,10,Inducción matemática. Sucesiones.,pendiente
+cc-11,theory-1,11,Sucesiones y series aritméticas. Sucesiones y series y geométricas. Propiedades.,pendiente
+cc-12,theory-1,12,Segundo examen,pendiente
+cc-13,theory-1,13,Triángulos. Propiedades generales. Clasificación de los triángulos. Problemas. Congruencia de triángulos.,pendiente
+cc-14,theory-1,14,"Examen sustitutorio. Proporcionalidad. Teoremas: de Thales, de la bisectriz interior, de la bisectriz exterior, del incentro",pendiente
+cc-15,theory-1,15,Semejanza de triángulos. Problemas de aplicación. Relaciones métricas en el triángulo rectángulo.,pendiente
+cc-16,theory-1,16,"Teoremas: de las proyecciones, de la altura, de los catetos, de Pitágoras. Problemas. Áreas y perímetros. Figuras sombreadas. Nociones de Geometría Espacial. Teoremas principales",pendiente
+cc-17,theory-1,17,Tercer examen,pendiente
+cc-18,theory-2,1,Presentación del silabo de la asignatura y lineamientos - Propósito de la universidad en el contexto actual,pendiente
+cc-19,theory-2,2,"Universidad Nacional de San Agustín de Arequipa, modelo Educativo, reglamentos y Responsabilidad Social",pendiente
+cc-20,theory-2,3,Inteligencia emocional en la vida universitaria,pendiente
+cc-21,theory-2,4,Taller de inteligencia emocional en la vida universitaria,pendiente
+cc-22,theory-2,5,"Habilidades sociales, comunicativas para el aprendizaje",pendiente
+cc-23,theory-2,6,Taller de habilidades sociales y comunicativas para el aprendizaje,pendiente
+cc-24,theory-2,7,"El aprendizaje, condiciones básicas y reconocimiento de estrategias propias",pendiente
+cc-25,theory-2,8,Estrategias de organización de información. Sistema Cornell,pendiente
+cc-26,theory-2,9,"Estrategias de organización de información, diagramas y mapas cognitivos",pendiente
+cc-27,theory-2,10,Estrategias de organización de información. mapa conceptual,pendiente
+cc-28,theory-2,11,Estrategias de organización de información. Mapas mentales,pendiente
+cc-29,theory-2,12,Estrategias de aplicación de Inteligencia Artificial. Chat GPT.,pendiente
+cc-30,theory-2,13,Niveles del conocimiento. Introducción a la investigación Científica. Método científico,pendiente
+cc-31,theory-2,14,"Gestores bibliográficos de la información científica. Operadores de búsqueda. Estilos de referencias IEEE, APA, VANCOUVER",pendiente
+cc-32,theory-2,15,"Taller de gestores bibliográficos de la información científica. Operadores de búsqueda. Estilos de referencias IEEE, APA, VANCOUVER.",pendiente
+cc-33,theory-2,16,El ensayo. Artículo científico. Póster Científico.,pendiente
+cc-34,theory-2,17,Evaluación de los Trabajos de Responsabilidad Social e Investigación,pendiente
+cc-35,theory-3,1,Presentación del sílabo e introducción al curso,pendiente
+cc-36,theory-3,2,Arte y Computación,pendiente
+cc-37,theory-3,3,Arte y Computación - Continuación,pendiente
+cc-38,theory-3,4,PRIMER EXAMEN,pendiente
+cc-39,theory-3,5,Programación creativa,pendiente
+cc-40,theory-3,6,Programación creativa - Continuación,pendiente
+cc-41,theory-3,7,Arte generativo,pendiente
+cc-42,theory-3,8,SEGUNDO EXAMEN,pendiente
+cc-43,theory-3,9,Arte generativo - Continuación,pendiente
+cc-44,theory-3,10,Introducción a la programación y entornos creativos,pendiente
+cc-45,theory-3,11,Introducción a la programación y entornos creativos - Continuación,pendiente
+cc-46,theory-3,12,Sketching y Prototyping,pendiente
+cc-47,theory-3,13,TERCER EXAMEN,pendiente
+cc-48,theory-3,14,Sketching y Prototyping - Continuación,pendiente
+cc-49,theory-3,15,Implementación de Programación creativa,pendiente
+cc-50,theory-3,16,Implementación de Programación creativa - Continuación,pendiente
+cc-51,theory-3,17,"Aplicaciones en imagenes, movimientos y multimedia",pendiente
+cc-52,theory-4,1,Pautas generales del curso. Prueba de diagnóstico.,pendiente
+cc-53,theory-4,1,"Verb To Be (Affirmative, negative and interrogative)",pendiente
+cc-54,theory-4,2,Expressions to greet and introduce. Oral practice.,pendiente
+cc-55,theory-4,2,Numerical expressions (dates and ordinal numbers).,pendiente
+cc-56,theory-4,3,"Temas Auxiliares. Articles (the, a, an)",pendiente
+cc-57,theory-4,3,Possessive adjectives. Practices.,pendiente
+cc-58,theory-4,4,"Vocabulary: Objects, family, food and drinks.",pendiente
+cc-59,theory-4,4,Possessive 'S. Practices.,pendiente
+cc-60,theory-4,5,Vocabulary: Formal orders.,pendiente
+cc-61,theory-4,5,PRIMER EXAMEN,pendiente
+cc-62,theory-4,6,Present continuous tense.,pendiente
+cc-63,theory-4,6,Use of -ING. Practices.,pendiente
+cc-64,theory-4,7,Vocabulary: Common active verbs and occupations.,pendiente
+cc-65,theory-4,7,Vocabulary: The time.,pendiente
+cc-66,theory-4,8,Present simple tense (Active verbs),pendiente
+cc-67,theory-4,8,Activities (Leisure time),pendiente
+cc-68,theory-4,9,Use of frequency adverbs. Practices.,pendiente
+cc-69,theory-4,9,Prepositions of time. Practices.,pendiente
+cc-70,theory-4,10,Use of verb CAN. Practices.,pendiente
+cc-71,theory-4,10,Vocabularies: expressions of social activities.,pendiente
+cc-72,theory-4,11,Writing practice.,pendiente
+cc-73,theory-4,11,SEGUNDO EXAMEN.,pendiente
+cc-74,theory-4,12,Past tense verb To Be.,pendiente
+cc-75,theory-4,12,Time expressions: Past tense. Practices.,pendiente
+cc-76,theory-4,13,Past continuous. Practices.,pendiente
+cc-77,theory-4,13,Writing practices past tense.,pendiente
+cc-78,theory-4,14,Past tense: Regular & Irregular verbs.,pendiente
+cc-79,theory-4,14,Past tense active verbs.,pendiente
+cc-80,theory-4,15,Writing practices past tense.,pendiente
+cc-81,theory-4,15,Past tense of verb CAN. Practices.,pendiente
+cc-82,theory-4,16,Writing practices.,pendiente
+cc-83,theory-4,16,TERCER EXAMEN,pendiente
+cc-84,theory-4,17,Entrega y registro de notas.,pendiente
+cc-85,theory-5,1,Clase Inaugural: Lineamientos del Curso,pendiente
+cc-86,theory-5,1,Paradigmas de Programación,pendiente
+cc-87,theory-5,1,Evolución de los Lenguajes de Programación,pendiente
+cc-88,theory-5,1,Operaciones Básicas del Computador,pendiente
+cc-89,theory-5,2,Análisis de Resolución de Problemas,pendiente
+cc-90,theory-5,2,Algoritmos,pendiente
+cc-91,theory-5,2,Sintaxis y Semántica de un Lenguaje de Alto Nivel,pendiente
+cc-92,theory-5,3,Estructuras de Control Condicionales,pendiente
+cc-93,theory-5,3,Estructuras de Control Iterativas,pendiente
+cc-94,theory-5,4,Estructuras de Control Iterativas (Continuación),pendiente
+cc-95,theory-5,5,Definición de Funciones,pendiente
+cc-96,theory-5,6,Definición de Funciones (Continuación),pendiente
+cc-97,theory-5,7,PRIMER EXAMEN,pendiente
+cc-98,theory-5,8,Definición de Procedimientos,pendiente
+cc-99,theory-5,8,Paso de parámetros a Funciones,pendiente
+cc-100,theory-5,9,Técnica de Recursividad,pendiente
+cc-101,theory-5,9,"Listas, Pilas y Colas",pendiente
+cc-102,theory-5,9,Búsqueda Secuencial y Binaria,pendiente
+cc-103,theory-5,10,Métodos de Ordenación y Búsqueda,pendiente
+cc-104,theory-5,10,Análisis del tiempo de los Algoritmos de Ordenamiento,pendiente
+cc-105,theory-5,11,SEGUNDO EXAMEN,pendiente
+cc-106,theory-5,12,Comparación de la eficiencia de los Algoritmos,pendiente
+cc-107,theory-5,12,Funciones para el procesamiento de Strings,pendiente
+cc-108,theory-5,13,Métodos de Lectura de Archivos,pendiente
+cc-109,theory-5,13,Métodos de Escritura de Archivos,pendiente
+cc-110,theory-5,14,Principios de la POO,pendiente
+cc-111,theory-5,14,Clases y Objetos,pendiente
+cc-112,theory-5,15,Tipos de Datos Abstractos,pendiente
+cc-113,theory-5,15,"Revisión de Librerías gráficas, de audio, sonido e imágenes",pendiente
+cc-114,theory-5,16,EXAMEN SUSTITUTORIO,pendiente
+cc-115,theory-5,17,TERCER EXAMEN,pendiente
+cc-116,theory-6,1,Componentes Sintácticos de la Lógica de Predicados,pendiente
+cc-117,theory-6,2,Interpretaciones y Validez,pendiente
+cc-118,theory-6,3,PRIMER EXAMEN,pendiente
+cc-119,theory-6,4,Demostraciones,pendiente
+cc-120,theory-6,5,Equivalencias lógicas - Lógica de ecuaciones,pendiente
+cc-121,theory-6,6,Razonamiento Inductivo,pendiente
+cc-122,theory-6,7,Inducción Matemática,pendiente
+cc-123,theory-6,8,SEGUNDO EXAMEN,pendiente
+cc-124,theory-6,9,Razonamiento Recursivo,pendiente
+cc-125,theory-6,10,Algoritmos,pendiente
+cc-126,theory-6,11,Algoritmos Recursivos,pendiente
+cc-127,theory-6,12,Definiciones de Relaciones Binarias,pendiente
+cc-128,theory-6,13,TERCER EXAMEN,pendiente
+cc-129,theory-6,14,Representaciones de las Relaciones,pendiente
+cc-130,theory-6,15,Manipulación de Relaciones,pendiente
+cc-131,theory-6,16,Propiedades de las Relaciones,pendiente
+cc-132,theory-6,17,"Particiones, Relación de Equivalencia, Cerradura",pendiente
+cc-133,theory-7,1,Introducción al liderazgo y oratoria,pendiente
+cc-134,theory-7,2,Fundamentos del liderazgo personal,pendiente
+cc-135,theory-7,3,Comunicación efectiva y asertiva,pendiente
+cc-136,theory-7,4,Técnicas de expresión verbal,pendiente
+cc-137,theory-7,5,Lenguaje corporal y comunicación no verbal,pendiente
+cc-138,theory-7,6,Primer examen parcial,pendiente
+cc-139,theory-7,7,Estructuración de discursos,pendiente
+cc-140,theory-7,8,Técnicas de persuasión y argumentación,pendiente
+cc-141,theory-7,9,Manejo de audiencias y situaciones difíciles,pendiente
+cc-142,theory-7,10,Liderazgo en equipos de trabajo,pendiente
+cc-143,theory-7,11,Segundo examen parcial,pendiente
+cc-144,theory-7,12,Oratoria en contextos profesionales,pendiente
+cc-145,theory-7,13,Presentaciones ejecutivas efectivas,pendiente
+cc-146,theory-7,14,Manejo del estrés y control emocional,pendiente
+cc-147,theory-7,15,Liderazgo ético y valores,pendiente
+cc-148,theory-7,16,Preparación de presentación final,pendiente
+cc-149,theory-7,17,Tercer examen y presentación final,pendiente
+cc-150,theory-8,1,Definiciones Básicas de los Grafos,pendiente
+cc-151,theory-8,1,Representación numérica de grafos,pendiente
+cc-152,theory-8,2,Relaciones de adyacencia,pendiente
+cc-153,theory-8,2,Vecindades de conexiones,pendiente
+cc-154,theory-8,3,Trayectorias de un grafo,pendiente
+cc-155,theory-8,4,Grafos conexos - componentes conexas,pendiente
+cc-156,theory-8,4,Caminos Eulerianos y hamiltonianos,pendiente
+cc-157,theory-8,5,PRIMER EXAMEN,pendiente
+cc-158,theory-8,5,Isomorfismos de grafos,pendiente
+cc-159,theory-8,5,Grafos planos,pendiente
+cc-160,theory-8,6,Árboles y su clasificación,pendiente
+cc-161,theory-8,6,Árboles ponderados y códigos de recorrido,pendiente
+cc-162,theory-8,7,Árboles binarios,pendiente
+cc-163,theory-8,7,Árboles de decisión y tiempo mínimo para ordenar,pendiente
+cc-164,theory-8,8,SEGUNDO EXAMEN,pendiente
+cc-165,theory-8,8,Isomorfismo de árboles,pendiente
+cc-166,theory-8,8,Árboles de juegos,pendiente
+cc-167,theory-8,9,Algoritmos para hallar el camino más corto - Dijkstra,pendiente
+cc-168,theory-8,9,Árboles generadores minimales: Prim - Kruskal,pendiente
+cc-169,theory-8,10,Redes de transporte: teoremas de flujo máximo y corte mínimo,pendiente
+cc-170,theory-8,10,Teoría de emparejamiento,pendiente
+cc-171,theory-8,11,TERCER EXAMEN,pendiente
+cc-172,theory-8,11,Teoría de números,pendiente
+cc-173,theory-8,11,Anillos y aritmética modular,pendiente
+cc-174,theory-8,12,Grupos y semigrupos,pendiente
+cc-175,theory-8,12,Probabilidad discreta y combinatoria,pendiente
+cc-176,theory-8,13,Introducción a la criptografía,pendiente
+cc-177,theory-8,13,Criptografía de clave privada,pendiente
+cc-178,theory-8,14,Algoritmo de Cesar,pendiente
+cc-179,theory-8,14,Criptografía de clave pública,pendiente
+cc-180,theory-8,15,"RSA, El Gamal",pendiente
+cc-181,theory-8,15,Firmas digitales y protocolos,pendiente
+cc-182,theory-8,16,Presentación de proyectos finales,pendiente
+cc-183,theory-9,1,Fundamentos de Programación. Paradigmas de Programación.,pendiente
+cc-184,theory-9,2,Constructores de Programación. Estructuras de Control de Programas,pendiente
+cc-185,theory-9,3,Funciones y Procedimientos. Punteros,pendiente
+cc-186,theory-9,4,Funciones y Procedimientos. Punteros - Continuación,pendiente
+cc-187,theory-9,5,Principios de la Programación Orientada a Objetos,pendiente
+cc-188,theory-9,6,PRIMER EXAMEN,pendiente
+cc-189,theory-9,7,Principios de la Programación Orientada a Objetos - Continuación,pendiente
+cc-190,theory-9,8,Herencia,pendiente
+cc-191,theory-9,9,Herencia - Continuación,pendiente
+cc-192,theory-9,10,Uso de librerías gráficas,pendiente
+cc-193,theory-9,11,SEGUNDO EXAMEN,pendiente
+cc-194,theory-9,12,Polimorfismo,pendiente
+cc-195,theory-9,13,Polimorfismo - Continuación,pendiente
+cc-196,theory-9,14,Genericidad,pendiente
+cc-197,theory-9,15,Listas,pendiente
+cc-198,theory-9,16,TERCER EXAMEN,pendiente
+cc-199,theory-9,17,Métodos de ordenación y búsqueda. Matrices. Archivos,pendiente
+cc-200,theory-10,1,"Examen de entrada. Dominio, rango y gráfica de funciones. Funciones especiales. Transformación de funciones, Álgebra de funciones.",pendiente
+cc-201,theory-10,2,"Composición de funciones y función inversa. Funciones exponenciales, logarítmicas y trigonométricas",pendiente
+cc-202,theory-10,3,Límite de una función y propiedades. Límites laterales. Límites trigonométricos.,pendiente
+cc-203,theory-10,4,Límites infinitos. Límites al infinito. Asíntotas,pendiente
+cc-204,theory-10,5,PRIMER EXAMEN,pendiente
+cc-205,theory-10,5,Continuidad de funciones. Tipos de discontinuidad.,pendiente
+cc-206,theory-10,6,La derivada. Interpretación geométrica. Reglas de derivación. Regla de la cadena. Derivada de funciones trascendentes.,pendiente
+cc-207,theory-10,7,"Derivación implícita, Derivación logarítmica. Derivadas de orden superior. Formas indeterminadas. Regla de L'Hôpital",pendiente
+cc-208,theory-10,8,Problemas de razón de cambio. Valores máximos y mínimos locales. Criterio de la primera derivada y de la segunda derivada.,pendiente
+cc-209,theory-10,9,Valores extremos absolutos. Concavidad. Gráfica de una función.,pendiente
+cc-210,theory-10,10,SEGUNDO EXAMEN,pendiente
+cc-211,theory-10,10,La diferencial de una función.,pendiente
+cc-212,theory-10,11,La integral indefinida. Reglas de integración. Integración por sustitución. Integrales de funciones trascendentes.,pendiente
+cc-213,theory-10,12,Integración por partes. Integración por sustitución trigonométrica. Integración por fracciones parciales.,pendiente
+cc-214,theory-10,13,Sumas de Riemann. Integral definida. Propiedades. Teorema Fundamental del Cálculo Integral. Integrales impropias.,pendiente
+cc-215,theory-10,14,Área de una región plana. Volúmenes de sólidos de revolución.,pendiente
+cc-216,theory-10,15,Longitud de arco. Área de una superficie de revolución.,pendiente
+cc-217,theory-10,16,TERCER EXAMEN,pendiente
+cc-218,theory-10,16,Sucesión. Límite de una sucesión. Series. Criterios de convergencia de una serie. Series de potencia.,pendiente
+cc-219,theory-11,1,"Prueba diagnostica, the alphabet",pendiente
+cc-220,theory-11,2,"Vocabulary, classroom things, numbers",pendiente
+cc-221,theory-11,3,"Some instruction, Imperatives",pendiente
+cc-222,theory-11,4,"Plural, vocabulary, adjectives",pendiente
+cc-223,theory-11,5,"Vocabulary, jobs, Wh questions, review",pendiente
+cc-224,theory-11,6,PRIMER EXAMEN,pendiente
+cc-225,theory-11,7,Possessives,pendiente
+cc-226,theory-11,8,Prepositions of place,pendiente
+cc-227,theory-11,9,Present continuous,pendiente
+cc-228,theory-11,10,Present continuous / simple,pendiente
+cc-229,theory-11,11,Reading comprehension,pendiente
+cc-230,theory-11,12,SEGUNDO EXAMEN,pendiente
+cc-231,theory-11,13,Prepositions of time,pendiente
+cc-232,theory-11,14,Vocabulary food,pendiente
+cc-233,theory-11,15,Reading Healthy food,pendiente
+cc-234,theory-11,16,Reading comprehension/ speech,pendiente
+cc-235,theory-11,16,TERCER EXAMEN,pendiente
+cc-236,theory-12,1,Introducción a las ciencias del lenguaje,pendiente
+cc-237,theory-12,2,"Comprensión lectora: Habilidades, niveles, dimensiones",pendiente
+cc-238,theory-12,3,Estrategias para la comprensión de textos.,pendiente
+cc-239,theory-12,4,Literacidad: Prácticas letradas vernáculas y académicas,pendiente
+cc-240,theory-12,5,PRIMER EXAMEN,pendiente
+cc-241,theory-12,5,Análisis multimodal y multimedial de textos,pendiente
+cc-242,theory-12,6,Desafíos de la redacción académica y científica,pendiente
+cc-243,theory-12,7,Teoría del texto y producción de textos académicos,pendiente
+cc-244,theory-12,8,Intertextualidad en el texto académico,pendiente
+cc-245,theory-12,9,Producción de textos expositivos y argumentativos,pendiente
+cc-246,theory-12,10,SEGUNDO EXAMEN,pendiente
+cc-247,theory-12,10,Redacción académica: la monografía,pendiente
+cc-248,theory-12,11,Redacción académica: el ensayo,pendiente
+cc-249,theory-12,12,El artículo científico: estructura y tipología,pendiente
+cc-250,theory-12,13,Situaciones comunicativas estructuradas,pendiente
+cc-251,theory-12,14,Técnicas de comunicación Oral: Elementos lingüísticos y paralingüísticos,pendiente
+cc-252,theory-12,15,TERCER EXAMEN,pendiente
+cc-253,theory-12,15,"La mesa redonda: planificación, organización y ejecución",pendiente
+cc-254,theory-12,16,"El debate: planificación, organización y ejecución",pendiente
+cc-255,theory-12,17,"El foro-panel: planificación, organización y ejecución",pendiente
+cc-256,theory-13,1,"Explicación del sílabo, Evaluación diagnóstica. Estado",pendiente
+cc-257,theory-13,2,"Gobierno, democracia y constitucionalidad",pendiente
+cc-258,theory-13,3,Poder político,pendiente
+cc-259,theory-13,4,"Valores y convivencia social, pluriculturalidad",pendiente
+cc-260,theory-13,5,"Crisis de identidad nacional, nacionalismos y regionalismos",pendiente
+cc-261,theory-13,6,Primer Examen,pendiente
+cc-262,theory-13,7,Característica socio demográficas,pendiente
+cc-263,theory-13,8,"Calidad de vida/pobreza y desigualdad (vivienda, salud, educación)",pendiente
+cc-264,theory-13,9,Instituciones y confianza,pendiente
+cc-265,theory-13,10,Trabajo y desempleo,pendiente
+cc-266,theory-13,11,Segundo Examen,pendiente
+cc-267,theory-13,12,Neoliberalismo y privatización. Globalización y economía,pendiente
+cc-268,theory-13,13,"Actividades productivas, pequeña empresa e informalidad",pendiente
+cc-269,theory-13,14,"Violencia, seguridad y corrupción",pendiente
+cc-270,theory-13,15,"Medio ambiente, contaminación, consumismo y anomia",pendiente
+cc-271,theory-13,16,Examen Sustitutorio,pendiente
+cc-272,theory-13,17,Tercer Examen,pendiente
+cc-273,theory-14,1,Introducción a las computadoras,pendiente
+cc-274,theory-14,1,Unidades Funcionales Básicas,pendiente
+cc-275,theory-14,1,Medidas de rendimiento throughput,pendiente
+cc-276,theory-14,2,Diseño combinacional - Compuertas y señales lógicas,pendiente
+cc-277,theory-14,2,Descripción Algebraica de circuitos lógicos,pendiente
+cc-278,theory-14,2,Diseño de componentes digitales,pendiente
+cc-279,theory-14,3,"Decodificadores, codificadores, multiplexores, demultiplexores",pendiente
+cc-280,theory-14,4,Complemento a dos,pendiente
+cc-281,theory-14,4,Multiplicación binaria,pendiente
+cc-282,theory-14,4,División binaria,pendiente
+cc-283,theory-14,4,Punto flotante,pendiente
+cc-284,theory-14,5,Sumadores simples,pendiente
+cc-285,theory-14,5,Conteo e incremento y operaciones lógicas y de corrimiento,pendiente
+cc-286,theory-14,5,ALU de 1 bit,pendiente
+cc-287,theory-14,5,ALU de 32 bits,pendiente
+cc-288,theory-14,5,ALU multifunción,pendiente
+cc-289,theory-14,6,Primer Examen,pendiente
+cc-290,theory-14,6,"Repertorio de Instrucciones, MIPS",pendiente
+cc-291,theory-14,6,Microarquitectura - microinstrucciones,pendiente
+cc-292,theory-14,7,Macroarquitectura - macroinstrucciones,pendiente
+cc-293,theory-14,7,Microprogramación con lenguaje de diseño de hardware,pendiente
+cc-294,theory-14,8,Análisis de un conjunto de instrucciones en la unidad de control,pendiente
+cc-295,theory-14,8,Implementación de la unidad de ejecución de instrucciones,pendiente
+cc-296,theory-14,9,Bifurcación y saltos,pendiente
+cc-297,theory-14,9,Construcción de un camino de datos monociclo,pendiente
+cc-298,theory-14,10,Derivación de las señales de control,pendiente
+cc-299,theory-14,11,Segundo Examen,pendiente
+cc-300,theory-14,11,Implementación multiciclo,pendiente
+cc-301,theory-14,11,Camino de datos segmentado,pendiente
+cc-302,theory-14,12,Control segmentado,pendiente
+cc-303,theory-14,12,Ciclo de reloj y señales de control,pendiente
+cc-304,theory-14,12,La máquina de control de estado,pendiente
+cc-305,theory-14,13,Estructura de memoria y SRAM,pendiente
+cc-306,theory-14,13,DRAM y ciclos de regeneración,pendiente
+cc-307,theory-14,13,Memoria no volátil,pendiente
+cc-308,theory-14,14,Principios básicos,pendiente
+cc-309,theory-14,14,Cache de mapeo directo,pendiente
+cc-310,theory-14,14,Memoria Virtual,pendiente
+cc-311,theory-14,15,Almacenamiento en disco,pendiente
+cc-312,theory-14,15,"Interfaz de los dispositivos de E/S al procesador, memoria y sistema operativo",pendiente
+cc-313,theory-14,15,Medidas de las prestaciones de E/S,pendiente
+cc-314,theory-14,16,Introducción a HDL,pendiente
+cc-315,theory-14,16,Diseño de circuitos lógicos con HDL,pendiente
+cc-316,theory-14,16,Diseño de sistemas secuenciales con HDL,pendiente
+cc-317,theory-14,17,Tercer Examen,pendiente
+cc-318,theory-14,17,Diseño de componentes lógicos con HDL,pendiente
+cc-319,theory-14,17,Multiprogramación con HDL,pendiente
+cc-320,theory-15,1,"Punteros, Referencias, Op. New y Delete, Clases",pendiente
+cc-321,theory-15,2,"Constructor, Destructor, Constructor copia",pendiente
+cc-322,theory-15,3,Herencia y Polimorfismo,pendiente
+cc-323,theory-15,4,Sobrecarga de operadores: functores,pendiente
+cc-324,theory-15,5,Templates en Funciones,pendiente
+cc-325,theory-15,5,Templates en Clases,pendiente
+cc-326,theory-15,5,Variadic templates,pendiente
+cc-327,theory-15,6,Primer Examen,pendiente
+cc-328,theory-15,7,Patrones creacionales,pendiente
+cc-329,theory-15,7,Patrones estructurales,pendiente
+cc-330,theory-15,7,Patrones de comportamiento,pendiente
+cc-331,theory-15,8,Introducción a punteros inteligentes,pendiente
+cc-332,theory-15,8,"Punteros: shared, unique, weak",pendiente
+cc-333,theory-15,9,Administración de memoria,pendiente
+cc-334,theory-15,9,Custom allocators,pendiente
+cc-335,theory-15,9,Type traits,pendiente
+cc-336,theory-15,9,Type deduction,pendiente
+cc-337,theory-15,10,Move semantics,pendiente
+cc-338,theory-15,10,Perfect forwarding,pendiente
+cc-339,theory-15,11,Segundo Examen,pendiente
+cc-340,theory-15,12,Metaprogramming,pendiente
+cc-341,theory-15,13,Introducción a multithreading,pendiente
+cc-342,theory-15,13,Sincronización y exclusión mutua,pendiente
+cc-343,theory-15,14,Locks y mutexes,pendiente
+cc-344,theory-15,15,Variables de condición,pendiente
+cc-345,theory-15,16,Examen Sustitutorio,pendiente
+cc-346,theory-15,17,Tercer Examen,pendiente
+cc-347,theory-16,1,Introducción al Desarrollo Basado en Plataformas,pendiente
+cc-348,theory-16,2,Arquitectura de Plataformas Digitales,pendiente
+cc-349,theory-16,3,APIs y Servicios Web,pendiente
+cc-350,theory-16,4,Desarrollo Frontend para Plataformas,pendiente
+cc-351,theory-16,5,Desarrollo Backend para Plataformas,pendiente
+cc-352,theory-16,6,Primer Examen,pendiente
+cc-353,theory-16,7,Bases de Datos y Almacenamiento en Plataformas,pendiente
+cc-354,theory-16,8,Autenticación y Autorización,pendiente
+cc-355,theory-16,9,Integración de Sistemas y Middleware,pendiente
+cc-356,theory-16,10,Escalabilidad y Performance,pendiente
+cc-357,theory-16,11,Segundo Examen,pendiente
+cc-358,theory-16,12,Despliegue y DevOps en Plataformas,pendiente
+cc-359,theory-16,13,Monitoreo y Analytics,pendiente
+cc-360,theory-16,14,Pruebas y Calidad en Plataformas,pendiente
+cc-361,theory-16,15,Casos de Estudio: Plataformas Exitosas,pendiente
+cc-362,theory-16,16,Examen Sustitutorio,pendiente
+cc-363,theory-16,17,Tercer Examen,pendiente
+cc-364,theory-17,1,Introducción al Trabajo Interdisciplinar I,pendiente
+cc-365,theory-17,2,Identificación de Problemas Interdisciplinarios,pendiente
+cc-366,theory-17,3,Metodologías de Trabajo en Equipo,pendiente
+cc-367,theory-17,4,Análisis de Requerimientos del Sistema,pendiente
+cc-368,theory-17,5,Diseño de la Arquitectura del Sistema,pendiente
+cc-369,theory-17,6,Primer Examen,pendiente
+cc-370,theory-17,7,Planificación del Proyecto Interdisciplinario,pendiente
+cc-371,theory-17,8,Desarrollo de Prototipos,pendiente
+cc-372,theory-17,9,Integración de Componentes del Sistema,pendiente
+cc-373,theory-17,10,Pruebas y Validación del Sistema,pendiente
+cc-374,theory-17,11,Segundo Examen,pendiente
+cc-375,theory-17,12,Documentación del Proyecto,pendiente
+cc-376,theory-17,13,Presentación de Avances del Proyecto,pendiente
+cc-377,theory-17,14,Optimización y Mejoras del Sistema,pendiente
+cc-378,theory-17,15,Preparación de la Presentación Final,pendiente
+cc-379,theory-17,16,Examen Sustitutorio,pendiente
+cc-380,theory-17,17,Tercer Examen,pendiente
+cc-381,theory-18,1,Lineamientos del curso. Motivación. El espacio Rn. Producto punto. Norma de un vector. Paralelismo y ortogonalidad entre vectores. Proyección ortogonal,pendiente
+cc-382,theory-18,1,El producto cruz en R3. Propiedades. Rectas y planos en R3. Superficies cuádricas. Práctica dirigida,pendiente
+cc-383,theory-18,2,Motivación. Funciones de varias variables. Dominio y rango. Geometría de las funciones de varias variables. Curvas y superficie de nivel. Práctica dirigida,pendiente
+cc-384,theory-18,3,Límite y continuidad de funciones de varias variables. Derivadas parciales. Diferenciabilidad y derivadas direccionales. Gradiente. Práctica dirigida,pendiente
+cc-385,theory-18,4,El diferencial. Vectores normales y plano tangente. Derivadas parciales de orden superior. Funciones compuestas. Regla de la cadena,pendiente
+cc-386,theory-18,5,Primer Examen,pendiente
+cc-387,theory-18,6,Funciones implícitas. Definiciones de extremos locales. Matriz Hessiana y submatrices angulares. Condiciones suficientes para la existencia de extremos locales,pendiente
+cc-388,theory-18,7,Extremos condicionados. Multiplicadores de Lagrange. Práctica dirigida,pendiente
+cc-389,theory-18,8,Motivación. Integrales dobles. Propiedades,pendiente
+cc-390,theory-18,9,Integrales dobles sobre rectángulos. Integrales dobles sobre regiones generales,pendiente
+cc-391,theory-18,10,Cambio de variables en integrales dobles. Aplicaciones de las integrales dobles,pendiente
+cc-392,theory-18,11,Segundo Examen,pendiente
+cc-393,theory-18,12,Integrales triples. Propiedades. Cambio de variables en integrales triples. Aplicaciones de las integrales triples. Práctica dirigida,pendiente
+cc-394,theory-18,13,Motivación. Caminos en Rn. Curvas parametrizadas. Longitud de arco. Campos vectoriales. Integrales de línea sobre campos vectoriales. Práctica dirigida,pendiente
+cc-395,theory-18,14,Campos vectoriales. Integrales de línea sobre campos vectoriales. Práctica dirigida,pendiente
+cc-396,theory-18,15,Campos conservativos. Integrales de línea de funciones reales. Teorema de Green. Aplicaciones,pendiente
+cc-397,theory-18,16,Examen Sustitutorio,pendiente
+cc-398,theory-18,16,Superficies parametrizadas. Integrales de superficie de funciones reales. Integral de Superficie de campos vectoriales. Teorema de Stokes. Práctica dirigida,pendiente
+cc-399,theory-18,17,Tercer Examen,pendiente
+cc-400,theory-19,1,Technical English Vocabulary Building,pendiente
+cc-401,theory-19,2,Professional Communication Skills,pendiente
+cc-402,theory-19,3,Technical Documentation Reading,pendiente
+cc-403,theory-19,4,Writing Technical Reports,pendiente
+cc-404,theory-19,5,Presentation Skills in Technical Context,pendiente
+cc-405,theory-19,6,Primer Examen,pendiente
+cc-406,theory-19,7,Listening Comprehension in Technical Settings,pendiente
+cc-407,theory-19,8,Technical Meetings and Discussions,pendiente
+cc-408,theory-19,9,Email and Correspondence in Professional Context,pendiente
+cc-409,theory-19,10,Technical Project Descriptions,pendiente
+cc-410,theory-19,11,Segundo Examen,pendiente
+cc-411,theory-19,12,Software Documentation Analysis,pendiente
+cc-412,theory-19,13,IT Industry Terminology,pendiente
+cc-413,theory-19,14,Research Paper Reading and Analysis,pendiente
+cc-414,theory-19,15,Technical Interview Preparation,pendiente
+cc-415,theory-19,16,Examen Sustitutorio,pendiente
+cc-416,theory-19,17,Tercer Examen,pendiente
+cc-417,theory-20,1,Presentación del curso. Ciudadanía,pendiente
+cc-418,theory-20,2,Estado: ordenamiento jurídico y estado de derecho. Democracia: Historia y actualidad,pendiente
+cc-419,theory-20,3,"DDHH, derechos ciudadanos: derecho y deberes en la Constitución Política, principales instrumentos internacionales",pendiente
+cc-420,theory-20,4,Derechos de participación ciudadana: mecanismos y normativa,pendiente
+cc-421,theory-20,5,Primer Examen,pendiente
+cc-422,theory-20,6,"La Cultura: características (simbólica, aprendida, compartida)",pendiente
+cc-423,theory-20,7,"La Cultura: categorías (etnocentrismo, relativismo, universalidad, generalidad y particularidad cultural, patrones y valores culturales)",pendiente
+cc-424,theory-20,8,"Diversidad Cultural: concepto, diversidad cultural en el Perú",pendiente
+cc-425,theory-20,9,"Pluriculturalidad, Multiculturalidad e Interculturalidad: diferencias, implicancias y retos en nuestra sociedad",pendiente
+cc-426,theory-20,10,Segundo Examen,pendiente
+cc-427,theory-20,11,"Inclusión social, interculturalidad y ciudadanía electoral",pendiente
+cc-428,theory-20,12,"Discriminación y racismo / Migración y discriminación: Definiciones, características, tipos, problemática en el Perú, la Región y la Universidad. Aspectos legales y sanciones",pendiente
+cc-429,theory-20,13,"Salud, educación en el Perú e Interculturalidad. La violencia, violencia de género. Seguridad ciudadana y jurídica",pendiente
+cc-430,theory-20,14,"Patrimonio Cultural: Características, tipología. Patrimonio cultural y ciudadanía",pendiente
+cc-431,theory-20,15,Patrimonio cultural en Arequipa,pendiente
+cc-432,theory-20,16,Examen Sustitutorio,pendiente
+cc-433,theory-20,17,Tercer Examen,pendiente
+cc-434,theory-21,1,"Motivación, Reglas del curso, Examen de Entrada",pendiente
+cc-435,theory-21,2,"Variables, Expresiones, Condicionales, Ciclos, E/S estándard, Funciones, Punteros y direcciones de memoria, Punteros y argumentos de funciones, Punteros y arreglos, Aritmética de punteros, Strings, Arreglos multidimencionales, Inicialización de arreglo...",pendiente
+cc-436,theory-21,3,"Punteros vs Arreglos multidimencionales, Argumentos en la línea de comandos, Punteros a funciones, Structs, Structs y funciones, Arreglos de Structs, Punteros a Structs, Structs autoreferenciados, Tablas de símbolos, Typedef, Unions, Bit-fields",pendiente
+cc-437,theory-21,4,"Tipos de Datos abstractos de Datos vs Estructuras de Datos, Arreglos, Matrices, Pilas",pendiente
+cc-438,theory-21,5,"Colas, Listas enlazadas, Implementación de operaciones sobre una lista enlazada, Listas doblemente enlazadas",pendiente
+cc-439,theory-21,6,Primer Examen,pendiente
+cc-440,theory-21,6,"Implementación de operaciones sobre una lista doblemente enlazada, Listas circulares, Implementación de operaciones sobre una lista circular, Introducción a la notación asintótica y análisis computacional",pendiente
+cc-441,theory-21,7,"Definición formal, Tablas de acceso directo, Tablas Hash, Hashing uniforme independiente, Resolución de coliciones por cadena, Análisis del hashing con encadenamiento",pendiente
+cc-442,theory-21,8,"Funciones hash, Hashing estático, Hashing random, Diseño de familias universales de funciones hash, Direccionamiento abierto, Consideraciones prácticas",pendiente
+cc-443,theory-21,9,"Búsqueda, Análisis algorítmico de la búsqueda, Inserción, Eliminación",pendiente
+cc-444,theory-21,10,"Árboles AVL, Propiedades algorítmicas de un árbol AVL, Inserción, Eliminación",pendiente
+cc-445,theory-21,11,Segundo Examen,pendiente
+cc-446,theory-21,11,"Árboles rojinegros, Propiedades, Rotaciones, inserción",pendiente
+cc-447,theory-21,12,"eliminación, Heaps, Inserción, Extracción del máximo, Colas de prioridad",pendiente
+cc-448,theory-21,13,"Árboles 2-3, inserción, Eliminación, Árboles B, Inserción",pendiente
+cc-449,theory-21,14,"Eliminación, Variantes: B+, B*, Árboles digitales, búsqueda, inserción",pendiente
+cc-450,theory-21,15,"eliminación, costo promedio de búsqueda, Árboles de búsqueda digital, Skip list, Búsqueda, Inserción",pendiente
+cc-451,theory-21,16,Examen Sustitutorio,pendiente
+cc-452,theory-21,16,"Definiciones básicas, Recorridos de gráfos",pendiente
+cc-453,theory-21,17,Tercer Examen,pendiente
+cc-454,theory-21,17,"Arbol de cobertura mínima, Distancias mínimas en un grafo dirigido",pendiente
+cc-455,theory-22,1,Introducción a la Teoría de la Computación,pendiente
+cc-456,theory-22,2,Autómatas Finitos Deterministas (AFD),pendiente
+cc-457,theory-22,3,Autómatas Finitos No Deterministas (AFND),pendiente
+cc-458,theory-22,4,Conversión de AFND a AFD,pendiente
+cc-459,theory-22,5,Expresiones Regulares,pendiente
+cc-460,theory-22,6,Primer Examen,pendiente
+cc-461,theory-22,7,Propiedades de los Lenguajes Regulares,pendiente
+cc-462,theory-22,8,Lema de Bombeo para Lenguajes Regulares,pendiente
+cc-463,theory-22,9,Autómatas de Pila (AP),pendiente
+cc-464,theory-22,10,Gramáticas Independientes del Contexto (GIC),pendiente
+cc-465,theory-22,11,Formas Normales de Chomsky y Greibach,pendiente
+cc-466,theory-22,12,Segundo Examen,pendiente
+cc-467,theory-22,13,Propiedades de los Lenguajes Independientes del Contexto,pendiente
+cc-468,theory-22,14,Máquinas de Turing,pendiente
+cc-469,theory-22,15,Variantes de Máquinas de Turing,pendiente
+cc-470,theory-22,16,Examen Sustitutorio,pendiente
+cc-471,theory-22,17,Tercer Examen,pendiente
+cc-472,theory-23,1,Introducción y Lineamientos del Curso,pendiente
+cc-473,theory-23,2,Evolución e Historia de las Bases de Datos,pendiente
+cc-474,theory-23,3,Modelos Entidad Relación,pendiente
+cc-475,theory-23,4,Diagrama Entidad Relación,pendiente
+cc-476,theory-23,5,Modelo Entidad Relación Extendido,pendiente
+cc-477,theory-23,6,Diagrama Lógico,pendiente
+cc-478,theory-23,7,Primer Examen,pendiente
+cc-479,theory-23,8,SQL Básico,pendiente
+cc-480,theory-23,9,SQL Intermedio,pendiente
+cc-481,theory-23,10,SQL Avanzado 1,pendiente
+cc-482,theory-23,11,SQL Avanzado 2,pendiente
+cc-483,theory-23,12,Segundo Examen,pendiente
+cc-484,theory-23,13,Sitio Web con Bases de Datos,pendiente
+cc-485,theory-23,14,Bases de Datos NoSQL,pendiente
+cc-486,theory-23,15,MongoDB,pendiente
+cc-487,theory-23,16,Trabajo Final,pendiente
+cc-488,theory-23,17,Tercer Examen,pendiente
+cc-489,theory-24,1,"Vectores, producto interno y norma",pendiente
+cc-490,theory-24,2,"Matrices, álgebra de matrices",pendiente
+cc-491,theory-24,3,Determinantes e inversas de matrices,pendiente
+cc-492,theory-24,4,"Matrices elementales, operaciones elementales, sistemas de ecuaciones lineales",pendiente
+cc-493,theory-24,5,Eliminación de Gauss,pendiente
+cc-494,theory-24,6,Primer Examen,pendiente
+cc-495,theory-24,7,Descomposición LU,pendiente
+cc-496,theory-24,8,Descomposición de Cholesky,pendiente
+cc-497,theory-24,9,"Matriz ortogonal, matriz de Householder, conjuntos ortogonales y ortonormales",pendiente
+cc-498,theory-24,10,Proceso de ortogonalización de Gram Schmidt,pendiente
+cc-499,theory-24,11,Descomposición QR,pendiente
+cc-500,theory-24,12,Segundo Examen,pendiente
+cc-501,theory-24,13,Autovalores y autovectores,pendiente
+cc-502,theory-24,14,Transformación de Householder,pendiente
+cc-503,theory-24,15,Descomposición SVD,pendiente
+cc-504,theory-24,16,El algoritmo QR,pendiente
+cc-505,theory-24,17,Tercer Examen,pendiente
+cc-506,theory-25,1,Introducción y Tipos de variables estadística,pendiente
+cc-507,theory-25,1,Distribución de frecuencias,pendiente
+cc-508,theory-25,2,Gráficas para diferentes tipos de datos,pendiente
+cc-509,theory-25,3,Medidas de tendencia central,pendiente
+cc-510,theory-25,4,Medidas de dispersión,pendiente
+cc-511,theory-25,4,Medidas de forma,pendiente
+cc-512,theory-25,5,Axiomas de Probabilidad y Reglas de Probabilidad,pendiente
+cc-513,theory-25,6,Probabilidad Condicional y Reglas de Bayes,pendiente
+cc-514,theory-25,7,Independencia de Eventos,pendiente
+cc-515,theory-25,8,Tipos de variables aleatoria,pendiente
+cc-516,theory-25,9,Características numéricas de una variable aleatoria,pendiente
+cc-517,theory-25,9,Modelos de probabilidad para variable aleatoria discreta,pendiente
+cc-518,theory-25,10,Modelos de probabilidad para variable aleatoria continua,pendiente
+cc-519,theory-25,11,Primer Examen,pendiente
+cc-520,theory-25,11,Conceptos de estimación puntual y estimación por intervalos,pendiente
+cc-521,theory-25,11,Intervalo de confianza para la media,pendiente
+cc-522,theory-25,12,Intervalo de confianza para la proporción,pendiente
+cc-523,theory-25,13,Segundo Examen,pendiente
+cc-524,theory-25,13,Conceptos generales y tipos de errores en prueba de hipótesis,pendiente
+cc-525,theory-25,13,Prueba de hipótesis para la media y proporción,pendiente
+cc-526,theory-25,14,Prueba de hipótesis para la diferencia de medias,pendiente
+cc-527,theory-25,14,Prueba de hipótesis para la diferencia de proporciones,pendiente
+cc-528,theory-25,15,Prueba de hipótesis para razón de varianzas,pendiente
+cc-529,theory-25,15,Prueba de independencia y Homogeneidad,pendiente
+cc-530,theory-25,16,Examen Sustitutorio,pendiente
+cc-531,theory-25,16,Regresión Lineal simple,pendiente
+cc-532,theory-25,17,Tercer Examen,pendiente
+cc-533,theory-25,17,Análisis de varianza de un factor,pendiente
+cc-534,theory-27,1,Introducción: Prueba de Entrada,pendiente
+cc-535,theory-27,1,Instrucciones SQL Avanzadas,pendiente
+cc-536,theory-27,2,Sistema de Almacenamiento Físico,pendiente
+cc-537,theory-27,3,Estructura de Almacenamiento de datos,pendiente
+cc-538,theory-27,4,Buffer Pool Manager,pendiente
+cc-539,theory-27,5,Tablas Hash,pendiente
+cc-540,theory-27,6,Primer Examen,pendiente
+cc-541,theory-27,7,Trees,pendiente
+cc-542,theory-27,8,Control de Concurrencia,pendiente
+cc-543,theory-27,9,Ordenamiento y Agregaciones,pendiente
+cc-544,theory-27,10,Algoritmos de Unión,pendiente
+cc-545,theory-27,11,Planificación de consultas y Optimización,pendiente
+cc-546,theory-27,11,"Consultas anidadas, costo del modelo",pendiente
+cc-547,theory-27,12,Segundo Examen,pendiente
+cc-548,theory-27,13,"Tipos de bloqueos, Bloqueo de dos fases, Detección de Deadlock",pendiente
+cc-549,theory-27,14,Transacciones,pendiente
+cc-550,theory-27,14,"Sistemas Recuperación, clasificación de fallos",pendiente
+cc-551,theory-27,15,"Arquitectura, Diseño, Esquemas de Partición, Control de concurrencia",pendiente
+cc-552,theory-27,16,Examen Sustitutorio,pendiente
+cc-553,theory-27,16,Bases de Datos Distribuidas,pendiente
+cc-554,theory-27,17,Tercer Examen,pendiente
+cc-555,theory-28,1,"Motivación: Importancia de los Algoritmos en la solución de problemas, Reglas del curso",pendiente
+cc-556,theory-28,2,Examen de Entrada,pendiente
+cc-557,theory-28,3,Análisis asintótico y notación,pendiente
+cc-558,theory-28,4,Comparación de la tendencia de las funciones,pendiente
+cc-559,theory-28,5,Definición formal y demostración de propiedades de la notación asintótica,pendiente
+cc-560,theory-28,6,"Análisis del mejor, peor y caso promedio: insertion sort, merge sort",pendiente
+cc-561,theory-28,7,"Técnicas de solución de recurrencias: árbol de recursión, inducción matemática, funciones generatrices, el teorema maestro",pendiente
+cc-562,theory-28,8,Primer Examen,pendiente
+cc-563,theory-28,8,Incidencia de factores externos y la implementación de algoritmos,pendiente
+cc-564,theory-28,9,Algoritmos de fuerza bruta,pendiente
+cc-565,theory-28,10,"Divide y vencerás: Strassen, Fibonacci, Multiplicación polinomial, Quicksort",pendiente
+cc-566,theory-28,11,Algoritmos avaros: Minimum Spanning Trees,pendiente
+cc-567,theory-28,12,Segundo Examen,pendiente
+cc-568,theory-28,12,Programación dinámica: la subsecuencia común más larga,pendiente
+cc-569,theory-28,13,"La ruta más corta: Dijkstra, Floyd, Bellman-Ford, programación lineal, Floyd-Warshall, Johnson",pendiente
+cc-570,theory-28,14,"Backtracking, Heurísticas",pendiente
+cc-571,theory-28,15,"Definición formal de las clases P y NP, NP completitud (Teorema de Cook)",pendiente
+cc-572,theory-28,16,Examen Sustitutorio,pendiente
+cc-573,theory-28,16,Problemas NP-completos y demostraciones,pendiente
+cc-574,theory-28,17,Tercer Examen,pendiente
+cc-575,theory-29,1,"Principios de Ingeniería de Software: Proceso de Software, Reglas de Disciplina, Requisito de Software",pendiente
+cc-576,theory-29,2,Los Límites del Sistema y el Contexto,pendiente
+cc-577,theory-29,2,Elicitación de Requisitos,pendiente
+cc-578,theory-29,3,"Especificación de Requisitos: Lenguaje Natural (Casos de Uso, Historias de Usuario, BDD) y Modelos (NFR framework)",pendiente
+cc-579,theory-29,4,Análisis de Requisitos (Verificación y Validación),pendiente
+cc-580,theory-29,5,"Gestión de Requisitos, Documento de Especificación de Requisitos y Herramientas",pendiente
+cc-581,theory-29,6,Primer Examen,pendiente
+cc-582,theory-29,7,Principios de diseño de software,pendiente
+cc-583,theory-29,7,"Paradigmas de diseño: estructurado, orientado a objetos, aspectos, funciones, servicios",pendiente
+cc-584,theory-29,8,Modelos estructurales y de comportamiento del diseño orientado a objetos,pendiente
+cc-585,theory-29,9,Arquitectura de software: Fundamentos y Documentación,pendiente
+cc-586,theory-29,10,"Estilos y patrones de arquitectura: filtros y tuberías, capas, eventos, micro kernel, plugins, micro servicios",pendiente
+cc-587,theory-29,11,"Componentes de Software, Bibliotecas, Frameworks y Middlewares",pendiente
+cc-588,theory-29,12,Segundo Examen,pendiente
+cc-589,theory-29,13,Estilos de programación y Programación Defensiva,pendiente
+cc-590,theory-29,14,"Mecanismos para construcción de programas de calidad: Normas/Estándares/Estilos/Guias/Convenciones de codificación, Codificación Legible (clean code)",pendiente
+cc-591,theory-29,15,"Estrategias de Integración: top-down, bottom-up, sandwich",pendiente
+cc-592,theory-29,15,Prácticas de desarrollo de software orientado a objetos: Principios SOLID,pendiente
+cc-593,theory-29,16,Examen Sustitutorio,pendiente
+cc-594,theory-29,16,"Enfoques de desarrollo de software: Domain-driven Design - DDD, Clean Architecture",pendiente
+cc-595,theory-29,17,Tercer Examen,pendiente
+cc-596,theory-30,1,Conocer la visión general de los compiladores,pendiente
+cc-597,theory-30,1,"Definir el análisis léxico, sintáctico y semántico",pendiente
+cc-598,theory-30,2,Definir la generación de código y la optimización de código,pendiente
+cc-599,theory-30,3,Comprender el problema del análisis léxico,pendiente
+cc-600,theory-30,3,Conoce los tokens y funciones de los analizadores,pendiente
+cc-601,theory-30,3,Describe los diagramas y analizadores de relaciones,pendiente
+cc-602,theory-30,4,Describe los diagramas y analizadores de relaciones,pendiente
+cc-603,theory-30,4,Resumir la programación con lex,pendiente
+cc-604,theory-30,5,Primer Examen,pendiente
+cc-605,theory-30,6,Comprender los fundamentos del análisis sintáctico,pendiente
+cc-606,theory-30,7,Explicar las gramáticas de soporte del análisis sintáctico,pendiente
+cc-607,theory-30,8,Expresar las gramáticas libres del contexto,pendiente
+cc-608,theory-30,9,Comprender el análisis sintáctico descendente,pendiente
+cc-609,theory-30,10,Comprender el análisis sintáctico ascendente,pendiente
+cc-610,theory-30,11,Comprender la verificación estática,pendiente
+cc-611,theory-30,11,Expresar la gramáticas de atributos,pendiente
+cc-612,theory-30,11,Expresar la representación intermedia,pendiente
+cc-613,theory-30,12,Segundo Examen,pendiente
+cc-614,theory-30,13,Deducir las tablas de símbolos,pendiente
+cc-615,theory-30,13,Describir la preparación para la generación de código,pendiente
+cc-616,theory-30,14,Expresar la generación de directivas para tablas,pendiente
+cc-617,theory-30,14,Expresar la generación de código de árboles,pendiente
+cc-618,theory-30,15,Explicar las estrategias para la generación de código,pendiente
+cc-619,theory-30,15,"Conocer lo creación, detección, clasificación y recuperación de errores",pendiente
+cc-620,theory-30,16,Examen Sustitutorio,pendiente
+cc-621,theory-30,16,Resumir el manejo de errores en el análisis sintáctico,pendiente
+cc-622,theory-30,16,Resumir los errores semánticos,pendiente
+cc-623,theory-30,17,Tercer Examen,pendiente
+cc-624,theory-30,17,Exposición de la Investigación Formativa,pendiente
+cc-625,theory-31,1,Espacios de Probabilidad y Reglas de Probabilidad,pendiente
+cc-626,theory-31,2,Probabilidad Condicional y Teorema de Bayes,pendiente
+cc-627,theory-31,3,Función de distribución y tipos de variables aleatorias,pendiente
+cc-628,theory-31,3,Distribuciones discretas,pendiente
+cc-629,theory-31,4,Distribuciones continuas,pendiente
+cc-630,theory-31,5,Distribución conjunta y distribución marginal,pendiente
+cc-631,theory-31,5,Distribución condicional,pendiente
+cc-632,theory-31,6,Esperanza y matriz de covarianza de un vector aleatorio,pendiente
+cc-633,theory-31,7,Distribuciones multivariadas discretas y continuas,pendiente
+cc-634,theory-31,8,Primer Examen,pendiente
+cc-635,theory-31,8,Tipos de procesos estocásticos,pendiente
+cc-636,theory-31,9,Procesos estocásticos en tiempo discreto,pendiente
+cc-637,theory-31,9,Procesos estocásticos en tiempo continuo,pendiente
+cc-638,theory-31,10,Procesos Estocásticos estacionarios,pendiente
+cc-639,theory-31,11,Cadenas de Markov en tiempo discreto,pendiente
+cc-640,theory-31,11,Cadenas de Markov en tiempo continuo,pendiente
+cc-641,theory-31,12,Segundo Examen,pendiente
+cc-642,theory-31,12,Cadenas Ocultas de Markov,pendiente
+cc-643,theory-31,12,Métodos Bootstrap,pendiente
+cc-644,theory-31,13,Método de Monte Carlo y Cadenas de Markov,pendiente
+cc-645,theory-31,14,Inferencia bayesiana,pendiente
+cc-646,theory-31,15,"Algoritmos Metrópolis-Hastings, Gibbs Sampler",pendiente
+cc-647,theory-31,16,Examen Sustitutorio,pendiente
+cc-648,theory-31,16,Naturaleza de los datos espaciales. Análisis exploratorio de datos. Métodos gráficos,pendiente
+cc-649,theory-31,16,Análisis de Datos Espaciales de tipo discreto. Procesos Puntuales,pendiente
+cc-650,theory-31,16,Análisis de Datos Espaciales de tipo continuo. Interpolación espacial,pendiente
+cc-651,theory-31,17,Tercer Examen,pendiente
+cc-652,theory-31,17,Análisis de Datos Espaciales agregados o regionales. Entornos y pesos de áreas,pendiente
+cc-653,theory-31,17,Autocorrelación espacial. Regresión espacial,pendiente
+cc-654,theory-32,1,Notación sigma (sumas). Fórmulas de algunas sumas especiales,pendiente
+cc-655,theory-32,1,Idea intuitiva del cálculo del área de una región plana limitada por la gráfica de una función no negativa en un intervalo acotado,pendiente
+cc-656,theory-32,1,Partición regular. Sumas de Riemann. La integral definida como límite de una suma de Riemann. Propiedades de la integral definida,pendiente
+cc-657,theory-32,2,Definiciones de función acotada y continua por tramos (seccionalmente continua). El teorema del valor medio. Interpretación geométrica y demostración. Definición de valor promedio de una función en un intervalo cerrado,pendiente
+cc-658,theory-32,2,Teoremas fundamentales del cálculo,pendiente
+cc-659,theory-32,2,Integración por partes para integrales definidas. Demostración de integrales definidas por recurrencia,pendiente
+cc-660,theory-32,3,"Integrales trigonométricas: potencias de seno por coseno, tangente por secante y productos de seno y coseno con ángulos diferentes",pendiente
+cc-661,theory-32,3,Integración por sustitución trigonométrica,pendiente
+cc-662,theory-32,3,Aplicación a integrales con potencias fraccionarias. Integración de funciones racionales con el método de fracciones parciales,pendiente
+cc-663,theory-32,4,Área entre dos curvas en coordenadas cartesianas,pendiente
+cc-664,theory-32,4,Cálculo de volúmenes de sólidos mediante secciones transversales,pendiente
+cc-665,theory-32,4,Cálculo de volúmenes de sólidos de revolución: método del disco y del anillo. Método de las cortezas cilíndricas,pendiente
+cc-666,theory-32,5,Longitud de arco de una curva. Área de la superficie de revolución generada por una curva,pendiente
+cc-667,theory-32,5,Momentos y centro de masa. Centroide de una región plana,pendiente
+cc-668,theory-32,5,Teorema de Pappus para hallar el volumen de un sólido de revolución,pendiente
+cc-669,theory-32,6,Primer Examen,pendiente
+cc-670,theory-32,6,Coordenadas polares. Relaciones entre coordenadas cartesianas y polares. Ecuaciones polares y ecuaciones equivalentes. Gráfica de ecuaciones coordenadas,pendiente
+cc-671,theory-32,6,Área de regiones plana y longitud de arco en coordenadas polares,pendiente
+cc-672,theory-32,6,La fórmula de Taylor con resto de Lagrange. Aproximación de funciones y cálculo aproximado de integrales mediante polinomios de Taylor,pendiente
+cc-673,theory-32,7,"Introducción a las ecuaciones diferenciales ordinarias (EDOs): orden de la EDO, EDO autónoma y problema de valor inicial",pendiente
+cc-674,theory-32,7,Campos de pendientes. Curva isoclina,pendiente
+cc-675,theory-32,8,Ecuaciones diferenciales ordinarias separables,pendiente
+cc-676,theory-32,8,Modelado: crecimiento poblacional y la ecuación diferencial logística,pendiente
+cc-677,theory-32,9,Circuito eléctrico simple,pendiente
+cc-678,theory-32,9,Problemas de mezclas,pendiente
+cc-679,theory-32,9,Numpy y scipy para resolver ecuaciones diferenciales ordinarias,pendiente
+cc-680,theory-32,10,Segundo Examen,pendiente
+cc-681,theory-32,10,Definición de EDO lineal de orden n,pendiente
+cc-682,theory-32,10,Ecuación diferencial lineal homogénea de segundo orden,pendiente
+cc-683,theory-32,11,Solución de ecuaciones lineales no homogéneas lineales con coeficientes constantes,pendiente
+cc-684,theory-32,11,Teorema de existencia y unicidad para EDOs de orden n,pendiente
+cc-685,theory-32,12,El método de reducción de orden. Independencia lineal y wronskiano. Obtención de una solución particular de la ecuación no homogénea,pendiente
+cc-686,theory-32,13,El método de los coeficientes indeterminados y el de variación de parámetros,pendiente
+cc-687,theory-32,13,Aplicaciones: movimientos vibratorios de sistemas mecánicos. Movimiento armónico simple,pendiente
+cc-688,theory-32,14,Movimiento vibratorio con amortiguamiento. El fenómeno de resonancia,pendiente
+cc-689,theory-32,14,Problemas de circuitos eléctricos y el péndulo simple,pendiente
+cc-690,theory-32,15,Introducción a PyMOR,pendiente
+cc-691,theory-32,16,Examen Sustitutorio,pendiente
+cc-692,theory-32,16,Definición de integrales impropias (en intervalos no acotados y con asíntotas verticales),pendiente
+cc-693,theory-32,16,"Criterios de convergencia: comparación, paso al límite y convergencia absoluta",pendiente
+cc-694,theory-32,17,Tercer Examen,pendiente
+cc-695,theory-32,17,Ejemplos de convergencia de integrales impropias que dependan de un parámetro,pendiente
+cc-696,theory-33,1,Lineales,pendiente
+cc-697,theory-33,1,No Lineales,pendiente
+cc-698,theory-33,2,Estructura de Grafos,pendiente
+cc-699,theory-33,3,Búsqueda completa,pendiente
+cc-700,theory-33,3,Divide y vencerás,pendiente
+cc-701,theory-33,4,Greedy,pendiente
+cc-702,theory-33,4,Programación dinámica,pendiente
+cc-703,theory-33,5,"Insertion sort, Merge sort, Quicksort",pendiente
+cc-704,theory-33,6,Primer Examen,pendiente
+cc-705,theory-33,6,"Recorridos: DFS, BFS, Topological sort",pendiente
+cc-706,theory-33,6,MST: Prim Kruskal,pendiente
+cc-707,theory-33,7,"SSSP: BFS, Dijkstra's, Bellman-Ford",pendiente
+cc-708,theory-33,8,"APSP: Floyd-Warshall, Johnson's Algorithm",pendiente
+cc-709,theory-33,9,Teoría de números,pendiente
+cc-710,theory-33,10,Combinatorias,pendiente
+cc-711,theory-33,11,Segundo Examen,pendiente
+cc-712,theory-33,11,Probabilidades,pendiente
+cc-713,theory-33,12,Distancia entre cadenas,pendiente
+cc-714,theory-33,13,String matching,pendiente
+cc-715,theory-33,14,Suffix Trie,pendiente
+cc-716,theory-33,15,"Puntos, líneas, círculos",pendiente
+cc-717,theory-33,16,Examen Sustitutorio,pendiente
+cc-718,theory-33,16,Convex hull,pendiente
+cc-719,theory-33,17,Tercer Examen,pendiente
+cc-720,theory-34,1,Gestión de configuración del software y control de versiones,pendiente
+cc-721,theory-34,2,Gestión de entregas (release),pendiente
+cc-722,theory-34,2,Herramientas de Ingeniería de Requisitos y Diseño de Software,pendiente
+cc-723,theory-34,3,"Herramientas de Pruebas: Depuración, Análisis estático y dinámico",pendiente
+cc-724,theory-34,4,"Entornos que automatizan el proceso de construcción de software: Construcción Automática, Integración continua",pendiente
+cc-725,theory-34,5,Primer Examen,pendiente
+cc-726,theory-34,6,"Verificación y Validación: Control de Calidad, Inspecciones, Revisiones (Complejidad Ciclomática y Cognitiva), Auditorías y Pruebas",pendiente
+cc-727,theory-34,6,"Fundamentos de pruebas: Proceso (generación, implementación, ejecución y análisis), Técnicas (Estáticas y Dinámicas), Tipos (usabilidad, confiabilidad, seguridad, desempeño y funcionalidad - conforme a la especificación), Niveles (unitarias, integració...",pendiente
+cc-728,theory-34,7,Plan de pruebas: Casos de prueba y Métodos de generación de casos de prueba,pendiente
+cc-729,theory-34,8,"Automatización de pruebas: Análisis de Código Fuente, Pruebas de Regresión, Arquitectura de pruebas xUnit, Dobles de Prueba (Test Double: Mocks, Stubs, Spies, Dummies, Fakes)",pendiente
+cc-730,theory-34,9,Seguimiento de defectos,pendiente
+cc-731,theory-34,10,"Enfoques de desarrollo basado en pruebas: TDD, BDD",pendiente
+cc-732,theory-34,11,Segundo Examen,pendiente
+cc-733,theory-34,12,Sistemas Legados: Cambios de software y Preocupaciones (concerns),pendiente
+cc-734,theory-34,12,"Evolución, Mantenimiento y Reingeniería de Software",pendiente
+cc-735,theory-34,13,Refactoring,pendiente
+cc-736,theory-34,14,"Migración de Software Legado: De Monolitos a Módulos, Microservicios",pendiente
+cc-737,theory-34,15,"Reutilización de Software: Bibliotecas, Frameworks, Componentes y Patrones de Diseño",pendiente
+cc-738,theory-34,16,Examen Sustitutorio,pendiente
+cc-739,theory-34,16,Líneas de Producto de Software,pendiente
+cc-740,theory-34,17,Tercer Examen,pendiente
+cc-741,theory-35,1,Introducción a Estructuras de Datos Avanzados,pendiente
+cc-742,theory-35,2,Árboles Binarios de Búsqueda: Implementación y Operaciones,pendiente
+cc-743,theory-35,3,Árboles AVL: Balanceo y Rotaciones,pendiente
+cc-744,theory-35,4,Árboles Rojo-Negro: Propiedades y Operaciones,pendiente
+cc-745,theory-35,5,Árboles B y B+: Estructura y Aplicaciones en Bases de Datos,pendiente
+cc-746,theory-35,6,Primer Examen,pendiente
+cc-747,theory-35,7,Heaps Binarios y Colas de Prioridad,pendiente
+cc-748,theory-35,8,Heaps Fibonacci: Estructura y Operaciones,pendiente
+cc-749,theory-35,9,Tablas Hash: Funciones de Hash y Manejo de Colisiones,pendiente
+cc-750,theory-35,10,Hash Abierto vs Hash Cerrado,pendiente
+cc-751,theory-35,11,Segundo Examen,pendiente
+cc-752,theory-35,12,Grafos: Representación y Algoritmos Básicos,pendiente
+cc-753,theory-35,13,Algoritmos de Caminos Mínimos: Dijkstra y Bellman-Ford,pendiente
+cc-754,theory-35,14,Algoritmos de Árbol de Expansión Mínima: Prim y Kruskal,pendiente
+cc-755,theory-35,15,Tries y Árboles de Sufijos,pendiente
+cc-756,theory-35,16,Examen Sustitutorio,pendiente
+cc-757,theory-35,17,Tercer Examen,pendiente
+cc-758,theory-36,1,Introducción a los Sistemas Operativos,pendiente
+cc-759,theory-36,1,Estructura de un Sistema Operativo,pendiente
+cc-760,theory-36,2,Concepto y Estados de un Proceso,pendiente
+cc-761,theory-36,2,Planificador de un Proceso,pendiente
+cc-762,theory-36,3,Comunicación de Procesos,pendiente
+cc-763,theory-36,3,"Pipes, FIFO, Cola de mensajes",pendiente
+cc-764,theory-36,4,Concepto de Threads,pendiente
+cc-765,theory-36,4,Modelo de Threads,pendiente
+cc-766,theory-36,5,Programación multicore,pendiente
+cc-767,theory-36,6,Primer Examen,pendiente
+cc-768,theory-36,6,Planificadores I,pendiente
+cc-769,theory-36,7,Planificadores II,pendiente
+cc-770,theory-36,7,"El problema de la sección crítica, mutex",pendiente
+cc-771,theory-36,8,"Monitores, semáforos",pendiente
+cc-772,theory-36,9,Manejo de Memoria,pendiente
+cc-773,theory-36,9,Memoria Virtual,pendiente
+cc-774,theory-36,10,Paginación de memoria,pendiente
+cc-775,theory-36,10,Memoria Caché,pendiente
+cc-776,theory-36,11,Segundo Examen,pendiente
+cc-777,theory-36,11,Sistemas de almacenamiento,pendiente
+cc-778,theory-36,12,Sistemas de entrada y salida,pendiente
+cc-779,theory-36,13,"Métodos de acceso: secuencial, directo, otros",pendiente
+cc-780,theory-36,14,Estructura de directorios,pendiente
+cc-781,theory-36,15,Recuperación de archivos,pendiente
+cc-782,theory-36,16,Examen Sustitutorio,pendiente
+cc-783,theory-36,17,Tercer Examen,pendiente
+cc-784,theory-37,1,Introducción al Trabajo Interdisciplinar II: Definición de objetivos y alcance del proyecto,pendiente
+cc-785,theory-37,2,Metodologías de trabajo interdisciplinario: integración de conocimientos,pendiente
+cc-786,theory-37,3,Identificación de problemas complejos desde múltiples perspectivas,pendiente
+cc-787,theory-37,4,Diseño de soluciones integradoras: enfoque sistémico,pendiente
+cc-788,theory-37,5,Primer Examen,pendiente
+cc-789,theory-37,6,Desarrollo de prototipos o modelos conceptuales,pendiente
+cc-790,theory-37,7,Análisis de viabilidad técnica y económica,pendiente
+cc-791,theory-37,8,Integración de componentes del proyecto,pendiente
+cc-792,theory-37,9,Evaluación de impactos sociales y ambientales,pendiente
+cc-793,theory-37,10,Segundo Examen,pendiente
+cc-794,theory-37,11,Optimización de soluciones propuestas,pendiente
+cc-795,theory-37,12,Documentación técnica del proyecto,pendiente
+cc-796,theory-37,13,Preparación de presentaciones y reportes finales,pendiente
+cc-797,theory-37,14,Socialización de avances con stakeholders,pendiente
+cc-798,theory-37,15,Examen Sustitutorio,pendiente
+cc-799,theory-37,16,Integración final de resultados,pendiente
+cc-800,theory-37,17,Tercer Examen,pendiente
+cc-801,theory-38,1,Clase Inaugural - Lineamientos del curso,pendiente
+cc-802,theory-38,1,Espacios vectoriales,pendiente
+cc-803,theory-38,2,Subespacios vectoriales,pendiente
+cc-804,theory-38,3,"Independencia, base y dimensión",pendiente
+cc-805,theory-38,4,Espacios con producto interno,pendiente
+cc-806,theory-38,4,Bases ortonormales y proyecciones,pendiente
+cc-807,theory-38,5,Aproximaciones por mínimos cuadrados,pendiente
+cc-808,theory-38,6,Primer Examen,pendiente
+cc-809,theory-38,7,Concepto de transformación lineal,pendiente
+cc-810,theory-38,7,Imagen y núcleo,pendiente
+cc-811,theory-38,8,Matriz de una transformación lineal,pendiente
+cc-812,theory-38,8,Isomorfismos,pendiente
+cc-813,theory-38,9,Cambio de base,pendiente
+cc-814,theory-38,9,Autovalores y autovectores,pendiente
+cc-815,theory-38,10,Matrices semejantes y diagonalización,pendiente
+cc-816,theory-38,10,Matrices simétricas y diagonalización ortogonal,pendiente
+cc-817,theory-38,10,La descomposición de valor singular,pendiente
+cc-818,theory-38,11,Segundo Examen,pendiente
+cc-819,theory-38,12,Exponencial de una matriz,pendiente
+cc-820,theory-38,13,Existencia y unicidad de soluciones para sistemas lineales homogéneas con coeficientes constantes,pendiente
+cc-821,theory-38,13,Sistemas lineales no homogéneas con coeficientes constantes,pendiente
+cc-822,theory-38,14,Flujo de una ecuación diferencial,pendiente
+cc-823,theory-38,14,Estabilidad,pendiente
+cc-824,theory-38,15,Funciones de Liapunov,pendiente
+cc-825,theory-38,16,Examen Sustitutorio,pendiente
+cc-826,theory-38,16,Sistemas Gradiente,pendiente
+cc-827,theory-38,17,Tercer Examen,pendiente
+cc-828,theory-39,1,Introducción a la Investigación en Ciencias de la Computación,pendiente
+cc-829,theory-39,2,Métodos de Investigación Científica,pendiente
+cc-830,theory-39,3,Formulación del Problema de Investigación,pendiente
+cc-831,theory-39,4,Revisión de Literatura y Estado del Arte,pendiente
+cc-832,theory-39,5,Diseño de la Investigación,pendiente
+cc-833,theory-39,6,Primer Examen,pendiente
+cc-834,theory-39,7,Métodos Experimentales en Ciencias de la Computación,pendiente
+cc-835,theory-39,8,Recolección y Análisis de Datos,pendiente
+cc-836,theory-39,9,Herramientas para la Investigación Computacional,pendiente
+cc-837,theory-39,10,Escritura Científica y Estructura de Artículos,pendiente
+cc-838,theory-39,11,Segundo Examen,pendiente
+cc-839,theory-39,12,Ética en la Investigación Computacional,pendiente
+cc-840,theory-39,13,Evaluación y Revisión por Pares,pendiente
+cc-841,theory-39,14,Propuestas de Investigación y Financiamiento,pendiente
+cc-842,theory-39,15,Comunicación y Presentación de Resultados,pendiente
+cc-843,theory-39,16,Examen Sustitutorio,pendiente
+cc-844,theory-39,17,Tercer Examen,pendiente
+cc-845,theory-40,1,Introducción al Desarrollo de Software Empresarial,pendiente
+cc-846,theory-40,2,Arquitecturas Empresariales y Patrones de Diseño,pendiente
+cc-847,theory-40,3,Desarrollo de Aplicaciones Web Empresariales,pendiente
+cc-848,theory-40,4,Frameworks para Desarrollo Empresarial,pendiente
+cc-849,theory-40,5,Bases de Datos en Entornos Empresariales,pendiente
+cc-850,theory-40,6,Primer Examen,pendiente
+cc-851,theory-40,7,Integración de Sistemas Empresariales,pendiente
+cc-852,theory-40,8,Servicios Web y APIs REST,pendiente
+cc-853,theory-40,9,Seguridad en Aplicaciones Empresariales,pendiente
+cc-854,theory-40,10,Escalabilidad y Performance en Sistemas Empresariales,pendiente
+cc-855,theory-40,11,Segundo Examen,pendiente
+cc-856,theory-40,12,Testing y Calidad en Software Empresarial,pendiente
+cc-857,theory-40,13,DevOps y CI/CD en Entornos Empresariales,pendiente
+cc-858,theory-40,14,Monitoreo y Logging en Sistemas Empresariales,pendiente
+cc-859,theory-40,15,Casos de Estudio y Mejores Prácticas,pendiente
+cc-860,theory-40,16,Examen Sustitutorio,pendiente
+cc-861,theory-40,17,Tercer Examen,pendiente
+cc-862,theory-41,1,Fundamentos y evolución histórica de redes,pendiente
+cc-863,theory-41,1,Arquitectura de redes,pendiente
+cc-864,theory-41,2,Arquitectura de internet,pendiente
+cc-865,theory-41,2,Primera práctica de laboratorio,pendiente
+cc-866,theory-41,2,Tipos de redes y técnicas de switcheo,pendiente
+cc-867,theory-41,3,Computación basada en redes,pendiente
+cc-868,theory-41,3,Protocolos de red,pendiente
+cc-869,theory-41,3,Segunda práctica de laboratorio,pendiente
+cc-870,theory-41,4,Modelos de redes,pendiente
+cc-871,theory-41,4,Tercera práctica de laboratorio,pendiente
+cc-872,theory-41,5,Estándares de Redes,pendiente
+cc-873,theory-41,5,Modelo OSI,pendiente
+cc-874,theory-41,5,Funcionamiento del modelo OSI,pendiente
+cc-875,theory-41,5,Cuarta práctica de laboratorio,pendiente
+cc-876,theory-41,6,Primer Examen,pendiente
+cc-877,theory-41,7,Estándares IEEE,pendiente
+cc-878,theory-41,7,TCP/IP,pendiente
+cc-879,theory-41,7,Quinta práctica de laboratorio,pendiente
+cc-880,theory-41,8,"La capa de aplicación, transporte y red TCP/IP",pendiente
+cc-881,theory-41,8,Sexta práctica de laboratorio,pendiente
+cc-882,theory-41,9,Control de errores,pendiente
+cc-883,theory-41,9,Control de flujo,pendiente
+cc-884,theory-41,10,Pipeline en redes,pendiente
+cc-885,theory-41,10,Sétima práctica de laboratorio,pendiente
+cc-886,theory-41,11,Segundo Examen,pendiente
+cc-887,theory-41,12,Enrutamiento estático,pendiente
+cc-888,theory-41,12,Enrutamiento dinámico,pendiente
+cc-889,theory-41,12,Protocolos de enrutamiento,pendiente
+cc-890,theory-41,13,Octava práctica de laboratorio,pendiente
+cc-891,theory-41,14,Asignación estática y dinámica de recursos,pendiente
+cc-892,theory-41,14,Redes de extremo a extremo,pendiente
+cc-893,theory-41,14,Novena práctica de laboratorio,pendiente
+cc-894,theory-41,15,Estándares de redes inalámbricas,pendiente
+cc-895,theory-41,15,Redes celulares y satelitales,pendiente
+cc-896,theory-41,16,Examen Sustitutorio,pendiente
+cc-897,theory-41,17,Tercer Examen,pendiente
+cc-898,theory-42,1,Introducción a Ingeniería de Software III,pendiente
+cc-899,theory-42,2,Gestión de Proyectos de Software Avanzada,pendiente
+cc-900,theory-42,3,Arquitecturas de Software Empresarial,pendiente
+cc-901,theory-42,4,Patrones de Arquitectura Empresarial,pendiente
+cc-902,theory-42,5,Calidad de Software y Métricas Avanzadas,pendiente
+cc-903,theory-42,6,Primer Examen,pendiente
+cc-904,theory-42,7,Gestión de Configuración y Control de Versiones Avanzado,pendiente
+cc-905,theory-42,8,Integración Continua y Entrega Continua (CI/CD),pendiente
+cc-906,theory-42,9,DevOps y Automatización de Procesos,pendiente
+cc-907,theory-42,10,Arquitecturas de Microservicios,pendiente
+cc-908,theory-42,11,Segundo Examen,pendiente
+cc-909,theory-42,12,Gestión de Requerimientos en Proyectos Complejos,pendiente
+cc-910,theory-42,13,Arquitecturas Orientadas a Eventos,pendiente
+cc-911,theory-42,14,Prácticas de Codificación Avanzadas,pendiente
+cc-912,theory-42,15,Gestión de Equipos de Desarrollo,pendiente
+cc-913,theory-42,16,Examen Sustitutorio,pendiente
+cc-914,theory-42,17,Tercer Examen,pendiente
+cc-915,theory-43,1,Introducción a la Computación Gráfica,pendiente
+cc-916,theory-43,2,Sistemas de Coordenadas y Transformaciones Geométricas,pendiente
+cc-917,theory-43,3,Transformaciones Afines y Homogéneas,pendiente
+cc-918,theory-43,4,Proyecciones y Visualización 3D,pendiente
+cc-919,theory-43,5,Algoritmos de Rasterización,pendiente
+cc-920,theory-43,6,Primer Examen,pendiente
+cc-921,theory-43,7,Modelado de Superficies y Curvas,pendiente
+cc-922,theory-43,8,Iluminación y Sombreo,pendiente
+cc-923,theory-43,9,Texturizado y Mapeado,pendiente
+cc-924,theory-43,10,Animación por Computadora,pendiente
+cc-925,theory-43,11,Segundo Examen,pendiente
+cc-926,theory-43,12,Gráficos por Computadora en Tiempo Real,pendiente
+cc-927,theory-43,13,Técnicas de Renderizado Avanzado,pendiente
+cc-928,theory-43,14,Procesamiento de Imágenes y Visión por Computadora,pendiente
+cc-929,theory-43,15,Aplicaciones de Computación Gráfica,pendiente
+cc-930,theory-43,16,Examen Sustitutorio,pendiente
+cc-931,theory-43,17,Tercer Examen,pendiente
+cc-932,theory-44,1,Introducción al Curso de Inteligencia Artificial,pendiente
+cc-933,theory-44,2,Fundamentos e Historia de la Inteligencia Artificial,pendiente
+cc-934,theory-44,3,Agentes Inteligentes,pendiente
+cc-935,theory-44,4,Estrategias de Búsqueda,pendiente
+cc-936,theory-44,5,Búsqueda Informada,pendiente
+cc-937,theory-44,6,Búsqueda No Informada,pendiente
+cc-938,theory-44,7,Primer Examen,pendiente
+cc-939,theory-44,8,Algoritmos de Aprendizaje de Máquina para Agrupamiento 1,pendiente
+cc-940,theory-44,9,Algoritmos de Aprendizaje de Máquina para Agrupamiento 2,pendiente
+cc-941,theory-44,10,Algoritmos de Aprendizaje de Máquina para Clasificación 1,pendiente
+cc-942,theory-44,11,Algoritmos de Aprendizaje de Máquina para Clasificación 2,pendiente
+cc-943,theory-44,12,Segundo Examen,pendiente
+cc-944,theory-44,13,Representación del Conocimiento,pendiente
+cc-945,theory-44,14,Desarrollo de aplicaciones de Inteligencia Artificial,pendiente
+cc-946,theory-44,15,Aprendizaje Profundo,pendiente
+cc-947,theory-44,16,Examen Sustitutorio,pendiente
+cc-948,theory-44,17,Tercer Examen,pendiente
+cc-949,theory-45,1,Introducción a la Interacción Humano-Computador,pendiente
+cc-950,theory-45,2,Principios de Diseño de Interfaces de Usuario,pendiente
+cc-951,theory-45,3,Psicología Cognitiva en IHC,pendiente
+cc-952,theory-45,4,Metodologías de Diseño Centrado en el Usuario,pendiente
+cc-953,theory-45,5,Prototipado y Evaluación de Interfaces,pendiente
+cc-954,theory-45,6,Primer Examen,pendiente
+cc-955,theory-45,7,Diseño de Interacción y Experiencia de Usuario,pendiente
+cc-956,theory-45,8,Accesibilidad y Diseño Inclusivo,pendiente
+cc-957,theory-45,9,Interfaces para Dispositivos Móviles,pendiente
+cc-958,theory-45,10,Evaluación Heurística y Test de Usabilidad,pendiente
+cc-959,theory-45,11,Segundo Examen,pendiente
+cc-960,theory-45,12,Diseño de Interfaces para Realidad Virtual y Aumentada,pendiente
+cc-961,theory-45,13,Interfaces Conversacionales y Voz,pendiente
+cc-962,theory-45,14,Diseño Emocional y Persuasivo,pendiente
+cc-963,theory-45,15,Tendencias Futuras en IHC,pendiente
+cc-964,theory-45,16,Examen Sustitutorio,pendiente
+cc-965,theory-45,17,Tercer Examen,pendiente
+cc-966,theory-46,1,Introducción al Proyecto de Final de Carrera I,pendiente
+cc-967,theory-46,2,Definición del Problema y Alcance del Proyecto,pendiente
+cc-968,theory-46,3,Revisión de Literatura y Estado del Arte,pendiente
+cc-969,theory-46,4,Metodología de Investigación y Desarrollo,pendiente
+cc-970,theory-46,5,Planificación del Proyecto y Cronograma,pendiente
+cc-971,theory-46,6,Primer Examen,pendiente
+cc-972,theory-46,7,Diseño de la Solución y Arquitectura del Sistema,pendiente
+cc-973,theory-46,8,Selección de Tecnologías y Herramientas,pendiente
+cc-974,theory-46,9,Desarrollo del Prototipo Inicial,pendiente
+cc-975,theory-46,10,Pruebas y Validación del Prototipo,pendiente
+cc-976,theory-46,11,Segundo Examen,pendiente
+cc-977,theory-46,12,Documentación del Proyecto,pendiente
+cc-978,theory-46,13,Avance del Desarrollo y Implementación,pendiente
+cc-979,theory-46,14,Evaluación de Resultados Parciales,pendiente
+cc-980,theory-46,15,Preparación de la Presentación del Avance,pendiente
+cc-981,theory-46,16,Examen Sustitutorio,pendiente
+cc-982,theory-46,17,Tercer Examen,pendiente
+cc-983,theory-47,1,Introducción a la Computación Paralela y Distribuida,pendiente
+cc-984,theory-47,2,Arquitecturas de Sistemas Paralelos,pendiente
+cc-985,theory-47,3,Modelos de Programación Paralela,pendiente
+cc-986,theory-47,4,Programación con MPI (Message Passing Interface),pendiente
+cc-987,theory-47,5,Programación con OpenMP,pendiente
+cc-988,theory-47,6,Primer Examen,pendiente
+cc-989,theory-47,7,Sistemas Distribuidos: Conceptos y Arquitecturas,pendiente
+cc-990,theory-47,8,Comunicación en Sistemas Distribuidos,pendiente
+cc-991,theory-47,9,Sincronización y Coordinación Distribuida,pendiente
+cc-992,theory-47,10,Tolerancia a Fallos en Sistemas Distribuidos,pendiente
+cc-993,theory-47,11,Segundo Examen,pendiente
+cc-994,theory-47,12,Computación en Cluster y Grid,pendiente
+cc-995,theory-47,13,Computación en la Nube y Virtualización,pendiente
+cc-996,theory-47,14,Algoritmos Paralelos y Distribuidos,pendiente
+cc-997,theory-47,15,Aplicaciones de Computación Paralela y Distribuida,pendiente
+cc-998,theory-47,16,Examen Sustitutorio,pendiente
+cc-999,theory-47,17,Tercer Examen,pendiente
+cc-1000,theory-48,1,Introducción a la Seguridad en Computación,pendiente
+cc-1001,theory-48,2,Fundamentos de Criptografía,pendiente
+cc-1002,theory-48,3,Algoritmos Criptográficos Simétricos,pendiente
+cc-1003,theory-48,4,Algoritmos Criptográficos Asimétricos,pendiente
+cc-1004,theory-48,5,Protocolos de Seguridad y Autenticación,pendiente
+cc-1005,theory-48,6,Primer Examen,pendiente
+cc-1006,theory-48,7,Seguridad en Redes y Comunicaciones,pendiente
+cc-1007,theory-48,8,Firewalls y Sistemas de Detección de Intrusos,pendiente
+cc-1008,theory-48,9,Seguridad en Aplicaciones Web,pendiente
+cc-1009,theory-48,10,Vulnerabilidades y Ataques Comunes,pendiente
+cc-1010,theory-48,11,Segundo Examen,pendiente
+cc-1011,theory-48,12,Seguridad en Sistemas Operativos,pendiente
+cc-1012,theory-48,13,Gestión de Identidades y Accesos,pendiente
+cc-1013,theory-48,14,Forensic Digital y Análisis de Incidentes,pendiente
+cc-1014,theory-48,15,Políticas de Seguridad y Cumplimiento Normativo,pendiente
+cc-1015,theory-48,16,Examen Sustitutorio,pendiente
+cc-1016,theory-48,17,Tercer Examen,pendiente

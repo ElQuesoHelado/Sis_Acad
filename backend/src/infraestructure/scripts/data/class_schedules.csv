@@ -1,34 +1,49 @@
 id,classroom_name,semester,day,startTime,endTime,theoryGroupId,labGroupId
-sched-1,Aula 101,2024-I,LUNES,10:00,10:50,theory-1,
-sched-2,Aula 101,2024-I,LUNES,11:00,11:50,theory-1,
-sched-3,Aula 101,2024-I,MIERCOLES,10:00,10:50,theory-1,
-sched-4,Aula 101,2024-I,MIERCOLES,11:00,11:50,theory-1,
-sched-5,Aula 102,2024-I,LUNES,08:00,08:50,theory-2,
-sched-6,Aula 102,2024-I,LUNES,09:00,09:50,theory-2,
-sched-7,Aula 102,2024-I,JUEVES,08:00,08:50,theory-2,
-sched-8,Aula 102,2024-I,JUEVES,09:00,09:50,theory-2,
-sched-9,Aula 101,2024-I,MARTES,10:00,10:50,theory-3,
-sched-10,Aula 101,2024-I,MARTES,11:00,11:50,theory-3,
-sched-11,Aula 101,2024-I,JUEVES,10:00,10:50,theory-3,
-sched-12,Aula 102,2024-I,MARTES,14:00,14:50,theory-4,
-sched-13,Aula 102,2024-I,MARTES,15:00,15:50,theory-4,
-sched-14,Aula 102,2024-I,VIERNES,14:00,14:50,theory-4,
-sched-15,Aula 103,2024-I,MIERCOLES,08:00,08:50,theory-5,
-sched-16,Aula 103,2024-I,MIERCOLES,09:00,09:50,theory-5,
-sched-17,Aula 103,2024-I,VIERNES,08:00,08:50,theory-5,
-sched-18,Aula 103,2024-I,LUNES,14:00,14:50,theory-6,
-sched-19,Aula 103,2024-I,LUNES,15:00,15:50,theory-6,
-sched-20,Aula 103,2024-I,JUEVES,14:00,14:50,theory-6,
-sched-21,Aula 103,2024-I,JUEVES,15:00,15:50,theory-6,
-sched-22,Lab 1,2024-I,MIERCOLES,14:00,14:50,,lab-1
-sched-23,Lab 1,2024-I,MIERCOLES,15:00,15:50,,lab-1
-sched-24,Lab 1,2024-I,MARTES,14:00,14:50,,lab-2
-sched-25,Lab 1,2024-I,MARTES,15:00,15:50,,lab-2
-sched-26,Lab 2,2024-I,MIERCOLES,14:00,14:50,,lab-3
-sched-27,Lab 2,2024-I,MIERCOLES,15:00,15:50,,lab-3
-sched-28,Lab 3,2024-I,JUEVES,14:00,14:50,,lab-4
-sched-29,Lab 3,2024-I,JUEVES,15:00,15:50,,lab-4
-sched-30,Lab 3,2024-I,VIERNES,14:00,14:50,,lab-5
-sched-31,Lab 3,2024-I,VIERNES,15:00,15:50,,lab-5
-sched-32,Lab 2,2024-I,LUNES,16:00,16:50,,lab-6
-sched-33,Lab 2,2024-I,LUNES,17:00,17:50,,lab-6
+sch-1,101,2025-I,LUNES,07:00,08:40,theory-1,lab-1
+sch-2,102,2025-I,LUNES,08:50,10:30,theory-2,lab-2
+sch-3,103,2025-I,LUNES,10:40,12:20,theory-3,lab-3
+sch-4,201,2025-I,LUNES,14:00,15:40,theory-4,lab-4
+sch-5,202,2025-I,LUNES,15:50,17:30,theory-5,lab-5
+sch-6,203,2025-I,MARTES,07:00,08:40,theory-6,lab-6
+sch-7,301,2025-I,MARTES,08:50,10:30,theory-7,lab-7
+sch-8,302,2025-I,MARTES,10:40,12:20,theory-8,lab-8
+sch-9,303,2025-I,MARTES,14:00,15:40,theory-9,lab-9
+sch-10,101,2025-I,MARTES,15:50,17:30,theory-10,lab-10
+sch-11,102,2025-I,MIERCOLES,07:00,08:40,theory-11,lab-11
+sch-12,103,2025-I,MIERCOLES,08:50,10:30,theory-12,lab-12
+sch-13,201,2025-I,MIERCOLES,10:40,12:20,theory-13,lab-13
+sch-14,202,2025-I,MIERCOLES,14:00,15:40,theory-14,lab-14
+sch-15,203,2025-I,MIERCOLES,15:50,17:30,theory-15,lab-15
+sch-16,301,2025-I,JUEVES,07:00,08:40,theory-16,lab-16
+sch-17,302,2025-I,JUEVES,08:50,10:30,theory-17,lab-17
+sch-18,303,2025-I,JUEVES,10:40,12:20,theory-18,lab-18
+sch-19,101,2025-I,JUEVES,14:00,15:40,theory-19,lab-19
+sch-20,102,2025-I,JUEVES,15:50,17:30,theory-20,lab-20
+sch-21,103,2025-I,VIERNES,07:00,08:40,theory-21,lab-21
+sch-22,201,2025-I,VIERNES,08:50,10:30,theory-22,lab-22
+sch-23,202,2025-I,VIERNES,10:40,12:20,theory-23,lab-23
+sch-24,203,2025-I,VIERNES,14:00,15:40,theory-24,lab-24
+sch-25,301,2025-I,VIERNES,15:50,17:30,theory-25,lab-25
+sch-26,302,2025-I,LUNES,07:00,08:40,theory-26,lab-26
+sch-27,303,2025-I,LUNES,08:50,10:30,theory-27,lab-27
+sch-28,101,2025-I,LUNES,10:40,12:20,theory-28,lab-28
+sch-29,102,2025-I,LUNES,14:00,15:40,theory-29,lab-29
+sch-30,103,2025-I,LUNES,15:50,17:30,theory-30,lab-30
+sch-31,201,2025-I,MARTES,07:00,08:40,theory-31,lab-31
+sch-32,202,2025-I,MARTES,08:50,10:30,theory-32,lab-32
+sch-33,203,2025-I,MARTES,10:40,12:20,theory-33,lab-33
+sch-34,301,2025-I,MARTES,14:00,15:40,theory-34,lab-34
+sch-35,302,2025-I,MARTES,15:50,17:30,theory-35,lab-35
+sch-36,303,2025-I,MIERCOLES,07:00,08:40,theory-36,lab-36
+sch-37,101,2025-I,MIERCOLES,08:50,10:30,theory-37,lab-37
+sch-38,102,2025-I,MIERCOLES,10:40,12:20,theory-38,lab-38
+sch-39,103,2025-I,MIERCOLES,14:00,15:40,theory-39,lab-39
+sch-40,201,2025-I,MIERCOLES,15:50,17:30,theory-40,lab-40
+sch-41,202,2025-I,JUEVES,07:00,08:40,theory-41,lab-41
+sch-42,203,2025-I,JUEVES,08:50,10:30,theory-42,lab-42
+sch-43,301,2025-I,JUEVES,10:40,12:20,theory-43,lab-43
+sch-44,302,2025-I,JUEVES,14:00,15:40,theory-44,lab-44
+sch-45,303,2025-I,JUEVES,15:50,17:30,theory-45,lab-45
+sch-46,101,2025-I,VIERNES,07:00,08:40,theory-46,lab-46
+sch-47,102,2025-I,VIERNES,08:50,10:30,theory-47,lab-47
+sch-48,103,2025-I,VIERNES,10:40,12:20,theory-48,lab-48

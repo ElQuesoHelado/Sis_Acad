@@ -1,7 +1,16 @@
 id,name,type,capacity
-classroom-1,Lab 1,labo,20
-classroom-2,Lab 2,labo,20
-classroom-3,Lab 3,labo,20
-classroom-4,Aula 101,teoria,40
-classroom-5,Aula 102,teoria,40
-classroom-6,Aula 103,teoria,40
+r-101,101,teoria,100
+r-102,102,teoria,100
+r-103,103,teoria,100
+r-201,201,teoria,100
+r-202,202,teoria,100
+r-203,203,teoria,100
+r-301,301,teoria,100
+r-302,302,teoria,100
+r-303,303,teoria,100
+l-1,Laboratorio 1,labo,40
+l-2,Laboratorio 2,labo,40
+l-3,Laboratorio 3,labo,40
+l-4,Laboratorio 4,labo,40
+l-5,Laboratorio 5,labo,40
+l-6,Laboratorio 6,labo,40
