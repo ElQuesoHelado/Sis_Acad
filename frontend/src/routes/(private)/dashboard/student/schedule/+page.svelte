@@ -22,7 +22,7 @@
 		loading = true;
 		error = '';
 		try {
-			schedule = await studentService.getScheduleBySemester('2024-I');
+			schedule = await studentService.getScheduleBySemester('2025-II');
 		} catch (err) {
 			error = err instanceof Error ? err.message : 'Error al cargar el horario';
 			console.error('Error loading schedule:', err);

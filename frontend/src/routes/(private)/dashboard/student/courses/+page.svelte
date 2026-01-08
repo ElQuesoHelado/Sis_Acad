@@ -17,9 +17,9 @@
 	let courses: StudentCourse[] = [];
 	let loading = true;
 	let error = '';
-	let selectedSemester = '2024-I';
+	let selectedSemester = '2025-II';
 
-	const semesters = ['2025-I', '2024-II', '2024-I', '2023-II', '2023-I'];
+	const semesters = ['2023-I', '2023-II', '2024-I', '2024-II', '2025-I', '2025-II'];
 
 	async function loadCourses() {
 		loading = true;

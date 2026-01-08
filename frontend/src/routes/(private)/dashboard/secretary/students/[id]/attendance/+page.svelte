@@ -13,7 +13,7 @@
 	let courses: StudentCourseGrades[] = $state([]);
 	let loading = $state(true);
 	let error = $state('');
-	const semester = '2024-I';
+	const semester = '2025-II';
 
 	$effect(() => {
 		async function load() {

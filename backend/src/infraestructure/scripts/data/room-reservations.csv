@@ -1,4 +1,1 @@
 id,classroomId,professorId,semester,status,date,startTime,endTime,notes
-res-1,classroom-1,user-5,2024-I,reservado,2024-05-10,10:00,11:50,
-res-2,classroom-4,user-3,2024-I,reservado,2024-05-16,14:00,15:50,
-res-3,classroom-2,user-1,2024-II,reservado,2024-10-15,09:00,10:50,

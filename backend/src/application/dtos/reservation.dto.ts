@@ -13,7 +13,7 @@ export interface CreateReservationDto {
   classroomId: string;
 
   /**
-   * The academic semester (e.g., "2024-I").
+   * The academic semester (e.g., "2024-I", "2024-II", "2025-I", "2025-II").
    */
   semester: string;
 

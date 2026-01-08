@@ -44,7 +44,7 @@ export class RoomReservationModel extends BaseEntity {
   @JoinColumn({ name: "professor_id" })
   professor: UserModel;
 
-  /** Academic semester when the reservation is made (e.g., "2024-I"). */
+  /** Academic semester when the reservation is made (e.g., "2024-I", "2024-II", "2025-I", "2025-II"). */
   @Column("varchar", {
     length: 7,
     nullable: false,

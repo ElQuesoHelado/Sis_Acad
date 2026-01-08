@@ -43,7 +43,7 @@
 
 	let form: CreateReservationInput = $state({
 		classroomId: '',
-		semester: '2024-I',
+		semester: '2025-II',
 		date: '',
 		startTime: '',
 		endTime: '',

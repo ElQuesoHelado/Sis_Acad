@@ -31,7 +31,7 @@
 
 	async function loadGroups() {
 		try {
-			const allGroups = await teacherService.getGroupsBySemester('2024-I');
+			const allGroups = await teacherService.getGroupsBySemester('2025-II');
 			groups = allGroups.filter((g) => g.groupType === 'teoria');
 		} catch (error) {
 			console.error(error);

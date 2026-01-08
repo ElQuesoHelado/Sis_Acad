@@ -40,7 +40,7 @@
 	});
 
 	function handleViewDetails(student: AdminUserListEntry) {
-		const semester = '2024-I';
+		const semester = '2025-II';
 		goto(`${APP_PATHS.SECRETARY.STUDENTS}/${student.id}?semester=${semester}`);
 	}
 

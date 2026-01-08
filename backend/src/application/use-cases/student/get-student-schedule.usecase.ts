@@ -33,7 +33,7 @@ export class GetStudentScheduleUseCase {
   /**
    * Executes the use case.
    * @param studentProfileId - The authenticated student's profile ID
-   * @param semester - The academic semester (e.g., "2024-I")
+   * @param semester - The academic semester (e.g., "2025-II")
    * @returns A list of schedule entries DTOs
    */
   public async execute(

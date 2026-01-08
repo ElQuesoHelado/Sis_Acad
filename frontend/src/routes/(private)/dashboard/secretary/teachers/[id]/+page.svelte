@@ -28,8 +28,8 @@
 	let details: AdminTeacherDetails | null = $state(null);
 	let loading = $state(true);
 	let error = $state('');
-	const semesters = ['2024-I', '2024-II', '2023-II', '2023-I'];
-	let selectedSemester = $state('2024-I');
+	const semesters = ['2023-I', '2023-II', '2024-I', '2024-II', '2025-I', '2025-II'];
+	let selectedSemester = $state('2025-II');
 
 	const days = ['LUNES', 'MARTES', 'MIERCOLES', 'JUEVES', 'VIERNES'];
 	const timeSlots = [

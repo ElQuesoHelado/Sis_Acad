@@ -35,7 +35,7 @@ export interface IClassScheduleRepository {
    * Finds all fixed schedules for a classroom in a specific semester.
    * Essential for the "Room Booking" module to check occupied slots.
    * @param classroomId - The Id (VO) of the classroom or lab.
-   * @param semester - The AcademicSemester (VO), e.g., "2024-I".
+   * @param semester - The AcademicSemester (VO), e.g., "2025-II".
    * @returns A promise resolving to an array of `ClassSchedule`.
    */
   findSchedulesByClassroomAndSemester(

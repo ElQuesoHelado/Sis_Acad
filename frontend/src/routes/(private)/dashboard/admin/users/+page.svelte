@@ -42,7 +42,7 @@
 	});
 
 	function handleViewDetails(user: AdminUserListEntry) {
-		const semester = '2024-I';
+		const semester = '2025-II';
 		if (user.role === UserRole.PROFESSOR) {
 			goto(`${APP_PATHS.ADMIN.USERS}/teacher/${user.id}?semester=${semester}`);
 		} else if (user.role === UserRole.STUDENT) {

@@ -14,7 +14,7 @@
 	async function loadGroups() {
 		try {
 			loading = true;
-			groups = await teacherService.getGroupsBySemester('2024-I');
+			groups = await teacherService.getGroupsBySemester('2025-II');
 		} catch (error) {
 			console.error(error);
 		} finally {

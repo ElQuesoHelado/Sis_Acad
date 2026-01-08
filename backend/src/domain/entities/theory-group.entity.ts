@@ -21,7 +21,7 @@ export interface TheoryGroupCreateProps {
   id: string; // UUID
   courseId: string; // UUID of the Course
   professorId: string; // UUID of the User (professor)
-  semester: string; // e.g., "2024-I"
+  semester: string; // e.g., "2024-I", "2024-II", "2025-I", "2025-II"
   groupLetter: string; // e.g., "A"
 }
 

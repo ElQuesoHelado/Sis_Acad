@@ -97,7 +97,7 @@ export const createAdminRouter = (container: AppContainer): Router => {
    * @security bearerAuth
    *
    * @param {string} classroomId.path.required - ID del salón
-   * @param {string} semester.query.required - Semestre (e.g., 2024-I)
+   * @param {string} semester.query.required - Semestre (e.g., 2024-I, 2024-II, 2025-I, 2025-II)
    * @returns {ClassroomScheduleDto[]} 200 - Horario del salón
    * @returns {ErrorResponse} 400 - Semestre requerido
    * @returns {ErrorResponse} 401 - No autorizado

@@ -32,7 +32,7 @@
 	async function loadSchedule() {
 		loading = true;
 		try {
-			schedule = await teacherService.getScheduleBySemester('2024-I', formatDate(currentDate));
+			schedule = await teacherService.getScheduleBySemester('2025-II', formatDate(currentDate));
 		} catch (err) {
 			console.error('Error loading schedule:', err);
 		} finally {

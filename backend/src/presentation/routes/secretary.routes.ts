@@ -25,7 +25,7 @@ const createLabSchema = z.object({
     professorId: z.string().uuid(),
     groupLetter: z.string().length(1),
     capacity: z.coerce.number().int().positive().max(50),
-    semester: z.string().regex(/^\d{4}-(I|II)$/, "Semester must be in format YYYY-I or YYYY-II"),
+    semester: z.string().regex(/^\d{4}-(I|II)$/, "Semester must be in format YYYY-I, YYYY-II, etc."),
     schedules: z.array(
       z.object({
         day: z.enum(["LUNES", "MARTES", "MIERCOLES", "JUEVES", "VIERNES", "SABADO", "DOMINGO"]),

@@ -56,7 +56,7 @@ export const createStudentRouter = (container: AppContainer): Router => {
    * @security bearerAuth
    *
    * @param {string} semester.path.required - El semestre académico.
-   * @example semester "2024-I"
+   * @example semester "2025-II"
    *
    * @returns {StudentCourseDto[]} 200 - Lista de cursos matriculados.
    * @example response
@@ -98,7 +98,7 @@ export const createStudentRouter = (container: AppContainer): Router => {
    * @security bearerAuth
    *
    * @param {string} semester.path.required - El semestre académico.
-   * @example semester "2024-I"
+   * @example semester "2025-II"
    *
    * @returns {StudentCourseGradesDto[]} 200 - Resumen de notas por curso.
    * @example response
@@ -135,7 +135,7 @@ export const createStudentRouter = (container: AppContainer): Router => {
    * @security bearerAuth
    *
    * @param {string} semester.path.required - El semestre académico.
-   * @example semester "2024-I"
+   * @example semester "2025-II"
    *
    * @returns {StudentScheduleEntryDto[]} 200 - Lista de entradas de horario.
    * @example response

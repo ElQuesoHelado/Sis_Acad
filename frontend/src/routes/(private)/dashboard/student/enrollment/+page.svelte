@@ -111,8 +111,8 @@
 			error = '';
 			try {
 				const [coursesRes, scheduleRes] = await Promise.all([
-					studentService.getCoursesBySemester('2024-I'),
-					studentService.getScheduleBySemester('2024-I')
+					studentService.getCoursesBySemester('2025-II'),
+					studentService.getScheduleBySemester('2025-II')
 				]);
 				allCourses = coursesRes;
 				mySchedule = scheduleRes;

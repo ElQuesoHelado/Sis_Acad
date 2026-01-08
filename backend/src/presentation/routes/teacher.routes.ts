@@ -68,7 +68,7 @@ export const createTeacherRouter = (container: AppContainer): Router => {
    * @security bearerAuth
    *
    * @param {string} semester.path.required - El semestre académico.
-   * @example semester "2024-I"
+   * @example semester "2025-II"
    *
    * @returns {TeacherGroupDto[]} 200 - Lista de grupos asignados.
    * @example response
@@ -105,7 +105,7 @@ export const createTeacherRouter = (container: AppContainer): Router => {
    * @security bearerAuth
    *
    * @param {string} semester.path.required - El semestre académico.
-   * @example semester "2024-I"
+   * @example semester "2025-II"
    *
    * @returns {TeacherScheduleEntryDto[]} 200 - Lista de entradas de horario.
    * @example response
@@ -309,7 +309,7 @@ export const createTeacherRouter = (container: AppContainer): Router => {
    * @example request
    * {
    *   "classroomId": "00000000-0005-4000-8000-000000000004",
-   *   "semester": "2024-I",
+   *   "semester": "2025-II",
    *   "date": "2024-11-20",
    *   "startTime": "14:00",
    *   "endTime": "15:50",

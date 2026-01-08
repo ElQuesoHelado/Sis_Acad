@@ -19,9 +19,9 @@ export interface ITheoryGroupRepository {
 
   /**
    * Finds all theory groups offered for a specific course in a semester.
-   * E.g., returns "Group A", "Group B", "Group C" of Calculus I in 2024-I.
+   * E.g., returns "Group A", "Group B", "Group C" of Calculus I in 2025-II.
    * @param courseId - The Id (VO) of the course (catalog).
-   * @param semester - The AcademicSemester (VO), e.g., "2024-I".
+   * @param semester - The AcademicSemester (VO), e.g., "2025-II".
    * @returns A promise resolving to an array of `TheoryGroup`.
    */
   findByCourseAndSemester(
@@ -33,7 +33,7 @@ export interface ITheoryGroupRepository {
    * Finds all theory groups taught by a professor in a semester.
    * Useful for the "Professor Schedule" module.
    * @param professorId - The Id (VO) of the professor (User).
-   * @param semester - The AcademicSemester (VO), e.g., "2024-I".
+   * @param semester - The AcademicSemester (VO), e.g., "2025-II".
    * @returns A promise resolving to an array of `TheoryGroup`.
    */
   findByProfessorAndSemester(
