@@ -19,14 +19,15 @@ export const makeGetAllClassroomsController = (
 export const makeGetClassroomScheduleController = (useCase: GetClassroomScheduleUseCase) => {
   return async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const { id: classroomId } = req.params;
+      const { classroomId, id } = req.params;
+      const classroomIdToUse = classroomId || id; // Support both parameter names
       const { semester } = req.query;
 
       if (!semester) {
         return res.status(400).json({ message: "Semester query param is required (e.g., 2024-I, 2024-II, 2025-I, 2025-II)" });
       }
 
-      const schedule = await useCase.execute(classroomId as string, String(semester));
+      const schedule = await useCase.execute(classroomIdToUse as string, String(semester));
       res.status(200).json(schedule);
     } catch (error) {
       next(error);

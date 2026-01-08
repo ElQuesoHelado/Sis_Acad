@@ -2,6 +2,8 @@ import { Router } from "express";
 import { expressjwt } from "express-jwt";
 import { env } from "@/infraestructure/config/index.js";
 import { type AppContainer } from "../../container.js";
+import { validate } from "../middlewares/validation.middleware.js";
+import { getClassroomScheduleSchema } from "../validation/classroom.validation.js";
 import { makeGetAllClassroomsController, makeGetClassroomScheduleController } from "../controllers/classroom.controller.js";
 
 /**
@@ -54,6 +56,7 @@ export const createClassroomRouter = (container: AppContainer): Router => {
 
   router.get(
     "/:id/schedule",
+    validate(getClassroomScheduleSchema),
     makeGetClassroomScheduleController(container.useCases.getClassroomSchedule)
   );
 

@@ -9,6 +9,7 @@ import z from "zod";
 import { validate } from "../middlewares/validation.middleware.js";
 import { makeGetAllLabGroupsWithSchedulesController } from "../controllers/admin.controller.js";
 import { makeGetAllClassroomsController, makeGetClassroomScheduleController } from "../controllers/classroom.controller.js";
+import { getClassroomScheduleSchema } from "../validation/classroom.validation.js";
 
 
 const detailsSchema = z.object({
@@ -105,6 +106,7 @@ export const createAdminRouter = (container: AppContainer): Router => {
    */
   router.get(
     "/classrooms/:classroomId/schedule",
+    validate(getClassroomScheduleSchema),
     makeGetClassroomScheduleController(container.useCases.getClassroomSchedule)
   );
 

@@ -211,6 +211,8 @@ function createContainer(): AppContainer {
       repositories.classSchedule,
       repositories.roomReservation,
       repositories.user,
+      repositories.theoryGroup,
+      repositories.labGroup,
     ),
     getAccreditationDashboard: new GetAccreditationDashboardUseCase(
       repositories.enrollment,

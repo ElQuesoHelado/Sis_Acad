@@ -29,7 +29,8 @@ export const API_ENDPOINTS = {
     GET_TEACHER_DETAILS: (userId: string, semester: string) =>
       `/admin/teachers/${userId}/${semester}`,
     GET_STUDENT_DETAILS: (userId: string, semester: string) =>
-      `/admin/students/${userId}/${semester}`
+      `/admin/students/${userId}/${semester}`,
+    GET_CLASSROOM_SCHEDULE: (classroomId: string) => `/admin/classrooms/${classroomId}/schedule`
   },
   SECRETARY: {
     STUDENTS: '/secretary/students',

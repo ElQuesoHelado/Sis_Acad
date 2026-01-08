@@ -9,18 +9,25 @@ import type { Classroom, ClassroomScheduleEntry } from '$lib/core/domain/classro
  * Application service for classroom-related use cases.
  */
 class ClassroomService {
-	constructor(private http: IHttpClient) {}
+  constructor(private http: IHttpClient) { }
 
-	/** Retrieves all available classrooms (labs and theory rooms) */
-	public getAllClassrooms(): Promise<Classroom[]> {
-		return this.http.get<Classroom[]>(API_ENDPOINTS.CLASSROOMS.GET_ALL);
-	}
+  /** Retrieves all available classrooms (labs and theory rooms) */
+  public getAllClassrooms(): Promise<Classroom[]> {
+    return this.http.get<Classroom[]>(API_ENDPOINTS.CLASSROOMS.GET_ALL);
+  }
 
   public getSchedule(classroomId: string, semester: string): Promise<ClassroomScheduleEntry[]> {
-        return this.http.get<ClassroomScheduleEntry[]>(`/classrooms/${classroomId}/schedule`, {
-            params: { semester }
-        });
-    }
+    return this.http.get<ClassroomScheduleEntry[]>(`/classrooms/${classroomId}/schedule`, {
+      params: { semester }
+    });
+  }
+
+  public getClassroomSchedule(classroomId: string, semester: string): Promise<ClassroomScheduleEntry[]> {
+    return this.http.get<ClassroomScheduleEntry[]>(
+      API_ENDPOINTS.ADMIN.GET_CLASSROOM_SCHEDULE(classroomId),
+      { params: { semester } }
+    );
+  }
 }
 
 /** Singleton instance of ClassroomService */
